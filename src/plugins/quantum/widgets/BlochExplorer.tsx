@@ -130,51 +130,67 @@ export function BlochExplorer({ props, complete, done, capture, captured }: Widg
     <LabFrame
       goal={target ? <>Steer the qubit to {target.label}</> : 'Apply at least three gates and watch the vector move'}
       met={done || met}
-      aside={target ? <span className="mono">match {(fidelity * 100).toFixed(0)}%</span> : null}
+      aside={target ? <>Match <span className="mono">{(fidelity * 100).toFixed(0)}%</span></> : null}
       onSave={capture ? () => capture(`${history.join(' → ') || 'no gates'} · ended at θ=${((theta * 180) / Math.PI).toFixed(0)}°, φ=${((phi * 180) / Math.PI).toFixed(0)}°`, { gates: history, alpha: a, beta: b }) : undefined}
       captured={captured}
     >
       <div className="bloch-lab">
-        <div className="bloch-lab-sphere">
+        <div className="bloch-lab-sphere lab-panel">
           <BlochSphere vec={shown} view={view} onView={setView} trail={trail} ghost={target?.vec} size={380} />
-          <p className="label label-faint bloch-drag">drag to turn the sphere</p>
+          <p className="lab-caption bloch-drag">
+            Drag to turn the sphere{target ? <> · <span className="bloch-key" aria-hidden /> target</> : null}
+          </p>
         </div>
         <div className="bloch-lab-side">
-          <div className="gate-row" role="group" aria-label="Gates">
-            {Object.keys(ROTATIONS).map((g) => (
-              <button key={g} className="gate-btn" onClick={() => applyGate(g)} title={ROTATIONS[g].about}>
-                {g}
-              </button>
-            ))}
-          </div>
-          <p className="bloch-last">{last}</p>
-          <div className="ket">
-            <span className="ket-psi">|ψ⟩ =</span>
-            <span className="mono">({fmtC(a[0], a[1])})</span>|0⟩ +<span className="mono">({fmtC(b[0], b[1])})</span>|1⟩
-          </div>
-          <div className="prob-pair">
-            <div className="prob-bar">
-              <span className="label">P(0)</span>
-              <span className="prob-track">
-                <span style={{ width: `${p0 * 100}%` }} />
-              </span>
-              <span className="mono">{p0.toFixed(3)}</span>
+          <section className="lab-section">
+            <h3 className="lab-h">Apply a gate</h3>
+            <div className="gate-row" role="group" aria-label="Gates">
+              {Object.keys(ROTATIONS).map((g) => (
+                <button key={g} className="gate-btn" onClick={() => applyGate(g)} title={ROTATIONS[g].about}>
+                  {g}
+                </button>
+              ))}
             </div>
-            <div className="prob-bar">
-              <span className="label">P(1)</span>
-              <span className="prob-track">
-                <span style={{ width: `${(1 - p0) * 100}%` }} />
+            <p className="bloch-last" aria-live="polite">
+              {last}
+            </p>
+          </section>
+          <section className="lab-section">
+            <h3 className="lab-h">Current state</h3>
+            <div className="ket">
+              <span className="ket-psi">|ψ⟩ =</span>
+              <span>
+                <span className="mono">({fmtC(a[0], a[1])})</span>|0⟩
               </span>
-              <span className="mono">{(1 - p0).toFixed(3)}</span>
+              <span>+</span>
+              <span>
+                <span className="mono">({fmtC(b[0], b[1])})</span>|1⟩
+              </span>
             </div>
-          </div>
-          <div className="readouts">
-            <Readout label="θ (from |0⟩)" value={`${((theta * 180) / Math.PI).toFixed(1)}°`} />
-            <Readout label="φ (phase)" value={`${((phi * 180) / Math.PI).toFixed(1)}°`} />
-            <Readout label="gates" value={history.length} />
-          </div>
+            <div className="prob-pair">
+              <div className="prob-bar">
+                <span className="prob-label">P(0)</span>
+                <span className="prob-track">
+                  <span style={{ width: `${p0 * 100}%` }} />
+                </span>
+                <span className="mono prob-v">{p0.toFixed(3)}</span>
+              </div>
+              <div className="prob-bar">
+                <span className="prob-label">P(1)</span>
+                <span className="prob-track">
+                  <span style={{ width: `${(1 - p0) * 100}%` }} />
+                </span>
+                <span className="mono prob-v">{(1 - p0).toFixed(3)}</span>
+              </div>
+            </div>
+            <div className="readouts">
+              <Readout label="θ (from |0⟩)" value={`${((theta * 180) / Math.PI).toFixed(1)}°`} />
+              <Readout label="φ (phase)" value={`${((phi * 180) / Math.PI).toFixed(1)}°`} />
+              <Readout label="Gates applied" value={history.length} />
+            </div>
+          </section>
           <div className="lab-actions">
-            <button className="btn btn-small btn-accent" onClick={measure}>
+            <button className="btn btn-small" onClick={measure}>
               Measure {measured !== null ? `(got ${measured})` : ''} <Glyph name="spark" size={14} />
             </button>
             <button className="btn btn-small btn-ghost" onClick={reset}>

@@ -97,7 +97,7 @@
   --shadow-lg: 0 16px 40px rgb(16 24 40 / 0.14);
 
   /* layout */
-  --container: 1200px;
+  --container: 1320px; /* matches the header and footer */
   --container-wide: 1320px;
   --gutter: 24px;
   --header-h: 64px;
@@ -181,6 +181,35 @@
   --shadow-md: 0 6px 20px rgb(0 0 0 / 0.45);
   --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.6);
   color-scheme: dark;
+}
+
+/* print — always the light palette */
+@media print {
+  /* (0,2,0) and later in the file, so it beats both dark-theme selectors above */
+  :root:not([data-print]) {
+    --bg: #ffffff;
+    --bg-subtle: #f5f6f8;
+    --bg-tint: #eef2fd;
+    --surface: #ffffff;
+    --surface-sunken: #f0f2f5;
+    --border: #dfe3e9;
+    --border-soft: #eceff3;
+    --border-strong: #c3cad4;
+    --text: #16191d;
+    --text-muted: #4b5563;
+    --text-subtle: #5f6775;
+    --primary: #2442d6;
+    --primary-bg: #2442d6;
+    --primary-soft: #e9edfc;
+    --success: #1d7a4c;
+    --success-soft: #e5f3eb;
+    --warning: #92560a;
+    --warning-soft: #fdf1dc;
+    --danger: #c0352b;
+    --danger-soft: #fbe9e7;
+    --brand-red: #d63a26;
+    color-scheme: light;
+  }
 }
 
 /*

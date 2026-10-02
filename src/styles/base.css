@@ -384,6 +384,14 @@ p {
   text-underline-offset: 0.18em;
 }
 
+/* a row of buttons */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
 /* ─────────── chips & badges ─────────── */
 
 .chip {
@@ -568,6 +576,10 @@ a.chip:hover {
 .glyph-tile-good {
   background: var(--success-soft);
   color: var(--success);
+}
+.glyph-tile-muted {
+  background: var(--surface-sunken);
+  color: var(--text-muted);
 }
 
 .empty-state {

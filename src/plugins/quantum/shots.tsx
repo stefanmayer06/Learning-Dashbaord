@@ -200,11 +200,11 @@ export function GrowthShot({ props, p }: PluginShotProps) {
   const grid = 2 ** cells
   const cols = 2 ** Math.ceil(cells / 2)
   const rows = grid / cols
-  const cell = Math.min(420 / cols, 420 / rows)
+  const cell = Math.min(380 / cols, 380 / rows)
   return (
     <div className="r-frame r-growth">
       <svg viewBox={`0 0 ${W} ${H}`} className="r-svg">
-        <g transform={`translate(${130} ${150})`}>
+        <g transform={`translate(${130} ${110})`}>
           {Array.from({ length: grid }, (_, i) => (
             <rect
               key={i}
@@ -217,7 +217,7 @@ export function GrowthShot({ props, p }: PluginShotProps) {
             />
           ))}
           {n > 10 && (
-            <text x={0} y={470} className="r-tick">
+            <text x={0} y={412} className="r-tick">
               (showing 2¹⁰ of 2{supN(n)} cells)
             </text>
           )}

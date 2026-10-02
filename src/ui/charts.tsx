@@ -1,15 +1,41 @@
-/** Small, honest SVG charts for labs (paper theme). */
-import type { ReactNode } from 'react'
+/** Small, honest SVG charts for labs. Colours come from tokens; text renders at true size. */
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 
 export interface Series {
   name: string
   points: [number, number][]
-  tone?: 'ink' | 'accent' | 'red' | 'faint'
+  tone?: 'ink' | 'accent' | 'red' | 'faint' | 'good'
   dashed?: boolean
   band?: [number, number, number][] // x, lo, hi
 }
 
-const toneVar = { ink: 'var(--ink)', accent: 'var(--accent-fg)', red: 'var(--margin-red)', faint: 'var(--ink-faint)' }
+const toneVar = {
+  ink: 'var(--text)',
+  accent: 'var(--accent-fg)',
+  red: 'var(--danger)',
+  faint: 'var(--text-subtle)',
+  good: 'var(--success)',
+}
+
+/**
+ * Track the rendered width of an SVG so its coordinate system matches CSS pixels:
+ * tick labels stay 12px on a phone instead of shrinking with the viewBox.
+ */
+function useRenderedWidth<T extends Element>(fallback: number) {
+  const ref = useRef<T>(null)
+  const [w, setW] = useState<number | null>(null)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el || typeof ResizeObserver === 'undefined') return
+    const ro = new ResizeObserver((entries) => {
+      const next = Math.round(entries[0]?.contentRect.width ?? 0)
+      if (next > 0) setW((prev) => (prev === next ? prev : next))
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  return [ref, w ?? fallback] as const
+}
 
 export function LineChart({
   series,
@@ -36,7 +62,11 @@ export function LineChart({
   yDomain?: [number, number]
   children?: ReactNode
 }) {
-  const m = { l: 58, r: 18, t: 22, b: 46 }
+  const [ref, measured] = useRenderedWidth<SVGSVGElement>(width)
+  // render in CSS pixels; narrow containers get a shorter chart (never below 62%, or 200px)
+  const W = measured
+  const Hh = Math.max(Math.min(height, 200), Math.round(height * Math.min(1, Math.max(0.62, W / width))))
+  const m = { l: 56, r: 16, t: 30, b: 44 }
   const pts = series.flatMap((s) => [...s.points, ...(s.band ?? []).flatMap(([x, lo, hi]) => [[x, lo], [x, hi]] as [number, number][])])
   if (hline) pts.push([pts[0]?.[0] ?? 0, hline.y])
   const fx = (v: number) => (logX ? Math.log10(Math.max(v, 1e-300)) : v)
@@ -56,15 +86,16 @@ export function LineChart({
     y0 -= pad
     y1 += pad
   }
-  const sx = (v: number) => m.l + ((fx(v) - x0) / (x1 - x0 || 1)) * (width - m.l - m.r)
-  const sy = (v: number) => height - m.b - ((fy(v) - y0) / (y1 - y0 || 1)) * (height - m.t - m.b)
-  const ticks = (lo: number, hi: number, log?: boolean) => {
+  const sx = (v: number) => m.l + ((fx(v) - x0) / (x1 - x0 || 1)) * (W - m.l - m.r)
+  const sy = (v: number) => Hh - m.b - ((fy(v) - y0) / (y1 - y0 || 1)) * (Hh - m.t - m.b)
+  const ticks = (lo: number, hi: number, log?: boolean, target = 4) => {
     if (log) {
       const out: number[] = []
-      for (let e = Math.ceil(lo); e <= Math.floor(hi); e++) out.push(10 ** e)
+      const every = Math.max(1, Math.ceil((Math.floor(hi) - Math.ceil(lo) + 1) / (target + 2)))
+      for (let e = Math.ceil(lo); e <= Math.floor(hi); e += every) out.push(10 ** e)
       return out
     }
-    const step = niceStep((hi - lo) / 4)
+    const step = niceStep((hi - lo) / target)
     const out: number[] = []
     for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-12; v += step) out.push(v)
     return out
@@ -72,37 +103,39 @@ export function LineChart({
   const fmt = (v: number, log?: boolean) => {
     if (log) {
       const e = Math.round(Math.log10(v))
-      return e >= 0 && e <= 4 ? String(10 ** e) : `1e${e}`
+      return e >= 0 && e <= 4 ? (10 ** e).toLocaleString('en-US') : `1e${e}`
     }
     return Math.abs(v) >= 1000 ? v.toLocaleString('en-US', { maximumFractionDigits: 0 }) : +v.toFixed(4) + ''
   }
+  // fewer x labels when the plot is narrow
+  const xTarget = W - m.l - m.r < 300 ? 3 : 5
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="chart" role="img" aria-label={`${yLabel} against ${xLabel}`}>
+    <svg ref={ref} viewBox={`0 0 ${W} ${Hh}`} className="chart" role="img" aria-label={`${yLabel} against ${xLabel}`}>
       {ticks(y0, y1, logY).map((v, i) => (
         <g key={'y' + i}>
-          <line x1={m.l} x2={width - m.r} y1={sy(v)} y2={sy(v)} className="chart-grid" />
+          <line x1={m.l} x2={W - m.r} y1={sy(v)} y2={sy(v)} className="chart-grid" />
           <text x={m.l - 8} y={sy(v) + 4} textAnchor="end" className="chart-tick">
             {fmt(v, logY)}
           </text>
         </g>
       ))}
-      {ticks(x0, x1, logX).map((v, i) => (
-        <text key={'x' + i} x={sx(v)} y={height - m.b + 18} textAnchor="middle" className="chart-tick">
+      {ticks(x0, x1, logX, xTarget).map((v, i) => (
+        <text key={'x' + i} x={sx(v)} y={Hh - m.b + 18} textAnchor="middle" className="chart-tick">
           {fmt(v, logX)}
         </text>
       ))}
-      <line x1={m.l} x2={width - m.r} y1={height - m.b} y2={height - m.b} className="chart-axis" />
-      <line x1={m.l} x2={m.l} y1={m.t} y2={height - m.b} className="chart-axis" />
-      <text x={(m.l + width - m.r) / 2} y={height - 8} textAnchor="middle" className="chart-label">
+      <line x1={m.l} x2={W - m.r} y1={Hh - m.b} y2={Hh - m.b} className="chart-axis" />
+      <line x1={m.l} x2={m.l} y1={m.t - 6} y2={Hh - m.b} className="chart-axis" />
+      <text x={(m.l + W - m.r) / 2} y={Hh - 6} textAnchor="middle" className="chart-label">
         {xLabel}
       </text>
-      <text x={m.l} y={12} className="chart-label">
+      <text x={0} y={14} className="chart-label">
         {yLabel}
       </text>
       {hline && (
         <g>
-          <line x1={m.l} x2={width - m.r} y1={sy(hline.y)} y2={sy(hline.y)} stroke="var(--margin-red)" strokeDasharray="5 4" strokeWidth={1.2} />
-          <text x={width - m.r} y={sy(hline.y) - 6} textAnchor="end" className="chart-tick" fill="var(--margin-red)">
+          <line x1={m.l} x2={W - m.r} y1={sy(hline.y)} y2={sy(hline.y)} stroke="var(--danger)" strokeDasharray="5 4" strokeWidth={1.5} />
+          <text x={W - m.r} y={sy(hline.y) - 6} textAnchor="end" className="chart-tick chart-note" style={{ fill: 'var(--danger)' }}>
             {hline.label}
           </text>
         </g>
@@ -125,15 +158,17 @@ export function LineChart({
             fill="none"
             stroke={toneVar[s.tone ?? 'ink']}
             strokeWidth={2}
+            strokeLinejoin="round"
+            strokeLinecap="round"
             strokeDasharray={s.dashed ? '6 5' : undefined}
           />
         </g>
       ))}
       {marker && (
         <g>
-          <circle cx={sx(marker.x)} cy={sy(marker.y)} r={5.5} fill="var(--paper)" stroke="var(--margin-red)" strokeWidth={2} />
+          <circle cx={sx(marker.x)} cy={sy(marker.y)} r={6} fill="var(--surface)" stroke="var(--accent-fg)" strokeWidth={2.5} />
           {marker.label && (
-            <text x={sx(marker.x) + 9} y={sy(marker.y) - 9} className="chart-tick" fill="var(--margin-red)">
+            <text x={sx(marker.x) + 10} y={sy(marker.y) - 10} className="chart-tick chart-note" style={{ fill: 'var(--accent-fg)' }}>
               {marker.label}
             </text>
           )}
@@ -156,7 +191,7 @@ export function Legend({ items }: { items: { label: string; tone: keyof typeof t
       {items.map((it) => (
         <span key={it.label} className="legend-item">
           <svg width="22" height="8" aria-hidden>
-            <line x1="0" x2="22" y1="4" y2="4" stroke={toneVar[it.tone]} strokeWidth="2" strokeDasharray={it.dashed ? '5 4' : undefined} />
+            <line x1="1" x2="21" y1="4" y2="4" stroke={toneVar[it.tone]} strokeWidth="2.5" strokeLinecap="round" strokeDasharray={it.dashed ? '5 4' : undefined} />
           </svg>
           {it.label}
         </span>

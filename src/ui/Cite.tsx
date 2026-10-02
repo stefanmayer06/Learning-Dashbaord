@@ -1,10 +1,12 @@
 /**
  * Citations: content cites claims; claims cite sources. Within a lesson,
  * claims are numbered in order of first appearance, like footnotes, and the
- * notes live in the margin.
+ * notes sit in the Sources tab under the lesson (and on the ledger page).
  */
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
 import type { Claim, CourseBundle, Lesson, Source, Step } from '../content/schema'
+import { fmtDate } from '../content/stats'
+import { Glyph } from './Glyph'
 
 interface CiteCtx {
   number: (id: string) => number
@@ -118,15 +120,24 @@ export const KIND_LABEL: Record<string, string> = {
 export function ClaimNote({ claim, n, sources, live }: { claim: Claim; n?: number; sources: Record<string, Source>; live?: boolean }) {
   const ctx = useCite()
   return (
-    <div id={`note-${claim.id}`} className={`note ${ctx?.focused === claim.id ? 'focused' : ''} ${live ? 'live' : ''}`}>
+    <div id={`note-${claim.id}`} data-status={claim.status} className={`note${ctx?.focused === claim.id ? ' focused' : ''}${live ? ' live' : ''}`}>
       <div className="note-head">
-        {n ? <span className="note-n mono">{n}</span> : null}
+        {n ? (
+          <span className="note-n" aria-label={`Note ${n}`}>
+            {n}
+          </span>
+        ) : null}
         <span className={`chip ${STATUS_CLASS[claim.status]}`}>{STATUS_LABEL[claim.status]}</span>
-        <span className="label label-faint">checked {claim.checkedOn}</span>
+        <span className="note-date">Checked {fmtDate(claim.checkedOn)}</span>
       </div>
       <p className="note-text">{claim.text}</p>
-      {claim.note && <p className="note-caveat">{claim.note}</p>}
-      <ul className="note-sources">
+      {claim.note && (
+        <p className="note-caveat">
+          <Glyph name="info" size={15} />
+          <span>{claim.note}</span>
+        </p>
+      )}
+      <ul className="note-sources" aria-label="Sources">
         {claim.sources.map((sid) => {
           const s = sources[sid]
           if (!s) return null
@@ -134,9 +145,10 @@ export function ClaimNote({ claim, n, sources, live }: { claim: Claim; n?: numbe
             <li key={sid}>
               <a href={s.url} target="_blank" rel="noreferrer noopener">
                 {s.title}
+                <Glyph name="external" size={12} className="note-ext" />
               </a>
               <span className="note-src-meta">
-                {s.publisher ?? s.authors} · {s.year} · <span className={s.kind === 'preprint' ? 'warn-text' : ''}>{KIND_LABEL[s.kind]}</span>
+                {s.publisher ?? s.authors} · {s.year} · <span className={`note-kind${s.kind === 'preprint' ? ' warn-text' : ''}`}>{KIND_LABEL[s.kind]}</span>
               </span>
             </li>
           )

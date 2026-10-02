@@ -238,7 +238,7 @@ export function ReelPlayer({ reel, accent, onCite, onProgress, citeNumber }: Ree
   } as CSSProperties
 
   return (
-    <div className="reel" ref={wrapRef} style={style} onKeyDown={onKey} tabIndex={0} aria-label={`Reel: ${reel.title}`}>
+    <div className="reel" ref={wrapRef} style={style} onKeyDown={onKey} tabIndex={0} aria-label={`Video: ${reel.title}`}>
       <div className="reel-stage" ref={stageRef} onClick={() => (playing ? pause() : play())}>
         <div className="reel-canvas" style={{ transform: `scale(${scale})` }}>
           {crossfade > 0 && prev && (
@@ -255,85 +255,102 @@ export function ReelPlayer({ reel, accent, onCite, onProgress, citeNumber }: Ree
               <PosterFrame title={reel.title} tl={tl} />
             )}
           </div>
-          <div className="reel-chrome">
-            <span className="reel-chapter">{current.chapter}</span>
-            {current.shot.cite.length > 0 && (
-              <span className="reel-sourced" title="This moment is backed by the claims ledger">
-                sourced {current.shot.cite.map((c) => citeNumber?.(c) ?? '•').join(' · ')}
-              </span>
-            )}
-          </div>
+          {started && (
+            <div className="reel-chrome">
+              {current.shot.cite.length > 0 && (
+                <span className="reel-sourced" title="This moment is backed by the claims ledger (see Sources under the video)">
+                  Sources {current.shot.cite.map((c) => citeNumber?.(c) ?? '•').join(' · ')}
+                </span>
+              )}
+            </div>
+          )}
           {prefs.captions && started && <Caption ts={current} p={p} spokenChar={spokenChar} narrating={narrationOn} />}
         </div>
         {!started && (
-          <button className="reel-poster" onClick={(e) => (e.stopPropagation(), play())} aria-label="Play reel">
-            <span className="reel-poster-play">
+          <button className="reel-poster" onClick={(e) => (e.stopPropagation(), play())} aria-label={`Play video, ${fmtTime(tl.total)}`}>
+            <span className="reel-poster-play" aria-hidden>
               <Glyph name="play" size={30} />
             </span>
             <span className="reel-poster-meta">
-              <span className="label">Play · {fmtTime(tl.total)}</span>
-              <span className="label reel-poster-sub">
+              <span className="reel-poster-main">Play video · {fmtTime(tl.total)}</span>
+              <span className="reel-poster-sub">
                 {narrationOn ? 'Narrated · captions on' : speechSupported() && voicesReady ? 'Captions on · press N for narration' : 'Captioned'}
               </span>
             </span>
           </button>
         )}
-        {holding && playing && <div className="reel-hold" aria-hidden>narrator finishing…</div>}
+        {holding && playing && (
+          <div className="reel-hold" aria-hidden>
+            Narrator finishing…
+          </div>
+        )}
       </div>
 
       <div className="reel-controls">
-        <button className="rc-btn rc-play" onClick={() => (playing ? pause() : play())} aria-label={playing ? 'Pause' : 'Play'}>
-          <Glyph name={playing ? 'pause' : time >= tl.total - 0.01 ? 'restart' : 'play'} size={18} />
-        </button>
-        <span className="rc-time mono">
-          {fmtTime(time)} <span className="faint">/ {fmtTime(tl.total)}</span>
-        </span>
         <Scrubber tl={tl} time={time} onSeek={seek} />
-        <button
-          className={`rc-btn ${prefs.captions ? 'on' : ''}`}
-          onClick={() => setPrefs({ captions: !prefs.captions })}
-          aria-pressed={prefs.captions}
-          aria-label="Captions"
-          title="Captions (C)"
-        >
-          <Glyph name="cc" size={18} />
-        </button>
-        <button
-          className={`rc-btn ${narrationOn ? 'on' : ''}`}
-          onClick={toggleNarration}
-          aria-pressed={narrationOn}
-          aria-label="Narration"
-          title={voicesReady ? 'Narration (N)' : 'No speech voices available in this browser'}
-          disabled={!voicesReady}
-        >
-          <Glyph name={narrationOn ? 'voice' : 'mute'} size={18} />
-        </button>
-        <button className="rc-btn rc-rate mono" onClick={() => setRate(RATES[(RATES.indexOf(rate) + 1) % RATES.length])} aria-label={`Speed ${rate}×`} title="Playback speed">
-          {rate}×
-        </button>
-        <button className={`rc-btn ${showTranscript ? 'on' : ''}`} onClick={() => setShowTranscript((s) => !s)} aria-pressed={showTranscript} aria-label="Transcript" title="Transcript (T)">
-          <Glyph name="transcript" size={18} />
-        </button>
-        <button className="rc-btn" onClick={fullscreen} aria-label="Fullscreen" title="Fullscreen (F)">
-          <Glyph name="expand" size={18} />
-        </button>
+        <div className="rc-row">
+          <button className="rc-btn rc-play" onClick={() => (playing ? pause() : play())} aria-label={playing ? 'Pause' : 'Play'} title={playing ? 'Pause (K)' : 'Play (K)'}>
+            <Glyph name={playing ? 'pause' : time >= tl.total - 0.01 ? 'restart' : 'play'} size={20} />
+          </button>
+          <span className="rc-time mono">
+            {fmtTime(time)} <span className="rc-time-total">/ {fmtTime(tl.total)}</span>
+          </span>
+          <span className="rc-chapter" aria-hidden>
+            {current.chapter}
+          </span>
+          <span className="rc-spacer" />
+          <button
+            className={`rc-btn ${prefs.captions ? 'on' : ''}`}
+            onClick={() => setPrefs({ captions: !prefs.captions })}
+            aria-pressed={prefs.captions}
+            aria-label="Captions"
+            title="Captions (C)"
+          >
+            <Glyph name="cc" size={20} />
+          </button>
+          <button
+            className={`rc-btn ${narrationOn ? 'on' : ''}`}
+            onClick={toggleNarration}
+            aria-pressed={narrationOn}
+            aria-label="Narration"
+            title={voicesReady ? 'Narration (N)' : 'No speech voices available in this browser'}
+            disabled={!voicesReady}
+          >
+            <Glyph name={narrationOn ? 'voice' : 'mute'} size={20} />
+          </button>
+          <button className="rc-btn rc-rate" onClick={() => setRate(RATES[(RATES.indexOf(rate) + 1) % RATES.length])} aria-label={`Speed ${rate}×`} title="Playback speed">
+            {rate}×
+          </button>
+          <button className={`rc-btn ${showTranscript ? 'on' : ''}`} onClick={() => setShowTranscript((s) => !s)} aria-pressed={showTranscript} aria-label="Transcript" title="Transcript (T)">
+            <Glyph name="transcript" size={20} />
+          </button>
+          <button className="rc-btn" onClick={fullscreen} aria-label="Fullscreen" title="Full screen (F)">
+            <Glyph name="expand" size={20} />
+          </button>
+        </div>
       </div>
 
       {showTranscript && (
-        <ol className="reel-transcript">
-          {tl.shots.map((ts) => (
-            <li key={ts.index} className={ts.index === current.index ? 'now' : ''}>
-              {ts.shot.chapter && <div className="label rt-chapter">{ts.shot.chapter}</div>}
-              <button className="rt-line" onClick={() => seek(ts.start + 0.01)}>
-                <span className="mono rt-time">{fmtTime(ts.start)}</span>
-                <span>
-                  <Rich text={ts.shot.narration} />
-                  {ts.shot.cite.length > 0 && <sup className="rt-cite">{ts.shot.cite.map((c) => citeNumber?.(c) ?? '•').join(',')}</sup>}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ol>
+        <div className="reel-transcript">
+          <div className="rt-head">
+            <span className="rt-title">Transcript</span>
+            <span className="rt-hint">Click a line to jump there</span>
+          </div>
+          <ol className="rt-list">
+            {tl.shots.map((ts) => (
+              <li key={ts.index} className={ts.index === current.index ? 'now' : ''}>
+                {ts.shot.chapter && <div className="rt-chapter">{ts.shot.chapter}</div>}
+                <button className="rt-line" onClick={() => seek(ts.start + 0.01)} aria-current={ts.index === current.index ? 'true' : undefined}>
+                  <span className="mono rt-time">{fmtTime(ts.start)}</span>
+                  <span>
+                    <Rich text={ts.shot.narration} />
+                    {ts.shot.cite.length > 0 && <sup className="rt-cite">{ts.shot.cite.map((c) => citeNumber?.(c) ?? '•').join(',')}</sup>}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </div>
       )}
     </div>
   )
@@ -343,17 +360,24 @@ export function ReelPlayer({ reel, accent, onCite, onProgress, citeNumber }: Ree
 function PosterFrame({ title, tl }: { title: string; tl: ReturnType<typeof buildTimeline> }) {
   return (
     <div className="r-frame r-poster-frame">
-      <div className="r-kicker">Reel · {tl.shots.length} scenes</div>
+      <div className="r-poster-kicker">
+        Video · {tl.shots.length} scenes{tl.chapters.length > 1 ? ` · ${tl.chapters.length} chapters` : ''}
+      </div>
       <h2 className="r-poster-title">{title}</h2>
-      <ol className="r-poster-chapters">
-        {tl.chapters.map((c, i) => (
-          <li key={i}>
-            <span>{String(i + 1).padStart(2, '0')}</span>
-            {c.title}
-            <em>{fmtTime(c.start)}</em>
-          </li>
-        ))}
-      </ol>
+      {tl.chapters.length > 0 && (
+        <div className="r-poster-chapters">
+          <div className="r-poster-chapters-head">Chapters</div>
+          <ol>
+            {tl.chapters.map((c, i) => (
+              <li key={i}>
+                <span className="r-poster-n">{i + 1}</span>
+                <span className="r-poster-ch">{c.title}</span>
+                <em>{fmtTime(c.start)}</em>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </div>
   )
 }
@@ -430,12 +454,10 @@ function Scrubber({ tl, time, onSeek }: { tl: ReturnType<typeof buildTimeline>; 
     >
       <div className="rc-track" />
       <div className="rc-fill" style={{ width: `${(time / tl.total) * 100}%` }} />
-      {tl.chapters.map((c, i) => (
-        <span key={i} className="rc-tick" style={{ left: `${(c.start / tl.total) * 100}%` }} title={c.title} />
-      ))}
+      {tl.chapters.map((c, i) => (i > 0 ? <span key={i} className="rc-tick" style={{ left: `${(c.start / tl.total) * 100}%` }} title={c.title} /> : null))}
       <span className="rc-head" style={{ left: `${(time / tl.total) * 100}%` }} />
       {hover !== null && (
-        <span className="rc-hover label" style={{ left: `${Math.max(0, Math.min(100, (hover / tl.total) * 100))}%` }}>
+        <span className="rc-hover" style={{ left: `${Math.max(4, Math.min(96, (hover / tl.total) * 100))}%` }}>
           {shotAt(tl, Math.max(0, Math.min(tl.total - 0.01, hover))).chapter} · {fmtTime(Math.max(0, hover))}
         </span>
       )}

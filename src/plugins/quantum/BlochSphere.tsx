@@ -121,9 +121,10 @@ export function BlochSphere({
   }
   const up = () => (drag.current = null)
 
-  const ink = tone === 'theatre' ? 'var(--theatre-ink)' : 'var(--ink)'
-  const faint = tone === 'theatre' ? 'var(--theatre-faint)' : 'var(--ink-faint)'
+  const ink = tone === 'theatre' ? 'var(--theatre-ink)' : 'var(--text)'
+  const faint = tone === 'theatre' ? 'var(--theatre-faint)' : 'var(--text-subtle)'
   const accent = tone === 'theatre' ? 'var(--theatre-accent)' : 'var(--accent-fg)'
+  const target = tone === 'theatre' ? 'var(--brand-red)' : 'var(--danger)'
 
   return (
     <svg
@@ -138,7 +139,7 @@ export function BlochSphere({
       role="img"
       aria-label={label ?? `Bloch vector x ${vec.x.toFixed(2)}, y ${vec.y.toFixed(2)}, z ${vec.z.toFixed(2)}`}
     >
-      <circle cx={cx} cy={cy} r={R} fill="none" stroke={ink} strokeWidth={1.2} />
+      <circle cx={cx} cy={cy} r={R} fill="none" stroke={ink} strokeOpacity={0.7} strokeWidth={1.2} />
       {[equator, meridianXZ, meridianYZ].map((c, i) => (
         <g key={i}>
           <path d={c.back} fill="none" stroke={faint} strokeWidth={0.8} strokeDasharray="2 4" />
@@ -174,8 +175,8 @@ export function BlochSphere({
         const g = P(ghost)
         return (
           <g>
-            <line x1={origin.sx} y1={origin.sy} x2={g.sx} y2={g.sy} stroke="var(--margin-red)" strokeWidth={1.2} strokeDasharray="4 4" />
-            <circle cx={g.sx} cy={g.sy} r={9} fill="none" stroke="var(--margin-red)" strokeWidth={1.5} />
+            <line x1={origin.sx} y1={origin.sy} x2={g.sx} y2={g.sy} stroke={target} strokeWidth={1.4} strokeDasharray="4 4" />
+            <circle cx={g.sx} cy={g.sy} r={9} fill="none" stroke={target} strokeWidth={2} />
           </g>
         )
       })()}

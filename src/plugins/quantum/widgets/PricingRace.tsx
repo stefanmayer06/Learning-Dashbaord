@@ -106,8 +106,8 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
         },
       ]}
       logX
-      xLabel="simulated paths (log)"
-      yLabel="price estimate ($)"
+      xLabel="Simulated paths (log)"
+      yLabel="Price estimate ($)"
       hline={{ y: bs, label: `exact ${money(bs)}` }}
       width={340}
       height={240}
@@ -131,34 +131,36 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
     >
       <div className="race">
         <section className="race-params">
-          <div className="label race-h">The contract · European call</div>
-          <Slider label="Spot S₀" value={S0} min={50} max={150} step={1} onChange={setS0} format={(v) => `$${v}`} />
-          <Slider label="Strike K" value={K} min={50} max={150} step={1} onChange={setK} format={(v) => `$${v}`} />
-          <Slider label="Volatility σ" value={sigma} min={0.05} max={0.6} step={0.01} onChange={setSigma} format={(v) => `${(v * 100).toFixed(0)}%`} />
-          <Slider label="Maturity T" value={T} min={0.1} max={3} step={0.1} onChange={setT} format={(v) => `${v.toFixed(1)} y`} />
-          <Slider label="Rate r" value={r} min={0} max={0.08} step={0.005} onChange={setR} format={(v) => `${(v * 100).toFixed(1)}%`} />
-          <div className="race-truth">
-            <span className="label">Exact answer (Black–Scholes 1973)</span>
-            <span className="race-truth-v display">{money(bs)}</span>
-            <span className="small soft">Closed form exists here, so we can grade both methods. Real exotic derivatives usually have none — hence Monte Carlo.</span>
+          <h3 className="lab-h race-h">The contract: a European call option</h3>
+          <div className="race-params-grid">
+            <Slider label="Spot S₀" value={S0} min={50} max={150} step={1} onChange={setS0} format={(v) => `$${v}`} />
+            <Slider label="Strike K" value={K} min={50} max={150} step={1} onChange={setK} format={(v) => `$${v}`} />
+            <Slider label="Volatility σ" value={sigma} min={0.05} max={0.6} step={0.01} onChange={setSigma} format={(v) => `${(v * 100).toFixed(0)}%`} />
+            <Slider label="Maturity T" value={T} min={0.1} max={3} step={0.1} onChange={setT} format={(v) => `${v.toFixed(1)} y`} />
+            <Slider label="Rate r" value={r} min={0} max={0.08} step={0.005} onChange={setR} format={(v) => `${(v * 100).toFixed(1)}%`} />
+            <div className="race-truth">
+              <span className="readout-label">Exact answer (Black–Scholes 1973)</span>
+              <span className="race-truth-v mono">{money(bs)}</span>
+              <span className="small soft">A closed form exists here, so we can grade both methods. Real exotic derivatives usually have none — hence Monte Carlo.</span>
+            </div>
           </div>
         </section>
 
         <section className="race-lane">
           <div className="race-lane-h">
+            <h3 className="race-lane-title">Monte Carlo</h3>
             <span className="chip">Classical</span>
-            <h4>Monte Carlo</h4>
           </div>
           <Slider label="Paths to simulate" value={logN} min={2} max={6} step={0.25} onChange={setLogN} format={(v) => Math.round(10 ** v).toLocaleString()} />
-          <button className="btn btn-small" onClick={runMc}>
+          <button className="btn btn-small race-run" onClick={runMc}>
             Simulate <Glyph name="play" size={12} />
           </button>
           {mc ? (
             <>
               <div className="readouts">
-                <Readout label="estimate" value={money(mc.price)} />
-                <Readout label="± std. error" value={money(mc.stderr)} />
-                <Readout label="actual error" value={money(Math.abs(mc.price - bs))} tone="red" />
+                <Readout label="Estimate" value={money(mc.price)} />
+                <Readout label="± Std. error" value={money(mc.stderr)} />
+                <Readout label="Actual error" value={money(Math.abs(mc.price - bs))} tone="red" />
               </div>
               {mcChart}
             </>
@@ -169,12 +171,12 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
 
         <section className="race-lane race-lane-q">
           <div className="race-lane-h">
+            <h3 className="race-lane-title">Amplitude estimation</h3>
             <span className="chip chip-accent">Quantum · ideal</span>
-            <h4>Amplitude estimation</h4>
           </div>
           <Slider label="Price-grid qubits (2ⁿ price points)" value={gridQ} min={3} max={7} step={1} onChange={setGridQ} format={(v) => `${v} · ${2 ** v} pts`} />
           <Slider label="Evaluation qubits m (precision)" value={evalQ} min={3} max={11} step={1} onChange={setEvalQ} format={(v) => `${v} · M=${2 ** v}`} />
-          <button className="btn btn-small btn-accent" onClick={runQae}>
+          <button className="btn btn-small race-run" onClick={runQae}>
             Sample one run <Glyph name="play" size={12} />
           </button>
           <div className="qae-dist" aria-label="Distribution of possible QAE outcomes">
@@ -195,53 +197,57 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
             <span>{money(disc * grid.fmax * dist.estimates[folded[0].y])}</span>
             <span>{money(disc * grid.fmax * dist.estimates[folded[folded.length - 1].y])}</span>
           </div>
-          <p className="small soft">Where one run's answer can land on an ideal machine. More evaluation qubits → a finer, tighter spread.</p>
+          <p className="small soft lab-note">Where one run's answer can land on an ideal machine. More evaluation qubits → a finer, tighter spread.</p>
           <div className="readouts">
-            <Readout label="this run" value={qae ? money(qae.price) : '—'} tone="accent" />
-            <Readout label="grid-implied price" value={money(grid.gridPrice)} />
-            <Readout label="grid bias vs truth" value={money(Math.abs(grid.gridPrice - bs))} tone="red" />
+            <Readout label="This run" value={qae ? money(qae.price) : '—'} tone="accent" />
+            <Readout label="Grid-implied price" value={money(grid.gridPrice)} />
+            <Readout label="Grid bias vs truth" value={money(Math.abs(grid.gridPrice - bs))} tone="red" />
           </div>
         </section>
 
         <section className="race-verdict">
-          <div className="label race-h">The race · error vs. cost</div>
-          <LineChart
-            series={[
-              { name: 'Monte Carlo', points: curves.mcPts, tone: 'ink' },
-              { name: 'ideal QAE', points: curves.qPts, tone: 'accent' },
-            ]}
-            logX
-            logY
-            xLabel="calls to the pricing model (log)"
-            yLabel={`error at ${Math.round(CONFIDENCE * 100)}% confidence ($, log)`}
-            hline={{ y: target, label: `target ±${money(target)}` }}
-            height={260}
-          />
-          <Legend items={[{ label: 'Monte Carlo: error ∝ 1/√N', tone: 'ink' }, { label: 'ideal QAE (Brassard et al. bound): ∝ 1/M', tone: 'accent' }]} />
-          <Slider label="Target accuracy" value={eps} min={-3} max={0} step={0.25} onChange={setEps} format={(v) => `±$${(10 ** v).toPrecision(2)}`} />
-          <div className="race-calls">
-            <div>
-              <span className="label label-faint">Monte Carlo needs</span>
-              <span className="display race-calls-v">{mcNeeded.toLocaleString('en-US')}</span>
-              <span className="small">paths</span>
-            </div>
-            <div>
-              <span className="label label-faint">Ideal QAE needs</span>
-              <span className="display race-calls-v accent">{qNeeded ? qNeeded.calls.toLocaleString('en-US') : '> 33M'}</span>
-              <span className="small">model calls {qNeeded ? `(m = ${qNeeded.m})` : ''}</span>
-            </div>
+          <div className="race-verdict-chart">
+            <h3 className="lab-h race-h">The race: error vs. cost</h3>
+            <LineChart
+              series={[
+                { name: 'Monte Carlo', points: curves.mcPts, tone: 'ink' },
+                { name: 'ideal QAE', points: curves.qPts, tone: 'accent' },
+              ]}
+              logX
+              logY
+              xLabel="Calls to the pricing model (log)"
+              yLabel={`Error at ${Math.round(CONFIDENCE * 100)}% confidence ($, log)`}
+              hline={{ y: target, label: `target ±${money(target)}` }}
+              height={260}
+            />
+            <Legend items={[{ label: 'Monte Carlo: error ∝ 1/√N', tone: 'ink' }, { label: 'Ideal QAE (Brassard et al. bound): ∝ 1/M', tone: 'accent' }]} />
           </div>
-          <div className="caveat">
-            <span className="label">Read the fine print</span>
-            <ul>
-              <li>“Ideal” means a fault-tolerant machine with no noise. Today's devices are not that.</li>
-              <li>The QAE curve measures error against the grid price; the grid itself adds bias (shown above) that needs more qubits to remove.</li>
-              <li>
-                Loading the distribution and payoff into the circuit is expensive. A Goldman Sachs/IBM resource study put useful advantage at roughly 8,000 logical
-                qubits and a T-depth of 54 million, run in about a second.
-                {Array.isArray(props.cite) && <Cite ids={props.cite as string[]} />}
-              </li>
-            </ul>
+          <div className="race-verdict-side">
+            <Slider label="Target accuracy" value={eps} min={-3} max={0} step={0.25} onChange={setEps} format={(v) => `±$${(10 ** v).toPrecision(2)}`} />
+            <div className="race-calls">
+              <div>
+                <span className="readout-label">Monte Carlo needs</span>
+                <span className="mono race-calls-v">{mcNeeded.toLocaleString('en-US')}</span>
+                <span className="small soft">paths</span>
+              </div>
+              <div>
+                <span className="readout-label">Ideal QAE needs</span>
+                <span className="mono race-calls-v accent">{qNeeded ? qNeeded.calls.toLocaleString('en-US') : '> 33M'}</span>
+                <span className="small soft">model calls {qNeeded ? `(m = ${qNeeded.m})` : ''}</span>
+              </div>
+            </div>
+            <div className="caveat callout callout-warn">
+              <strong className="caveat-h">Read the fine print</strong>
+              <ul>
+                <li>“Ideal” means a fault-tolerant machine with no noise. Today's devices are not that.</li>
+                <li>The QAE curve measures error against the grid price; the grid itself adds bias (shown above) that needs more qubits to remove.</li>
+                <li>
+                  Loading the distribution and payoff into the circuit is expensive. A Goldman Sachs/IBM resource study put useful advantage at roughly 8,000 logical
+                  qubits and a T-depth of 54 million, run in about a second.
+                  {Array.isArray(props.cite) && <Cite ids={props.cite as string[]} />}
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </div>

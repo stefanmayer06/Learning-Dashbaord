@@ -18,6 +18,17 @@
     "Produce a sourced Quantum Readiness Brief for a trading desk, including post-quantum security."
   ],
   "prerequisites": ["Percentages and basic probability", "Helpful, not required: what an option and a portfolio are (both are explained)"],
+  "skills": [
+    "Quantum circuits",
+    "Amplitude amplification",
+    "Amplitude estimation",
+    "Monte Carlo option pricing",
+    "QUBO formulation",
+    "QAOA",
+    "Post-quantum cryptography",
+    "Evaluating advantage claims",
+    "Spotting quantum-trading scams"
+  ],
   "progression": "linear",
   "outputs": [
     {

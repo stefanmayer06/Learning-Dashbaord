@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useId, useMemo, useState } from 'react'
 import type { Question, Step } from '../content/schema'
 import { Glyph } from '../ui/Glyph'
 import { Rich } from '../ui/Tex'
@@ -24,15 +24,18 @@ export function QuizStep({ step, done, onPass }: { step: QuizStepT; done: boolea
   const [results, setResults] = useState<boolean[]>([])
   const [finished, setFinished] = useState(false)
   const q = step.questions[i]
-  const score = results.filter(Boolean).length / step.questions.length
+  const n = step.questions.length
+  const right = results.filter(Boolean).length
+  const score = right / n
   const passed = score >= step.passMark
+  const need = Math.ceil(step.passMark * n)
 
   const record = (ok: boolean) => setResults((r) => [...r.slice(0, i), ok])
   const next = () => {
-    if (i < step.questions.length - 1) setI(i + 1)
+    if (i < n - 1) setI(i + 1)
     else {
       setFinished(true)
-      const final = results.filter(Boolean).length / step.questions.length
+      const final = results.filter(Boolean).length / n
       if (final >= step.passMark) onPass(final)
     }
   }
@@ -44,37 +47,66 @@ export function QuizStep({ step, done, onPass }: { step: QuizStepT; done: boolea
 
   if (finished) {
     return (
-      <div className={`quiz-result ${passed ? 'pass' : 'fail'}`}>
-        <div className="quiz-score display">
-          {results.filter(Boolean).length}
-          <span>/{step.questions.length}</span>
+      <div className={`quiz-result ${passed ? 'pass' : 'fail'}`} role="status">
+        <span className="quiz-result-icon" aria-hidden>
+          <Glyph name={passed ? 'check' : 'cross'} size={28} />
+        </span>
+        <div className="quiz-result-body">
+          <h2 className="quiz-result-title">{passed ? 'You passed' : 'Not quite yet'}</h2>
+          <p className="quiz-result-score">
+            <span className="quiz-score mono">
+              {right}/{n}
+            </span>
+            <span>
+              {Math.round(score * 100)}% correct · pass mark {need} of {n}
+            </span>
+          </p>
+          <p className="quiz-result-text">
+            {passed
+              ? done
+                ? 'Your result is saved. Continue to the next step when you are ready.'
+                : 'Saved. Continue to the next step when you are ready.'
+              : `You need ${need} correct to pass. The explanations are the lesson, so read them and have another go.`}
+          </p>
+          <ol className="quiz-review" aria-label="Your answers">
+            {results.map((ok, k) => (
+              <li key={k} className={ok ? 'right' : 'wrong'}>
+                <Glyph name={ok ? 'check' : 'cross'} size={14} />
+                Question {k + 1}
+                <span className="visually-hidden">{ok ? ' correct' : ' incorrect'}</span>
+              </li>
+            ))}
+          </ol>
+          {!passed && (
+            <button className="btn" onClick={retry}>
+              <Glyph name="restart" size={16} /> Try again
+            </button>
+          )}
         </div>
-        <p>{passed ? 'Passed. On you go.' : `You need ${Math.ceil(step.passMark * step.questions.length)} to pass. The explanations are the lesson — have another go.`}</p>
-        {!passed && (
-          <button className="btn" onClick={retry}>
-            Try again <Glyph name="restart" size={14} />
-          </button>
-        )}
-        {passed && !done && <p className="label label-faint">Saved.</p>}
       </div>
     )
   }
 
   return (
     <div className="quiz">
+      <div className="quiz-top">
+        <span className="quiz-count">
+          Question {i + 1} of {n}
+        </span>
+        <span className="quiz-pass">
+          Pass mark: {need} of {n} correct
+        </span>
+      </div>
       <div className="quiz-progress" aria-hidden>
         {step.questions.map((_, k) => (
           <span key={k} className={k < results.length ? (results[k] ? 'right' : 'wrong') : k === i ? 'now' : ''} />
         ))}
       </div>
-      <p className="label label-faint">
-        Question {i + 1} of {step.questions.length}
-      </p>
       <QuestionView key={i} q={q} seed={i} answered={results[i] !== undefined} onAnswer={record} />
       {results[i] !== undefined && (
-        <div className="lab-actions">
+        <div className="quiz-actions">
           <button className="btn" onClick={next}>
-            {i < step.questions.length - 1 ? 'Next question' : 'See result'} <Glyph name="arrow" className="arrow" size={14} />
+            {i < n - 1 ? 'Next question' : 'See result'} <Glyph name="arrow" className="arrow" size={16} />
           </button>
         </div>
       )}
@@ -83,6 +115,7 @@ export function QuizStep({ step, done, onPass }: { step: QuizStepT; done: boolea
 }
 
 function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: number; answered: boolean; onAnswer: (ok: boolean) => void }) {
+  const uid = useId()
   const [picked, setPicked] = useState<number[]>([])
   const [num, setNum] = useState('')
   const [order, setOrder] = useState<number[]>(() => (q.type === 'order' ? shuffled(q.items, seed) : []))
@@ -100,44 +133,59 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
   }
 
   const canSubmit = q.type === 'numeric' ? num.trim() !== '' && !Number.isNaN(Number(num.replace(/,/g, ''))) : q.type === 'order' ? true : picked.length > 0
+  const promptId = `${uid}-prompt`
 
   return (
     <div className="question">
-      <h3 className="question-prompt">
+      <h2 className="question-prompt" id={promptId}>
         <Rich text={q.prompt} />
-      </h3>
+      </h2>
       {(q.type === 'single' || q.type === 'multi') && (
-        <div className="options" role={q.type === 'single' ? 'radiogroup' : 'group'}>
-          {q.type === 'multi' && <p className="label label-faint">Select all that apply</p>}
+        <fieldset className="options" aria-labelledby={promptId}>
+          {q.type === 'multi' && <p className="options-hint">Select all that apply.</p>}
           {optOrder.map((oi) => {
             const sel = picked.includes(oi)
             const isAnswer = q.type === 'single' ? oi === q.answer : q.answers.includes(oi)
-            const state = answered ? (isAnswer ? 'right' : sel ? 'wrong' : 'idle') : sel ? 'sel' : 'idle'
+            const state = answered ? (isAnswer ? (sel ? 'right' : 'missed') : sel ? 'wrong' : 'idle') : sel ? 'sel' : 'idle'
             return (
-              <button
-                key={oi}
-                role={q.type === 'single' ? 'radio' : 'checkbox'}
-                aria-checked={sel}
-                disabled={answered}
-                className={`option ${state}`}
-                onClick={() => setPicked((p) => (q.type === 'single' ? [oi] : p.includes(oi) ? p.filter((x) => x !== oi) : [...p, oi]))}
-              >
-                <span className="option-box">{answered && isAnswer ? <Glyph name="check" size={12} /> : answered && sel ? <Glyph name="cross" size={12} /> : null}</span>
-                <span>
+              <label key={oi} className={`option ${state}${answered ? ' locked' : ''}`}>
+                <input
+                  type={q.type === 'single' ? 'radio' : 'checkbox'}
+                  name={`${uid}-q`}
+                  checked={sel}
+                  disabled={answered}
+                  onChange={() => setPicked((p) => (q.type === 'single' ? [oi] : p.includes(oi) ? p.filter((x) => x !== oi) : [...p, oi]))}
+                />
+                <span className="option-text">
                   <Rich text={q.options[oi]} />
                 </span>
-              </button>
+                {answered && (isAnswer || sel) && (
+                  <span className="option-status">
+                    <Glyph name={isAnswer ? 'check' : 'cross'} size={16} />
+                    {isAnswer ? (sel ? 'Correct' : 'Correct answer') : 'Incorrect'}
+                  </span>
+                )}
+              </label>
             )
           })}
-        </div>
+        </fieldset>
       )}
       {q.type === 'numeric' && (
         <div className="numeric">
-          <input className="input mono" inputMode="decimal" value={num} disabled={answered} onChange={(e) => setNum(e.target.value)} aria-label="Your answer" onKeyDown={(e) => e.key === 'Enter' && canSubmit && !answered && submit()} />
-          {q.unit && <span className="soft">{q.unit}</span>}
+          <input
+            className="input mono"
+            inputMode="decimal"
+            value={num}
+            disabled={answered}
+            onChange={(e) => setNum(e.target.value)}
+            aria-labelledby={promptId}
+            placeholder="Your answer"
+            onKeyDown={(e) => e.key === 'Enter' && canSubmit && !answered && submit()}
+          />
+          {q.unit && <span className="numeric-unit">{q.unit}</span>}
           {answered && (
-            <span className="mono">
-              answer: {q.answer.toLocaleString('en-US')} {q.unit}
+            <span className="numeric-answer">
+              Answer: <span className="mono">{q.answer.toLocaleString('en-US')}</span> {q.unit}
             </span>
           )}
         </div>
@@ -165,23 +213,28 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
         </ol>
       )}
       {!answered ? (
-        <div className="lab-actions">
-          <button className="btn btn-ghost" onClick={submit} disabled={!canSubmit}>
-            Check answer <Glyph name="check" size={14} />
+        <div className="quiz-actions">
+          <button className="btn" onClick={submit} disabled={!canSubmit}>
+            Check answer
           </button>
         </div>
       ) : (
-        <div className={`explain ${ok ? 'right' : 'wrong'}`}>
-          <span className="label">{ok ? 'Correct' : 'Not quite'}</span>
-          <p>
-            <Rich text={q.explain} />
-            <CiteMarks ids={q.cite} />
-          </p>
-          {!ok && q.type === 'order' && (
-            <p className="small soft">
-              Correct order: {q.items.map((it, k) => `${k + 1}. ${it}`).join('  ')}
+        <div className={`explain ${ok ? 'right' : 'wrong'}`} role="status">
+          <span className="explain-icon" aria-hidden>
+            <Glyph name={ok ? 'checkCircle' : 'info'} size={20} />
+          </span>
+          <div>
+            <p className="explain-label">{ok ? 'Correct' : 'Not quite'}</p>
+            <p className="explain-text">
+              <Rich text={q.explain} />
+              <CiteMarks ids={q.cite} />
             </p>
-          )}
+            {!ok && q.type === 'order' && (
+              <p className="explain-order">
+                Correct order: {q.items.map((it, k) => `${k + 1}. ${it}`).join('  ')}
+              </p>
+            )}
+          </div>
         </div>
       )}
     </div>

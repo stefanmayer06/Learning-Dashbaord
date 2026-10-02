@@ -375,6 +375,8 @@ export const Course = z.object({
   summary: z.string(),
   outcomes: z.array(z.string()).min(1),
   prerequisites: z.array(z.string()).default([]),
+  /** Short skill names for "Skills you'll gain" (not factual claims). */
+  skills: z.array(z.string()).optional(),
   progression: z.enum(['linear', 'open']).default('linear'),
   outputs: z.array(Output).min(1),
   units: z.array(Unit).min(1),

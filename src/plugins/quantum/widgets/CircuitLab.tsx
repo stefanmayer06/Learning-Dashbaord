@@ -118,7 +118,7 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
     <LabFrame
       goal={challenge.label}
       met={done || met}
-      aside={challenge.target ? <span className="mono">fidelity {fidelity.toFixed(3)}</span> : null}
+      aside={challenge.target ? <>Fidelity <span className="mono">{fidelity.toFixed(3)}</span></> : null}
       onSave={
         capture
           ? () =>
@@ -132,18 +132,27 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
       captured={captured}
     >
       <div className="clab">
+        <h3 className="lab-h">Pick a gate, then click the circuit</h3>
         <div className="clab-palette" role="toolbar" aria-label="Gate palette">
           {(['H', 'X', 'Y', 'Z', 'S', 'T', 'CX', 'CZ', 'erase'] as Palette[]).map((g) => (
-            <button key={g} className={`gate-btn ${tool === g ? 'on' : ''}`} onClick={() => (setTool(g), setPending(null))} aria-pressed={tool === g}>
-              {g === 'erase' ? <Glyph name="cross" size={14} /> : g === 'CX' ? '●⊕' : g === 'CZ' ? '●●' : g}
+            <button
+              key={g}
+              className={`gate-btn ${tool === g ? 'on' : ''} ${g === 'erase' ? 'gate-btn-erase' : ''}`}
+              onClick={() => (setTool(g), setPending(null))}
+              aria-pressed={tool === g}
+              aria-label={g === 'erase' ? 'Eraser' : g === 'CX' ? 'CX (controlled NOT)' : g === 'CZ' ? 'CZ (controlled Z)' : undefined}
+              title={g === 'erase' ? 'Eraser' : undefined}
+            >
+              {g === 'erase' ? <Glyph name="cross" size={16} /> : g === 'CX' ? '●⊕' : g === 'CZ' ? '●●' : g}
             </button>
           ))}
-          <span className="label label-faint clab-hint">
-            {pending ? 'Now click the target qubit in the same column' : tool === 'CX' || tool === 'CZ' ? 'Click the control qubit first' : tool === 'erase' ? 'Click a gate to remove it' : 'Click a cell to place the gate'}
-          </span>
         </div>
-        <div className="clab-board">
-          <svg viewBox={`0 0 ${width} ${height}`} className="clab-svg" style={{ maxWidth: width * 1.45 }}>
+        <p className="clab-hint" aria-live="polite">
+          <Glyph name="info" size={16} />
+          {pending ? 'Now click the target qubit in the same column' : tool === 'CX' || tool === 'CZ' ? 'Click the control qubit first' : tool === 'erase' ? 'Click a gate to remove it' : 'Click a cell to place the gate'}
+        </p>
+        <div className="clab-board lab-panel">
+          <svg viewBox={`0 0 ${width} ${height}`} className="clab-svg" style={{ maxWidth: width * 1.3 }}>
             {Array.from({ length: n }, (_, q) => (
               <g key={q}>
                 <text x={8} y={y(q) + 5} className="clab-qlabel">
@@ -162,6 +171,7 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
                     y={12 + q * CELL + 4}
                     width={CELL - 8}
                     height={CELL - 8}
+                    rx={7}
                     className={`clab-cell ${isPendingCol && pending?.control !== q ? 'candidate' : ''} ${occupied(col, q) ? 'filled' : ''}`}
                     onClick={() => clickCell(col, q)}
                     role="button"
@@ -190,7 +200,7 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
                 </g>
               ) : (
                 <g key={i} className="clab-op" pointerEvents="none">
-                  <rect x={x(op.col) - 19} y={y(op.target) - 19} width={38} height={38} className="clab-gate" />
+                  <rect x={x(op.col) - 19} y={y(op.target) - 19} width={38} height={38} rx={7} className="clab-gate" />
                   <text x={x(op.col)} y={y(op.target) + 6} textAnchor="middle" className="clab-gate-label">
                     {op.gate}
                   </text>
@@ -198,49 +208,68 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
               ),
             )}
           </svg>
-          <div className="lab-actions">
-            <button className="btn btn-small btn-accent" onClick={run}>
-              Run 1,024 shots <Glyph name="play" size={12} />
-            </button>
-            <button className="btn btn-small btn-ghost" onClick={() => (setOps([]), setPending(null))}>
-              Clear <Glyph name="restart" size={14} />
-            </button>
-            {challenge.hint && !met && <span className="soft small">Hint: {challenge.hint}</span>}
-          </div>
+        </div>
+        <div className="lab-actions">
+          <button className="btn btn-small" onClick={run}>
+            Run 1,024 shots <Glyph name="play" size={12} />
+          </button>
+          <button className="btn btn-small btn-ghost" onClick={() => (setOps([]), setPending(null))}>
+            Clear <Glyph name="restart" size={14} />
+          </button>
+          {challenge.hint && !met && (
+            <span className="clab-tip">
+              <Glyph name="lamp" size={16} /> Hint: {challenge.hint}
+            </span>
+          )}
         </div>
 
         <div className="clab-results">
           <div className="clab-amps">
-            <div className="label label-faint">Exact state (amplitude · phase · probability)</div>
-            <table className="amp-table">
-              <tbody>
-                {probs.map((pr, i) => {
-                  const a = state.amp(i)
-                  const ph = Math.atan2(a[1], a[0])
-                  return (
-                    <tr key={i} className={pr < 1e-9 ? 'zero' : ''}>
-                      <td className="mono">|{state.label(i)}⟩</td>
-                      <td className="mono amp-val">{pr < 1e-9 ? '0' : `${Math.sqrt(pr).toFixed(3)}`}</td>
-                      <td>
-                        <svg width="22" height="22" viewBox="-11 -11 22 22" aria-label={`phase ${((ph * 180) / Math.PI).toFixed(0)} degrees`}>
-                          <circle r="9" fill="none" stroke="var(--rule)" />
-                          {pr > 1e-9 && <line x1="0" y1="0" x2={9 * Math.cos(ph)} y2={-9 * Math.sin(ph)} stroke="var(--accent)" strokeWidth="2" />}
-                        </svg>
-                      </td>
-                      <td className="amp-bar-cell">
-                        <span className="amp-bar" style={{ width: `${pr * 100}%` }} />
-                      </td>
-                      <td className="mono amp-p">{pr.toFixed(3)}</td>
-                      {counts && <td className="mono amp-count">{counts[i]}</td>}
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-            {counts && <p className="small soft">Last column: counts from 1,024 simulated measurements — close to, but never exactly, the probabilities.</p>}
+            <h3 className="lab-h">Exact state</h3>
+            <div className="lab-table-wrap">
+              <table className="amp-table lab-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Basis</th>
+                    <th scope="col" className="num-col">Amplitude</th>
+                    <th scope="col">Phase</th>
+                    <th scope="col" colSpan={2}>Probability</th>
+                    {counts && (
+                      <th scope="col" className="num-col">
+                        Counts
+                      </th>
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {probs.map((pr, i) => {
+                    const a = state.amp(i)
+                    const ph = Math.atan2(a[1], a[0])
+                    return (
+                      <tr key={i} className={pr < 1e-9 ? 'zero' : ''}>
+                        <td className="mono">|{state.label(i)}⟩</td>
+                        <td className="mono amp-val">{pr < 1e-9 ? '0' : `${Math.sqrt(pr).toFixed(3)}`}</td>
+                        <td>
+                          <svg width="22" height="22" viewBox="-11 -11 22 22" aria-label={`phase ${((ph * 180) / Math.PI).toFixed(0)} degrees`}>
+                            <circle r="9" fill="none" stroke="var(--border-strong)" />
+                            {pr > 1e-9 && <line x1="0" y1="0" x2={9 * Math.cos(ph)} y2={-9 * Math.sin(ph)} stroke="var(--accent-fg)" strokeWidth="2" strokeLinecap="round" />}
+                          </svg>
+                        </td>
+                        <td className="amp-bar-cell">
+                          <span className="amp-bar" style={{ width: `${pr * 100}%` }} />
+                        </td>
+                        <td className="mono amp-p">{pr.toFixed(3)}</td>
+                        {counts && <td className="mono amp-count">{counts[i]}</td>}
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+            {counts && <p className="small soft lab-note">Counts come from 1,024 simulated measurements — close to, but never exactly, the probabilities.</p>}
           </div>
           <div className="clab-blochs">
-            <div className="label label-faint">Each qubit on its own</div>
+            <h3 className="lab-h">Each qubit on its own</h3>
             <div className="mini-blochs">
               {Array.from({ length: n }, (_, q) => {
                 const b = state.bloch(q)
@@ -248,14 +277,14 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
                 return (
                   <div key={q} className="mini-bloch">
                     <BlochSphere vec={b} size={140} showAxes={false} />
-                    <span className="mono small">
-                      q{q} · length {len.toFixed(2)}
+                    <span className="mini-bloch-cap">
+                      <span className="mono">q{q}</span> · length <span className="mono">{len.toFixed(2)}</span>
                     </span>
                   </div>
                 )
               })}
             </div>
-            <p className="small soft">A vector shorter than 1 means that qubit is entangled: its state only makes sense together with the others.</p>
+            <p className="small soft lab-note">A vector shorter than 1 means that qubit is entangled: its state only makes sense together with the others.</p>
           </div>
         </div>
       </div>

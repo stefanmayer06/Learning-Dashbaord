@@ -75,7 +75,7 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
   const H = 200
 
   return (
-    <LabFrame goal="Amplify the marked item until measuring finds it ≥ 90% of the time" met={done || met} aside={<span className="mono">best {(best * 100).toFixed(1)}%</span>}>
+    <LabFrame goal="Amplify the marked item until measuring finds it ≥ 90% of the time" met={done || met} aside={<>Best <span className="mono">{(best * 100).toFixed(1)}%</span></>}>
       <div className="grover">
         <div className="grover-top">
           <Segmented
@@ -84,11 +84,13 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
             onChange={setN}
             options={[3, 4, 5, 6].map((q) => ({ value: q, label: `${q} qubits · N=${2 ** q}` }))}
           />
-          <span className="small soft">Click a bar to choose which item is “marked”.</span>
+          <span className="grover-tip">
+            <Glyph name="info" size={16} /> Click a bar to choose which item is “marked”.
+          </span>
         </div>
-        <div className="grover-bars" style={{ height: H * 2 + 20 }}>
+        <div className="grover-bars lab-panel" style={{ height: H * 2 + 20 }}>
           <div className="grover-zero" style={{ top: H + 10 }} />
-          {mean !== null && <div className="grover-mean" style={{ top: H + 10 - (mean / maxAbs) * H }}><span className="label">mean</span></div>}
+          {mean !== null && <div className="grover-mean" style={{ top: H + 10 - (mean / maxAbs) * H }}><span className="grover-mean-label">mean</span></div>}
           {amps.map((a, i) => (
             <button
               key={i}
@@ -107,7 +109,7 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
           ))}
         </div>
         <div className="grover-controls">
-          <div className="lab-actions">
+          <div className="lab-actions" role="group" aria-label="Grover steps">
             <button className="btn btn-small" onClick={oracle} disabled={phase !== 'ready'}>
               1 · Oracle: flip the marked sign
             </button>
@@ -121,16 +123,25 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
               Reset <Glyph name="restart" size={14} />
             </button>
           </div>
+        </div>
+        <div className="grover-stats">
+          <h3 className="lab-h">Where you are</h3>
           <div className="readouts">
-            <Readout label="iterations" value={k} />
+            <Readout label="Iterations" value={k} />
             <Readout label="P(find marked)" value={`${(success * 100).toFixed(1)}%`} tone={success >= 0.9 ? 'good' : 'accent'} />
-            <Readout label="best iteration count ≈ (π/4)√N" value={kOpt} />
-            <Readout label="classical guessing, same budget" value={`${Math.min(100, ((k + 1) / N) * 100).toFixed(1)}%`} />
+            <Readout label="Best iteration count ≈ (π/4)√N" value={kOpt} />
+            <Readout label="Classical guessing, same budget" value={`${Math.min(100, ((k + 1) / N) * 100).toFixed(1)}%`} />
           </div>
-          {k > kOpt && <p className="grover-warn">You've gone past the optimum — the amplitude is rotating away again. Quantum search must know when to stop.</p>}
+          {k > kOpt && (
+            <p className="callout callout-warn lab-callout" role="status">
+              <Glyph name="info" size={18} />
+              <span>You've gone past the optimum — the amplitude is rotating away again. Quantum search must know when to stop.</span>
+            </p>
+          )}
         </div>
         <div className="grover-chart">
-          <LineChart series={[{ name: 'theory', points: curve, tone: 'faint' }]} xLabel="iterations" yLabel="P(success)" yDomain={[0, 1]} marker={{ x: k, y: groverSuccess(N, k), label: 'you' }} height={220} />
+          <h3 className="lab-h">Success odds by iteration</h3>
+          <LineChart series={[{ name: 'theory', points: curve, tone: 'faint' }]} xLabel="Iterations" yLabel="P(success)" yDomain={[0, 1]} marker={{ x: k, y: groverSuccess(N, k), label: 'you' }} height={240} />
         </div>
       </div>
     </LabFrame>

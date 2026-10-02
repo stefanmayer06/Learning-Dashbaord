@@ -67,6 +67,12 @@
         "type": "string"
       }
     },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "progression": {
       "default": "linear",
       "type": "string",

@@ -18,34 +18,42 @@ export function EmbedStep({ step, done, onDone }: { step: EmbedT; done: boolean;
   const url = embedUrl(step)
   return (
     <div className="embed">
-      <div className="embed-frame">
-        {!loaded && <div className="embed-loading label label-faint">Loading external tool… (needs an internet connection)</div>}
-        <iframe
-          src={url}
-          title={step.title}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
-          allow="fullscreen; picture-in-picture"
-          referrerPolicy="strict-origin-when-cross-origin"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
-        />
-      </div>
-      <div className="embed-meta">
-        <p>
-          <Rich text={step.caption} />
-          <CiteMarks ids={step.cite} />
-        </p>
-        <p className="label label-faint">
-          External · {step.credit} ·{' '}
-          <a href={url} target="_blank" rel="noreferrer noopener">
-            open in a new tab <Glyph name="external" size={11} style={{ display: 'inline', verticalAlign: '-1px' }} />
+      <p className="embed-caption">
+        <Rich text={step.caption} />
+        <CiteMarks ids={step.cite} />
+      </p>
+      <div className="embed-box">
+        <div className="embed-notice">
+          <Glyph name="external" size={16} />
+          <span>
+            <strong>Third-party tool</strong> · {step.credit}. It loads from another site and needs an internet connection.
+          </span>
+          <a href={url} target="_blank" rel="noreferrer noopener" className="embed-open">
+            Open in a new tab <Glyph name="external" size={14} />
           </a>
-        </p>
+        </div>
+        <div className="embed-frame">
+          {!loaded && (
+            <div className="embed-loading">
+              <span className="embed-spinner" aria-hidden />
+              Loading the external tool…
+            </div>
+          )}
+          <iframe
+            src={url}
+            title={step.title}
+            loading="lazy"
+            onLoad={() => setLoaded(true)}
+            allow="fullscreen; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
+          />
+        </div>
       </div>
       {!done && (
-        <div className="lab-actions">
+        <div className="embed-actions">
           <button className="btn btn-ghost" onClick={onDone}>
-            I've explored it <Glyph name="check" size={14} />
+            <Glyph name="check" size={16} /> I've explored it
           </button>
         </div>
       )}

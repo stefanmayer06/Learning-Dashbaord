@@ -10,9 +10,10 @@ export function SyncChip({ status }: { status: string }) {
     error: { label: 'Sync error', cls: 'chip-red', title: 'Could not reach Supabase — progress is still saved locally' },
   }
   const m = map[status] ?? map.local
+  const icon = status === 'syncing' || status === 'synced' ? 'sync' : null
   return (
-    <Link to="/settings" className={`chip ${m.cls}`} title={m.title}>
-      <Glyph name={status === 'local' ? 'dot' : 'sync'} size={10} />
+    <Link to="/settings#sync" className={`chip sync-chip ${m.cls}`.trim()} title={m.title} data-status={status}>
+      {icon ? <Glyph name={icon} size={12} className={status === 'syncing' ? 'sync-spin' : undefined} /> : <span className="sync-dot" aria-hidden />}
       {m.label}
     </Link>
   )

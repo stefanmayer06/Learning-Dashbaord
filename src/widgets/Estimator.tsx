@@ -25,8 +25,11 @@ export function Estimator({ props, complete, done, Cite }: WidgetApi) {
   return (
     <LabFrame goal="Lock in a guess, then see the sourced answer" met={done || locked}>
       {revisit && (
-        <p className="small soft est-revisit">
-          You've done this one. The answer: <strong className="mono">{nice(answer)} {unit}</strong>. Guess again below if you like.
+        <p className="callout callout-info lab-callout est-revisit">
+          <Glyph name="info" size={18} />
+          <span>
+            You've done this one. The answer: <strong className="mono">{nice(answer)}</strong> <strong>{unit}</strong>. Guess again below if you like.
+          </span>
         </p>
       )}
       <p className="est-q">
@@ -51,27 +54,28 @@ export function Estimator({ props, complete, done, Cite }: WidgetApi) {
         {locked && <span className="est-answer-mark" style={{ left: `${toPos(answer) * 100}%` }} aria-hidden />}
       </div>
       <div className="est-readouts">
-        <div>
-          <span className="label label-faint">Your guess</span>
+        <div className="est-tile">
+          <span className="readout-label">Your guess</span>
           <div className="est-big">
-            {nice(guess)} <small>{unit}</small>
+            <span className="mono">{nice(guess)}</span> <small>{unit}</small>
           </div>
         </div>
         {locked && (
-          <div className="est-reveal">
-            <span className="label" style={{ color: 'var(--margin-red)' }}>
-              Sourced answer
-            </span>
-            <div className="est-big est-red">
-              {nice(answer)} <small>{unit}</small>
+          <div className="est-tile est-reveal">
+            <span className="readout-label">Sourced answer</span>
+            <div className="est-big">
+              <span className="mono">{nice(answer)}</span> <small>{unit}</small>
             </div>
           </div>
         )}
       </div>
       {locked ? (
         <div className="est-explain">
-          <p className="mono est-off">{ratio < 1.25 ? 'Within 25% — sharp.' : `Off by a factor of ${ratio < 10 ? ratio.toFixed(1) : Math.round(ratio)}.`}</p>
-          <p>
+          <p className={`callout lab-callout est-off ${ratio < 1.25 ? 'callout-good' : 'callout-warn'}`} role="status">
+            <Glyph name={ratio < 1.25 ? 'checkCircle' : 'info'} size={18} />
+            <span>{ratio < 1.25 ? 'Within 25% — sharp.' : `Off by a factor of ${ratio < 10 ? ratio.toFixed(1) : Math.round(ratio)}.`}</span>
+          </p>
+          <p className="est-reveal-text">
             <Rich text={String(props.reveal)} />
             {Array.isArray(props.cite) && <Cite ids={props.cite as string[]} />}
           </p>

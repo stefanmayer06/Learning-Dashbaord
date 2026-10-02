@@ -60,9 +60,9 @@ export function CardSort({ props, complete, done, Cite }: WidgetApi) {
   }
 
   return (
-    <LabFrame goal={`Sort all ${cards.length} cards correctly`} met={done || allRight} aside={checked ? <span className="mono">{correct}/{cards.length}</span> : null}>
+    <LabFrame goal={`Sort all ${cards.length} cards correctly`} met={done || allRight} aside={checked ? <><span className="mono">{correct}/{cards.length}</span> correct</> : null}>
       <div className="sort">
-        <div className="sort-deck" aria-label="Cards to sort">
+        <div className="sort-deck" role="group" aria-label="Cards to sort">
           {unplaced.length ? (
             unplaced.map((i) => (
               <button key={i} className={`sort-card ${selected === i ? 'selected' : ''}`} onClick={() => setSelected(i)} aria-pressed={selected === i}>
@@ -70,16 +70,36 @@ export function CardSort({ props, complete, done, Cite }: WidgetApi) {
               </button>
             ))
           ) : (
-            <p className="faint sort-empty">All cards placed. {checked ? '' : 'Check your sort.'}</p>
+            <p className="sort-empty">
+              <Glyph name="checkCircle" size={18} /> All cards placed. {checked ? '' : 'Check your sort.'}
+            </p>
           )}
         </div>
-        <p className="label label-faint sort-hint">{selected !== null ? 'Now choose a bucket ↓' : unplaced.length ? 'Pick a card, then a bucket' : ''}</p>
+        <p className={`sort-hint ${selected !== null ? 'armed' : ''}`} aria-live="polite">
+          {selected !== null ? (
+            <>
+              <Glyph name="down" size={16} /> Now choose a bucket
+            </>
+          ) : unplaced.length ? (
+            <>
+              <Glyph name="info" size={16} /> Pick a card, then a bucket
+            </>
+          ) : null}
+        </p>
         <div className="sort-buckets" style={{ gridTemplateColumns: `repeat(${buckets.length}, minmax(0, 1fr))` }}>
           {buckets.map((b) => (
             <div key={b} className={`sort-bucket ${selected !== null ? 'armed' : ''}`}>
               <button className="sort-bucket-head" onClick={() => place(b)} disabled={selected === null}>
                 <span>{b}</span>
-                {selected !== null && <Glyph name="down" size={14} />}
+                {selected !== null ? (
+                  <span className="sort-bucket-cta">
+                    Place here <Glyph name="down" size={14} />
+                  </span>
+                ) : (
+                  <span className="sort-bucket-count" aria-label={`${cards.filter((_, i) => placed[i] === b).length} cards`}>
+                    {cards.filter((_, i) => placed[i] === b).length}
+                  </span>
+                )}
               </button>
               <ul>
                 {cards.map((c, i) =>
@@ -98,7 +118,7 @@ export function CardSort({ props, complete, done, Cite }: WidgetApi) {
                         }}
                         title={checked && c.bucket === b ? undefined : 'Take back'}
                       >
-                        {checked && <Glyph name={c.bucket === b ? 'check' : 'cross'} size={14} />}
+                        {checked && <Glyph name={c.bucket === b ? 'check' : 'cross'} size={16} />}
                         <Rich text={c.text} />
                       </button>
                       {checked && (

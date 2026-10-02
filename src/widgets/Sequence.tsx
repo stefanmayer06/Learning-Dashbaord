@@ -38,14 +38,17 @@ export function Sequence({ props, complete, done, Cite }: WidgetApi) {
   }
 
   return (
-    <LabFrame goal="Put every event in the right order" met={done || solved} aside={checked ? <span className="mono">{right}/{items.length} in place</span> : null}>
+    <LabFrame goal="Put every event in the right order" met={done || solved} aside={checked ? <><span className="mono">{right}/{items.length}</span> in place</> : null}>
       <ol className="seq">
         {order.map((item, pos) => {
           const it = items[item]
           const ok = checked && item === pos
           return (
             <li key={item} className={checked ? (ok ? 'right' : 'wrong') : ''}>
-              <span className="seq-pos mono">{String(pos + 1).padStart(2, '0')}</span>
+              <span className="seq-pos mono">
+                {checked ? <Glyph name={ok ? 'check' : 'cross'} size={14} /> : pos + 1}
+                {checked && <span className="visually-hidden">{ok ? `Position ${pos + 1}, in place` : `Position ${pos + 1}, out of place`}</span>}
+              </span>
               <div className="seq-body">
                 <div className="seq-label">
                   <Rich text={it.label} />

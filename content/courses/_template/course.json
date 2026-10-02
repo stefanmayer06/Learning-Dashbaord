@@ -11,6 +11,7 @@
   "summary": "Two or three sentences for the syllabus page.",
   "outcomes": ["A concrete thing the learner can do after the course."],
   "prerequisites": [],
+  "skills": ["A short skill name the course really teaches"],
   "progression": "linear",
   "outputs": [
     { "id": "capstone", "title": "Capstone", "kind": "brief", "description": "What the learner produces at the end.", "capstone": true }

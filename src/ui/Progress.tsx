@@ -45,7 +45,7 @@ export function ProgressRing({ value, size = 44, stroke = 4, label, showText = t
         />
       </svg>
       {showText && (
-        <span className="ring-text" style={{ fontSize: size < 40 ? 10 : size > 64 ? 16 : 12 }}>
+        <span className="ring-text" style={{ fontSize: size < 40 ? (pct >= 100 ? 8.5 : 10) : size > 64 ? 16 : 12 }}>
           {pct}%
         </span>
       )}
