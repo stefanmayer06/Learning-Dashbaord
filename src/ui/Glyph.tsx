@@ -1,6 +1,6 @@
 /**
- * A small, hand-drawn glyph set on a 20×20 grid with a 1.5px stroke, designed
- * to sit next to Martian Mono labels. No icon library.
+ * A small, hand-drawn glyph set on a 20×20 grid with a 1.6px rounded stroke.
+ * No icon library.
  */
 import type { CSSProperties } from 'react'
 
@@ -39,6 +39,21 @@ const paths: Record<string, string> = {
   print: 'M6 7.5V3.5h8v4M6 13.5H4V7.5h12v6h-2M6 11.5h8v5H6z',
   copy: 'M7 7h9v9.5H7zM13 7V3.5H4V13h3',
   spark: 'M10 3v4M10 13v4M3 10h4M13 10h4',
+  search: 'M8.8 3.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12.6 12.6 16.5 16.5',
+  chevron: 'M5.5 8 10 12.5 14.5 8',
+  chevronRight: 'M8 5.5 12.5 10 8 14.5',
+  chevronLeft: 'M12 5.5 7.5 10 12 14.5',
+  menu: 'M3.5 6h13M3.5 10h13M3.5 14h13',
+  home: 'M3.5 9.5 10 4l6.5 5.5M5.5 8v8h9V8',
+  clock: 'M10 3.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM10 6.5V10l2.5 1.5',
+  level: 'M5 16v-3M10 16V9M15 16V4.5',
+  cert: 'M3.5 4.5h13v9h-13zM6.5 7.5h7M6.5 10h4M12.5 12v4.5l1.5-1 1.5 1V12',
+  info: 'M10 3.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM10 9v4.5M10 6.5v.4',
+  checkCircle: 'M10 3.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM7 10.2l2.1 2.1L13.2 8',
+  circle: 'M10 3.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z',
+  user: 'M10 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4.5 16.5c.6-2.8 2.8-4.5 5.5-4.5s4.9 1.7 5.5 4.5',
+  shield: 'M10 3 4.5 5v4.5c0 3.4 2.3 6 5.5 7.5 3.2-1.5 5.5-4.1 5.5-7.5V5zM7.5 10l1.8 1.8 3.4-3.6',
+  pace: 'M3.5 13.5a6.5 6.5 0 1 1 13 0M10 13.5l3-4',
 }
 
 export type GlyphName = keyof typeof paths
@@ -75,9 +90,9 @@ export function Glyph({
         d={d}
         fill={filled ? 'currentColor' : 'none'}
         stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="square"
-        strokeLinejoin="miter"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
@@ -93,10 +108,10 @@ export const STEP_GLYPH: Record<string, GlyphName> = {
 }
 
 export const STEP_LABEL: Record<string, string> = {
-  reel: 'Reel',
+  reel: 'Video',
   widget: 'Lab',
-  quiz: 'Check',
-  deliverable: 'Work output',
-  embed: 'External tool',
+  quiz: 'Quiz',
+  deliverable: 'Assignment',
+  embed: 'Tool',
   recap: 'Recap',
 }

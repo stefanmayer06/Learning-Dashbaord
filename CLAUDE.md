@@ -47,15 +47,18 @@ src/widgets/                 generic interactives (card-sort, sequence, estimato
 src/steps/                   quiz, deliverable, recap, embed renderers
 src/store/                   learner model (pure rules + merge), LearnerProvider, optional Supabase sync
 src/pages/                   routes; lesson-only code is lazy-loaded
-src/styles/                  tokens.css (design tokens, light/dark) · base · app · labs
+src/styles/                  tokens.css (light/dark) · base · shell · catalog · course · player · labs · pages
 supabase/                    migrations (RLS), config.toml, tests (plain Postgres + auth stub)
 ```
 
 ## Conventions
 
-- Design language: warm paper, ink, a red margin rule; Gloock (display), Schibsted Grotesk
-  (text), Martian Mono (labels/numbers); custom glyphs in `src/ui/Glyph.tsx`. No icon libraries,
-  no drop shadows, square corners. Colours only via tokens in `src/styles/tokens.css`.
+- Design language: clear MOOC style (Coursera/edX/Udemy conventions) — spec in
+  `docs/design-system.md`. White pages, light-grey bands, one primary blue for actions, 8–12px
+  radii, shadows only on hover/sticky. Schibsted Grotesk for all UI text; Martian Mono only for
+  figures/code; Gloock only for the wordmark and certificate. Custom glyphs in `src/ui/Glyph.tsx`
+  (no icon libraries). Colours only via tokens in `src/styles/tokens.css`; CSS is split by area
+  (base, shell, catalog, course, player, labs, pages, reel).
 - Reel shots are pure functions of progress `p` (0..1) on a 1280×720 stage; keep content above
   y≈560 so captions never cover it.
 - Maths lives in pure modules with unit tests against known values (Black–Scholes 10.4506,

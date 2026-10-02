@@ -1,112 +1,200 @@
 /*
-  Margin — design tokens.
-  The brand is named for the red margin rule of a school exercise book: the
-  rule runs down every page, marginalia (step numbers, citations, notes) live
-  to its left, the work lives to its right.
+  Margin — design tokens (v2, "clear MOOC"). See docs/design-system.md.
+  White pages, light-grey bands, one primary blue for actions, status colours for status.
+  The brand survives in small doses: a Gloock wordmark with a red dot and a thin red top rule.
 */
 
 :root {
-  /* paper & ink */
-  --paper: #f4f0e8;
-  --paper-deep: #ebe5d8;
-  --sheet: #fbf9f4;
-  --ink: #17140f;
-  --ink-soft: #564f41;
-  --ink-faint: #8f8775;
-  --rule: #d8cfbd;
-  --rule-soft: #e5ddcf;
+  /* surfaces */
+  --bg: #ffffff;
+  --bg-subtle: #f5f6f8;
+  --bg-tint: #eef2fd;
+  --surface: #ffffff;
+  --surface-sunken: #f0f2f5;
+  --border: #dfe3e9;
+  --border-soft: #eceff3;
+  --border-strong: #c3cad4;
 
-  /* the margin rule and signal colour */
-  --margin-red: #dd3f27;
-  --margin-red-soft: #f3c8bd;
+  /* text */
+  --text: #16191d;
+  --text-muted: #4b5563;
+  --text-subtle: #5f6775;
 
-  /* course accent — overridden per course */
+  /* action */
+  --primary: #2442d6;
+  --primary-bg: #2442d6;
+  --primary-hover: #1b35b3;
+  --primary-pressed: #162b92;
+  --primary-soft: #e9edfc;
+  --on-primary: #ffffff;
+  --focus-ring: color-mix(in oklab, var(--primary) 35%, transparent);
+
+  /* status */
+  --success: #1d7a4c;
+  --success-soft: #e5f3eb;
+  --warning: #92560a;
+  --warning-soft: #fdf1dc;
+  --danger: #c0352b;
+  --danger-soft: #fbe9e7;
+
+  /* brand detail */
+  --brand-red: #d63a26;
+
+  /* course accent — overridden per course (covers, lab visuals) */
   --accent: #2e36d9;
   --accent-ink: #ffffff;
-  --accent-soft: color-mix(in oklab, var(--accent) 14%, var(--paper));
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, var(--bg));
 
-  --good: #26734a;
-  --good-soft: #d6e8da;
-  --warn: #a8640a;
-  --warn-soft: #f2e2c4;
-  --bad: #b8321f;
+  /* theatre (video stage) — dark in both themes */
+  --theatre: #0b0d11;
+  --theatre-2: #161a21;
+  --theatre-ink: #eef1f5;
+  --theatre-faint: #8b93a1;
+  --theatre-accent: color-mix(in oklab, var(--accent) 55%, white);
 
-  /* theatre (reels) */
-  --theatre: #12110e;
-  --theatre-2: #1c1a16;
-  --theatre-ink: #efe9dd;
-  --theatre-faint: #8a8474;
-  --theatre-accent: color-mix(in oklab, var(--accent) 62%, white);
+  /* legacy aliases — older lab/chart/reel code reads these */
+  --paper: var(--bg);
+  --paper-deep: var(--surface-sunken);
+  --sheet: var(--surface);
+  --ink: var(--text);
+  --ink-soft: var(--text-muted);
+  --ink-faint: var(--text-subtle);
+  --rule: var(--border);
+  --rule-soft: var(--border-soft);
+  --margin-red: var(--danger);
+  --margin-red-soft: var(--danger-soft);
+  --good: var(--success);
+  --good-soft: var(--success-soft);
+  --warn: var(--warning);
+  --warn-soft: var(--warning-soft);
+  --bad: var(--danger);
 
   /* type */
-  --font-display: 'Gloock', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
-  --font-body: 'Schibsted Grotesk Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-ui: 'Schibsted Grotesk Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: var(--font-ui);
+  --font-display: 'Gloock', 'Iowan Old Style', Georgia, serif; /* wordmark + certificate only */
   --font-mono: 'Martian Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
+  /* spacing */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --s9: 96px;
+
+  /* shape & depth */
+  --r-sm: 6px;
+  --r: 8px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.06);
+  --shadow-md: 0 6px 20px rgb(16 24 40 / 0.08);
+  --shadow-lg: 0 16px 40px rgb(16 24 40 / 0.14);
+
   /* layout */
-  --margin-x: clamp(16px, 7vw, 112px); /* where the red rule sits */
-  --gutter: clamp(16px, 2.4vw, 32px);
-  --page-max: 1320px;
+  --container: 1200px;
+  --container-wide: 1320px;
+  --gutter: 24px;
+  --header-h: 64px;
+  --player-bar-h: 56px;
+  --outline-w: 300px;
+
+  /* motion */
   --ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 150ms;
+  --t: 250ms;
 
   color-scheme: light;
 }
 
-/* Lamp off — warm dark, never pure black */
+@media (max-width: 640px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+/* dark — cool charcoal, never pure black */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper: #15130f;
-    --paper-deep: #1d1a15;
-    --sheet: #1f1c17;
-    --ink: #ede6d8;
-    --ink-soft: #b9b09d;
-    --ink-faint: #7f7867;
-    --rule: #39342b;
-    --rule-soft: #2b2721;
-    --margin-red: #f0563c;
-    --margin-red-soft: #4a2219;
-    --accent-soft: color-mix(in oklab, var(--accent) 28%, var(--paper));
-    --good: #6cc08d;
-    --good-soft: #1f3327;
-    --warn: #e0a24a;
-    --warn-soft: #3a2d17;
-    --bad: #f07a63;
+    --bg: #0e1116;
+    --bg-subtle: #151920;
+    --bg-tint: #141b2e;
+    --surface: #171b22;
+    --surface-sunken: #12161c;
+    --border: #2a313b;
+    --border-soft: #222831;
+    --border-strong: #3c4552;
+    --text: #e9ecf1;
+    --text-muted: #b3bbc7;
+    --text-subtle: #8f98a5;
+    --primary: #8fa2ff;
+    --primary-bg: #3d57e6;
+    --primary-hover: #4f69f2;
+    --primary-pressed: #344dcf;
+    --primary-soft: #1d2647;
+    --success: #5cc08a;
+    --success-soft: #12291d;
+    --warning: #e3a64e;
+    --warning-soft: #2f2412;
+    --danger: #f07c6c;
+    --danger-soft: #33171a;
+    --brand-red: #f0563c;
+    --accent-soft: color-mix(in oklab, var(--accent) 26%, var(--bg));
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 6px 20px rgb(0 0 0 / 0.45);
+    --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.6);
     color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
-  --paper: #15130f;
-  --paper-deep: #1d1a15;
-  --sheet: #1f1c17;
-  --ink: #ede6d8;
-  --ink-soft: #b9b09d;
-  --ink-faint: #7f7867;
-  --rule: #39342b;
-  --rule-soft: #2b2721;
-  --margin-red: #f0563c;
-  --margin-red-soft: #4a2219;
-  --accent-soft: color-mix(in oklab, var(--accent) 28%, var(--paper));
-  --good: #6cc08d;
-  --good-soft: #1f3327;
-  --warn: #e0a24a;
-  --warn-soft: #3a2d17;
-  --bad: #f07a63;
+  --bg: #0e1116;
+  --bg-subtle: #151920;
+  --bg-tint: #141b2e;
+  --surface: #171b22;
+  --surface-sunken: #12161c;
+  --border: #2a313b;
+  --border-soft: #222831;
+  --border-strong: #3c4552;
+  --text: #e9ecf1;
+  --text-muted: #b3bbc7;
+  --text-subtle: #8f98a5;
+  --primary: #8fa2ff;
+  --primary-bg: #3d57e6;
+  --primary-hover: #4f69f2;
+  --primary-pressed: #344dcf;
+  --primary-soft: #1d2647;
+  --success: #5cc08a;
+  --success-soft: #12291d;
+  --warning: #e3a64e;
+  --warning-soft: #2f2412;
+  --danger: #f07c6c;
+  --danger-soft: #33171a;
+  --brand-red: #f0563c;
+  --accent-soft: color-mix(in oklab, var(--accent) 26%, var(--bg));
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 6px 20px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.6);
   color-scheme: dark;
 }
 
 /*
   Accent used as *text*. Defined on every element so it follows the per-course
-  --accent set inline on page containers; lifted towards white when the lamp is off.
+  --accent set inline on page containers; lifted towards white in dark mode.
 */
 * {
   --accent-fg: var(--accent);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) * {
-    --accent-fg: color-mix(in oklab, var(--accent) 55%, white);
+    --accent-fg: color-mix(in oklab, var(--accent) 50%, white);
   }
 }
 :root[data-theme='dark'] * {
-  --accent-fg: color-mix(in oklab, var(--accent) 55%, white);
+  --accent-fg: color-mix(in oklab, var(--accent) 50%, white);
 }

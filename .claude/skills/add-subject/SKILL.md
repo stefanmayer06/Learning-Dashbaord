@@ -69,6 +69,9 @@ real output in the comment.
   **deliverable** step whenever the learner should produce something.
 - Define `outputs` in `course.json`: at least one per practice unit is ideal, and exactly one
   `capstone: true` output that pulls together saved lab results (`capture` fields) and writing.
+- Fill in the catalogue fields learners see first: `subtitle` (one line), `outcomes` (shown as
+  the "What you'll learn" checklist, 4–6 items) and `skills` (6–9 short skill names the course
+  really teaches, shown as pills on the catalogue card and course page).
 - Landscape units must carry dates ("checked …") and separate demonstrated results from
   estimates and contested claims. Include a "read the headline critically" exercise.
 

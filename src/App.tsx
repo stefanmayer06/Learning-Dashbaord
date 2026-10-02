@@ -1,10 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
-import { SITE } from './site'
-import { Glyph } from './ui/Glyph'
-import { SyncChip } from './ui/SyncChip'
-import { useLearner } from './store/LearnerProvider'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { loadCatalogue } from './content/loader'
+import { SiteFooter, SiteHeader } from './ui/Shell'
 import { Home } from './pages/Home'
 import { CoursePage } from './pages/CoursePage'
 import { CommissionPage } from './pages/CommissionPage'
@@ -22,7 +19,7 @@ export function App() {
   const { pathname } = useLocation()
   const inLesson = /^\/c\/[^/]+\/l\//.test(pathname)
   useEffect(() => {
-    if (!inLesson) window.scrollTo(0, 0)
+    if (!inLesson && !window.location.hash) window.scrollTo(0, 0)
   }, [pathname, inLesson])
 
   return (
@@ -31,10 +28,10 @@ export function App() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      {!inLesson && <Masthead />}
+      {!inLesson && <SiteHeader />}
       <main id="main">
         <ContentProblems />
-        <Suspense fallback={<div className="page route-loading label label-faint">Loading…</div>}>
+        <Suspense fallback={<div className="page route-loading">Loading…</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/c/:courseId" element={<CoursePage />} />
@@ -50,54 +47,8 @@ export function App() {
         </Routes>
         </Suspense>
       </main>
-      {!inLesson && <Footer />}
+      {!inLesson && <SiteFooter />}
     </>
-  )
-}
-
-function Masthead() {
-  const { state, setPrefs, sync } = useLearner()
-  const dark =
-    state.prefs.theme === 'dark' ||
-    (state.prefs.theme === 'system' && typeof matchMedia !== 'undefined' && matchMedia('(prefers-color-scheme: dark)').matches)
-  return (
-    <header className="masthead page no-print">
-      <Link to="/" className="wordmark" aria-label={`${SITE.name} — home`}>
-        {SITE.name}
-        <span className="wordmark-dot" aria-hidden />
-      </Link>
-      <nav className="mast-nav" aria-label="Main">
-        <NavLink to="/" end>
-          Shelf
-        </NavLink>
-        <NavLink to="/commission">Commission</NavLink>
-        <NavLink to="/method">Method</NavLink>
-        <NavLink to="/settings">Settings</NavLink>
-      </nav>
-      <div className="mast-tools">
-        <SyncChip status={sync.status} />
-        <button className="icon-btn" onClick={() => setPrefs({ theme: dark ? 'light' : 'dark' })} aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'} title="Lamp">
-          <Glyph name="lamp" size={18} />
-        </button>
-      </div>
-    </header>
-  )
-}
-
-function Footer() {
-  const { courses } = loadCatalogue()
-  const claims = courses.reduce((n, c) => n + Object.keys(c.claims).length, 0)
-  return (
-    <footer className="site-foot page no-print">
-      <div className="site-foot-row">
-        <span className="label label-faint">
-          {SITE.name} · {courses.length} course{courses.length === 1 ? '' : 's'} · {claims} claims in the ledger
-        </span>
-        <span className="label label-faint">
-          <Link to="/method">How courses are checked</Link> · <Link to="/commission">Commission a course</Link>
-        </span>
-      </div>
-    </footer>
   )
 }
 

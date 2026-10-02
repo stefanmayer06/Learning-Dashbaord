@@ -1,0 +1,335 @@
+/* ═════════════ course ═════════════ */
+
+.course-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: 48px;
+  padding-bottom: 32px;
+  align-items: start;
+}
+.course-hero-cover {
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  position: sticky;
+  top: 24px;
+}
+.course-hero-cover svg {
+  width: 100%;
+  height: 100%;
+}
+.course-hero-body > .label {
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.course-hero-body h1 {
+  margin-bottom: 18px;
+}
+.course-summary {
+  max-width: 62ch;
+  margin-top: 18px;
+}
+.course-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 26px 0;
+}
+.course-facts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--ink);
+}
+.course-facts div {
+  padding: 12px 10px 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.course-facts dd {
+  margin: 6px 0 0;
+  font-size: 18px;
+}
+@media (max-width: 860px) {
+  .course-hero {
+    grid-template-columns: 1fr;
+  }
+  .course-hero-cover {
+    position: static;
+    max-width: 240px;
+  }
+  .course-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* route map */
+.route {
+  margin: 30px 0 60px;
+}
+.route-line {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(130px, 1fr);
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+.station {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 30px 14px 0 0;
+  text-decoration: none;
+  min-width: 0;
+}
+.station-track {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--rule);
+}
+.station-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent);
+}
+.station-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  color: var(--paper);
+  z-index: 1;
+}
+.station.done .station-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.station.current .station-dot {
+  border-color: var(--margin-red);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 5.5px var(--margin-red);
+  animation: pulse-ring 2.2s var(--ease-in-out) infinite;
+}
+@keyframes pulse-ring {
+  50% {
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 8px color-mix(in oklab, var(--margin-red) 40%, transparent);
+  }
+}
+.station.locked .station-dot {
+  border-color: var(--ink-faint);
+  color: var(--ink-faint);
+}
+.station.locked {
+  opacity: 0.6;
+}
+.station-no {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+.station-strand {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.station-title {
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+.station:hover .station-title {
+  text-decoration: underline;
+  text-decoration-color: var(--margin-red);
+}
+
+.strand-theory {
+  color: var(--accent-fg);
+}
+.strand-practice {
+  color: var(--good);
+}
+.strand-landscape {
+  color: var(--warn);
+}
+.strand-capstone,
+.strand-orientation {
+  color: var(--margin-red);
+}
+
+.outcomes-block {
+  margin-bottom: 56px;
+}
+.outcomes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 32px;
+}
+.outcomes li {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 16px;
+}
+.outcome-n {
+  font-size: 11px;
+  color: var(--margin-red);
+  padding-top: 4px;
+}
+
+/* syllabus */
+.unit {
+  padding: 28px 0 36px;
+  border-top: 1px solid var(--ink);
+}
+.unit-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.unit-no {
+  font-size: clamp(34px, 3.4vw, 52px);
+  line-height: 1;
+  color: var(--ink);
+}
+.unit.locked .unit-no {
+  color: var(--ink-faint);
+}
+.unit-title {
+  flex: 1 1 auto;
+}
+.unit-state {
+  color: var(--ink-faint);
+}
+.unit-summary {
+  margin: 12px 0 18px;
+  max-width: 70ch;
+}
+.lessons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lesson-link {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto 70px 34px;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 6px;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+a.lesson-link:hover {
+  background: var(--sheet);
+}
+a.lesson-link:hover .lesson-title {
+  color: var(--accent-fg);
+}
+.lesson.locked .lesson-link {
+  color: var(--ink-faint);
+}
+.lesson-no {
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.lesson-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.lesson-title {
+  font-size: 17.5px;
+  font-weight: 500;
+}
+.lesson-sum {
+  font-size: 14px;
+}
+.lesson-kinds {
+  display: flex;
+  gap: 6px;
+  color: var(--ink-soft);
+}
+.lesson-min {
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-align: right;
+}
+.lesson-state {
+  display: grid;
+  place-items: center;
+}
+.tick {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+@media (max-width: 680px) {
+  .lesson-link {
+    grid-template-columns: 40px minmax(0, 1fr) 30px;
+  }
+  .lesson-kinds,
+  .lesson-min {
+    display: none;
+  }
+}
+
+.outputs-block {
+  margin-top: 40px;
+}
+.outputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+.output-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--rule);
+  background: var(--sheet);
+  text-decoration: none;
+  min-height: 200px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.output-card:hover {
+  border-color: var(--ink);
+}
+.output-card .label:first-child {
+  color: var(--margin-red);
+}
+.output-card .label:last-child {
+  margin-top: auto;
+}
+.output-title {
+  font-family: var(--font-display);
+  font-size: 25px;
+  line-height: 1.05;
+}
+.output-card.capstone {
+  border-color: var(--ink);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+.cert-card.ready {
+  border-color: var(--margin-red);
+}
+
