@@ -1,0 +1,170 @@
+{
+  "id": "qt-banks",
+  "title": "What banks have actually shown",
+  "summary": "HSBC, JPMorganChase, Vanguard and Goldman Sachs — the results, the setups and the caveats. Then audit a headline yourself.",
+  "minutes": 35,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt12-reel",
+      "title": "Inside the bank results",
+      "reel": {
+        "title": "Inside the bank results",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The results",
+            "kicker": "Unit 7 · Landscape · checked 2 Oct 2026",
+            "title": "Inside the\nbank results.",
+            "subtitle": "What was measured, on what, and what it does not show.",
+            "narration": "Let's open up the most-cited bank results, and read them the way a sceptical risk committee would."
+          },
+          {
+            "kind": "stat",
+            "chapter": "HSBC × IBM",
+            "value": 34,
+            "suffix": "%",
+            "label": "up to this much better **fill-probability** predictions for corporate-bond quote requests",
+            "context": "HSBC & IBM, Sept 2025 · IBM Heron processors · European corporate bonds",
+            "narration": "HSBC and IBM, September 2025. Up to thirty-four percent better predictions of whether a client's request for a bond quote would be filled, in the European corporate bond market, using IBM Heron processors.",
+            "cite": ["hsbc-trial"]
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              { "id": "d", "label": "Historical RFQ data", "x": 8, "y": 50, "tone": "ink" },
+              { "id": "q", "label": "Quantum circuit transforms features (offline)", "x": 36, "y": 50, "tone": "accent" },
+              { "id": "m", "label": "Ordinary ML models", "x": 64, "y": 50, "tone": "ink" },
+              { "id": "p", "label": "Fill prediction", "x": 92, "y": 50, "tone": "signal" }
+            ],
+            "edges": [
+              { "from": "d", "to": "q" },
+              { "from": "q", "to": "m" },
+              { "from": "m", "to": "p" }
+            ],
+            "narration": "Look at the setup. The quantum computer didn't trade. It transformed historical data offline, and ordinary machine-learning models used the transformed features. The quantum step is decoupled from the low-latency trading loop.",
+            "cite": ["hybrid-offline", "hsbc-trial"]
+          },
+          {
+            "kind": "statement",
+            "text": "Twist: the **noisy hardware** beat a **noiseless simulation** of the same circuits. The authors suspect the noise itself helps.",
+            "footnote": "Preprint. The cause is not established.",
+            "narration": "And here's the twist. Features from the real, noisy hardware beat both the raw data and a perfect noiseless simulation of the same circuits. The authors suggest the hardware's noise contributes. That's intriguing, and unexplained.",
+            "cite": ["hsbc-noise"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "JPMorganChase",
+            "text": "Mar 2025, Nature: the first **certified randomness** from a quantum computer — 56 qubits, **71,313** bits of entropy, checked by supercomputers.",
+            "narration": "JPMorganChase, with Quantinuum and US national labs, March 2025, in Nature: the first certified randomness from a quantum computer. Fifty-six qubits, seventy-one thousand three hundred and thirteen bits of entropy, certified using classical supercomputers.",
+            "cite": ["jpm-randomness"]
+          },
+          {
+            "kind": "statement",
+            "text": "Useful for finance? Potentially — for **verifiable random numbers** in cryptography and fair selection. Not for predicting prices.",
+            "narration": "Is that useful for finance? Potentially, as a source of verifiable randomness for cryptography and fair selection processes. It says nothing about predicting prices.",
+            "cite": ["jpm-randomness"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Vanguard × IBM",
+            "text": "2025: a variational workflow for **bond-portfolio construction** on **109 qubits**, up to 4,200 gates. IBM: “on par with” a strong classical solver, sometimes better.",
+            "narration": "Vanguard and IBM, 2025: a variational workflow for building bond portfolios, run on a hundred and nine qubits with up to four thousand two hundred gates. IBM reported it performed on par with a state-of-the-art classical solver, and in some scenarios better.",
+            "cite": ["vanguard-ibm", "cvar"]
+          },
+          {
+            "kind": "statement",
+            "text": "Read the paper: the comparison is against a classical **local search** baseline. A feasibility study — **not** a beat-the-best-classical result.",
+            "narration": "But read the paper. The head-to-head comparison is against a classical local-search baseline. It's a feasibility study, not proof of beating the best classical methods.",
+            "cite": ["vanguard-ibm"]
+          },
+          {
+            "kind": "compare",
+            "chapter": "The pattern",
+            "left": { "heading": "What they show", "items": ["Real data, real hardware", "Hybrid, offline quantum steps", "Promising signals worth studying"] },
+            "right": { "heading": "What they don't", "items": ["Production deployment", "Advantage over the best classical methods", "Results that generalise across markets"] },
+            "narration": "The pattern: real data, real hardware, hybrid quantum steps run offline, and promising signals. What's missing: production deployment, proven advantage over the best classical methods, and evidence it generalises.",
+            "cite": ["trials-not-production", "hybrid-offline"]
+          },
+          {
+            "kind": "statement",
+            "text": "Your turn: audit one headline the way we just did — **claim, evidence, caveats, verdict**.",
+            "narration": "Now it's your turn. You'll sort some claims, then audit one real headline the way we just did: the claim, the evidence, the caveats, and your verdict."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt12-sort",
+      "title": "Hype detector",
+      "widget": "card-sort",
+      "brief": "Three bins. “Demonstrated” means published and checkable. “Plausible, unproven” means credible research direction or estimate, not yet shown. “Red flag” means don't believe it.",
+      "props": {
+        "buckets": ["Demonstrated", "Plausible, unproven", "Red flag"],
+        "cards": [
+          { "text": "A quantum processor generated randomness that was certified by classical supercomputers.", "bucket": "Demonstrated", "why": "Published in Nature, March 2025.", "cite": ["jpm-randomness"] },
+          { "text": "Quantum amplitude estimation will make derivative pricing much faster once fault-tolerant machines exist.", "bucket": "Plausible, unproven", "why": "The speed-up is proven in theory; the hardware estimate is ~8,000 logical qubits.", "cite": ["qae-speedup", "derivative-threshold"] },
+          { "text": "Our quantum trading bot is right 99% of the time.", "bucket": "Red flag", "why": "No published system makes such claims; this is the language of scam platforms.", "cite": ["scam-tells"] },
+          { "text": "Error-corrected qubits got more reliable as the code size grew.", "bucket": "Demonstrated", "why": "Google's Willow, December 2024, published in Nature.", "cite": ["willow-threshold"] },
+          { "text": "QAOA will beat the best classical portfolio optimisers at scale.", "bucket": "Plausible, unproven", "why": "A research hope; benchmarks show strong sensitivity to depth, parameters and noise.", "cite": ["qaoa-benchmark"] },
+          { "text": "IBM's 2026 70-qubit sampling run is permanently beyond classical computers.", "bucket": "Plausible, unproven", "why": "A classical team reproduced its outputs in 37.3 minutes on GPUs within weeks (preprint).", "cite": ["classical-rebuttal-2026"] },
+          { "text": "Entanglement lets a fund see prices in another exchange before anyone else.", "bucket": "Red flag", "why": "Entanglement can't transmit information faster than light.", "cite": ["no-signalling"] }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "deliverable",
+      "id": "qt12-audit",
+      "title": "Headline audit",
+      "output": "headline-audit",
+      "brief": "Pick one result from this unit and audit it like a risk committee. Use the margin notes and the course ledger for evidence.",
+      "fields": [
+        {
+          "type": "choice",
+          "id": "headline",
+          "label": "Which headline are you auditing?",
+          "options": ["HSBC–IBM bond fill predictions (2025)", "JPMorganChase certified randomness (2025)", "Vanguard–IBM portfolio construction (2025)", "IBM's 70-qubit advantage claim (2026)", "Google Willow below threshold (2024)"]
+        },
+        { "type": "text", "id": "claim", "label": "The claim, in one sentence, with its number.", "minWords": 12, "maxWords": 60 },
+        { "type": "text", "id": "evidence", "label": "The evidence: what was measured, on what hardware and data, and compared with what?", "minWords": 30 },
+        { "type": "text", "id": "caveats", "label": "Caveats and counter-evidence: preprint or peer-reviewed? baseline? generality? classical replies?", "minWords": 30 },
+        { "type": "scale", "id": "update", "label": "How much should a trading desk change its plans because of this?", "min": 1, "max": 5, "minLabel": "Not at all", "maxLabel": "Act now" },
+        { "type": "text", "id": "verdict", "label": "Your verdict, in two sentences.", "minWords": 15, "maxWords": 80 }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qt12-quiz",
+      "title": "Check the details",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "In the HSBC–IBM trial, what role did the quantum computer play?",
+          "options": ["It executed trades in real time", "It transformed historical data offline into features for classical models", "It predicted bond prices directly"],
+          "answer": 1,
+          "explain": "A decoupled, offline component feeding ordinary machine-learning models.",
+          "cite": ["hybrid-offline"]
+        },
+        {
+          "type": "single",
+          "prompt": "What was surprising about the HSBC result?",
+          "options": ["Noisy hardware outperformed a noiseless simulation of the same circuits", "It used a million qubits", "It was peer-reviewed in Nature"],
+          "answer": 0,
+          "explain": "The authors suggest hardware noise contributes; the preprint calls for further study.",
+          "cite": ["hsbc-noise"]
+        },
+        {
+          "type": "single",
+          "prompt": "The Vanguard–IBM portfolio study is best described as…",
+          "options": ["Proof of quantum advantage in asset management", "A feasibility study compared against a classical local-search baseline", "A scam"],
+          "answer": 1,
+          "explain": "IBM reported it performed on par with a strong classical solver; the preprint's head-to-head baseline is local search.",
+          "cite": ["vanguard-ibm"]
+        }
+      ]
+    }
+  ]
+}

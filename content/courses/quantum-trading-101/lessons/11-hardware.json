@@ -1,0 +1,163 @@
+{
+  "id": "qt-hardware",
+  "title": "Hardware and the advantage scoreboard",
+  "summary": "Who has built what, which milestones are real, and why every 'beyond classical' claim gets a reply.",
+  "minutes": 25,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt11-reel",
+      "title": "Claims and counter-claims",
+      "reel": {
+        "title": "Claims and counter-claims",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The scoreboard",
+            "kicker": "Unit 7 · Landscape · checked 2 Oct 2026",
+            "title": "Claims and\ncounter-claims.",
+            "subtitle": "How to read a quantum-advantage headline.",
+            "narration": "Now the landscape, as it stands at this edition's check date. Every date and number in this unit was checked against its primary source. Watch the pattern: a claim, then a reply."
+          },
+          {
+            "kind": "statement",
+            "text": "2019: Google's 53-qubit **Sycamore** sampled random circuits in ~200 s — “**10,000 years**” for a supercomputer, it said.",
+            "narration": "2019. Google reported that its fifty-three-qubit Sycamore chip finished a random sampling task in about two hundred seconds, a job it estimated would take a supercomputer ten thousand years.",
+            "cite": ["sycamore-2019"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "The claim", "items": ["~200 seconds on Sycamore", "~10,000 years classically"] },
+            "right": { "heading": "The replies", "items": ["IBM: ~2.5 days with a supercomputer's disk storage", "2022: ~15 hours on 512 GPUs with tensor networks"] },
+            "narration": "The replies came fast. IBM argued a supercomputer using its disk storage could do it in about two and a half days. In 2022, a tensor-network method did it in about fifteen hours on five hundred and twelve GPUs.",
+            "cite": ["sycamore-2019", "tensor-networks"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Error correction",
+            "text": "Dec 2024: Google's 105-qubit **Willow** — errors **halved** each time the code grew (3×3 → 5×5 → 7×7). “Below threshold.”",
+            "narration": "December 2024 brought a different kind of milestone. On Google's hundred-and-five-qubit Willow chip, logical errors halved each time the error-correcting code grew. That's called operating below threshold, and it's what scaling needs.",
+            "cite": ["willow-threshold"]
+          },
+          {
+            "kind": "statement",
+            "text": "Google's own caveat on Willow's speed record: random circuit sampling has **no known practical application**.",
+            "narration": "Google also posted a dramatic speed record for random sampling, but its own announcement noted that this benchmark has no known practical application. Read the caveats, not just the headline.",
+            "cite": ["willow-rcs"]
+          },
+          {
+            "kind": "timeline",
+            "chapter": "2025 – 2026",
+            "events": [
+              { "year": "May 2025", "label": "D-Wave Advantage2", "detail": "4,400+ qubit annealer, generally available" },
+              { "year": "Oct 2025", "label": "Google “Quantum Echoes”", "detail": "~2 h on Willow; ~13,000× longer estimated on Frontier; checkable result" },
+              { "year": "Nov 2025", "label": "Quantinuum Helios", "detail": "98 qubits; 48 error-corrected logical qubits" },
+              { "year": "Nov 2025", "label": "IBM Nighthawk + Loon", "detail": "120 qubits; advantage expected by end-2026" },
+              { "year": "Jul 2026", "label": "IBM's three advantage claims", "detail": "Incl. 70 logical qubits, ~15 min" }
+            ],
+            "narration": "Then a busy stretch. D-Wave's Advantage2 annealer went on general release. Google reported Quantum Echoes, a checkable result it estimated at thirteen thousand times faster than the Frontier supercomputer. Quantinuum launched Helios. IBM launched Nighthawk and predicted advantage by the end of 2026. And in July 2026, IBM announced three advantage demonstrations.",
+            "cite": ["dwave-advantage2", "quantum-echoes", "helios", "ibm-nighthawk", "ibm-advantage-2026"]
+          },
+          {
+            "kind": "stat",
+            "value": 37.3,
+            "decimals": 1,
+            "suffix": " min",
+            "label": "for a **classical** tensor-network simulation of IBM's 70-qubit experiment, on 256 GPUs",
+            "context": "August 2026 preprint · IBM's quantum run took about 15 minutes",
+            "narration": "And the reply, about two weeks later: a classical team reproduced the published outputs of IBM's seventy-qubit experiment in thirty-seven point three minutes on two hundred and fifty-six GPUs. Both papers are preprints.",
+            "cite": ["classical-rebuttal-2026", "ibm-advantage-2026"]
+          },
+          {
+            "kind": "statement",
+            "text": "This back-and-forth is **healthy**. IBM and partners even run an open **Quantum Advantage Tracker** so claims can be challenged.",
+            "narration": "This back and forth is healthy. It's how science should work. IBM and partners even launched an open Quantum Advantage Tracker in 2025, so that every claim can be posted and challenged.",
+            "cite": ["advantage-tracker"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The roadmap",
+            "text": "IBM's target: **Starling** by **2029** — ~200 logical qubits, 100 million operations. A plan, not a delivery.",
+            "narration": "Looking ahead, IBM's roadmap targets Starling by 2029: about two hundred logical qubits running a hundred million operations. Remember the derivative-pricing estimate needed about eight thousand. Roadmaps are plans, not deliveries.",
+            "cite": ["ibm-starling", "derivative-threshold"]
+          },
+          {
+            "kind": "list",
+            "heading": "Read any advantage headline with four questions",
+            "items": ["Is the task **useful**, or a benchmark?", "**Physical** or **logical** qubits?", "Peer-reviewed or **preprint**?", "Has a **classical reply** appeared yet?"],
+            "narration": "So here are four questions for any advantage headline. Is the task useful, or just a benchmark? Physical or logical qubits? Peer-reviewed or preprint? And has a classical reply appeared yet?",
+            "cite": ["willow-rcs", "logical-qubits"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt11-estimate",
+      "title": "Calibrate: the 2019 claim",
+      "widget": "estimator",
+      "brief": "Commit to a guess before you see the answer — calibration is a skill.",
+      "props": {
+        "question": "Google's 2019 Sycamore experiment took about 200 seconds. How many **years** did Google estimate a supercomputer would need for the same task?",
+        "answer": 10000,
+        "min": 1,
+        "max": 100000000,
+        "log": true,
+        "unit": "years",
+        "reveal": "Google estimated about 10,000 years. IBM replied that about 2.5 days would do, and in 2022 a tensor-network method took about 15 hours on 512 GPUs. Headline numbers for “classical time” are estimates — and they shrink.",
+        "cite": ["sycamore-2019", "tensor-networks"]
+      },
+      "cite": []
+    },
+    {
+      "type": "widget",
+      "id": "qt11-sequence",
+      "title": "Put the milestones in order",
+      "widget": "sequence",
+      "brief": "Order these events from earliest to latest.",
+      "props": {
+        "items": [
+          { "label": "Shor's factoring algorithm", "detail": "1994 — the result that launched the field's ambitions.", "cite": ["shor-threat"] },
+          { "label": "Grover's search algorithm", "detail": "1996.", "cite": ["grover-sqrt"] },
+          { "label": "Google's Sycamore “supremacy” claim", "detail": "2019 — contested by IBM.", "cite": ["sycamore-2019"] },
+          { "label": "Willow shows error correction below threshold", "detail": "December 2024.", "cite": ["willow-threshold"] },
+          { "label": "HSBC–IBM bond-trading trial published", "detail": "September 2025.", "cite": ["hsbc-trial"] },
+          { "label": "IBM announces three advantage demonstrations", "detail": "July 2026 — with a classical reply weeks later.", "cite": ["ibm-advantage-2026"] }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qt11-quiz",
+      "title": "Check the scoreboard",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What made Google's Willow result (December 2024) a milestone?",
+          "options": ["It ran a profitable trading algorithm", "Logical errors fell as the error-correcting code grew — 'below threshold'", "It factored RSA-2048"],
+          "answer": 1,
+          "explain": "Errors halved at each code size, 3×3 → 5×5 → 7×7.",
+          "cite": ["willow-threshold"]
+        },
+        {
+          "type": "single",
+          "prompt": "What happened after IBM's July 2026 70-qubit advantage claim?",
+          "options": ["Nothing — it was universally accepted", "A classical team reproduced the outputs in 37.3 minutes on GPUs (preprint)", "IBM withdrew it"],
+          "answer": 1,
+          "explain": "Both the claim and the reply were preprints at the time of checking; the community tracker treats such results as candidates.",
+          "cite": ["classical-rebuttal-2026"]
+        },
+        {
+          "type": "multi",
+          "prompt": "Which questions should you ask of an advantage headline?",
+          "options": ["Is the task useful or just a benchmark?", "Physical or logical qubits?", "Has a classical reply appeared?", "Which company has the nicest logo?"],
+          "answers": [0, 1, 2],
+          "explain": "Usefulness, error-correction status and classical counter-evidence are what separate milestones from marketing.",
+          "cite": ["willow-rcs", "logical-qubits", "tensor-networks"]
+        }
+      ]
+    }
+  ]
+}

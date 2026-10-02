@@ -1,0 +1,112 @@
+/*
+  Margin — design tokens.
+  The brand is named for the red margin rule of a school exercise book: the
+  rule runs down every page, marginalia (step numbers, citations, notes) live
+  to its left, the work lives to its right.
+*/
+
+:root {
+  /* paper & ink */
+  --paper: #f4f0e8;
+  --paper-deep: #ebe5d8;
+  --sheet: #fbf9f4;
+  --ink: #17140f;
+  --ink-soft: #564f41;
+  --ink-faint: #8f8775;
+  --rule: #d8cfbd;
+  --rule-soft: #e5ddcf;
+
+  /* the margin rule and signal colour */
+  --margin-red: #dd3f27;
+  --margin-red-soft: #f3c8bd;
+
+  /* course accent — overridden per course */
+  --accent: #2e36d9;
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in oklab, var(--accent) 14%, var(--paper));
+
+  --good: #26734a;
+  --good-soft: #d6e8da;
+  --warn: #a8640a;
+  --warn-soft: #f2e2c4;
+  --bad: #b8321f;
+
+  /* theatre (reels) */
+  --theatre: #12110e;
+  --theatre-2: #1c1a16;
+  --theatre-ink: #efe9dd;
+  --theatre-faint: #8a8474;
+  --theatre-accent: color-mix(in oklab, var(--accent) 62%, white);
+
+  /* type */
+  --font-display: 'Gloock', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-body: 'Schibsted Grotesk Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Martian Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* layout */
+  --margin-x: clamp(16px, 7vw, 112px); /* where the red rule sits */
+  --gutter: clamp(16px, 2.4vw, 32px);
+  --page-max: 1320px;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  color-scheme: light;
+}
+
+/* Lamp off — warm dark, never pure black */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #15130f;
+    --paper-deep: #1d1a15;
+    --sheet: #1f1c17;
+    --ink: #ede6d8;
+    --ink-soft: #b9b09d;
+    --ink-faint: #7f7867;
+    --rule: #39342b;
+    --rule-soft: #2b2721;
+    --margin-red: #f0563c;
+    --margin-red-soft: #4a2219;
+    --accent-soft: color-mix(in oklab, var(--accent) 28%, var(--paper));
+    --good: #6cc08d;
+    --good-soft: #1f3327;
+    --warn: #e0a24a;
+    --warn-soft: #3a2d17;
+    --bad: #f07a63;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --paper: #15130f;
+  --paper-deep: #1d1a15;
+  --sheet: #1f1c17;
+  --ink: #ede6d8;
+  --ink-soft: #b9b09d;
+  --ink-faint: #7f7867;
+  --rule: #39342b;
+  --rule-soft: #2b2721;
+  --margin-red: #f0563c;
+  --margin-red-soft: #4a2219;
+  --accent-soft: color-mix(in oklab, var(--accent) 28%, var(--paper));
+  --good: #6cc08d;
+  --good-soft: #1f3327;
+  --warn: #e0a24a;
+  --warn-soft: #3a2d17;
+  --bad: #f07a63;
+  color-scheme: dark;
+}
+
+/*
+  Accent used as *text*. Defined on every element so it follows the per-course
+  --accent set inline on page containers; lifted towards white when the lamp is off.
+*/
+* {
+  --accent-fg: var(--accent);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) * {
+    --accent-fg: color-mix(in oklab, var(--accent) 55%, white);
+  }
+}
+:root[data-theme='dark'] * {
+  --accent-fg: color-mix(in oklab, var(--accent) 55%, white);
+}

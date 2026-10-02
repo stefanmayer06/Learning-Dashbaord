@@ -1,0 +1,106 @@
+{
+  "id": "qt-toolchain",
+  "title": "The toolchain, in real code",
+  "summary": "What a quant team's quantum code actually looks like — three short, tested snippets — and how fast the tools move.",
+  "minutes": 18,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt10-reel",
+      "title": "Three snippets",
+      "reel": {
+        "title": "Three snippets",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The tools",
+            "kicker": "Unit 6 · Practice",
+            "title": "Three\nsnippets.",
+            "subtitle": "Every line here was run before it went on screen.",
+            "narration": "Labs in your browser are great for intuition. Here's what the same ideas look like in the code real teams write. Every snippet was run before it went on screen."
+          },
+          {
+            "kind": "list",
+            "heading": "The open-source toolkits, all actively released in 2026",
+            "items": ["**Qiskit** — IBM", "**Cirq** — Google", "**PennyLane** — Xanadu", "**Braket SDK** — Amazon", "**Ocean** — D-Wave", "**CUDA-Q** — NVIDIA"],
+            "narration": "The main toolkits are open source and all were actively released in 2026: Qiskit from IBM, Cirq from Google, PennyLane from Xanadu, Amazon's Braket SDK, D-Wave's Ocean, and NVIDIA's CUDA-Q.",
+            "cite": ["sdk-landscape"]
+          },
+          {
+            "kind": "code",
+            "chapter": "1 · A Bell state",
+            "language": "python · qiskit 2.5",
+            "code": "from qiskit import QuantumCircuit\nfrom qiskit.quantum_info import Statevector\n\nqc = QuantumCircuit(2)\nqc.h(0)        # superpose qubit 0\nqc.cx(0, 1)    # qubit 0 controls qubit 1\nprint(Statevector(qc).probabilities().round(3))\n# [0.5 0.  0.  0.5]  -> only 00 and 11",
+            "focus": [[4, 5, 6], [7, 8]],
+            "narration": "Snippet one is the Bell state you built in Unit 3. Two qubits, a Hadamard, a controlled NOT. Ask for the exact probabilities and you get one half on zero zero, one half on one one, nothing else.",
+            "cite": ["bell-state"]
+          },
+          {
+            "kind": "code",
+            "chapter": "2 · Shots",
+            "language": "python · qiskit 2.5",
+            "code": "from qiskit.primitives import StatevectorSampler\n\nqc.measure_all()\njob = StatevectorSampler().run([qc], shots=1000)\nprint(job.result()[0].data.meas.get_counts())\n# e.g. {'11': 498, '00': 502}",
+            "focus": [[3, 4], [5, 6]],
+            "narration": "Snippet two measures it a thousand times, the way real hardware would. You get counts, not probabilities: about five hundred each, never exactly. That's the shot noise from Unit 2.",
+            "cite": ["born-rule", "shot-noise"]
+          },
+          {
+            "kind": "code",
+            "chapter": "3 · The portfolio QUBO",
+            "language": "python · d-wave ocean",
+            "code": "import numpy as np, dimod\nfrom dwave.samplers import SimulatedAnnealingSampler\n\nmu, vol = np.array(MU), np.array(VOL)     # the lab's six assets\ncov = np.array(CORR) * np.outer(vol, vol)\nq, B, lam = 0.6, 3, 0.3\nQ = q*cov - np.diag(mu) + lam*(1 - 2*B*np.eye(6))\nbqm = dimod.BinaryQuadraticModel.from_qubo(dict(np.ndenumerate(Q)))\nbest = SimulatedAnnealingSampler().sample(bqm, num_reads=200).first\nprint(best.sample)   # holds assets 1, 3, 5: CORP, GROW, GOLD",
+            "focus": [[6, 7], [8, 9, 10]],
+            "narration": "Snippet three is the portfolio problem from the last lab, written for D-Wave's Ocean tools. Build the QUBO matrix in one line, wrap it as a model, and sample it. It picks the same three assets the lab's brute force finds.",
+            "cite": ["qubo-form", "annealing"]
+          },
+          {
+            "kind": "statement",
+            "text": "That sampler is **classical** simulated annealing, running on your laptop. The **same model object** is what you'd send to an annealer in the cloud.",
+            "narration": "Note that this sampler is classical simulated annealing on your own laptop. The point is the model object: the same QUBO is what you would send to quantum hardware in the cloud.",
+            "cite": ["annealing", "dwave-advantage2"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Tool churn",
+            "text": "Libraries move fast: Qiskit reached **2.5** in 2026; the community **qiskit-finance** module's last release was **February 2024**.",
+            "narration": "One warning from the field: these libraries move fast. Core Qiskit reached version two point five in 2026, while the community finance module's last release dates from February 2024. Pin your versions, and expect to rewrite.",
+            "cite": ["qiskit-finance-status", "sdk-landscape"]
+          },
+          {
+            "kind": "statement",
+            "text": "For learning, **simulators are free and exact**. Hardware time is for when you need to know what noise does to your idea.",
+            "narration": "For learning, simulators are free and exact, as the labs in this course are. Hardware time matters when you need to know what real noise does to your idea."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt10-sequence",
+      "title": "Order a sensible experiment",
+      "widget": "sequence",
+      "brief": "A quant asks how to test a quantum idea responsibly. Put the workflow in order.",
+      "props": {
+        "items": [
+          { "label": "Write the problem down as a circuit or a QUBO", "detail": "If you can't write it in one of these forms, there's no quantum algorithm to run." },
+          { "label": "Solve a small instance exactly with a classical simulator", "detail": "This gives you ground truth to grade everything else against." },
+          { "label": "Establish the best classical baseline on the same instances", "detail": "Not a weak baseline — the best one you can find." },
+          { "label": "Run on hardware with many shots and record the noise", "detail": "Results are samples; one run proves nothing." },
+          { "label": "Compare honestly and publish the caveats", "detail": "Report where it lost, too." }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "recap",
+      "id": "qt10-recap",
+      "title": "Practice, in four cards",
+      "points": [
+        { "text": "Amplitude estimation could cut pricing error from ∝1/√N to ∝1/N — on fault-tolerant machines.", "cite": ["qae-speedup"] },
+        { "text": "Useful pricing advantage was estimated at about 8,000 logical qubits, run in about a second.", "cite": ["derivative-threshold"] },
+        { "text": "Portfolio choices become QUBOs; constraints become penalties you must tune.", "cite": ["qubo-form"] },
+        { "text": "QAOA and annealing are heuristics: they shift odds, they don't guarantee optima.", "cite": ["qaoa", "qaoa-benchmark"] }
+      ]
+    }
+  ]
+}

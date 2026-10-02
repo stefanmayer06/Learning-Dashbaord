@@ -1,0 +1,160 @@
+{
+  "id": "qt-pricing",
+  "title": "The pricing race",
+  "summary": "Price a European call three ways — formula, Monte Carlo, ideal quantum amplitude estimation — and read the resource bill.",
+  "minutes": 35,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt8-reel",
+      "title": "Pricing, classically and quantumly",
+      "reel": {
+        "title": "Pricing, classically and quantumly",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The contract",
+            "kicker": "Unit 5 · Practice",
+            "title": "The pricing\nrace.",
+            "subtitle": "One option. A formula, a simulation, and a quantum algorithm.",
+            "narration": "Time to use what we've learned on a real finance problem: pricing an option."
+          },
+          {
+            "kind": "statement",
+            "text": "A **call option** is the right to buy at a strike price **K** on a date **T**. Its payoff: $\\max(S_T - K,\\ 0)$.",
+            "narration": "A call option is the right to buy an asset at a fixed strike price on a future date. If the price ends above the strike you gain the difference. Otherwise, nothing."
+          },
+          {
+            "kind": "equation",
+            "tex": ["C = S_0\\,N(d_1) - K e^{-rT} N(d_2)"],
+            "notes": ["Black–Scholes (1973): a closed-form price for simple European options.", "Nobel memorial prize, 1997 — and our benchmark today."],
+            "narration": "For simple European options there's a famous closed-form answer, the Black–Scholes formula from 1973, honoured with a Nobel memorial prize in 1997. It will be our ground truth.",
+            "cite": ["black-scholes"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Monte Carlo",
+            "text": "Real desks trade **exotics** with no formula. So they **simulate**: thousands of random price paths, average the discounted payoffs.",
+            "narration": "But real desks trade exotic derivatives with no neat formula. So they simulate: thousands of random price paths, average the payoffs, discount to today. That's Monte Carlo.",
+            "cite": ["mc-rate"]
+          },
+          {
+            "kind": "chart",
+            "xLabel": "model evaluations (log)",
+            "yLabel": "error (relative, log)",
+            "logX": true,
+            "logY": true,
+            "series": [
+              { "name": "Monte Carlo ∝ 1/√N", "tone": "ink", "points": [[10, 0.316], [100, 0.1], [1000, 0.0316], [10000, 0.01], [100000, 0.00316], [1000000, 0.001]] },
+              { "name": "ideal QAE ∝ 1/N", "tone": "accent", "points": [[10, 0.1], [100, 0.01], [1000, 0.001], [10000, 0.0001], [100000, 0.00001], [1000000, 0.000001]] }
+            ],
+            "narration": "Monte Carlo's error falls like one over root N. Ideal amplitude estimation falls like one over N. On a log chart, one line is twice as steep. For high precision, that's the difference between millions and thousands of evaluations.",
+            "cite": ["mc-rate", "qae-speedup"]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "The quantum recipe",
+            "nodes": [
+              { "id": "d", "label": "Load price distribution on n qubits", "x": 10, "y": 50, "tone": "ink" },
+              { "id": "p", "label": "Encode payoff as a probability", "x": 37, "y": 50, "tone": "ink" },
+              { "id": "a", "label": "Amplitude estimation", "x": 64, "y": 50, "tone": "accent" },
+              { "id": "r", "label": "Price ≈ scale × estimate", "x": 91, "y": 50, "tone": "signal" }
+            ],
+            "edges": [
+              { "from": "d", "to": "p" },
+              { "from": "p", "to": "a" },
+              { "from": "a", "to": "r" }
+            ],
+            "narration": "The quantum recipe has three stages. Load a discretised distribution of future prices onto n qubits. Encode the payoff as the probability of one extra qubit. Then run amplitude estimation on that probability.",
+            "cite": ["qae-grid", "qae-finance"]
+          },
+          {
+            "kind": "stat",
+            "chapter": "The bill",
+            "value": 8000,
+            "label": "**logical** qubits estimated for useful advantage in derivative pricing",
+            "context": "Goldman Sachs & IBM, 2021 · T-depth 54 million · must run in about a second",
+            "narration": "Then the bill. A 2021 study by Goldman Sachs and IBM estimated that beating classical pricing on their benchmark derivatives would need about eight thousand logical qubits, a T-depth of fifty-four million, and the whole run done in about a second.",
+            "cite": ["derivative-threshold"]
+          },
+          {
+            "kind": "list",
+            "heading": "Why it's hard",
+            "items": ["**Loading** the distribution costs gates — it can eat the speed-up", "Deep circuits need **error-corrected** logical qubits", "Markets move: a price that takes an hour is worthless"],
+            "narration": "Why so demanding? Loading the distribution costs gates and can eat the speed-up. The deep circuits need error-corrected logical qubits. And a price that arrives after the market has moved is worthless.",
+            "cite": ["derivative-threshold", "logical-qubits"]
+          },
+          {
+            "kind": "statement",
+            "text": "Researchers are shaving the bill with **lower-depth** variants of amplitude estimation — trading some speed-up for feasibility.",
+            "narration": "Researchers are shaving that bill with lower-depth versions of amplitude estimation that skip the costliest step, trading some of the speed-up for something buildable.",
+            "cite": ["qae-low-depth"]
+          },
+          {
+            "kind": "statement",
+            "text": "Now race them yourself. Same option, three methods, an **honest scoreboard**.",
+            "narration": "Now race them yourself. Same option, the formula, Monte Carlo, and an ideal quantum estimator, with an honest scoreboard and the fine print beside it."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt8-race",
+      "title": "Race the methods",
+      "widget": "pricing-race",
+      "brief": "Set up the option, simulate Monte Carlo paths, then sample the ideal quantum estimator. Move the target accuracy and compare the model calls each method needs. Save your run — it goes into your lab notebook and your capstone.",
+      "props": { "capture": "pricing-run", "cite": ["derivative-threshold"] },
+      "cite": ["black-scholes", "mc-rate", "qae-speedup"]
+    },
+    {
+      "type": "deliverable",
+      "id": "qt8-notebook",
+      "title": "Notebook: pricing",
+      "output": "lab-notebook",
+      "brief": "Record what the race showed while it's fresh. Your saved run is attached automatically.",
+      "fields": [
+        { "type": "capture", "id": "pricing-capture", "label": "Your saved pricing run", "from": "pricing-run", "hint": "Run the pricing race and press “Save to notebook”." },
+        {
+          "type": "text",
+          "id": "pricing-note",
+          "label": "At your target accuracy, how many model calls did each method need — and what would have to be true of the hardware for the quantum number to matter?",
+          "hint": "Think about logical qubits, circuit depth and the time limit.",
+          "minWords": 40
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qt8-quiz",
+      "title": "Check the race",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "With Monte Carlo, to cut the error from $0.10 to $0.01, how many times more paths do you need?",
+          "answer": 100,
+          "tolerance": 0,
+          "explain": "Error ∝ 1/√N: 10× smaller error needs 10² = 100× more paths.",
+          "cite": ["mc-rate"]
+        },
+        {
+          "type": "single",
+          "prompt": "With ideal amplitude estimation, 10× smaller error needs roughly…",
+          "options": ["10× more model calls", "100× more model calls", "No extra calls"],
+          "answer": 0,
+          "explain": "Error ∝ 1/N, so 10× precision costs about 10× the calls.",
+          "cite": ["qae-speedup"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did the 2021 Goldman Sachs–IBM study estimate useful pricing advantage would need?",
+          "options": ["About 50 noisy qubits", "About 8,000 logical qubits and a T-depth of 54 million, run in about a second", "Nothing — advantage was already achieved"],
+          "answer": 1,
+          "explain": "From the published paper (Quantum, 2021). Earlier preprint drafts quoted 7.5k.",
+          "cite": ["derivative-threshold"]
+        }
+      ]
+    }
+  ]
+}

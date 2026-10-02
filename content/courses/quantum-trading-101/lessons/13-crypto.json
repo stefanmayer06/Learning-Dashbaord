@@ -1,0 +1,138 @@
+{
+  "id": "qt-crypto",
+  "title": "The other quantum risk: cryptography",
+  "summary": "The nearest-term quantum issue for a trading desk isn't alpha — it's encryption. The estimates, the standards, the clock.",
+  "minutes": 22,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt13-reel",
+      "title": "The cryptography clock",
+      "reel": {
+        "title": "The cryptography clock",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The threat",
+            "kicker": "Unit 7 · Landscape · checked 2 Oct 2026",
+            "title": "The cryptography\nclock.",
+            "subtitle": "The quantum risk every desk already has.",
+            "narration": "Here's the twist in the quantum trading story. The most concrete quantum issue for a trading desk today isn't a new source of returns. It's encryption."
+          },
+          {
+            "kind": "statement",
+            "text": "Shor's algorithm (1994): a large quantum computer could break **RSA** and **elliptic-curve** cryptography — what secures logins, trades and settlement today.",
+            "narration": "In 1994 Peter Shor showed that a large quantum computer could factor numbers and solve discrete logarithms efficiently. That would break RSA and elliptic-curve cryptography, which protect logins, order flow and settlement today.",
+            "cite": ["shor-threat"]
+          },
+          {
+            "kind": "chart",
+            "chapter": "Falling estimates",
+            "xLabel": "year of estimate",
+            "yLabel": "physical qubits to break RSA-2048 (log)",
+            "logY": true,
+            "series": [
+              { "name": "published estimates", "tone": "signal", "points": [[2019, 20000000], [2025, 1000000], [2026, 100000]] }
+            ],
+            "annotations": [
+              { "x": 2019, "y": 20000000, "text": "20M qubits · ~8 h" },
+              { "x": 2025, "y": 1000000, "text": "< 1M · < 1 week" },
+              { "x": 2026, "y": 100000, "text": "< 100k (preprint)" }
+            ],
+            "narration": "How big a machine? The estimates keep falling. In 2019, twenty million noisy qubits for about eight hours. In 2025, under a million qubits for under a week. A 2026 preprint argues under a hundred thousand.",
+            "cite": ["rsa-2019", "rsa-2025", "rsa-2026"]
+          },
+          {
+            "kind": "statement",
+            "text": "These are **estimates** under stated assumptions — no machine is close. But the trend is down, and attackers can **start early**.",
+            "narration": "These are estimates under stated hardware assumptions, and no machine today is close. But the trend is downward, and attackers don't have to wait to begin.",
+            "cite": ["rsa-2025", "harvest-now"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Harvest now",
+            "text": "**Harvest now, decrypt later**: record encrypted traffic today, decrypt it when the machines arrive.",
+            "narration": "That's the harvest now, decrypt later threat. Record encrypted traffic today, and decrypt it once quantum computers mature. Anything that must stay secret for years is already exposed.",
+            "cite": ["harvest-now"]
+          },
+          {
+            "kind": "equation",
+            "tex": ["X + Y > Z \\;\\Rightarrow\\; \\text{start now}"],
+            "notes": ["$X$: years your data must stay secret.", "$Y$: years your migration will take.", "$Z$: years until a cryptographically relevant quantum computer."],
+            "narration": "Mosca's rule makes it concrete. If the years your data must stay secret, plus the years your migration will take, exceed the years until a code-breaking quantum computer exists, you are already late.",
+            "cite": ["mosca-rule"]
+          },
+          {
+            "kind": "timeline",
+            "chapter": "The fix",
+            "events": [
+              { "year": "Aug 2024", "label": "NIST approves FIPS 203, 204, 205", "detail": "ML-KEM, ML-DSA, SLH-DSA" },
+              { "year": "Mar 2025", "label": "HQC selected as a backup", "detail": "Different maths from ML-KEM; final standard expected 2027" },
+              { "year": "2030", "label": "Draft: deprecate RSA/ECDSA (112-bit)", "detail": "NIST IR 8547, proposed" },
+              { "year": "2035", "label": "Draft: disallow quantum-vulnerable algorithms", "detail": "NIST IR 8547, proposed" }
+            ],
+            "narration": "The fix exists. In August 2024 NIST approved its first post-quantum standards. In March 2025 it picked a backup algorithm. And its draft transition plan proposes retiring RSA and elliptic-curve signatures, with deprecation after 2030 and a full ban after 2035.",
+            "cite": ["nist-fips", "nist-hqc", "nist-timeline"]
+          },
+          {
+            "kind": "list",
+            "heading": "What a desk can do this year",
+            "items": ["**Inventory** where public-key crypto lives: trading links, APIs, vendors", "**Rank** data by how long it must stay secret", "Ask vendors for **post-quantum roadmaps**", "Plan **hybrid** migrations, starting with long-lived secrets"],
+            "narration": "What can a desk do this year? Inventory where public-key cryptography lives. Rank data by how long it must stay secret. Ask vendors for their post-quantum plans. And plan migrations, starting with the longest-lived secrets.",
+            "cite": ["harvest-now", "nist-timeline"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt13-estimate",
+      "title": "Calibrate: breaking RSA",
+      "widget": "estimator",
+      "brief": "Commit to a number first.",
+      "props": {
+        "question": "In May 2025, Craig Gidney estimated how many noisy **physical qubits** would be needed to factor a 2048-bit RSA key in under a week?",
+        "answer": 1000000,
+        "min": 1000,
+        "max": 1000000000,
+        "log": true,
+        "unit": "qubits",
+        "reveal": "Fewer than one million — down from about 20 million in his 2019 estimate with Ekerå. A February 2026 preprint argues fewer than 100,000 could suffice. All assume error rates around 0.1% and fast error-correction cycles that no machine yet delivers at this scale.",
+        "cite": ["rsa-2025", "rsa-2019", "rsa-2026"]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qt13-quiz",
+      "title": "Check the clock",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Why does a trading firm need to act on post-quantum cryptography before large quantum computers exist?",
+          "options": ["Because quantum computers already break RSA", "Because recorded traffic can be decrypted later ('harvest now, decrypt later')", "It doesn't"],
+          "answer": 1,
+          "explain": "Long-lived secrets captured today are at risk tomorrow.",
+          "cite": ["harvest-now"]
+        },
+        {
+          "type": "single",
+          "prompt": "Mosca's rule: your data must stay secret for 8 years, migration takes 5 years, and you expect a code-breaking machine in 10 years. Are you late?",
+          "options": ["No — 10 years is plenty", "Yes — 8 + 5 = 13 > 10"],
+          "answer": 1,
+          "explain": "X + Y > Z means you should already have started.",
+          "cite": ["mosca-rule"]
+        },
+        {
+          "type": "multi",
+          "prompt": "Which are NIST post-quantum standards approved in August 2024?",
+          "options": ["FIPS 203 (ML-KEM)", "FIPS 204 (ML-DSA)", "FIPS 205 (SLH-DSA)", "RSA-4096"],
+          "answers": [0, 1, 2],
+          "explain": "RSA at any size is quantum-vulnerable; the three FIPS are the new standards.",
+          "cite": ["nist-fips"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": "qt-qubit",
+  "title": "Superposition and the Bloch sphere",
+  "summary": "A qubit is two amplitudes, not a coin that's secretly heads or tails. Steer one yourself.",
+  "minutes": 18,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt2-reel",
+      "title": "From bits to qubits",
+      "reel": {
+        "title": "From bits to qubits",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Bits and qubits",
+            "kicker": "Unit 2 · Theory",
+            "title": "The qubit.",
+            "subtitle": "Two numbers that behave like waves — and one rule for turning them into odds.",
+            "narration": "Every quantum algorithm in finance starts from one object: the qubit. Let's build it from scratch."
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "A bit", "items": ["Is 0 or 1", "Reading it changes nothing", "n bits: one of 2ⁿ values at a time"] },
+            "right": { "heading": "A qubit", "items": ["Has an amplitude for 0 **and** for 1", "Reading it forces an answer", "n qubits: 2ⁿ amplitudes at once"] },
+            "narration": "A classical bit is zero or one. A qubit carries an amplitude for zero and an amplitude for one at the same time. And reading it forces it to pick.",
+            "cite": ["qubit-amplitudes", "n-qubit-amplitudes"]
+          },
+          {
+            "kind": "equation",
+            "tex": ["|\\psi\\rangle = \\alpha\\,|0\\rangle + \\beta\\,|1\\rangle", "|\\alpha|^2 + |\\beta|^2 = 1"],
+            "notes": ["$\\alpha$ and $\\beta$ are **amplitudes** — complex numbers, so they can cancel like waves.", "Their squares are probabilities, so they must add up to one."],
+            "narration": "We write the state as alpha times ket zero plus beta times ket one. Alpha and beta are amplitudes: complex numbers that can cancel each other like waves. Their squared sizes must add to one.",
+            "cite": ["qubit-amplitudes"]
+          },
+          {
+            "kind": "statement",
+            "text": "Measure it, and you get **0** with probability $|\\alpha|^2$ or **1** with probability $|\\beta|^2$ — and the superposition is gone.",
+            "narration": "That is the Born rule. Measure the qubit and you get zero with probability alpha squared, or one with probability beta squared. Afterwards the superposition is gone.",
+            "cite": ["born-rule"]
+          },
+          {
+            "kind": "plugin",
+            "plugin": "bloch",
+            "chapter": "The Bloch sphere",
+            "props": {
+              "path": [
+                { "theta": 0, "phi": 0, "label": "|0⟩" },
+                { "theta": 90, "phi": 0, "label": "|+⟩" },
+                { "theta": 90, "phi": 90, "label": "|+i⟩" },
+                { "theta": 180, "phi": 0, "label": "|1⟩" }
+              ]
+            },
+            "narration": "There is a beautiful picture for this. Every single-qubit state is a point on a sphere. Zero is the north pole, one is the south pole, and equal superpositions live on the equator.",
+            "cite": ["bloch-sphere"]
+          },
+          {
+            "kind": "statement",
+            "text": "Height on the sphere sets the **odds**. The angle around the equator is the **phase** — invisible to one measurement, crucial for interference.",
+            "narration": "How high the point sits sets the odds of reading zero or one. Its angle around the equator is the phase. One measurement can't see the phase, but algorithms use it to make wrong answers cancel.",
+            "cite": ["bloch-sphere", "born-rule"]
+          },
+          {
+            "kind": "list",
+            "chapter": "Gates are rotations",
+            "heading": "Every gate turns the sphere",
+            "items": ["**X** — half-turn about x: swaps |0⟩ and |1⟩", "**H** — half-turn about the x+z diagonal: |0⟩ becomes |+⟩", "**Z** — half-turn about z: flips the phase", "**S**, **T** — quarter- and eighth-turns about z"],
+            "narration": "Quantum gates are rotations of this sphere. X flips zero and one. The Hadamard gate, H, turns zero into an equal superposition. Z, S and T rotate the phase around the vertical axis.",
+            "cite": ["bloch-sphere"]
+          },
+          {
+            "kind": "statement",
+            "text": "Your turn. Use the gates to steer the qubit onto the **|+i⟩** point of the equator.",
+            "narration": "Now you try. In the next lab, use the gates to steer a qubit from the north pole to the plus i point on the equator. Two gates will do it."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt2-bloch",
+      "title": "Steer a qubit",
+      "widget": "bloch-explorer",
+      "brief": "Apply gates and watch the state rotate. Reach the red target, |+i⟩. Then press Measure a few times to see superposition collapse into a random 0 or 1.",
+      "props": { "goal": "i" },
+      "cite": ["bloch-sphere"]
+    },
+    {
+      "type": "quiz",
+      "id": "qt2-quiz",
+      "title": "Check your model",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "A qubit is in the state $\\sqrt{0.8}\\,|0\\rangle + \\sqrt{0.2}\\,|1\\rangle$. What is the probability of measuring 1?",
+          "options": ["0.2", "0.8", "√0.2 ≈ 0.45", "0.5"],
+          "answer": 0,
+          "explain": "Probability is the squared size of the amplitude: $(\\sqrt{0.2})^2 = 0.2$.",
+          "cite": ["born-rule"]
+        },
+        {
+          "type": "single",
+          "prompt": "Where does the state |1⟩ sit on the Bloch sphere?",
+          "options": ["North pole", "South pole", "On the equator"],
+          "answer": 1,
+          "explain": "|0⟩ is the north pole, |1⟩ the south pole; equal superpositions lie on the equator.",
+          "cite": ["bloch-sphere"]
+        },
+        {
+          "type": "single",
+          "prompt": "After you measure a qubit and get 0, what is its state?",
+          "options": ["Still the original superposition", "|0⟩", "Random again"],
+          "answer": 1,
+          "explain": "Measurement leaves the qubit in the state that was observed.",
+          "cite": ["born-rule"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,638 @@
+[
+  {
+    "id": "qubit-amplitudes",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "A qubit's state is a combination α|0⟩ + β|1⟩ of two complex amplitudes whose squared magnitudes add up to 1."
+  },
+  {
+    "id": "born-rule",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "Measuring a qubit gives 0 with probability |α|² and 1 with probability |β|², and leaves it in the state that was observed — the superposition is gone."
+  },
+  {
+    "id": "bloch-sphere",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "Every single-qubit pure state is a point on the Bloch sphere, and every single-qubit gate acts as a rotation of that sphere (up to an unobservable global phase)."
+  },
+  {
+    "id": "shot-noise",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "montanaro-2015",
+      "nielsen-chuang"
+    ],
+    "text": "Estimating a probability p from N independent samples has a standard error of √(p(1−p)/N): ten times more precision costs a hundred times more samples."
+  },
+  {
+    "id": "n-qubit-amplitudes",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang",
+      "feynman-1982"
+    ],
+    "text": "Describing a general state of n qubits takes 2ⁿ complex amplitudes."
+  },
+  {
+    "id": "statevector-memory",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "Stored as double-precision complex numbers (16 bytes each), 2ⁿ amplitudes need 16·2ⁿ bytes: about 17 GB at 30 qubits and about 18 petabytes at 50 qubits.",
+    "note": "Arithmetic: 2³⁰ × 16 B ≈ 1.7 × 10¹⁰ B; 2⁵⁰ × 16 B ≈ 1.8 × 10¹⁶ B."
+  },
+  {
+    "id": "feynman-simulation",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "feynman-1982"
+    ],
+    "text": "In a 1982 paper, Richard Feynman argued that efficiently simulating quantum physics would need a computer that itself works by quantum rules."
+  },
+  {
+    "id": "tensor-networks",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "pan-2022"
+    ],
+    "text": "Brute force is not the only classical method: tensor-network techniques reproduced Google's 53-qubit Sycamore sampling task in about 15 hours on 512 GPUs (2022)."
+  },
+  {
+    "id": "bell-state",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "A Hadamard gate followed by a CNOT turns |00⟩ into the Bell state (|00⟩ + |11⟩)/√2, whose two qubits always give matching measurement results."
+  },
+  {
+    "id": "no-signalling",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "Entanglement produces correlated outcomes but cannot be used to send information faster than light."
+  },
+  {
+    "id": "nisq",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "preskill-2018"
+    ],
+    "text": "In 2018 John Preskill named the current era 'NISQ' — noisy intermediate-scale quantum — for devices too noisy to run long algorithms with full error correction."
+  },
+  {
+    "id": "logical-qubits",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang",
+      "gidney-ekera-2021"
+    ],
+    "text": "Quantum error correction encodes each logical qubit in many physical qubits; large algorithms are costed in logical qubits, which multiply into far more physical ones."
+  },
+  {
+    "id": "grover-sqrt",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "grover-1996",
+      "nielsen-chuang"
+    ],
+    "text": "Grover's algorithm (1996) finds one marked item among N in about (π/4)√N queries; a classical search needs about N/2 on average."
+  },
+  {
+    "id": "grover-overshoot",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "Running Grover's iteration past the optimum lowers the success probability again: the state keeps rotating past the target."
+  },
+  {
+    "id": "amplitude-amplification",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "brassard-2002"
+    ],
+    "text": "Amplitude amplification and amplitude estimation (Brassard, Høyer, Mosca and Tapp) generalise Grover's trick to boosting — or estimating — any probability that a circuit produces."
+  },
+  {
+    "id": "mc-rate",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "montanaro-2015"
+    ],
+    "text": "Classical Monte Carlo needs on the order of 1/ε² samples to reach accuracy ε."
+  },
+  {
+    "id": "qae-speedup",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "montanaro-2015",
+      "brassard-2002"
+    ],
+    "text": "Quantum amplitude estimation reaches accuracy ε with on the order of 1/ε uses of the model circuit — a near-quadratic speed-up over classical Monte Carlo."
+  },
+  {
+    "id": "qae-finance",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "rebentrost-2018",
+      "woerner-egger-2019",
+      "stamatopoulos-2020"
+    ],
+    "text": "Researchers have applied amplitude estimation to derivative pricing (Rebentrost, Gupt and Bromley, 2018), risk measures such as Value at Risk (Woerner and Egger, 2019) and option pricing demonstrated at small scale on IBM hardware (Stamatopoulos et al., 2020)."
+  },
+  {
+    "id": "qae-grid",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "stamatopoulos-2020"
+    ],
+    "text": "Quantum option pricing loads a discretised probability distribution of future prices onto n qubits (2ⁿ grid points) and encodes the payoff in an extra qubit's probability, which amplitude estimation then measures."
+  },
+  {
+    "id": "qae-low-depth",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "suzuki-2020",
+      "grinko-2021",
+      "giurgica-tiron-2022"
+    ],
+    "text": "Variants of amplitude estimation that avoid quantum phase estimation cut circuit depth, trading some speed-up for feasibility on smaller machines."
+  },
+  {
+    "id": "derivative-threshold",
+    "status": "estimate",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "chakrabarti-2021"
+    ],
+    "text": "A 2021 Goldman Sachs–IBM study estimated that useful quantum advantage in pricing its benchmark derivatives would need about 8,000 logical qubits and a T-depth of 54 million, executed in about a second.",
+    "note": "Earlier preprint versions quoted 7.5k logical qubits; figures here are from the published version (Quantum 5, 463). The study's goal was an upper bound to guide future work."
+  },
+  {
+    "id": "qaoa",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "farhi-2014",
+      "brandhofer-2023"
+    ],
+    "text": "QAOA (Farhi, Goldstone and Gutmann, 2014) alternates a 'cost' step and a 'mixing' step with tunable angles, biasing measurements toward good solutions of an optimisation problem."
+  },
+  {
+    "id": "vqe",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "peruzzo-2014"
+    ],
+    "text": "Variational algorithms such as VQE (Peruzzo et al., 2014) pair a short quantum circuit with a classical optimiser that tunes the circuit's parameters."
+  },
+  {
+    "id": "cvar",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "barkoutsos-2020"
+    ],
+    "text": "CVaR-based variational optimisation scores a circuit by its best measured outcomes rather than the average, which improves results on combinatorial problems."
+  },
+  {
+    "id": "annealing",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "kadowaki-1998",
+      "dwave-advantage2-2025"
+    ],
+    "text": "Quantum annealing (Kadowaki and Nishimori, 1998) is a different model: the hardware settles toward low-energy states of an Ising/QUBO problem. D-Wave builds commercial annealers."
+  },
+  {
+    "id": "qubo-form",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "lucas-2014",
+      "brandhofer-2023"
+    ],
+    "text": "Many combinatorial problems, including constrained portfolio selection, can be written as a QUBO (quadratic unconstrained binary optimisation) or Ising model — the input format for annealers and QAOA. Constraints become penalty terms."
+  },
+  {
+    "id": "portfolio-count",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "lucas-2014"
+    ],
+    "text": "With n assets each either held or not, there are 2ⁿ possible portfolios — more than a billion at 30 assets (2³⁰ = 1,073,741,824)."
+  },
+  {
+    "id": "qaoa-benchmark",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "brandhofer-2023"
+    ],
+    "text": "Benchmarks of QAOA for portfolio optimisation find performance depends strongly on parameters, circuit depth and hardware noise."
+  },
+  {
+    "id": "xy-mixer",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "hadfield-2019",
+      "hodson-2019"
+    ],
+    "text": "Constraints such as 'hold exactly B assets' can be built into QAOA's mixing step instead of a penalty (the 'Quantum Alternating Operator Ansatz'), so the search never leaves valid solutions; this has been applied to portfolio rebalancing in simulation."
+  },
+  {
+    "id": "markowitz",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "markowitz-1952",
+      "nobel-1990"
+    ],
+    "text": "Harry Markowitz's 1952 paper 'Portfolio Selection' framed investing as a trade-off between expected return and variance; he shared the 1990 Nobel memorial prize in economic sciences."
+  },
+  {
+    "id": "black-scholes",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "black-scholes-1973",
+      "nobel-1997"
+    ],
+    "text": "The Black–Scholes model (1973) prices European options in closed form; Myron Scholes and Robert Merton received the 1997 Nobel memorial prize for the method (Fischer Black had died in 1995)."
+  },
+  {
+    "id": "qml-feature-maps",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "havlicek-2019",
+      "huang-2021"
+    ],
+    "text": "Quantum machine-learning proposals map data into quantum states ('feature maps') and feed the results to classical models; whether this beats classical machine learning depends heavily on the data."
+  },
+  {
+    "id": "hhl-fine-print",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "hhl-2009",
+      "aaronson-2015"
+    ],
+    "text": "The HHL algorithm (2009) can solve certain linear systems exponentially faster in principle, but only under strict conditions on loading the input, the matrix's structure and conditioning, and reading out the answer."
+  },
+  {
+    "id": "dequantization",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "tang-2019"
+    ],
+    "text": "Some claimed exponential quantum speed-ups for machine-learning tasks were matched by 'quantum-inspired' classical algorithms (Tang, 2019)."
+  },
+  {
+    "id": "finance-survey",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "herman-2023",
+      "egger-2020"
+    ],
+    "text": "Major reviews organise quantum finance into three areas — stochastic modelling (pricing, risk), optimisation, and machine learning — and discuss limitations alongside potential."
+  },
+  {
+    "id": "hsbc-trial",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "hsbc-2025",
+      "hsbc-paper-2025"
+    ],
+    "text": "In September 2025 HSBC and IBM reported up to a 34% improvement in predicting whether a European corporate-bond request-for-quote would be filled, using data transformed by quantum circuits on IBM Heron processors.",
+    "note": "HSBC calls it a trial. The gain is relative, out-of-sample, on one bank's data; it has not been shown to generalise to other markets."
+  },
+  {
+    "id": "hsbc-noise",
+    "status": "contested",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "hsbc-paper-2025"
+    ],
+    "text": "In the HSBC–IBM study, models given hardware-transformed data beat both the original data and noiseless simulations of the same circuits; the authors suggest the hardware's own noise contributes to the effect.",
+    "note": "Preprint, not peer-reviewed at time of checking. If noise is doing the work, the result may not be a 'quantum' advantage in the usual sense — the authors themselves call for further study."
+  },
+  {
+    "id": "hybrid-offline",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-finance-2025",
+      "hsbc-paper-2025"
+    ],
+    "text": "In the HSBC and Vanguard collaborations, quantum circuits generated features or candidates offline that were stored and reused, rather than running inside low-latency trading loops."
+  },
+  {
+    "id": "vanguard-ibm",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-finance-2025",
+      "vanguard-2025",
+      "agliardi-2025"
+    ],
+    "text": "In 2025 Vanguard and IBM tested a variational (CVaR-VQA) workflow for bond-portfolio construction using 109 qubits and up to 4,200 gates on IBM Heron; IBM reported it performed on par with a state-of-the-art classical solver and in some scenarios surpassed it.",
+    "note": "The accompanying preprint compares against a classical local-search baseline. This is a feasibility study, not a demonstration of advantage over the best classical solvers."
+  },
+  {
+    "id": "jpm-randomness",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "jpm-randomness-2025",
+      "liu-2025"
+    ],
+    "text": "In March 2025 JPMorganChase, Quantinuum, Argonne and Oak Ridge national laboratories and UT Austin reported in Nature the first certified-randomness protocol run on a quantum computer: a 56-qubit trapped-ion machine, with 71,313 bits of entropy certified using classical supercomputers."
+  },
+  {
+    "id": "trials-not-production",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "hsbc-2025",
+      "ibm-finance-2025"
+    ],
+    "text": "The most cited bank results are described by the banks and IBM themselves as trials and exploratory tools, not production systems with proven quantum advantage."
+  },
+  {
+    "id": "sycamore-2019",
+    "status": "contested",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "arute-2019",
+      "ibm-supremacy-2019"
+    ],
+    "text": "In 2019 Google reported in Nature that its 53-qubit Sycamore processor completed a random-circuit-sampling task in about 200 seconds that it estimated would take a supercomputer about 10,000 years.",
+    "note": "IBM argued an ideal classical simulation would take about 2.5 days using a supercomputer's disk storage; in 2022 a tensor-network method reproduced the task in about 15 hours on 512 GPUs (Pan, Chen & Zhang)."
+  },
+  {
+    "id": "willow-threshold",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "google-willow-2024",
+      "acharya-2025"
+    ],
+    "text": "In December 2024 Google's 105-qubit Willow chip showed logical error rates halving each time the error-correcting code grew (3×3 → 5×5 → 7×7) — operating 'below threshold', a long-sought milestone."
+  },
+  {
+    "id": "willow-rcs",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "google-willow-2024"
+    ],
+    "text": "Google also reported a random-circuit-sampling run of under five minutes that it estimated would take a leading supercomputer 10²⁵ years, while noting this benchmark has no known practical application."
+  },
+  {
+    "id": "quantum-echoes",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "google-echoes-2025",
+      "abanin-2025"
+    ],
+    "text": "In October 2025 Google reported 'Quantum Echoes', an out-of-time-order-correlator measurement on Willow that took about 2 hours and that it estimated would take about 13,000 times longer on the Frontier supercomputer — and whose result can be checked."
+  },
+  {
+    "id": "helios",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "quantinuum-helios-2025"
+    ],
+    "text": "Quantinuum launched Helios in November 2025: 98 trapped-ion physical qubits, with 48 error-corrected logical qubits performing better than the physical ones (roughly 2 physical per logical)."
+  },
+  {
+    "id": "ibm-starling",
+    "status": "estimate",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-starling-2025"
+    ],
+    "text": "IBM's roadmap targets Starling — a fault-tolerant computer of about 200 logical qubits running 100 million quantum operations — by 2029 in Poughkeepsie, New York, followed by Blue Jay with about 2,000 logical qubits."
+  },
+  {
+    "id": "ibm-nighthawk",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-nighthawk-2025"
+    ],
+    "text": "In November 2025 IBM introduced the 120-qubit Nighthawk processor and the experimental Loon chip for fault tolerance, and said it expected verified quantum advantage by the end of 2026."
+  },
+  {
+    "id": "advantage-tracker",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-nighthawk-2025",
+      "algorithmiq-tracker-2025"
+    ],
+    "text": "In November 2025 IBM and partners including Algorithmiq launched an open, community-led Quantum Advantage Tracker where claims are posted, verified and challenged by classical methods."
+  },
+  {
+    "id": "ibm-advantage-2026",
+    "status": "contested",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-uchicago-2026",
+      "martiel-2026",
+      "manabe-2026"
+    ],
+    "text": "On 30 July 2026 IBM and partners announced three quantum-advantage demonstrations, including a 70-logical-qubit sampling experiment with the University of Chicago that ran in about 15 minutes.",
+    "note": "The papers were preprints when announced. About two weeks later a classical team reproduced the published outputs of the 70-qubit experiment with tensor networks in 37.3 minutes on 256 NVIDIA H100 GPUs (also a preprint)."
+  },
+  {
+    "id": "classical-rebuttal-2026",
+    "status": "contested",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "manabe-2026"
+    ],
+    "text": "An August 2026 preprint reports a classical tensor-network simulation of IBM's 70-qubit experiment, covering all its published output bitstrings in 37.3 minutes on 32 nodes of eight NVIDIA H100 GPUs each.",
+    "note": "Preprint, not peer-reviewed at time of checking. A feasible classical simulation undercuts a 'beyond classical' claim even when the quantum run is faster."
+  },
+  {
+    "id": "dwave-advantage2",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "dwave-advantage2-2025"
+    ],
+    "text": "D-Wave made its sixth-generation Advantage2 annealer, with more than 4,400 qubits, generally available in May 2025."
+  },
+  {
+    "id": "shor-threat",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "shor-1997",
+      "nist-ir-8547"
+    ],
+    "text": "Shor's algorithm (1994) factors integers and computes discrete logarithms efficiently on a large quantum computer, which would break RSA and elliptic-curve cryptography — the public-key systems that secure today's networks."
+  },
+  {
+    "id": "rsa-2019",
+    "status": "estimate",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "gidney-ekera-2021"
+    ],
+    "text": "In 2019 Gidney and Ekerå estimated that a 2048-bit RSA key could be factored in about 8 hours with 20 million noisy qubits."
+  },
+  {
+    "id": "rsa-2025",
+    "status": "estimate",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "gidney-2025"
+    ],
+    "text": "In May 2025 Gidney revised the estimate to under a week with fewer than one million noisy qubits, assuming 0.1% gate errors and 1-microsecond error-correction cycles."
+  },
+  {
+    "id": "rsa-2026",
+    "status": "estimate",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "webster-2026"
+    ],
+    "text": "A February 2026 preprint (the 'Pinnacle' architecture, using quantum LDPC codes) argues fewer than 100,000 physical qubits would suffice under similar hardware assumptions."
+  },
+  {
+    "id": "harvest-now",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nist-ir-8547"
+    ],
+    "text": "'Harvest now, decrypt later': adversaries can record encrypted data today and decrypt it once quantum computers mature, so long-lived secrets need quantum-safe protection now."
+  },
+  {
+    "id": "mosca-rule",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nist-ir-8547"
+    ],
+    "text": "Mosca's rule: if data must stay secret for X years and migration takes Y years, you must start before X + Y exceeds Z, the years until a cryptographically relevant quantum computer exists."
+  },
+  {
+    "id": "nist-timeline",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nist-ir-8547"
+    ],
+    "text": "NIST's draft transition plan (IR 8547, November 2024) proposes deprecating quantum-vulnerable algorithms such as RSA and ECDSA at the 112-bit security level after 2030 and disallowing them after 2035.",
+    "note": "An initial public draft — the final guidance may differ."
+  },
+  {
+    "id": "nist-fips",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nist-fips-2024"
+    ],
+    "text": "On 13 August 2024 NIST approved its first post-quantum standards: FIPS 203 (ML-KEM, from CRYSTALS-Kyber), FIPS 204 (ML-DSA, from CRYSTALS-Dilithium) and FIPS 205 (SLH-DSA, from SPHINCS+)."
+  },
+  {
+    "id": "nist-hqc",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nist-hqc-2025"
+    ],
+    "text": "In March 2025 NIST selected HQC as a backup encryption algorithm built on different mathematics from ML-KEM, with a final standard expected in 2027."
+  },
+  {
+    "id": "scam-asic",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "asic-2024"
+    ],
+    "text": "Australia's securities regulator ASIC named 'Quantum AI' the most prolific online investment-trading-platform scam, spread with fake news articles and deepfake celebrity videos and typically asking for about $250 to start."
+  },
+  {
+    "id": "scam-fca",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "fca-quantum-ai"
+    ],
+    "text": "The UK Financial Conduct Authority lists 'Quantum AI' on its warning list as an unauthorised firm, so victims have no access to the Financial Ombudsman or compensation scheme."
+  },
+  {
+    "id": "scam-tells",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "asic-2024"
+    ],
+    "text": "Regulators' warning signs include celebrity endorsements, claims that AI or quantum computing generates unrealistic returns, fake dashboards showing profits, pressure to deposit more, and blocked withdrawals."
+  },
+  {
+    "id": "sdk-landscape",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "pypi-qiskit",
+      "pypi-sdks"
+    ],
+    "text": "The main open-source toolkits were all actively released in 2026: Qiskit (IBM), Cirq (Google), PennyLane (Xanadu), the Amazon Braket SDK, D-Wave's Ocean and NVIDIA's CUDA-Q."
+  },
+  {
+    "id": "qiskit-finance-status",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "pypi-qiskit-finance",
+      "github-qiskit-finance"
+    ],
+    "text": "Qiskit's finance module is maintained by the community (the qiskit-community organisation); its latest PyPI release, 0.4.1, dates from February 2024, while core Qiskit reached version 2.5 in 2026."
+  }
+]

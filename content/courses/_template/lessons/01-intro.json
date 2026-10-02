@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "__ID__-intro",
+  "title": "Start here",
+  "summary": "One line for the syllabus.",
+  "minutes": 10,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "__ID__-intro-reel",
+      "title": "Why this matters",
+      "reel": {
+        "title": "Why this matters",
+        "shots": [
+          { "kind": "title", "chapter": "Intro", "kicker": "__TITLE__ · Lesson 1", "title": "A big idea,\nin one line.", "subtitle": "A **subtitle** with emphasis.", "narration": "Every shot has narration. It is spoken aloud and shown as captions." },
+          { "kind": "statement", "text": "A factual statement goes here — and it **cites** a claim.", "narration": "Any shot that states a fact cites a claim from the ledger.", "cite": ["example-claim"] }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "__ID__-intro-sort",
+      "title": "Sort it out",
+      "widget": "card-sort",
+      "brief": "Generic widgets work for any subject. See src/plugins/manifest.ts for the full list.",
+      "props": {
+        "buckets": ["Bucket A", "Bucket B"],
+        "cards": [
+          { "text": "A card that belongs in A", "bucket": "Bucket A", "why": "Why it belongs there.", "cite": ["example-claim"] },
+          { "text": "A card that belongs in B", "bucket": "Bucket B", "why": "Why it belongs there." }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "__ID__-intro-quiz",
+      "title": "Quick check",
+      "questions": [
+        { "type": "single", "prompt": "A question?", "options": ["Right answer", "Wrong answer"], "answer": 0, "explain": "Why — with a citation when it states a fact.", "cite": ["example-claim"] }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "__ID__-intro-capstone",
+      "title": "Your capstone",
+      "output": "capstone",
+      "brief": "What to write and for whom.",
+      "fields": [{ "type": "text", "id": "summary", "label": "A question the learner answers in writing.", "minWords": 40 }]
+    }
+  ]
+}

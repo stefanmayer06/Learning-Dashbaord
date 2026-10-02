@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "text": {
+        "type": "string",
+        "minLength": 10
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "verified",
+          "contested",
+          "estimate",
+          "derived"
+        ]
+      },
+      "sources": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        }
+      },
+      "checkedOn": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "note": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "text",
+      "status",
+      "sources",
+      "checkedOn"
+    ]
+  }
+}

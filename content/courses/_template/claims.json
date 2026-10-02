@@ -1,0 +1,9 @@
+[
+  {
+    "id": "example-claim",
+    "text": "Replace with a factual statement the course makes, worded to match its source.",
+    "status": "verified",
+    "sources": ["example-source"],
+    "checkedOn": "__TODAY__"
+  }
+]

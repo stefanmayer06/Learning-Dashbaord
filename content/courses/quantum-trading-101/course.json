@@ -1,0 +1,101 @@
+{
+  "$schema": "../../schema/course.schema.json",
+  "id": "quantum-trading-101",
+  "title": "Quantum Trading 101",
+  "subtitle": "What quantum computers can — and can't yet — do for markets: the theory, working code, and an honest map of the field.",
+  "version": "1.0.0",
+  "lastVerified": "2026-10-02",
+  "level": "intro",
+  "hours": 6,
+  "theme": { "accent": "#2e36d9", "cover": "interference" },
+  "summary": "“Quantum trading” means two different things: a serious research programme at banks and labs, and a marketing word used by scams. This course gives you just enough physics to reason for yourself, the three algorithm families that matter to finance, labs that run real simulations in your browser, and a dated, sourced map of who has demonstrated what. You finish by writing a Quantum Readiness Brief for a trading desk.",
+  "outcomes": [
+    "Explain qubits, measurement and entanglement using your own simulations — and why classical computers struggle to simulate them.",
+    "Describe how amplitude estimation, optimisation (QAOA, annealing) and quantum machine learning target pricing, portfolios and prediction — and where each speed-up claim stops.",
+    "Price an option with Monte Carlo and compare it against ideal quantum amplitude estimation; formulate a portfolio as a QUBO and solve it three ways.",
+    "Read a “quantum advantage” headline critically: the claim, the evidence level, the counter-evidence.",
+    "Recognise the tells of “Quantum AI” trading scams.",
+    "Produce a sourced Quantum Readiness Brief for a trading desk, including post-quantum security."
+  ],
+  "prerequisites": ["Percentages and basic probability", "Helpful, not required: what an option and a portfolio are (both are explained)"],
+  "progression": "linear",
+  "outputs": [
+    {
+      "id": "lab-notebook",
+      "title": "Lab notebook",
+      "kind": "lab-notebook",
+      "description": "Your saved results from the circuit, pricing and portfolio labs, each with a short note on what it showed."
+    },
+    {
+      "id": "headline-audit",
+      "title": "Headline audit",
+      "kind": "memo",
+      "description": "A short audit of one real quantum-finance headline: the claim, the evidence, the caveats, and how much a trading desk should update on it."
+    },
+    {
+      "id": "readiness-brief",
+      "title": "Quantum Readiness Brief",
+      "kind": "brief",
+      "description": "A one-page, sourced recommendation for a trading desk: where quantum could matter, what has actually been shown, the timeline, the security exposure — and what to do now.",
+      "capstone": true
+    }
+  ],
+  "units": [
+    {
+      "id": "orientation",
+      "title": "What “quantum trading” means",
+      "strand": "Orientation",
+      "summary": "Two meanings, one word. Separate the research programme from the scam, and see the map of the course.",
+      "lessons": ["qt-two-meanings"]
+    },
+    {
+      "id": "qubits",
+      "title": "The qubit, measured",
+      "strand": "Theory",
+      "summary": "Superposition, the Bloch sphere, and why every quantum answer comes out as statistics.",
+      "lessons": ["qt-qubit", "qt-measurement"]
+    },
+    {
+      "id": "many-qubits",
+      "title": "Many qubits",
+      "strand": "Theory",
+      "summary": "Entanglement built by hand, and the exponential wall that makes quantum computers interesting — and hard.",
+      "lessons": ["qt-entanglement", "qt-scale"]
+    },
+    {
+      "id": "algorithms",
+      "title": "The algorithms that matter for finance",
+      "strand": "Theory",
+      "summary": "Amplitude amplification, then the three families — estimation, optimisation, learning — and their fine print.",
+      "lessons": ["qt-grover", "qt-families"]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing with amplitude estimation",
+      "strand": "Practice",
+      "summary": "Race classical Monte Carlo against ideal quantum amplitude estimation on a real option, and read the resource bill.",
+      "lessons": ["qt-pricing"]
+    },
+    {
+      "id": "portfolios",
+      "title": "Portfolios as QUBOs",
+      "strand": "Practice",
+      "summary": "Turn Markowitz into a QUBO, solve it three ways, then see the same problem in real Qiskit and D-Wave code.",
+      "lessons": ["qt-portfolio", "qt-toolchain"]
+    },
+    {
+      "id": "landscape",
+      "title": "The field in 2026",
+      "strand": "Landscape",
+      "summary": "Hardware milestones and the advantage scoreboard, what banks have actually shown, and the cryptography clock.",
+      "lessons": ["qt-hardware", "qt-banks", "qt-crypto"]
+    },
+    {
+      "id": "capstone",
+      "title": "Quantum Readiness Brief",
+      "strand": "Capstone",
+      "summary": "Put it together: a sourced, one-page recommendation for a trading desk.",
+      "lessons": ["qt-brief"]
+    }
+  ]
+}

@@ -1,0 +1,1398 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "minutes": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "steps": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "reel"
+              },
+              "reel": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "shots": {
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "title"
+                            },
+                            "kicker": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "subtitle": {
+                              "type": "string"
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "title",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "statement"
+                            },
+                            "text": {
+                              "type": "string"
+                            },
+                            "footnote": {
+                              "type": "string"
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "text",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "equation"
+                            },
+                            "tex": {
+                              "minItems": 1,
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "notes": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "tex",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "bars"
+                            },
+                            "labels": {
+                              "minItems": 1,
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "frames": {
+                              "minItems": 1,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "values": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "caption": {
+                                    "type": "string"
+                                  },
+                                  "highlight": {
+                                    "default": [],
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer",
+                                      "minimum": -9007199254740991,
+                                      "maximum": 9007199254740991
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "values"
+                                ]
+                              }
+                            },
+                            "signed": {
+                              "default": false,
+                              "type": "boolean"
+                            },
+                            "max": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "unit": {
+                              "type": "string"
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "labels",
+                            "frames",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "chart"
+                            },
+                            "xLabel": {
+                              "type": "string"
+                            },
+                            "yLabel": {
+                              "type": "string"
+                            },
+                            "logX": {
+                              "default": false,
+                              "type": "boolean"
+                            },
+                            "logY": {
+                              "default": false,
+                              "type": "boolean"
+                            },
+                            "series": {
+                              "minItems": 1,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "points": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "array",
+                                      "prefixItems": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "number"
+                                        }
+                                      ],
+                                      "items": false,
+                                      "minItems": 2,
+                                      "maxItems": 2
+                                    }
+                                  },
+                                  "tone": {
+                                    "default": "ink",
+                                    "type": "string",
+                                    "enum": [
+                                      "ink",
+                                      "accent",
+                                      "signal",
+                                      "muted"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "points"
+                                ]
+                              }
+                            },
+                            "annotations": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number"
+                                  },
+                                  "y": {
+                                    "type": "number"
+                                  },
+                                  "text": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "x",
+                                  "y",
+                                  "text"
+                                ]
+                              }
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "xLabel",
+                            "yLabel",
+                            "series",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "list"
+                            },
+                            "heading": {
+                              "type": "string"
+                            },
+                            "items": {
+                              "minItems": 1,
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "items",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "compare"
+                            },
+                            "left": {
+                              "type": "object",
+                              "properties": {
+                                "heading": {
+                                  "type": "string"
+                                },
+                                "items": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "heading",
+                                "items"
+                              ]
+                            },
+                            "right": {
+                              "type": "object",
+                              "properties": {
+                                "heading": {
+                                  "type": "string"
+                                },
+                                "items": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "heading",
+                                "items"
+                              ]
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "left",
+                            "right",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "timeline"
+                            },
+                            "events": {
+                              "minItems": 2,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "year": {
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "type": "string"
+                                  },
+                                  "detail": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "year",
+                                  "label"
+                                ]
+                              }
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "events",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "stat"
+                            },
+                            "value": {
+                              "type": "number"
+                            },
+                            "prefix": {
+                              "type": "string"
+                            },
+                            "suffix": {
+                              "type": "string"
+                            },
+                            "decimals": {
+                              "default": 0,
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 4
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "context": {
+                              "type": "string"
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "value",
+                            "label",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "code"
+                            },
+                            "language": {
+                              "type": "string"
+                            },
+                            "code": {
+                              "type": "string"
+                            },
+                            "focus": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              }
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "language",
+                            "code",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "diagram"
+                            },
+                            "nodes": {
+                              "minItems": 1,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                                  },
+                                  "label": {
+                                    "type": "string"
+                                  },
+                                  "x": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 100
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 100
+                                  },
+                                  "tone": {
+                                    "default": "ink",
+                                    "type": "string",
+                                    "enum": [
+                                      "ink",
+                                      "accent",
+                                      "signal",
+                                      "muted"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "label",
+                                  "x",
+                                  "y"
+                                ]
+                              }
+                            },
+                            "edges": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "from": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                                  },
+                                  "to": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                                  },
+                                  "label": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "from",
+                                  "to"
+                                ]
+                              }
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "nodes",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "quote"
+                            },
+                            "text": {
+                              "type": "string"
+                            },
+                            "by": {
+                              "type": "string"
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "text",
+                            "by",
+                            "narration"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "plugin"
+                            },
+                            "plugin": {
+                              "type": "string"
+                            },
+                            "props": {
+                              "default": {},
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string"
+                              },
+                              "additionalProperties": {}
+                            },
+                            "narration": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "duration": {
+                              "type": "number",
+                              "exclusiveMinimum": 0
+                            },
+                            "chapter": {
+                              "type": "string"
+                            },
+                            "cite": {
+                              "default": [],
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "plugin",
+                            "narration"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "shots"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "optional": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "reel",
+              "id",
+              "title"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "widget"
+              },
+              "widget": {
+                "type": "string"
+              },
+              "brief": {
+                "type": "string"
+              },
+              "props": {
+                "default": {},
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "cite": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9-]*$"
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "optional": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "widget",
+              "brief",
+              "id",
+              "title"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "quiz"
+              },
+              "passMark": {
+                "default": 0.7,
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "questions": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "single"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "answer": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "explain": {
+                          "type": "string"
+                        },
+                        "cite": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9][a-z0-9-]*$"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "prompt",
+                        "options",
+                        "answer",
+                        "explain"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "multi"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "answers": {
+                          "minItems": 1,
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          }
+                        },
+                        "explain": {
+                          "type": "string"
+                        },
+                        "cite": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9][a-z0-9-]*$"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "prompt",
+                        "options",
+                        "answers",
+                        "explain"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "numeric"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "answer": {
+                          "type": "number"
+                        },
+                        "tolerance": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "unit": {
+                          "type": "string"
+                        },
+                        "explain": {
+                          "type": "string"
+                        },
+                        "cite": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9][a-z0-9-]*$"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "prompt",
+                        "answer",
+                        "tolerance",
+                        "explain"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "order"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "explain": {
+                          "type": "string"
+                        },
+                        "cite": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9][a-z0-9-]*$"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "prompt",
+                        "items",
+                        "explain"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "optional": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "questions",
+              "id",
+              "title"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "embed"
+              },
+              "provider": {
+                "type": "string",
+                "enum": [
+                  "quirk",
+                  "youtube",
+                  "iframe"
+                ]
+              },
+              "src": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "credit": {
+                "type": "string"
+              },
+              "cite": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9-]*$"
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "optional": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "provider",
+              "src",
+              "caption",
+              "credit",
+              "id",
+              "title"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "deliverable"
+              },
+              "output": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "brief": {
+                "type": "string"
+              },
+              "fields": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "text"
+                        },
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9-]*$"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "hint": {
+                          "type": "string"
+                        },
+                        "minWords": {
+                          "default": 0,
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "maxWords": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "id",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "choice"
+                        },
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9-]*$"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "id",
+                        "label",
+                        "options"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "scale"
+                        },
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9-]*$"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "min": {
+                          "type": "integer",
+                          "minimum": -9007199254740991,
+                          "maximum": 9007199254740991
+                        },
+                        "max": {
+                          "type": "integer",
+                          "minimum": -9007199254740991,
+                          "maximum": 9007199254740991
+                        },
+                        "minLabel": {
+                          "type": "string"
+                        },
+                        "maxLabel": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "id",
+                        "label",
+                        "min",
+                        "max",
+                        "minLabel",
+                        "maxLabel"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "capture"
+                        },
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9-]*$"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "from": {
+                          "type": "string"
+                        },
+                        "hint": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "id",
+                        "label",
+                        "from"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "optional": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "output",
+              "brief",
+              "fields",
+              "id",
+              "title"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "recap"
+              },
+              "points": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "cite": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9][a-z0-9-]*$"
+                      }
+                    }
+                  },
+                  "required": [
+                    "text"
+                  ]
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "optional": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "points",
+              "id",
+              "title"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "summary",
+    "minutes",
+    "steps"
+  ]
+}

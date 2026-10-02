@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "lastVerified": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "intro",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "hours": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "cover": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accent",
+        "cover"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "outcomes": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "progression": {
+      "default": "linear",
+      "type": "string",
+      "enum": [
+        "linear",
+        "open"
+      ]
+    },
+    "outputs": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "lab-notebook",
+              "brief",
+              "memo",
+              "model",
+              "portfolio",
+              "other"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "capstone": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "description"
+        ]
+      }
+    },
+    "units": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "strand": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "lessons": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "strand",
+          "summary",
+          "lessons"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "subtitle",
+    "version",
+    "lastVerified",
+    "level",
+    "hours",
+    "theme",
+    "summary",
+    "outcomes",
+    "outputs",
+    "units"
+  ]
+}

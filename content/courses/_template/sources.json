@@ -1,0 +1,12 @@
+[
+  {
+    "id": "example-source",
+    "kind": "official",
+    "title": "Replace with a real primary source",
+    "publisher": "Publisher",
+    "year": 2026,
+    "url": "https://example.org/replace-me",
+    "accessed": "__TODAY__",
+    "note": "Delete this placeholder once real sources are in."
+  }
+]

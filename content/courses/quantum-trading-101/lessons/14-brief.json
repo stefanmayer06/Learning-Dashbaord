@@ -1,0 +1,134 @@
+{
+  "id": "qt-brief",
+  "title": "Write the Quantum Readiness Brief",
+  "summary": "Your capstone: a sourced, one-page recommendation for a trading desk, built from your own lab results.",
+  "minutes": 50,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt14-reel",
+      "title": "How to write the brief",
+      "reel": {
+        "title": "How to write the brief",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The brief",
+            "kicker": "Unit 8 · Capstone",
+            "title": "One page.\nNo hype.",
+            "subtitle": "A recommendation a head of trading could act on.",
+            "narration": "Your capstone is the document a head of trading actually needs: one page, no hype, a clear recommendation."
+          },
+          {
+            "kind": "list",
+            "heading": "The structure",
+            "items": ["**Desk**: what you trade and where compute hurts", "**Fit**: which algorithm family, which task", "**Evidence**: what has been demonstrated — sourced", "**Timeline**: what must be true first", "**Security**: your post-quantum exposure", "**Recommendation**: watch, experiment or invest"],
+            "narration": "Six parts. Your desk and where compute hurts. Which algorithm family fits which task. What has actually been demonstrated, with sources. What has to be true before it pays. Your cryptography exposure. And a recommendation."
+          },
+          {
+            "kind": "compare",
+            "chapter": "Good and bad",
+            "left": { "heading": "Weak brief", "items": ["“Quantum will revolutionise trading”", "Qubit counts with no context", "No sources, no dates"] },
+            "right": { "heading": "Strong brief", "items": ["“Pricing advantage needs ~8,000 logical qubits; roadmaps target ~200 by 2029”", "Physical vs logical, peer-reviewed vs preprint", "Every number cited and dated"] },
+            "narration": "Compare a weak brief with a strong one. Weak: quantum will revolutionise trading. Strong: pricing advantage was estimated to need about eight thousand logical qubits, while the most aggressive roadmap targets about two hundred by 2029.",
+            "cite": ["derivative-threshold", "ibm-starling"]
+          },
+          {
+            "kind": "statement",
+            "text": "Use **your own lab results** as evidence. They're already attached — pricing and portfolio runs from your notebook.",
+            "narration": "You'll use your own lab results as evidence. Your saved pricing and portfolio runs are attached automatically."
+          },
+          {
+            "kind": "list",
+            "chapter": "The verdicts",
+            "heading": "Pick one, and defend it",
+            "items": ["**Watch** — no spend; track the advantage tracker and roadmaps", "**Experiment** — a small team, cloud access, benchmarks against your best classical models", "**Invest** — a dedicated programme; only with a clear, testable use case"],
+            "narration": "Then choose one of three verdicts. Watch: no spend, keep tracking. Experiment: a small team with cloud access, always benchmarked against your best classical models. Invest: a dedicated programme, only with a clear, testable use case.",
+            "cite": ["advantage-tracker"]
+          },
+          {
+            "kind": "statement",
+            "text": "Whatever you choose for alpha, the **security** answer is rarely “wait”: inventory, prioritise, migrate.",
+            "narration": "Whatever you decide about new sources of return, the security answer is rarely wait. Inventory your cryptography, prioritise long-lived secrets, and plan the migration.",
+            "cite": ["harvest-now", "nist-timeline"]
+          },
+          {
+            "kind": "statement",
+            "text": "When you finish, your brief joins your **work** page — printable, exportable — and your certificate is ready.",
+            "narration": "When you finish, your brief joins your work page, ready to print or export, and your certificate is ready to issue. Good luck."
+          }
+        ]
+      }
+    },
+    {
+      "type": "deliverable",
+      "id": "qt14-brief",
+      "title": "Quantum Readiness Brief",
+      "output": "readiness-brief",
+      "brief": "Write for a busy head of trading. Cite the course ledger for every factual claim (e.g. “(HSBC–IBM, 2025)”). Short is good; vague is not.",
+      "fields": [
+        {
+          "type": "choice",
+          "id": "desk",
+          "label": "Which desk is this brief for?",
+          "options": ["Derivatives & structured products", "Fixed income & credit", "Systematic equities", "Portfolio construction & asset management", "Digital assets"]
+        },
+        { "type": "capture", "id": "pricing-evidence", "label": "Evidence 1 — your pricing race", "from": "pricing-run" },
+        { "type": "capture", "id": "portfolio-evidence", "label": "Evidence 2 — your portfolio run", "from": "portfolio-run" },
+        {
+          "type": "text",
+          "id": "fit",
+          "label": "Fit: where could quantum matter for this desk, and through which algorithm family?",
+          "hint": "Estimation (pricing, risk), optimisation (portfolios), or learning (prediction)? Be specific about the task.",
+          "minWords": 50
+        },
+        {
+          "type": "text",
+          "id": "evidence",
+          "label": "Evidence: what has actually been demonstrated? Cite at least two results, with their caveats.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "timeline",
+          "label": "Timeline: what would have to be true before this pays off?",
+          "hint": "Logical qubits, circuit depth, run time, roadmap dates — and what would change your mind.",
+          "minWords": 50
+        },
+        {
+          "type": "text",
+          "id": "security",
+          "label": "Security: what should the desk do about post-quantum cryptography now?",
+          "minWords": 40
+        },
+        {
+          "type": "choice",
+          "id": "recommendation",
+          "label": "Recommendation",
+          "options": ["Watch — no spend, track progress", "Experiment — small team, cloud access, strict benchmarks", "Invest — dedicated programme with a testable use case"]
+        },
+        { "type": "scale", "id": "confidence", "label": "How confident are you in this recommendation?", "min": 1, "max": 5, "minLabel": "Low", "maxLabel": "High" },
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Executive summary — the paragraph your reader will actually read.",
+          "minWords": 50,
+          "maxWords": 160
+        }
+      ]
+    },
+    {
+      "type": "recap",
+      "id": "qt14-recap",
+      "title": "What you now know",
+      "points": [
+        { "text": "Quantum outputs are samples: precision costs shots, and Monte Carlo has the same square-root law.", "cite": ["shot-noise", "mc-rate"] },
+        { "text": "Amplitude estimation promises a near-quadratic speed-up for pricing — on fault-tolerant hardware that doesn't exist yet at the needed scale.", "cite": ["qae-speedup", "derivative-threshold"] },
+        { "text": "Optimisation (QAOA, annealing) and quantum ML are heuristics that still have to win benchmarks.", "cite": ["qaoa-benchmark", "qml-feature-maps"] },
+        { "text": "Bank results so far are hybrid, offline trials with real but caveated signals.", "cite": ["hybrid-offline", "trials-not-production"] },
+        { "text": "Every 'beyond classical' claim invites a classical reply — check before you believe.", "cite": ["sycamore-2019", "classical-rebuttal-2026"] },
+        { "text": "The cryptography clock is already running: harvest now, decrypt later.", "cite": ["harvest-now", "nist-timeline"] }
+      ]
+    }
+  ]
+}

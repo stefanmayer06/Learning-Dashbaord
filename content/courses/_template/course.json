@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schema/course.schema.json",
+  "id": "__ID__",
+  "title": "__TITLE__",
+  "subtitle": "One sentence: what the learner will be able to do.",
+  "version": "0.1.0",
+  "lastVerified": "__TODAY__",
+  "level": "intro",
+  "hours": 1,
+  "theme": { "accent": "#1f7a5a", "cover": "contours" },
+  "summary": "Two or three sentences for the syllabus page.",
+  "outcomes": ["A concrete thing the learner can do after the course."],
+  "prerequisites": [],
+  "progression": "linear",
+  "outputs": [
+    { "id": "capstone", "title": "Capstone", "kind": "brief", "description": "What the learner produces at the end.", "capstone": true }
+  ],
+  "units": [
+    { "id": "foundations", "title": "Foundations", "strand": "Theory", "summary": "What this unit covers.", "lessons": ["__ID__-intro"] }
+  ]
+}

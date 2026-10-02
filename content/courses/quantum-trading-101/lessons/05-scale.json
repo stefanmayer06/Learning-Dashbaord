@@ -1,0 +1,125 @@
+{
+  "id": "qt-scale",
+  "title": "The exponential wall",
+  "summary": "Why simulating qubits gets out of hand, why noise is the real enemy, and what 'logical qubit' means.",
+  "minutes": 18,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt5-reel",
+      "title": "Doubling, again and again",
+      "reel": {
+        "title": "Doubling, again and again",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Exponential",
+            "kicker": "Unit 3 · Theory",
+            "title": "The exponential\nwall.",
+            "subtitle": "Each qubit doubles what a classical computer must track.",
+            "narration": "Why would anyone build a quantum computer? Because simulating one on a classical machine gets out of hand, fast."
+          },
+          {
+            "kind": "quote",
+            "text": "…nature isn't classical, dammit, and if you want to make a simulation of nature, you'd better make it quantum mechanical…",
+            "by": "Richard Feynman, “Simulating physics with computers” (1982)",
+            "narration": "Richard Feynman made the argument in a paper published in 1982: to simulate quantum physics efficiently, you'd want a computer that itself runs on quantum rules.",
+            "cite": ["feynman-simulation"]
+          },
+          {
+            "kind": "plugin",
+            "plugin": "growth",
+            "props": { "from": 1, "to": 50 },
+            "narration": "Here's why. Describing n qubits takes two to the n amplitudes. Every qubit doubles the list. At fifty qubits, storing them naively needs about eighteen petabytes of memory.",
+            "cite": ["n-qubit-amplitudes", "statevector-memory"]
+          },
+          {
+            "kind": "statement",
+            "text": "But brute force isn't the only way. Clever classical methods — **tensor networks** — can simulate some large circuits after all.",
+            "narration": "But careful. Brute force isn't the only classical method. Clever techniques called tensor networks can simulate some large circuits, which is why quantum speed claims keep getting challenged.",
+            "cite": ["tensor-networks"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Noise",
+            "text": "The real enemy is **noise**. Qubits leak information to their surroundings; every gate adds a little error.",
+            "narration": "The real enemy is noise. Qubits leak information to their surroundings, and every gate adds a little error. Long algorithms drown in it.",
+            "cite": ["nisq"]
+          },
+          {
+            "kind": "statement",
+            "text": "John Preskill called today's machines **NISQ**: noisy, intermediate-scale. Useful for experiments — not yet for long, exact algorithms.",
+            "narration": "In 2018 the physicist John Preskill gave this era a name: NISQ, noisy intermediate-scale quantum. Good for experiments, not yet for long, exact algorithms.",
+            "cite": ["nisq"]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "Logical qubits",
+            "nodes": [
+              { "id": "p1", "label": "physical", "x": 4, "y": 15, "tone": "muted" },
+              { "id": "p2", "label": "physical", "x": 4, "y": 50, "tone": "muted" },
+              { "id": "p3", "label": "physical", "x": 4, "y": 85, "tone": "muted" },
+              { "id": "ec", "label": "error correction", "x": 50, "y": 50, "tone": "ink" },
+              { "id": "lq", "label": "1 logical qubit", "x": 96, "y": 50, "tone": "accent" }
+            ],
+            "edges": [
+              { "from": "p1", "to": "ec" },
+              { "from": "p2", "to": "ec" },
+              { "from": "p3", "to": "ec" },
+              { "from": "ec", "to": "lq" }
+            ],
+            "narration": "The fix is error correction: spread one reliable logical qubit across many noisy physical ones, constantly checking for errors. Serious finance algorithms are costed in logical qubits.",
+            "cite": ["logical-qubits"]
+          },
+          {
+            "kind": "statement",
+            "text": "When you read a qubit count, ask: **physical or logical?** The ratio depends on the hardware and the code — and it is never one to one.",
+            "narration": "So whenever you see a qubit count in a headline, ask one question: physical or logical? The gap between them is where most of the engineering, and most of the hype, lives.",
+            "cite": ["logical-qubits"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt5-scale",
+      "title": "Feel the doubling",
+      "widget": "scale-explorer",
+      "brief": "Drag the qubit count up. Watch the amplitudes and memory explode, and find where a full statevector stops fitting in each machine.",
+      "props": { "cite": ["statevector-memory", "tensor-networks"] },
+      "cite": ["n-qubit-amplitudes"]
+    },
+    {
+      "type": "quiz",
+      "id": "qt5-quiz",
+      "title": "Check the wall",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "How many complex amplitudes describe a general state of 10 qubits?",
+          "answer": 1024,
+          "tolerance": 0,
+          "explain": "2¹⁰ = 1,024.",
+          "cite": ["n-qubit-amplitudes"]
+        },
+        {
+          "type": "single",
+          "prompt": "A headline says a chip has 100 qubits. What should you ask first?",
+          "options": ["Physical or logical qubits?", "What colour is the chip?", "Nothing — more qubits always means more power"],
+          "answer": 0,
+          "explain": "Large algorithms need error-corrected logical qubits, each built from many physical ones.",
+          "cite": ["logical-qubits"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why do claims that a quantum computer did something 'impossible for classical computers' keep getting challenged?",
+          "options": ["Classical methods like tensor networks can sometimes simulate the task after all", "Because quantum computers are fake", "Because of time zones"],
+          "answer": 0,
+          "explain": "In 2022, tensor networks reproduced Google's 2019 Sycamore task in about 15 hours on 512 GPUs.",
+          "cite": ["tensor-networks"]
+        }
+      ]
+    }
+  ]
+}

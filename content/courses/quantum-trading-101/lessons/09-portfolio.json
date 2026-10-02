@@ -1,0 +1,210 @@
+{
+  "id": "qt-portfolio",
+  "title": "One portfolio, three solvers",
+  "summary": "Turn Markowitz into a QUBO, then solve it by brute force, simulated annealing and an exact QAOA simulation.",
+  "minutes": 35,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt9-reel",
+      "title": "From Markowitz to QUBO",
+      "reel": {
+        "title": "From Markowitz to QUBO",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The problem",
+            "kicker": "Unit 6 · Practice",
+            "title": "From Markowitz\nto QUBO.",
+            "subtitle": "The form every quantum optimiser speaks.",
+            "narration": "Pricing was estimation. Now, optimisation: choosing what to hold."
+          },
+          {
+            "kind": "statement",
+            "text": "Markowitz, 1952: investing is a trade-off between **expected return** and **variance**.",
+            "narration": "In 1952 Harry Markowitz reframed investing as a trade-off: expected return against variance. It earned him a share of the 1990 Nobel memorial prize.",
+            "cite": [
+              "markowitz"
+            ]
+          },
+          {
+            "kind": "equation",
+            "tex": [
+              "\\min_{x\\,\\in\\,\\{0,1\\}^n}\\; q\\,x^{\\!\\top}\\Sigma x \\;-\\; \\mu^{\\!\\top} x \\;+\\; \\lambda\\Big(\\textstyle\\sum_i x_i - B\\Big)^2"
+            ],
+            "notes": [
+              "$x_i = 1$ means “hold asset $i$”; $\\Sigma$ is covariance, $\\mu$ expected returns.",
+              "The **budget** “hold exactly $B$” becomes a **penalty** — that's what makes it a QUBO."
+            ],
+            "narration": "Make it a yes-or-no choice per asset. Penalise risk, reward return, and turn the rule hold exactly B assets into a penalty term. What's left is a QUBO: a quadratic function of zeros and ones.",
+            "cite": [
+              "qubo-form",
+              "markowitz"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Every annealer and every QAOA circuit takes this shape as input. It is the **lingua franca** of quantum optimisation.",
+            "narration": "This shape is the common language of quantum optimisation. Annealers and QAOA circuits both take it as their input.",
+            "cite": [
+              "qubo-form"
+            ]
+          },
+          {
+            "kind": "compare",
+            "chapter": "Three solvers",
+            "left": {
+              "heading": "Classical",
+              "items": [
+                "**Brute force**: check all 2ⁿ — exact, hopeless at scale",
+                "**Simulated annealing**: random moves, cooling slowly"
+              ]
+            },
+            "right": {
+              "heading": "Quantum",
+              "items": [
+                "**QAOA**: cost and mixing layers with tuned angles",
+                "**Quantum annealing**: hardware settles to low energy"
+              ]
+            },
+            "narration": "We'll solve it three ways. Brute force checks every option: exact but hopeless at scale. Simulated annealing makes random moves while slowly cooling. And QAOA, simulated exactly, biases the odds toward good portfolios.",
+            "cite": [
+              "qaoa",
+              "annealing",
+              "portfolio-count"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "QAOA doesn't “try every portfolio and pick the best”. It **shifts the odds**. You still sample — and hope the best answer comes up.",
+            "narration": "A crucial point. QAOA does not try every portfolio at once and pick the best. It shifts the probabilities toward good answers. You still have to sample, and hope the best one comes up.",
+            "cite": [
+              "qaoa",
+              "born-rule"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Penalties make QAOA spend effort on **invalid** answers. The fix: build the rule into the **mixer**, which only ever swaps one held asset for another.",
+            "narration": "There's a catch with penalties: QAOA spends much of its effort just learning to respect the budget. A better design builds the rule into the mixing step, which only ever swaps one held asset for another, so every answer is valid.",
+            "cite": [
+              "xy-mixer"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Reality check",
+            "text": "Benchmarks find QAOA's results swing with **depth, parameters and noise**. A 2025 Vanguard–IBM test on **109 qubits** matched a classical baseline — a feasibility study, not advantage.",
+            "narration": "The reality check. Benchmarks find QAOA's results swing with depth, parameters and noise. In 2025, Vanguard and IBM ran a variational portfolio workflow on a hundred and nine qubits. IBM reported it performed on par with a strong classical solver: a feasibility study, not an advantage.",
+            "cite": [
+              "qaoa-benchmark",
+              "vanguard-ibm"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Six assets is tiny — that's the point. You can check every answer, so you can **see** exactly what each solver gets right.",
+            "narration": "In the lab you get six assets. That's tiny on purpose: you can check every answer, so you can see exactly what each solver gets right and wrong."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt9-portfolio",
+      "title": "Solve it three ways",
+      "widget": "portfolio-lab",
+      "brief": "Work through the three tabs. Tune the problem, run annealing, then try both flavours of QAOA — standard with a penalty, and constraint-preserving — and optimise a depth-2 circuit for each. Try a weak penalty λ to see a QUBO go wrong. Save your run for the notebook and capstone.",
+      "props": {
+        "capture": "portfolio-run"
+      },
+      "cite": [
+        "qubo-form",
+        "qaoa",
+        "xy-mixer"
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qt9-notebook",
+      "title": "Notebook: portfolios",
+      "output": "lab-notebook",
+      "brief": "Write down what the three solvers taught you.",
+      "fields": [
+        {
+          "type": "capture",
+          "id": "portfolio-capture",
+          "label": "Your saved portfolio run",
+          "from": "portfolio-run",
+          "hint": "Run the portfolio lab and press “Save to notebook”."
+        },
+        {
+          "type": "text",
+          "id": "portfolio-note",
+          "label": "How did the two QAOA flavours compare with a random valid pick — and what would change with 600 assets instead of 6?",
+          "minWords": 40
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qt9-quiz",
+      "title": "Check the formulation",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "In the QUBO, how is the rule “hold exactly B assets” enforced?",
+          "options": [
+            "As a hard constraint the hardware respects",
+            "As a penalty term λ(Σx − B)² added to the objective",
+            "It can't be expressed"
+          ],
+          "answer": 1,
+          "explain": "Constraints become penalties; if λ is too small, the optimum can break the rule — as you may have seen in the lab.",
+          "cite": [
+            "qubo-form"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many possible portfolios does brute force check for 30 assets (each in or out)?",
+          "answer": 1073741824,
+          "tolerance": 0,
+          "explain": "2³⁰ = 1,073,741,824. Brute force stops being an option very quickly.",
+          "cite": [
+            "portfolio-count"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "What does a QAOA run actually give you?",
+          "options": [
+            "The guaranteed optimal portfolio",
+            "Samples from a distribution biased toward good portfolios",
+            "A price"
+          ],
+          "answer": 1,
+          "explain": "It shifts probabilities; you sample and keep the best you see.",
+          "cite": [
+            "qaoa"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Why can a constraint-preserving mixer beat a penalty for the rule “hold exactly B assets”?",
+          "options": [
+            "It makes the circuit classical",
+            "The state never leaves valid portfolios, so no effort is wasted on invalid ones",
+            "It removes the need to measure"
+          ],
+          "answer": 1,
+          "explain": "The Quantum Alternating Operator Ansatz swaps one held asset for another, keeping every answer valid.",
+          "cite": [
+            "xy-mixer"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "id": "qt-grover",
+  "title": "Amplitude amplification",
+  "summary": "The quadratic trick behind most quantum speed-ups in finance — flip a sign, reflect about the mean, repeat.",
+  "minutes": 20,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt6-reel",
+      "title": "Flip, reflect, repeat",
+      "reel": {
+        "title": "Flip, reflect, repeat",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The problem",
+            "kicker": "Unit 4 · Theory",
+            "title": "Flip, reflect,\nrepeat.",
+            "subtitle": "Grover's algorithm, and why its idea matters more than its use.",
+            "narration": "Before we get to finance, one algorithm whose idea powers most of what follows: Grover's search."
+          },
+          {
+            "kind": "statement",
+            "text": "Find one marked item among **N**. Classically you check them one by one — about **N/2** tries on average.",
+            "narration": "The task: find one marked item among N possibilities. Classically you check them one by one, about N over two tries on average.",
+            "cite": ["grover-sqrt"]
+          },
+          {
+            "kind": "bars",
+            "labels": ["0", "1", "2", "3", "4", "5", "6", "7"],
+            "signed": true,
+            "max": 1,
+            "frames": [
+              { "values": [0.354, 0.354, 0.354, 0.354, 0.354, 0.354, 0.354, 0.354], "caption": "Start: equal amplitudes for all 8 items" },
+              { "values": [0.354, 0.354, 0.354, 0.354, 0.354, -0.354, 0.354, 0.354], "caption": "Oracle: flip the sign of the marked item (5)", "highlight": [5] },
+              { "values": [0.177, 0.177, 0.177, 0.177, 0.177, 0.884, 0.177, 0.177], "caption": "Diffuse: reflect every amplitude about the mean", "highlight": [5] },
+              { "values": [-0.088, -0.088, -0.088, -0.088, -0.088, 0.972, -0.088, -0.088], "caption": "Second round: the marked item holds ≈ 95% probability", "highlight": [5] }
+            ],
+            "unit": "amplitude",
+            "narration": "Start with equal amplitudes on all eight items. Step one, the oracle, flips the sign of the marked item. Step two reflects every amplitude about their mean. The marked one shoots up. Do it again and it holds about ninety-five percent probability.",
+            "cite": ["grover-sqrt", "amplitude-amplification"]
+          },
+          {
+            "kind": "equation",
+            "chapter": "The payoff",
+            "tex": ["k_{\\text{best}} \\approx \\frac{\\pi}{4}\\sqrt{N}"],
+            "notes": ["For a million items: about **785** rounds instead of about 500,000 guesses.", "A **quadratic** speed-up — big, but not exponential."],
+            "narration": "The best number of rounds is about pi over four times the square root of N. For a million items, roughly seven hundred and eighty-five rounds instead of half a million guesses. Quadratic, not exponential.",
+            "cite": ["grover-sqrt"]
+          },
+          {
+            "kind": "chart",
+            "xLabel": "iterations",
+            "yLabel": "P(success), N = 64",
+            "series": [
+              { "name": "success", "tone": "accent", "points": [[0, 0.0156], [1, 0.1348], [2, 0.3439], [3, 0.5914], [4, 0.8164], [5, 0.9635], [6, 0.9966], [7, 0.9074], [8, 0.718], [9, 0.475], [10, 0.2381], [11, 0.0656], [12, 0.0001]] }
+            ],
+            "annotations": [{ "x": 6, "y": 0.9966, "text": "stop here" }],
+            "narration": "And timing matters. Keep going past the best point and the probability falls again, because the state keeps rotating past the target. Quantum search has to know when to stop.",
+            "cite": ["grover-overshoot"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Why finance cares",
+            "text": "The same trick works on **any probability a circuit produces**. Boost it — or, cleverly, **estimate** it.",
+            "narration": "Here is why finance cares. The same flip and reflect trick works on any probability a circuit produces. You can boost it, or, with more cleverness, estimate it.",
+            "cite": ["amplitude-amplification"]
+          },
+          {
+            "kind": "statement",
+            "text": "Estimating a probability is exactly what a **price** or a **risk number** is. That's amplitude estimation — Unit 5.",
+            "narration": "And estimating a probability, an expected value, is exactly what a price or a risk figure is. That is amplitude estimation, and it's where we're heading.",
+            "cite": ["amplitude-amplification", "qae-finance"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt6-grover",
+      "title": "Run Grover by hand",
+      "widget": "grover-lab",
+      "brief": "Pick a marked item, then alternate the two steps. Watch the dashed mean line: the diffuser mirrors every bar about it. Try overshooting too.",
+      "props": { "qubits": 4 },
+      "cite": ["grover-sqrt", "grover-overshoot"]
+    },
+    {
+      "type": "quiz",
+      "id": "qt6-quiz",
+      "title": "Check the trick",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "About how many Grover iterations are best for N = 10,000 items?",
+          "options": ["About 80", "About 5,000", "About 10,000", "About 14"],
+          "answer": 0,
+          "explain": "(π/4)·√10,000 ≈ 0.785 × 100 ≈ 78.5 — about 80 rounds, versus ~5,000 classical guesses on average.",
+          "cite": ["grover-sqrt"]
+        },
+        {
+          "type": "single",
+          "prompt": "What happens if you run more iterations than the optimum?",
+          "options": ["Success probability keeps rising to exactly 1", "Success probability falls again", "The computer breaks"],
+          "answer": 1,
+          "explain": "The state rotates past the target, so the odds drop.",
+          "cite": ["grover-overshoot"]
+        },
+        {
+          "type": "single",
+          "prompt": "Grover's speed-up over classical search is…",
+          "options": ["Exponential", "Quadratic", "None"],
+          "answer": 1,
+          "explain": "√N queries instead of ~N: quadratic.",
+          "cite": ["grover-sqrt"]
+        }
+      ]
+    }
+  ]
+}

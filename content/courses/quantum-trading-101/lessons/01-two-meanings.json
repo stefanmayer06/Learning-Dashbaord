@@ -1,0 +1,164 @@
+{
+  "id": "qt-two-meanings",
+  "title": "Two meanings of “quantum trading”",
+  "summary": "A research programme and a scam share one name. Learn to tell them apart, then see where the course goes.",
+  "minutes": 12,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt1-reel",
+      "title": "One word, two worlds",
+      "reel": {
+        "title": "One word, two worlds",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Two worlds",
+            "kicker": "Quantum Trading 101 · Lesson 1",
+            "title": "One word,\ntwo worlds.",
+            "subtitle": "Search for **quantum trading** and you'll find serious research — and a scam.",
+            "narration": "Search for quantum trading and you will find two very different things. One is a serious research programme. The other is a scam."
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "The research", "items": ["Banks and labs test quantum algorithms on real data", "Results published, with caveats", "Mostly trials, not production"] },
+            "right": { "heading": "The scam", "items": ["“Quantum AI” bots promising big returns", "Deepfake celebrity endorsements", "Deposits you can't withdraw"] },
+            "narration": "On one side, banks and labs testing quantum algorithms and publishing their results with caveats. On the other, so-called Quantum AI bots, sold with fake celebrity videos.",
+            "cite": ["trials-not-production", "scam-asic"]
+          },
+          {
+            "kind": "stat",
+            "value": 34,
+            "suffix": "%",
+            "label": "better predictions of whether a **bond quote would be filled** — HSBC and IBM, 2025",
+            "context": "A real, published trial. Relative gain, one bank's data.",
+            "narration": "Here is the research world. In 2025, HSBC and IBM reported up to 34 percent better predictions of whether a bond quote would be filled, using quantum processors. A trial — but real.",
+            "cite": ["hsbc-trial"]
+          },
+          {
+            "kind": "statement",
+            "text": "Australia's regulator called “Quantum AI” the **most prolific** trading-platform scam it had seen.",
+            "footnote": "ASIC, 2024. The UK FCA lists it as an unauthorised firm.",
+            "narration": "And here is the other world. Australia's securities regulator named Quantum AI the most prolific online trading-platform scam it had seen. Britain's regulator lists it as unauthorised.",
+            "cite": ["scam-asic", "scam-fca"]
+          },
+          {
+            "kind": "list",
+            "heading": "The scam playbook",
+            "items": ["A celebrity “endorses” it in a video", "Small first deposit — about **$250**", "A dashboard shows **fake profits**", "Pressure to deposit more", "Withdrawals are **blocked**"],
+            "narration": "The scam follows a script: a celebrity video, a small first deposit of around two hundred and fifty dollars, a dashboard showing fake profits, pressure to add more, and then withdrawals that never arrive.",
+            "cite": ["scam-tells", "scam-asic"]
+          },
+          {
+            "kind": "statement",
+            "text": "No quantum computer today can run a trading strategy that **guarantees** returns. Anyone who says so is selling something.",
+            "narration": "So here is your first filter. No quantum computer today can run a trading strategy that guarantees returns. Anyone telling you otherwise is selling something.",
+            "cite": ["trials-not-production"]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "The route",
+            "nodes": [
+              { "id": "t", "label": "Theory: qubits & algorithms", "x": 8, "y": 30, "tone": "accent" },
+              { "id": "p", "label": "Practice: pricing & portfolios", "x": 38, "y": 70, "tone": "ink" },
+              { "id": "l", "label": "Landscape: what's real in 2026", "x": 66, "y": 30, "tone": "ink" },
+              { "id": "c", "label": "Your brief for a trading desk", "x": 94, "y": 70, "tone": "signal" }
+            ],
+            "edges": [
+              { "from": "t", "to": "p" },
+              { "from": "p", "to": "l" },
+              { "from": "l", "to": "c" }
+            ],
+            "narration": "This course takes the research seriously. We start with just enough theory, then build working labs for pricing and portfolios, map what has actually been shown, and finish with a brief you could hand to a trading desk."
+          },
+          {
+            "kind": "statement",
+            "text": "Every claim in this course has a **source** and a **date**. Look in the margin.",
+            "narration": "One more thing. Every factual claim in this course is checked against its source and dated. When you see a number, look in the margin: the evidence is right there."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt1-sort",
+      "title": "Research or red flag?",
+      "widget": "card-sort",
+      "brief": "Sort each statement. Some are real, published results; others are the language of scams. Pick a card, then a bucket.",
+      "props": {
+        "buckets": ["Documented research", "Red flag"],
+        "cards": [
+          {
+            "text": "A bank reports up to 34% better fill-probability predictions in a bond-trading trial with IBM.",
+            "bucket": "Documented research",
+            "why": "HSBC and IBM published this in 2025 — as a trial, with a preprint and caveats.",
+            "cite": ["hsbc-trial"]
+          },
+          {
+            "text": "Our quantum AI bot made members 90% in a week. Start with just $250!",
+            "bucket": "Red flag",
+            "why": "Guaranteed-sounding returns plus a small starter deposit is the exact script regulators describe.",
+            "cite": ["scam-tells"]
+          },
+          {
+            "text": "Researchers ran a certified-randomness protocol on a 56-qubit quantum computer and published it in Nature.",
+            "bucket": "Documented research",
+            "why": "JPMorganChase and partners, March 2025.",
+            "cite": ["jpm-randomness"]
+          },
+          {
+            "text": "A famous billionaire explains in a video why he moved his savings into a quantum trading app.",
+            "bucket": "Red flag",
+            "why": "Deepfake celebrity endorsements are the scam's main advertising channel.",
+            "cite": ["scam-asic"]
+          },
+          {
+            "text": "Your dashboard shows big profits, but you must pay a ‘release fee’ before withdrawing.",
+            "bucket": "Red flag",
+            "why": "Fake dashboards and blocked withdrawals are named warning signs.",
+            "cite": ["scam-tells"]
+          },
+          {
+            "text": "A study estimates useful quantum advantage in derivative pricing needs thousands of error-corrected qubits.",
+            "bucket": "Documented research",
+            "why": "Goldman Sachs and IBM published this resource estimate in 2021 — research is often about what is not yet possible.",
+            "cite": ["derivative-threshold"]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qt1-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Which describes the HSBC–IBM bond result most accurately?",
+          "options": ["A production trading system that beats all classical methods", "A published trial showing up to 34% better fill predictions on one bank's data", "A scam using IBM's name"],
+          "answer": 1,
+          "explain": "HSBC described it as a trial. The gain is relative and measured on its own historical data.",
+          "cite": ["hsbc-trial"]
+        },
+        {
+          "type": "multi",
+          "prompt": "Which of these are warning signs regulators list for investment-platform scams?",
+          "options": ["Celebrity endorsement videos", "Pressure to deposit more", "A published peer-reviewed paper", "Withdrawals blocked or charged"],
+          "answers": [0, 1, 3],
+          "explain": "Fake endorsements, pressure to top up and blocked withdrawals all appear in ASIC's warning.",
+          "cite": ["scam-tells"]
+        },
+        {
+          "type": "single",
+          "prompt": "Can a quantum computer today run a strategy that guarantees trading profits?",
+          "options": ["Yes, with enough qubits", "No — and claims that it can are a red flag", "Only on weekends"],
+          "answer": 1,
+          "explain": "Even the leading bank results are exploratory trials, not guaranteed-return systems.",
+          "cite": ["trials-not-production"]
+        }
+      ]
+    }
+  ]
+}

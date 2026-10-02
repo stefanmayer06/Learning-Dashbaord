@@ -1,0 +1,148 @@
+{
+  "id": "qt-families",
+  "title": "Estimation, optimisation, learning",
+  "summary": "The three algorithm families aimed at finance — what each promises, and the fine print on each.",
+  "minutes": 20,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt7-reel",
+      "title": "Three families, three promises",
+      "reel": {
+        "title": "Three families, three promises",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The map",
+            "kicker": "Unit 4 · Theory",
+            "title": "Three families,\nthree promises.",
+            "subtitle": "Almost every quantum-finance paper fits one of them.",
+            "narration": "Read enough quantum finance papers and they sort into three families. Learn the families and you can place any headline.",
+            "cite": ["finance-survey"]
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              { "id": "e", "label": "Estimation · amplitude estimation", "x": 15, "y": 22, "tone": "accent" },
+              { "id": "o", "label": "Optimisation · QAOA, VQE, annealing", "x": 50, "y": 22, "tone": "accent" },
+              { "id": "l", "label": "Learning · quantum ML", "x": 85, "y": 22, "tone": "accent" },
+              { "id": "pe", "label": "Pricing, VaR, risk", "x": 15, "y": 78, "tone": "ink" },
+              { "id": "po", "label": "Portfolios, hedging, routing", "x": 50, "y": 78, "tone": "ink" },
+              { "id": "pl", "label": "Prediction, fraud, credit", "x": 85, "y": 78, "tone": "ink" }
+            ],
+            "edges": [
+              { "from": "e", "to": "pe" },
+              { "from": "o", "to": "po" },
+              { "from": "l", "to": "pl" }
+            ],
+            "narration": "Estimation, for pricing and risk. Optimisation, for portfolios and hedging. And learning, for prediction tasks like fills, fraud and credit.",
+            "cite": ["finance-survey"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "1 · Estimation",
+            "text": "**Amplitude estimation** prices by estimating an expected value with error ∝ **1/N** instead of Monte Carlo's **1/√N**.",
+            "narration": "Family one, estimation. Amplitude estimation computes an expected value, like an option price, with error falling like one over N, instead of Monte Carlo's one over root N.",
+            "cite": ["qae-speedup", "mc-rate"]
+          },
+          {
+            "kind": "timeline",
+            "events": [
+              { "year": "2015", "label": "Quantum speed-up of Monte Carlo", "detail": "Montanaro: near-quadratic, in general" },
+              { "year": "2018", "label": "Derivative pricing", "detail": "Rebentrost, Gupt & Bromley" },
+              { "year": "2019", "label": "Value at Risk", "detail": "Woerner & Egger" },
+              { "year": "2020", "label": "Option pricing on hardware", "detail": "Stamatopoulos et al., small scale" },
+              { "year": "2021", "label": "The resource bill", "detail": "≈ 8,000 logical qubits for advantage" }
+            ],
+            "narration": "The idea moved fast on paper: a general Monte Carlo speed-up in 2015, derivative pricing in 2018, value at risk in 2019, tiny demos on hardware in 2020. Then, in 2021, the bill: thousands of error-corrected qubits.",
+            "cite": ["qae-speedup", "qae-finance", "derivative-threshold"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "2 · Optimisation",
+            "text": "**QAOA** and **VQE** tune a short circuit with a classical optimiser. **Annealers** let hardware settle into low-energy answers.",
+            "narration": "Family two, optimisation. QAOA and VQE tune a short quantum circuit with a classical optimiser. Quantum annealers, like D-Wave's, take another route and let the hardware settle into good answers.",
+            "cite": ["qaoa", "vqe", "annealing"]
+          },
+          {
+            "kind": "statement",
+            "text": "The catch: these are **heuristics**. No proof they beat the best classical solvers — and benchmarks find performance depends on depth, parameters and noise.",
+            "narration": "The catch: these are heuristics. There's no proof they beat the best classical solvers, and benchmarks find that results depend heavily on circuit depth, parameters and noise.",
+            "cite": ["qaoa-benchmark"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "3 · Learning",
+            "text": "**Quantum machine learning** maps data into quantum states and feeds the result to a classical model. Whether it helps depends on the **data**.",
+            "narration": "Family three, learning. Quantum machine learning maps data into quantum states and passes the result to a classical model. Whether that helps depends heavily on the data.",
+            "cite": ["qml-feature-maps"]
+          },
+          {
+            "kind": "compare",
+            "chapter": "Fine print",
+            "left": { "heading": "The promise", "items": ["HHL: exponential speed-up for linear systems", "Exponential speed-ups for recommendation & ML"] },
+            "right": { "heading": "The fine print", "items": ["Only if input loading, structure and read-out cooperate", "Some matched by classical 'quantum-inspired' algorithms"] },
+            "narration": "And always read the fine print. The famous HHL algorithm promised exponential speed-ups for linear algebra, but only under strict conditions. Some machine-learning speed-ups were later matched by quantum-inspired classical algorithms.",
+            "cite": ["hhl-fine-print", "dequantization"]
+          },
+          {
+            "kind": "statement",
+            "text": "Three questions for any claim: **Which family? Which speed-up? Proven or heuristic?**",
+            "narration": "So for any claim, ask three questions. Which family is it? What speed-up is promised? And is it proven, or a heuristic that still has to win a benchmark?"
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt7-sort",
+      "title": "Match the task to the family",
+      "widget": "card-sort",
+      "brief": "A trading floor's wish list. Which algorithm family would a quantum team reach for?",
+      "props": {
+        "buckets": ["Estimation", "Optimisation", "Learning"],
+        "cards": [
+          { "text": "Price an exotic derivative by simulating thousands of market paths", "bucket": "Estimation", "why": "Pricing by simulation is Monte Carlo — the target of amplitude estimation.", "cite": ["qae-finance"] },
+          { "text": "Compute Value at Risk for a large portfolio", "bucket": "Estimation", "why": "VaR is a probability estimate; Woerner and Egger applied amplitude estimation to it.", "cite": ["qae-finance"] },
+          { "text": "Choose which 30 bonds to hold under budget and risk limits", "bucket": "Optimisation", "why": "Discrete selection under constraints is a QUBO — QAOA, VQE-style or annealing.", "cite": ["qubo-form"] },
+          { "text": "Rebalance holdings while limiting transaction costs", "bucket": "Optimisation", "why": "Another constrained combinatorial problem.", "cite": ["qubo-form"] },
+          { "text": "Predict whether a client's bond quote request will be filled", "bucket": "Learning", "why": "A classification problem — HSBC's 2025 trial used quantum-transformed features here.", "cite": ["hsbc-trial", "qml-feature-maps"] },
+          { "text": "Flag possibly fraudulent transactions", "bucket": "Learning", "why": "Classification on data; the quantum role would be a feature map or kernel.", "cite": ["qml-feature-maps"] }
+        ]
+      },
+      "cite": ["finance-survey"]
+    },
+    {
+      "type": "quiz",
+      "id": "qt7-quiz",
+      "title": "Check the families",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Amplitude estimation targets which classical technique?",
+          "options": ["Monte Carlo simulation", "Linear regression", "Order routing"],
+          "answer": 0,
+          "explain": "It estimates the same expected value with fewer model evaluations: error ∝ 1/N vs 1/√N.",
+          "cite": ["qae-speedup"]
+        },
+        {
+          "type": "single",
+          "prompt": "QAOA for portfolio optimisation is best described as…",
+          "options": ["A proven exponential speed-up", "A heuristic whose performance depends on depth, parameters and noise", "A classical algorithm"],
+          "answer": 1,
+          "explain": "Benchmarks show strong dependence on these factors; no general proof of advantage exists.",
+          "cite": ["qaoa-benchmark"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did Ewin Tang's 2019 result show?",
+          "options": ["Quantum computers can break RSA", "A claimed exponential quantum speed-up for recommendations could be matched classically", "Annealers beat all classical solvers"],
+          "answer": 1,
+          "explain": "Her quantum-inspired classical algorithm 'dequantized' a famous quantum machine-learning speed-up.",
+          "cite": ["dequantization"]
+        }
+      ]
+    }
+  ]
+}

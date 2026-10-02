@@ -1,0 +1,129 @@
+{
+  "id": "qt-entanglement",
+  "title": "Entanglement, built by hand",
+  "summary": "Two gates make two qubits share one fate. Build a Bell state and see what entanglement does — and doesn't — do.",
+  "minutes": 22,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qt4-reel",
+      "title": "Two qubits, one state",
+      "reel": {
+        "title": "Two qubits, one state",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Two qubits",
+            "kicker": "Unit 3 · Theory",
+            "title": "Two qubits,\none state.",
+            "subtitle": "Entanglement is what makes many qubits more than many coins.",
+            "narration": "One qubit is interesting. Two qubits are where quantum computing really starts."
+          },
+          {
+            "kind": "bars",
+            "labels": ["|00⟩", "|01⟩", "|10⟩", "|11⟩"],
+            "frames": [
+              { "values": [1, 0, 0, 0], "caption": "Two qubits need four amplitudes. Start: |00⟩" },
+              { "values": [0.5, 0, 0.5, 0], "caption": "H on the first qubit: |00⟩ and |10⟩, half each" },
+              { "values": [0.5, 0, 0, 0.5], "caption": "CNOT: the first qubit flips the second → |00⟩ and |11⟩", "highlight": [0, 3] }
+            ],
+            "max": 1,
+            "unit": "probability",
+            "narration": "Two qubits need four amplitudes, one per combination. Start in zero zero. A Hadamard on the first qubit splits it into zero zero and one zero. Then a controlled NOT flips the second qubit whenever the first is one.",
+            "cite": ["n-qubit-amplitudes", "bell-state"]
+          },
+          {
+            "kind": "plugin",
+            "plugin": "circuit",
+            "props": {
+              "qubits": 2,
+              "showState": true,
+              "gates": [
+                { "gate": "H", "targets": [0], "col": 0 },
+                { "gate": "X", "targets": [1], "controls": [0], "col": 1 }
+              ]
+            },
+            "narration": "As a circuit it's just two gates: H, then a CNOT. The result is a Bell state: half zero zero, half one one, and never anything else.",
+            "cite": ["bell-state"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "What it means",
+            "text": "Measure either qubit: a **random** 0 or 1. Measure both: they **always agree**.",
+            "narration": "Measure either qubit alone and you get a perfectly random bit. Measure both and they always agree. That shared randomness is entanglement.",
+            "cite": ["bell-state"]
+          },
+          {
+            "kind": "statement",
+            "text": "Neither qubit has a state of its own any more. Only the **pair** does.",
+            "narration": "Here's the strange part. Neither qubit has a state of its own any more. You can only describe the pair. In the lab you'll see each qubit's Bloch vector shrink to nothing.",
+            "cite": ["bell-state"]
+          },
+          {
+            "kind": "statement",
+            "text": "Entanglement creates correlations, not messages. It can't send information **faster than light** — or front-run a market.",
+            "narration": "And a myth to bury. Entanglement creates correlations, not messages. It cannot send information faster than light, so it cannot be used to front-run a market across the ocean.",
+            "cite": ["no-signalling"]
+          },
+          {
+            "kind": "statement",
+            "text": "Why it matters: algorithms use entanglement to make **wrong answers interfere away** across many qubits at once.",
+            "narration": "What it is good for: algorithms use entanglement and interference across many qubits, so that amplitudes of wrong answers cancel and right answers reinforce.",
+            "cite": ["bloch-sphere", "n-qubit-amplitudes"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qt4-circuit",
+      "title": "Build a Bell state",
+      "widget": "circuit-lab",
+      "brief": "Pick a gate from the palette and click a cell to place it. For CNOT (●⊕), click the control qubit, then the target. Hit the target state, run some shots, then save it to your notebook.",
+      "props": { "challenge": "bell", "qubits": 2, "columns": 5, "capture": "bell-circuit" },
+      "cite": ["bell-state"]
+    },
+    {
+      "type": "embed",
+      "id": "qt4-quirk",
+      "title": "The same circuit in Quirk",
+      "optional": true,
+      "provider": "quirk",
+      "src": "{\"cols\":[[\"H\"],[\"•\",\"X\"]]}",
+      "caption": "Quirk is a free, open-source circuit simulator by Craig Gidney. Here is the Bell circuit you just built — drag in more gates and watch the state displays update.",
+      "credit": "Quirk by Craig Gidney (algassert.com)",
+      "cite": ["bell-state"]
+    },
+    {
+      "type": "quiz",
+      "id": "qt4-quiz",
+      "title": "Check entanglement",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "You measure the Bell state (|00⟩ + |11⟩)/√2. Which outcomes can occur?",
+          "options": ["00, 01, 10 and 11 equally", "00 and 11 only", "Always 00"],
+          "answer": 1,
+          "explain": "The two qubits always agree: half the time 00, half the time 11.",
+          "cite": ["bell-state"]
+        },
+        {
+          "type": "single",
+          "prompt": "Can entanglement be used to send a trading signal faster than light?",
+          "options": ["Yes, that's how quantum networks work", "No — it creates correlations, not messages"],
+          "answer": 1,
+          "explain": "Each side alone sees random results; you still need a classical channel to compare them.",
+          "cite": ["no-signalling"]
+        },
+        {
+          "type": "order",
+          "prompt": "Order the steps that create the Bell state from |00⟩.",
+          "items": ["Start in |00⟩", "Apply H to the first qubit", "Apply CNOT with the first qubit as control", "Measure: 00 or 11, never mixed"],
+          "explain": "Superpose first, then entangle with the CNOT.",
+          "cite": ["bell-state"]
+        }
+      ]
+    }
+  ]
+}
