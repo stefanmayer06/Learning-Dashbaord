@@ -6,11 +6,14 @@ import { courseStats, fmtDate, fmtMinutes, LEVEL_LABEL } from '../content/stats'
 import { useLearner } from '../store/LearnerProvider'
 import type { CourseProgress } from '../store/model'
 import { courseComplete, courseFraction, lessonDone, lessonFraction, lessonUnlocked, nextUp, unitDone, unitUnlocked } from '../store/model'
+import { StatusTiles } from '../ui/Cite'
 import { Cover } from '../ui/Cover'
 import { Glyph, STEP_GLYPH, STEP_LABEL, type GlyphName } from '../ui/Glyph'
 import { ProgressRing } from '../ui/Progress'
 import { Breadcrumbs } from '../ui/Shell'
 import { NotFound } from './NotFound'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
+import { scrollBehavior } from '../ui/motion'
 
 /** In-page sections, in order — the sticky tab bar links to these. */
 const SECTIONS = [
@@ -25,16 +28,10 @@ const SECTION_IDS = SECTIONS.map((s) => s.id)
 const PLURAL: Record<string, string> = { Quiz: 'Quizzes' }
 const plural = (n: number, word: string) => (n === 1 ? `${n} ${word.toLowerCase()}` : `${n} ${(PLURAL[word] ?? word + 's').toLowerCase()}`)
 
-const STATUS_INFO = [
-  { key: 'verified', label: 'Verified', tone: 'good', line: 'Matches the primary source.' },
-  { key: 'derived', label: 'Derived', tone: 'accent', line: 'Follows mathematically; the sources show the derivation.' },
-  { key: 'estimate', label: 'Estimate', tone: 'warn', line: 'A projection or resource estimate, not a measured fact.' },
-  { key: 'contested', label: 'Contested', tone: 'red', line: 'Credible parties dispute it; the note explains the dispute.' },
-] as const
-
 export function CoursePage() {
   const { courseId } = useParams()
   const bundle = findCourse(courseId)
+  useDocumentTitle(bundle?.course.title)
   if (!bundle) return <NotFound />
   return <CourseLanding key={bundle.course.id} bundle={bundle} />
 }
@@ -77,6 +74,8 @@ function CourseLanding({ bundle }: { bundle: CourseBundle }) {
     if (!hash.startsWith('#unit-')) return
     const id = hash.slice(6)
     setOpenUnits((prev) => (prev.has(id) ? prev : new Set(prev).add(id)))
+    // open first, then scroll once the module has expanded
+    requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById(`unit-${id}`)?.scrollIntoView({ block: 'start', behavior: scrollBehavior() })))
   }, [hash])
   const allOpen = course.units.every((u) => openUnits.has(u.id))
   const onToggle = (id: string) => (e: SyntheticEvent<HTMLDetailsElement>) => {
@@ -105,8 +104,8 @@ function CourseLanding({ bundle }: { bundle: CourseBundle }) {
             ]}
           />
           <div className="course-partner">
-            <span className="course-partner-mark" aria-hidden>
-              M
+            <span className="partner-mark partner-mark-lg" aria-hidden>
+              M<span />
             </span>
             <span className="course-partner-name">Margin Originals</span>
             <Link to={`${base}/ledger`} className="badge badge-good course-badge" title="Every claim in this course is sourced — open the ledger">
@@ -393,15 +392,7 @@ function CourseLanding({ bundle }: { bundle: CourseBundle }) {
                 Every factual claim in the videos, labs and quizzes is in the course ledger with its sources and the date it was checked. {stats.claims} claims, {stats.sources} sources, last verified {fmtDate(course.lastVerified)}.
               </p>
             </div>
-            <ul className="status-tiles">
-              {STATUS_INFO.map((s) => (
-                <li key={s.key} className={`status-tile tone-${s.tone}`}>
-                  <span className="status-count mono">{stats.byStatus[s.key]}</span>
-                  <span className={`chip chip-${s.tone}`}>{s.label}</span>
-                  <span className="small soft">{s.line}</span>
-                </li>
-              ))}
-            </ul>
+            <StatusTiles counts={stats.byStatus} className="course-status-tiles" />
             <div className="sources-actions">
               <Link to={`${base}/ledger`} className="btn btn-secondary">
                 <Glyph name="ledger" size={17} /> Browse the ledger

@@ -1,18 +1,20 @@
 # Margin
 
 **A private school of one.** Courses are built to order by Claude, taught through narrated motion
-"reels" and live simulations rather than walls of text, and every factual claim is traceable to a
-dated primary source.
+"reels" (short videos) and live simulations rather than walls of text, and every factual claim is
+traceable to a dated primary source. The interface follows the conventions learners already know
+from Coursera, edX and Udemy: a course catalogue, a course page with a syllabus, and a lesson
+player with a course outline.
 
 The first course on the shelf is **Quantum Trading 101**: the theory you need, working labs for
 pricing and portfolios, and an honest, sourced map of the field as of October 2026. You finish by
 writing a Quantum Readiness Brief for a trading desk.
 
-| The shelf | A reel, with live margin notes |
+| Catalogue | Course page |
 |---|---|
-| ![Shelf](docs/screenshots/shelf.png) | ![Reel](docs/screenshots/reel.png) |
-| **The pricing lab** | **The claims ledger** |
-| ![Pricing lab](docs/screenshots/pricing-lab.png) | ![Ledger](docs/screenshots/ledger.png) |
+| ![Catalogue](docs/screenshots/catalogue.png) | ![Course page](docs/screenshots/course.png) |
+| **Lesson player, with the sources for what's on screen** | **The pricing lab** |
+| ![Lesson player](docs/screenshots/player.png) | ![Pricing lab](docs/screenshots/pricing-lab.png) |
 
 ## What's inside
 
@@ -25,15 +27,19 @@ writing a Quantum Readiness Brief for a trading desk.
   to ~10⁻¹⁵), a Bloch-sphere explorer, a circuit builder, Grover's search, a pricing race
   (Black–Scholes vs Monte Carlo vs ideal quantum amplitude estimation), and a portfolio lab
   (Markowitz → QUBO → brute force, simulated annealing, and standard vs constraint-preserving QAOA).
-- **Progression**: units unlock in order, steps gate on real completion (watch 85%, meet the lab
-  goal, pass the check), and there's a route map, resume points and a lesson-complete stamp.
+- **Progression**: modules unlock in order, and steps gate on real completion (watch 85%, meet the
+  lab goal, pass the quiz). Learners get a course outline, progress rings, resume points and a
+  lesson-complete screen.
 - **Work outputs**: lab results are saved to a notebook and pulled into deliverables. A capstone
   brief comes together on a "Your work" page you can print to PDF or export as Markdown or JSON.
   A **certificate** with a credential ID is issued on completion.
 - **The ledger**: every course ships `sources.json` and `claims.json`. Content cites claims, claims
-  cite sources, and the build fails if anything is missing. Margin notes show the evidence for
-  whatever is on screen right now.
+  cite sources, and the build fails if anything is missing. The lesson player's Sources tab shows
+  the evidence for whatever is on screen right now.
 - **Commission page**: describe what you want to learn next and get a brief to hand to Claude Code.
+  Searching the catalogue for something that doesn't exist yet offers to commission it.
+- **Design system**: tokens, components and page layouts are documented in
+  [`docs/design-system.md`](docs/design-system.md); light and dark themes; keyboard accessible.
 
 ## Run it locally
 
@@ -129,7 +135,7 @@ src/engine/reel/        the reel (video) engine
 src/plugins/            plugin manifest/registry; quantum/ = simulator, finance, QUBO/QAOA, labs, shots
 src/widgets/ src/steps/ generic interactives and step renderers
 src/store/              learner model, local storage, Supabase sync
-src/pages/ src/styles/  routes and the design system
+src/pages/ src/styles/  routes and the design system (see docs/design-system.md)
 supabase/               migrations, config, RLS tests
 scripts/                validate, check-sources, new-subject, emit-json-schema, screenshot
 tests/unit tests/e2e    Vitest and Playwright
@@ -146,7 +152,7 @@ npm run typecheck
 
 ## Credits and licences
 
-Fonts: Gloock, Schibsted Grotesk and Martian Mono (SIL Open Font License), self-hosted via
-Fontsource. Maths typesetting: KaTeX (MIT). The optional Quirk embed is Craig Gidney's open-source
+Fonts: Schibsted Grotesk (interface), Martian Mono (figures and code) and Gloock (wordmark and
+certificate), all SIL Open Font License, self-hosted via Fontsource. Maths typesetting: KaTeX (MIT). The optional Quirk embed is Craig Gidney's open-source
 simulator, loaded from algassert.com. Third-party material is always labelled as such in the app.
 Course content cites its sources; this is a learning tool, not investment advice.

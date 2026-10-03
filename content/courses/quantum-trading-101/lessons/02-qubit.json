@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "Bits and qubits",
-            "kicker": "Unit 2 · Theory",
+            "kicker": "Module 2 · Theory",
             "title": "The qubit.",
             "subtitle": "Two numbers that behave like waves — and one rule for turning them into odds.",
             "narration": "Every quantum algorithm in finance starts from one object: the qubit. Let's build it from scratch."

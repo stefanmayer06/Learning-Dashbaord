@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "Shots",
-            "kicker": "Unit 2 · Theory",
+            "kicker": "Module 2 · Theory",
             "title": "One shot\nisn't an answer.",
             "subtitle": "Quantum computers return **samples**. Turning samples into numbers has a cost.",
             "narration": "Here is something the hype usually skips. A quantum computer doesn't hand you a number. It hands you samples."
@@ -69,7 +69,7 @@
           },
           {
             "kind": "statement",
-            "text": "Unit 4's big idea: **amplitude estimation** beats the square-root law — error ∝ 1/N. Hold that thought.",
+            "text": "Module 4's big idea: **amplitude estimation** beats the square-root law — error ∝ 1/N. Hold that thought.",
             "narration": "The headline quantum algorithm for finance, amplitude estimation, is a way to beat the square-root law, with error shrinking like one over N. Hold that thought.",
             "cite": ["qae-speedup"]
           }

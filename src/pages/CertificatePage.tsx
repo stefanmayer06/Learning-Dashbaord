@@ -13,12 +13,14 @@ import { ProgressBar } from '../ui/Progress'
 import { Breadcrumbs } from '../ui/Shell'
 import { SITE } from '../site'
 import { NotFound } from './NotFound'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
 
 const longDate = (iso: string) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 
 export function CertificatePage() {
   const { courseId } = useParams()
   const bundle = findCourse(courseId)
+  useDocumentTitle(bundle ? `Certificate · ${bundle.course.title}` : undefined)
   const learner = useLearner()
   const [name, setName] = useState(learner.state.name)
   if (!bundle) return <NotFound />
@@ -74,7 +76,7 @@ export function CertificatePage() {
               <span className="badge badge-good">
                 <Glyph name="checkCircle" size={14} /> Course complete
               </span>
-              <h2 className="t-h3 cert-card-title">Issue your certificate</h2>
+              <h2 className="t-h3 cert-card-title">Your name on the certificate</h2>
               <form
                 className="cert-form"
                 onSubmit={(e) => {
@@ -127,7 +129,7 @@ function CertificateArt({ bundle, cert, previewName, preview }: { bundle: Course
 
       <div className="cert-body">
         <p className="cert-line">This certifies that</p>
-        <h2 className={`cert-name${learnerName ? '' : ' is-empty'}`}>{learnerName || 'Your name'}</h2>
+        <p className={`cert-name${learnerName ? '' : ' is-empty'}`}>{learnerName || 'Your name'}</p>
         <p className="cert-line">has completed every lesson, lab and work output of</p>
         <h3 className="cert-course">{cert?.courseTitle ?? course.title}</h3>
         <p className="cert-sub">{course.subtitle}</p>

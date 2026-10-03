@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Glyph, type GlyphName } from '../ui/Glyph'
 import { Breadcrumbs } from '../ui/Shell'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
 
 const LEVELS = ['Complete beginner', 'Some background', 'Working knowledge', 'Expert in a neighbouring field']
 
@@ -16,6 +17,7 @@ const HOW: { glyph: GlyphName; title: string; line: string }[] = [
  * add-subject skill. This page turns a few answers into the brief to hand it.
  */
 export function CommissionPage() {
+  useDocumentTitle('Commission a course')
   const [params] = useSearchParams()
   const topic = params.get('topic') ?? ''
   const [subject, setSubject] = useState(topic)

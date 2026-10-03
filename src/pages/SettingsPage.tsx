@@ -8,10 +8,11 @@ import { Glyph, type GlyphName } from '../ui/Glyph'
 import { Breadcrumbs } from '../ui/Shell'
 import { SyncChip } from '../ui/SyncChip'
 import type { LearnerState } from '../store/model'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
 
 const SECTIONS: { id: string; label: string; glyph: GlyphName }[] = [
   { id: 'profile', label: 'Profile', glyph: 'user' },
-  { id: 'appearance', label: 'Appearance', glyph: 'lamp' },
+  { id: 'appearance', label: 'Appearance', glyph: 'moon' },
   { id: 'narration', label: 'Narration', glyph: 'voice' },
   { id: 'data', label: 'Your data', glyph: 'download' },
   { id: 'sync', label: 'Sync', glyph: 'sync' },
@@ -58,6 +59,7 @@ function Card({ id, title, desc, extra, children }: { id: string; title: string;
 }
 
 export function SettingsPage() {
+  useDocumentTitle('Settings')
   const { state, setName, setPrefs, sync, replaceAll } = useLearner()
   const { hash } = useLocation()
   const [voices, setVoices] = useState(listVoices())

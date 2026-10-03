@@ -54,7 +54,11 @@ export function DeliverableStep({
             <Glyph name="output" size={14} />
             {output?.capstone ? 'Capstone assignment' : 'Assignment'}
           </span>
-          <h2 className="deliverable-title">{output?.title}</h2>
+          {output && output.title !== step.title ? (
+            <h2 className="deliverable-title">{output.title}</h2>
+          ) : (
+            <span className="deliverable-sub">Saved to Your work as you type</span>
+          )}
         </div>
         <div className="deliverable-progress">
           <span className="deliverable-count">
@@ -101,9 +105,9 @@ export function DeliverableStep({
                   </>
                 )}
                 {f.type === 'choice' && (
-                  <div className="choice-row" role="radiogroup" aria-labelledby={labelId}>
+                  <div className="choice-row" role="group" aria-labelledby={labelId}>
                     {f.options.map((o) => (
-                      <button key={o} role="radio" aria-checked={v === o} className={`choice${v === o ? ' on' : ''}`} onClick={() => onField(f.id, o)}>
+                      <button key={o} type="button" aria-pressed={v === o} className={`choice${v === o ? ' on' : ''}`} onClick={() => onField(f.id, o)}>
                         <span className="choice-dot" aria-hidden />
                         {o}
                       </button>
@@ -113,9 +117,9 @@ export function DeliverableStep({
                 {f.type === 'scale' && (
                   <div className="scale-field">
                     <span className="scale-end">{f.minLabel}</span>
-                    <div className="scale-dots" role="radiogroup" aria-labelledby={labelId}>
+                    <div className="scale-dots" role="group" aria-labelledby={labelId}>
                       {Array.from({ length: f.max - f.min + 1 }, (_, k) => f.min + k).map((n) => (
-                        <button key={n} role="radio" aria-checked={v === n} className={v === n ? 'on' : ''} onClick={() => onField(f.id, n)}>
+                        <button key={n} type="button" aria-pressed={v === n} className={v === n ? 'on' : ''} onClick={() => onField(f.id, n)}>
                           {n}
                         </button>
                       ))}

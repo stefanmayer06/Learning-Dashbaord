@@ -3,10 +3,12 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import { findCourse } from '../content/loader'
 import type { CourseBundle } from '../content/schema'
 import { fmtDate } from '../content/stats'
-import { CiteProvider, ClaimNote, KIND_LABEL, STATUS_LABEL } from '../ui/Cite'
+import { CiteProvider, ClaimNote, KIND_LABEL, STATUS_LABEL, STATUS_ORDER, StatusTiles } from '../ui/Cite'
 import { Glyph } from '../ui/Glyph'
 import { Breadcrumbs } from '../ui/Shell'
 import { NotFound } from './NotFound'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
+import { tabListKeys } from '../ui/tabs'
 
 /** Where in the course each claim is used. */
 function usage(bundle: CourseBundle) {
@@ -23,17 +25,13 @@ function usage(bundle: CourseBundle) {
 type Status = 'verified' | 'derived' | 'estimate' | 'contested'
 type Filter = 'all' | Status
 
-const STATUSES: { key: Status; tone: string; line: string }[] = [
-  { key: 'verified', tone: 'good', line: 'Matches the primary source.' },
-  { key: 'derived', tone: 'accent', line: 'Follows by mathematics; the source shows the derivation.' },
-  { key: 'estimate', tone: 'warn', line: 'A projection or resource estimate, not a measurement.' },
-  { key: 'contested', tone: 'red', line: 'Credible parties dispute it. The note explains the dispute.' },
-]
+const STATUSES = STATUS_ORDER.map((key) => ({ key: key as Status }))
 
 export function LedgerPage() {
   const { courseId } = useParams()
   const { hash } = useLocation()
   const bundle = findCourse(courseId)
+  useDocumentTitle(bundle ? `Sources & claims · ${bundle.course.title}` : undefined)
   const [filter, setFilter] = useState<Filter>('all')
   const [q, setQ] = useState('')
   const [tab, setTab] = useState<'claims' | 'sources'>(hash === '#sources' ? 'sources' : 'claims')
@@ -91,27 +89,16 @@ export function LedgerPage() {
                 </Link>
               </div>
             </div>
-            <ul className="ledger-tiles" aria-label="Claims by status">
-              {STATUSES.map((s) => (
-                <li key={s.key} className={`ledger-tile tone-${s.tone}`}>
-                  <span className="ledger-tile-label">
-                    <span className="ledger-dot" aria-hidden />
-                    {STATUS_LABEL[s.key]}
-                  </span>
-                  <span className="ledger-tile-n">{counts[s.key] ?? 0}</span>
-                  <span className="ledger-tile-line">{s.line}</span>
-                </li>
-              ))}
-            </ul>
+            <StatusTiles counts={counts} />
           </div>
         </header>
 
         <div className="page pg-body">
-          <div className="tabs ledger-tabs" role="tablist" aria-label="Ledger">
-            <button role="tab" id="ledger-tab-claims" aria-controls="ledger-panel-claims" aria-selected={tab === 'claims'} className="tab" onClick={() => setTab('claims')}>
+          <div className="tabs ledger-tabs" role="tablist" aria-label="Ledger" onKeyDown={tabListKeys(['claims', 'sources'] as const, tab, setTab, (t) => `ledger-tab-${t}`)}>
+            <button role="tab" id="ledger-tab-claims" aria-controls="ledger-panel-claims" aria-selected={tab === 'claims'} tabIndex={tab === 'claims' ? 0 : -1} className="tab" onClick={() => setTab('claims')}>
               Claims <span className="tab-count">{all.length}</span>
             </button>
-            <button role="tab" id="ledger-tab-sources" aria-controls="ledger-panel-sources" aria-selected={tab === 'sources'} className="tab" onClick={() => setTab('sources')}>
+            <button role="tab" id="ledger-tab-sources" aria-controls="ledger-panel-sources" aria-selected={tab === 'sources'} tabIndex={tab === 'sources' ? 0 : -1} className="tab" onClick={() => setTab('sources')}>
               Sources <span className="tab-count">{sourceList.length}</span>
             </button>
           </div>

@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "The problem",
-            "kicker": "Unit 6 · Practice",
+            "kicker": "Module 6 · Practice",
             "title": "From Markowitz\nto QUBO.",
             "subtitle": "The form every quantum optimiser speaks.",
             "narration": "Pricing was estimation. Now, optimisation: choosing what to hold."

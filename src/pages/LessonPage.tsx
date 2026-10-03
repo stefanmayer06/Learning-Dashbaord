@@ -18,6 +18,8 @@ import { DeliverableStep, fieldComplete } from '../steps/DeliverableStep'
 import { RecapStep } from '../steps/RecapStep'
 import { EmbedStep } from '../steps/EmbedStep'
 import { NotFound } from './NotFound'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
+import { scrollBehavior } from '../ui/motion'
 
 const NARROW = '(max-width: 959px)'
 const COLLAPSE_KEY = 'margin:outline-collapsed'
@@ -80,25 +82,46 @@ function LessonInner({ bundle, lesson, stepId }: { bundle: CourseBundle; lesson:
   }, [lesson, cp.steps])
 
   const requested = lesson.steps.findIndex((s) => s.id === stepId)
-  const index = requested >= 0 && requested <= reachable ? requested : stepId ? reachable : Math.min(reachable, lesson.steps.length - 1)
+  // no step in the URL: resume where the learner stopped, or start from the top when reviewing a finished lesson
+  const lessonFinished = lesson.steps.every((s) => s.optional || cp.steps[s.id])
+  const index = requested >= 0 && requested <= reachable ? requested : stepId ? reachable : lessonFinished ? 0 : Math.min(reachable, lesson.steps.length - 1)
   const step = lesson.steps[index]
   const [finished, setFinished] = useState(false)
+  useDocumentTitle(unlocked ? `${step.title} · ${lessonNo(bundle, lesson.id)} ${lesson.title}` : lesson.title)
 
   useEffect(() => {
     if (stepId !== step.id) nav(`/c/${course.id}/l/${lesson.id}/${step.id}`, { replace: true })
   }, [stepId, step.id, course.id, lesson.id, nav])
 
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const firstStep = useRef(true)
   useEffect(() => {
     if (unlocked) learner.visit(course.id, lesson.id, step.id)
     setFinished(false)
     window.scrollTo({ top: 0 })
+    if (firstStep.current) {
+      firstStep.current = false
+      return
+    }
+    // move keyboard focus to the new step so it doesn't drop to the page; wait a tick for the drawer to close
+    const t = setTimeout(() => titleRef.current?.focus({ preventScroll: true }), 30)
+    return () => clearTimeout(t)
   }, [step.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const complete = useCallback((score?: number) => learner.completeStep(course.id, step.id, score), [learner, course.id, step.id])
   const isDone = Boolean(cp.steps[step.id])
+  // an assignment that completed itself and was then edited below a field's minimum
+  const editedBelow =
+    step.type === 'deliverable' && isDone && !step.fields.every((f) => fieldComplete(f, cp.outputs[step.output]?.fields?.[f.id], cp))
   const canContinue = isDone || step.optional
 
-  const go = (k: number) => nav(`/c/${course.id}/l/${lesson.id}/${lesson.steps[k].id}`)
+  const go = (k: number) => {
+    if (k === index) {
+      setFinished(false)
+      return
+    }
+    nav(`/c/${course.id}/l/${lesson.id}/${lesson.steps[k].id}`)
+  }
   const onContinue = () => {
     if (index < lesson.steps.length - 1) go(index + 1)
     else {
@@ -110,16 +133,18 @@ function LessonInner({ bundle, lesson, stepId }: { bundle: CourseBundle; lesson:
   let main: ReactNode
   if (!unlocked) {
     main = (
-      <section className="player-empty">
-        <span className="glyph-tile glyph-tile-muted" aria-hidden>
-          <Glyph name="lock" size={24} />
+      <section className="empty-state">
+        <span className="glyph-tile glyph-tile-muted empty-tile" aria-hidden>
+          <Glyph name="lock" size={26} />
         </span>
         <span className="badge badge-neutral">Locked</span>
-        <h1 className="t-h1">{lesson.title}</h1>
+        <h1 className="display-m">{lesson.title}</h1>
         <p className="lede">Finish the earlier lessons first. This course builds step by step, and each lesson opens when the one before it is done.</p>
-        <Link className="btn" to={`/c/${course.id}`}>
-          Back to the course <Glyph name="arrow" className="arrow" size={16} />
-        </Link>
+        <div className="btn-row empty-actions">
+          <Link className="btn btn-large" to={`/c/${course.id}`}>
+            Back to the course <Glyph name="arrow" className="arrow" size={16} />
+          </Link>
+        </div>
       </section>
     )
   } else if (finished) {
@@ -135,13 +160,23 @@ function LessonInner({ bundle, lesson, stepId }: { bundle: CourseBundle; lesson:
               {step.optional ? ' · Optional' : ''}
             </span>
           </p>
-          <h1 className="t-h1 step-title">{step.title}</h1>
+          <h1 className="t-h1 step-title" ref={titleRef} tabIndex={-1}>
+            {step.title}
+          </h1>
         </header>
         <StepView key={step.id} step={step} bundle={bundle} cp={cp} done={isDone} complete={complete} />
         <footer className="step-foot">
-          <p className={`step-hint${isDone ? ' is-done' : ''}`}>
-            <Glyph name={isDone ? 'checkCircle' : 'info'} size={18} />
-            <span>{isDone ? 'Completed' : step.optional ? 'Optional. Continue whenever you like.' : hintFor(step)}</span>
+          <p className={`step-hint${isDone && !editedBelow ? ' is-done' : ''}`}>
+            <Glyph name={isDone && !editedBelow ? 'checkCircle' : 'info'} size={18} />
+            <span>
+              {editedBelow
+                ? 'Submitted earlier, but some parts are now incomplete. Finish them so your work output is complete.'
+                : isDone
+                  ? 'Completed'
+                  : step.optional
+                    ? 'Optional. Continue whenever you like.'
+                    : hintFor(step)}
+            </span>
             {import.meta.env.DEV && !isDone && (
               <button className="link-btn dev-complete" onClick={() => complete()} data-testid="dev-complete">
                 Mark done (dev)
@@ -165,7 +200,7 @@ function LessonInner({ bundle, lesson, stepId }: { bundle: CourseBundle; lesson:
   }
 
   return (
-    <PlayerLayout bundle={bundle} lesson={lesson} cp={cp} index={index} reachable={reachable} showSteps={unlocked} onStep={go}>
+    <PlayerLayout bundle={bundle} lesson={lesson} cp={cp} index={finished ? -1 : index} reachable={reachable} showSteps={unlocked} onStep={go}>
       {main}
     </PlayerLayout>
   )
@@ -199,7 +234,7 @@ function PlayerLayout({
   const toggleRef = useRef<HTMLButtonElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const pct = courseFraction(bundle, cp)
-  const step = lesson.steps[index]
+  const stepId = index >= 0 ? lesson.steps[index].id : 'done'
 
   const closeDrawer = useCallback((restoreFocus = true) => {
     setDrawer(false)
@@ -222,7 +257,7 @@ function PlayerLayout({
   }
 
   // the drawer closes when the learner moves on, or the screen grows past the breakpoint
-  useEffect(() => setDrawer(false), [step.id, narrow])
+  useEffect(() => setDrawer(false), [stepId, narrow])
 
   // drawer: focus moves in, Escape closes, the page behind does not scroll
   useEffect(() => {
@@ -243,7 +278,7 @@ function PlayerLayout({
 
   return (
     <div className={cls} style={{ ['--accent' as string]: course.theme.accent }}>
-      <header className="player-bar">
+      <header className="player-bar" inert={drawer}>
         <button
           ref={toggleRef}
           className="icon-btn player-toggle"
@@ -269,8 +304,9 @@ function PlayerLayout({
         </nav>
         <div className="player-tools">
           <span className="player-progress" title={`Your progress: ${Math.round(pct * 100)}% of the course`}>
-            <ProgressRing value={pct} size={36} stroke={3.5} label="Your progress in this course" />
-            <span className="player-progress-label">Your progress</span>
+            <ProgressRing value={pct} size={30} stroke={3.5} label="Your progress in this course" showText={false} />
+            <span className="player-progress-pct">{Math.round(pct * 100)}%</span>
+            <span className="player-progress-label">complete</span>
           </span>
           <Link to={`/c/${course.id}/work`} className="btn btn-quiet btn-small player-work">
             Your work
@@ -293,7 +329,7 @@ function PlayerLayout({
           <CourseOutline bundle={bundle} lesson={lesson} cp={cp} index={index} reachable={reachable} showSteps={showSteps} onStep={onStep} />
         </aside>
         {drawer && <div className="outline-backdrop" onClick={() => closeDrawer()} aria-hidden />}
-        <div className="player-main">
+        <div className="player-main" id="lesson-content" tabIndex={-1} inert={drawer}>
           <div className="player-content">{children}</div>
         </div>
       </div>
@@ -488,7 +524,7 @@ function LessonTabs({ bundle, lesson, step }: { bundle: CourseBundle; lesson: Le
     const onClick = (e: MouseEvent) => {
       if (!(e.target as Element | null)?.closest?.('.cite-mark')) return
       setTab('sources')
-      requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector('.lesson-notes .note.focused')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })))
+      requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector('.lesson-notes .note.focused')?.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' })))
     }
     document.addEventListener('click', onClick, true)
     return () => document.removeEventListener('click', onClick, true)
@@ -538,6 +574,12 @@ function LessonTabs({ bundle, lesson, step }: { bundle: CourseBundle; lesson: Le
 }
 
 /** Live notes: what's on screen right now first, then the rest of the step. */
+/**
+ * The last "on screen" citation, kept so notes that mount after the video's first cite event
+ * (a direct load or deep link) still show what is on screen.
+ */
+let lastCite: { step: string; ids: string[] } = { step: '', ids: [] }
+
 function MarginNotes({ step, courseId }: { step: Step; courseId: string }) {
   const ctx = useCite()
   const [live, setLive] = useState<string[]>([])
@@ -546,7 +588,7 @@ function MarginNotes({ step, courseId }: { step: Step; courseId: string }) {
     window.addEventListener('margin:cite', handler)
     return () => window.removeEventListener('margin:cite', handler)
   }, [])
-  useEffect(() => setLive([]), [step.id])
+  useEffect(() => setLive(lastCite.step === step.id ? lastCite.ids : []), [step.id])
   if (!ctx) return null
   const ids = stepClaimIds(step)
   const onScreen = live.filter((id) => ids.includes(id) && ctx.claims[id])
@@ -668,7 +710,13 @@ function StepView({ step, bundle, cp, done, complete }: { step: Step; bundle: Co
   const learner = useLearner()
   const ctx = useCite()
   const courseId = bundle.course.id
-  const onCite = useCallback((ids: string[]) => window.dispatchEvent(new CustomEvent('margin:cite', { detail: ids })), [])
+  const onCite = useCallback(
+    (ids: string[]) => {
+      lastCite = { step: step.id, ids }
+      window.dispatchEvent(new CustomEvent('margin:cite', { detail: ids }))
+    },
+    [step.id],
+  )
   const onProgress = useCallback((w: number) => w >= 0.85 && complete(), [complete])
 
   // deliverables complete themselves when every field is filled
@@ -725,6 +773,8 @@ function LessonComplete({ bundle, lesson, cp }: { bundle: CourseBundle; lesson: 
   const all = courseComplete(bundle, cp)
   const id = bundle.course.id
   const pct = Math.round(courseFraction(bundle, cp) * 100)
+  const doneRef = useRef<HTMLHeadingElement>(null)
+  useEffect(() => doneRef.current?.focus({ preventScroll: true }), [])
   return (
     <section className="lesson-done">
       <div className="lesson-done-card">
@@ -732,7 +782,9 @@ function LessonComplete({ bundle, lesson, cp }: { bundle: CourseBundle; lesson: 
           <Glyph name="checkCircle" size={20} />
           <span>{all ? 'Course complete' : unitFinished ? 'Module complete' : 'Lesson complete'}</span>
         </div>
-        <h1 className="t-h1">{lesson.title}</h1>
+        <h1 className="t-h1" ref={doneRef} tabIndex={-1}>
+          {lesson.title}
+        </h1>
         <p className="lede">
           {all
             ? 'Every step is done. Your certificate is ready to issue.'

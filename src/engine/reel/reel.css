@@ -27,7 +27,7 @@
   outline: none;
 }
 .reel:focus-visible {
-  box-shadow: 0 0 0 3px var(--focus-ring);
+  box-shadow: var(--focus-shadow);
 }
 .reel h2 {
   color: inherit;
@@ -263,7 +263,7 @@
     padding-top: 80px;
   }
   .r-poster-kicker {
-    font-size: 30px;
+    display: none; /* ~8px once scaled; the step header already says "Video" */
   }
   .r-poster-title {
     max-width: 1000px;

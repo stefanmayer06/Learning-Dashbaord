@@ -3,6 +3,7 @@ import type { WidgetApi } from '../../types'
 import { LabFrame, Readout, Segmented, Slider } from '../../../ui/LabFrame'
 import { Glyph } from '../../../ui/Glyph'
 import { LineChart } from '../../../ui/charts'
+import { tabListKeys } from '../../../ui/tabs'
 import {
   DEMO_ASSETS,
   DEMO_CORR,
@@ -146,7 +147,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
         </span>
       </p>
 
-      <div className="tabs lab-tabs" role="tablist" aria-label="Lab section">
+      <div className="tabs lab-tabs" role="tablist" aria-label="Lab section" onKeyDown={tabListKeys(['problem', 'classical', 'quantum'] as const, tab, setTab, (t) => `pf-tab-${t}`)}>
         {(
           [
             { value: 'problem', label: 'Problem' },
@@ -154,7 +155,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
             { value: 'quantum', label: 'QAOA' },
           ] as { value: Tab; label: string }[]
         ).map((t, i) => (
-          <button key={t.value} type="button" role="tab" id={`pf-tab-${t.value}`} aria-selected={tab === t.value} aria-controls="pf-panel" className="tab" onClick={() => setTab(t.value)}>
+          <button key={t.value} type="button" role="tab" id={`pf-tab-${t.value}`} aria-selected={tab === t.value} tabIndex={tab === t.value ? 0 : -1} aria-controls="pf-panel" className="tab" onClick={() => setTab(t.value)}>
             <span className="lab-tab-n" aria-hidden>
               {i + 1}
             </span>
@@ -167,7 +168,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
         {tab === 'problem' && (
           <div className="pf-grid">
             <div className="pf-problem-main">
-              <h3 className="lab-h">Six assets to choose from</h3>
+              <h2 className="lab-h">Six assets to choose from</h2>
               <div className="lab-table-wrap">
                 <table className="pf-assets lab-table">
                   <thead>
@@ -202,7 +203,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
               </div>
             </div>
             <div className="pf-controls">
-              <h3 className="lab-h">Set the problem</h3>
+              <h2 className="lab-h">Set the problem</h2>
               <Slider label="Assets to hold (budget B)" value={budget} min={1} max={5} step={1} onChange={setBudget} />
               <Slider label="Risk aversion q" value={q} min={0} max={3} step={0.05} onChange={setQ} format={(v) => v.toFixed(2)} />
               <Slider label="Budget penalty λ" value={lambda} min={0} max={0.5} step={0.01} onChange={setLambda} format={(v) => v.toFixed(2)} />
@@ -220,7 +221,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
               </div>
             </div>
             <div className="pf-qubo">
-              <h3 className="lab-h">The QUBO matrix Q</h3>
+              <h2 className="lab-h">The QUBO matrix Q</h2>
               <p className="small soft lab-sub">The only thing a quantum optimiser ever sees. Blue entries reward a choice; red entries penalise it.</p>
               <QuboHeat Q={qubo.Q} />
             </div>
@@ -230,7 +231,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
         {tab === 'classical' && (
           <div className="pf-grid pf-grid-2">
             <div>
-              <h3 className="lab-h">All 63 possible portfolios (equal weights)</h3>
+              <h2 className="lab-h">All 63 possible portfolios (equal weights)</h2>
               <svg viewBox="0 0 540 300" className="chart chart-fixed" role="img" aria-label="Risk-return scatter of every portfolio">
                 <line x1={40} x2={530} y1={260} y2={260} className="chart-axis" />
                 <line x1={40} x2={40} y1={20} y2={260} className="chart-axis" />
@@ -257,12 +258,12 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
               <p className="small soft lab-note">Filled: portfolios with exactly {budget} assets. Ringed in red: the true optimum (found by checking all 64 — easy for 6 assets, impossible for 600).</p>
             </div>
             <div>
-              <h3 className="lab-h">Exact answer vs. a heuristic</h3>
+              <h2 className="lab-h">Exact answer vs. a heuristic</h2>
               <div className="readouts">
                 <Readout label="Brute-force optimum" value={<span className="readout-text">{names(bf.best)}</span>} tone="red" />
                 <Readout label="Objective" value={bf.cost.toFixed(4)} />
               </div>
-              <button className="btn btn-small" onClick={runSa}>
+              <button className="btn btn-small btn-secondary" onClick={runSa}>
                 Run simulated annealing <Glyph name="play" size={12} />
               </button>
               {sa ? (
@@ -309,7 +310,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
                   : 'The Quantum Alternating Operator Ansatz starts from every valid portfolio and only swaps one held asset for another, so it never breaks the budget — all its effort goes into return and risk.'}
                 {mode === 'xy' && Cite ? <Cite ids={['xy-mixer']} /> : null}
               </p>
-              <h3 className="lab-h">Depth-1 landscape</h3>
+              <h2 className="lab-h">Depth-1 landscape</h2>
               <p className="small soft lab-sub">Expected cost over all angle pairs; stronger colour is better. Click to choose angles.</p>
               <Heatmap
                 grid={land.grid}
@@ -323,7 +324,7 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
                   Use best depth-1 angles
                 </button>
                 <button
-                  className="btn btn-small btn-accent"
+                  className="btn btn-small btn-secondary"
                   onClick={() => {
                     const r = optimiseQaoa(norm, 2, [land.best.gamma, land.best.gamma * 0.9, land.best.beta, land.best.beta * 0.9], 300, mode, budget)
                     pick({ gammas: r.angles.slice(0, 2), betas: r.angles.slice(2) }, r.value)
@@ -342,14 +343,14 @@ export function PortfolioLab({ complete, done, capture, captured, Cite }: Widget
               </ul>
             </div>
             <div>
-              <h3 className="lab-h">What a measurement would give</h3>
+              <h2 className="lab-h">What a measurement would give</h2>
               <div className="readouts">
                 <Readout label="P(sample the optimum)" value={`${(pOpt * 100).toFixed(1)}%`} tone="accent" />
                 <Readout label="Random valid pick" value={`${(pFeasibleRandom * 100).toFixed(1)}%`} />
                 <Readout label="Random any pick" value={`${(pRandom * 100).toFixed(1)}%`} />
                 <Readout label={`⟨cost⟩ (0 best, 1 worst)${p2 !== null ? ' · depth 2' : ''}`} value={expectation.toFixed(3)} />
               </div>
-              <h4 className="lab-h lab-h-sub">Most likely measurement outcomes</h4>
+              <h3 className="lab-h lab-h-sub">Most likely measurement outcomes</h3>
               <ul className="pf-top">
                 {top.map(({ z, p }) => (
                   <li key={z} className={z === target ? 'best' : ''}>

@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "The results",
-            "kicker": "Unit 7 · Landscape · checked 2 Oct 2026",
+            "kicker": "Module 7 · Landscape · checked 2 Oct 2026",
             "title": "Inside the\nbank results.",
             "subtitle": "What was measured, on what, and what it does not show.",
             "narration": "Let's open up the most-cited bank results, and read them the way a sceptical risk committee would."
@@ -119,7 +119,7 @@
       "id": "qt12-audit",
       "title": "Headline audit",
       "output": "headline-audit",
-      "brief": "Pick one result from this unit and audit it like a risk committee. Use the margin notes and the course ledger for evidence.",
+      "brief": "Pick one result from this module and audit it like a risk committee. Use the margin notes and the course ledger for evidence.",
       "fields": [
         {
           "type": "choice",

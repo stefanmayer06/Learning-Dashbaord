@@ -1,8 +1,9 @@
-import { useId, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import type { Question, Step } from '../content/schema'
 import { Glyph } from '../ui/Glyph'
 import { Rich } from '../ui/Tex'
 import { CiteMarks } from '../ui/Cite'
+import { speakable } from '../ui/text'
 
 type QuizStepT = Extract<Step, { type: 'quiz' }>
 
@@ -46,13 +47,15 @@ export function QuizStep({ step, done, onPass }: { step: QuizStepT; done: boolea
   }
 
   if (finished) {
-    return (
+    return <QuizResultFocus>{(titleRef) => (
       <div className={`quiz-result ${passed ? 'pass' : 'fail'}`} role="status">
         <span className="quiz-result-icon" aria-hidden>
           <Glyph name={passed ? 'check' : 'cross'} size={28} />
         </span>
         <div className="quiz-result-body">
-          <h2 className="quiz-result-title">{passed ? 'You passed' : 'Not quite yet'}</h2>
+          <h2 className="quiz-result-title" ref={titleRef} tabIndex={-1}>
+            {passed ? 'You passed' : 'Not quite yet'}
+          </h2>
           <p className="quiz-result-score">
             <span className="quiz-score mono">
               {right}/{n}
@@ -84,7 +87,7 @@ export function QuizStep({ step, done, onPass }: { step: QuizStepT; done: boolea
           )}
         </div>
       </div>
-    )
+    )}</QuizResultFocus>
   }
 
   return (
@@ -121,6 +124,23 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
   const [order, setOrder] = useState<number[]>(() => (q.type === 'order' ? shuffled(q.items, seed) : []))
   const optOrder = useMemo(() => ('options' in q ? shuffled(q.options, seed + 3) : []), [q, seed])
   const [ok, setOk] = useState<boolean | null>(null)
+  const promptRef = useRef<HTMLHeadingElement>(null)
+  const explainRef = useRef<HTMLDivElement>(null)
+  const moveRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  useEffect(() => {
+    if (seed > 0) promptRef.current?.focus({ preventScroll: true })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (answered) explainRef.current?.focus({ preventScroll: true })
+  }, [answered])
+  // keep focus on the moved item even when it reaches the top or bottom (that button becomes disabled)
+  const move = (item: number, pos: number, dir: -1 | 1) => {
+    setOrder((o) => swap(o, pos, pos + dir))
+    const next = pos + dir
+    const atEdge = next === 0 || next === order.length - 1
+    const key = `${item}-${atEdge ? (dir < 0 ? 'down' : 'up') : dir < 0 ? 'up' : 'down'}`
+    requestAnimationFrame(() => moveRefs.current[key]?.focus())
+  }
 
   const submit = () => {
     let correct = false
@@ -137,7 +157,7 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
 
   return (
     <div className="question">
-      <h2 className="question-prompt" id={promptId}>
+      <h2 className="question-prompt" id={promptId} ref={promptRef} tabIndex={-1}>
         <Rich text={q.prompt} />
       </h2>
       {(q.type === 'single' || q.type === 'multi') && (
@@ -185,7 +205,7 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
           {q.unit && <span className="numeric-unit">{q.unit}</span>}
           {answered && (
             <span className="numeric-answer">
-              Answer: <span className="mono">{q.answer.toLocaleString('en-US')}</span> {q.unit}
+              Answer: <span className="mono">{q.answer.toLocaleString('en-US', { maximumFractionDigits: 10 })}</span> {q.unit}
             </span>
           )}
         </div>
@@ -200,10 +220,24 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
               </div>
               {!answered && (
                 <div className="seq-moves">
-                  <button disabled={pos === 0} onClick={() => setOrder((o) => swap(o, pos, pos - 1))} aria-label="Earlier">
+                  <button
+                    ref={(el) => {
+                      moveRefs.current[`${item}-up`] = el
+                    }}
+                    disabled={pos === 0}
+                    onClick={() => move(item, pos, -1)}
+                    aria-label={`Move “${speakable(q.items[item])}” earlier`}
+                  >
                     <Glyph name="up" size={14} />
                   </button>
-                  <button disabled={pos === order.length - 1} onClick={() => setOrder((o) => swap(o, pos, pos + 1))} aria-label="Later">
+                  <button
+                    ref={(el) => {
+                      moveRefs.current[`${item}-down`] = el
+                    }}
+                    disabled={pos === order.length - 1}
+                    onClick={() => move(item, pos, 1)}
+                    aria-label={`Move “${speakable(q.items[item])}” later`}
+                  >
                     <Glyph name="down" size={14} />
                   </button>
                 </div>
@@ -219,7 +253,7 @@ function QuestionView({ q, seed, answered, onAnswer }: { q: Question; seed: numb
           </button>
         </div>
       ) : (
-        <div className={`explain ${ok ? 'right' : 'wrong'}`} role="status">
+        <div className={`explain ${ok ? 'right' : 'wrong'}`} role="status" ref={explainRef} tabIndex={-1}>
           <span className="explain-icon" aria-hidden>
             <Glyph name={ok ? 'checkCircle' : 'info'} size={20} />
           </span>
@@ -245,4 +279,11 @@ function swap(a: number[], i: number, j: number) {
   const b = [...a]
   ;[b[i], b[j]] = [b[j], b[i]]
   return b
+}
+
+/** Moves keyboard focus to the result heading when the quiz finishes, so focus never drops to the page. */
+function QuizResultFocus({ children }: { children: (ref: React.RefObject<HTMLHeadingElement | null>) => React.ReactNode }) {
+  const ref = useRef<HTMLHeadingElement>(null)
+  useEffect(() => ref.current?.focus({ preventScroll: true }), [])
+  return <>{children(ref)}</>
 }

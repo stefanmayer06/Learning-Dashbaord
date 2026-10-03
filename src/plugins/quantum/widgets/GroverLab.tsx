@@ -84,8 +84,18 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
             onChange={setN}
             options={[3, 4, 5, 6].map((q) => ({ value: q, label: `${q} qubits · N=${2 ** q}` }))}
           />
+          <label className="grover-pick">
+            Marked item
+            <select className="select grover-select" value={marked} onChange={(e) => choose(Number(e.target.value))}>
+              {Array.from({ length: N }, (_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </label>
           <span className="grover-tip">
-            <Glyph name="info" size={16} /> Click a bar to choose which item is “marked”.
+            <Glyph name="info" size={16} /> Or click a bar to mark it.
           </span>
         </div>
         <div className="grover-bars lab-panel" style={{ height: H * 2 + 20 }}>
@@ -96,6 +106,7 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
               key={i}
               className={`grover-bar ${i === marked ? 'marked' : ''}`}
               onClick={() => choose(i)}
+              tabIndex={-1}
               aria-label={`Item ${i}${i === marked ? ' (marked)' : ''}: amplitude ${a.toFixed(3)}`}
               style={{ width: `${100 / N}%` }}
             >
@@ -110,10 +121,10 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
         </div>
         <div className="grover-controls">
           <div className="lab-actions" role="group" aria-label="Grover steps">
-            <button className="btn btn-small" onClick={oracle} disabled={phase !== 'ready'}>
+            <button className="btn btn-small btn-secondary" onClick={oracle} disabled={phase !== 'ready'}>
               1 · Oracle: flip the marked sign
             </button>
-            <button className="btn btn-small" onClick={diffuse} disabled={phase !== 'oracled'}>
+            <button className="btn btn-small btn-secondary" onClick={diffuse} disabled={phase !== 'oracled'}>
               2 · Diffuse: reflect about the mean
             </button>
             <button className="btn btn-small btn-ghost" onClick={iterate}>
@@ -125,7 +136,7 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
           </div>
         </div>
         <div className="grover-stats">
-          <h3 className="lab-h">Where you are</h3>
+          <h2 className="lab-h">Where you are</h2>
           <div className="readouts">
             <Readout label="Iterations" value={k} />
             <Readout label="P(find marked)" value={`${(success * 100).toFixed(1)}%`} tone={success >= 0.9 ? 'good' : 'accent'} />
@@ -140,7 +151,7 @@ export function GroverLab({ props, complete, done }: WidgetApi) {
           )}
         </div>
         <div className="grover-chart">
-          <h3 className="lab-h">Success odds by iteration</h3>
+          <h2 className="lab-h">Success odds by iteration</h2>
           <LineChart series={[{ name: 'theory', points: curve, tone: 'faint' }]} xLabel="Iterations" yLabel="P(success)" yDomain={[0, 1]} marker={{ x: k, y: groverSuccess(N, k), label: 'you' }} height={240} />
         </div>
       </div>

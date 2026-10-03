@@ -211,6 +211,8 @@ export function ReelPlayer({ reel, accent, onCite, onProgress, citeNumber }: Ree
   const onKey = (e: KeyboardEvent) => {
     const target = e.target as HTMLElement
     if (target.closest('input,select,textarea')) return
+    // leave browser shortcuts alone (Ctrl/Cmd+C copy, +F find, +K …)
+    if (e.ctrlKey || e.metaKey || e.altKey) return
     const k = e.key.toLowerCase()
     // Space on a focused button keeps its native meaning (activate that button)
     if (k === ' ' && target.closest('button')) return
@@ -223,7 +225,13 @@ export function ReelPlayer({ reel, accent, onCite, onProgress, citeNumber }: Ree
     else if (k === 'c') setPrefs({ captions: !prefs.captions })
     else if (k === 'n') toggleNarration()
     else if (k === 'f') fullscreen()
-    else if (k === 't') setShowTranscript((s) => !s)
+    else if (k === 't') toggleTranscript(target)
+  }
+
+  // closing the transcript from inside it would unmount the focused line: hand focus back to the player
+  const toggleTranscript = (from?: Element | null) => {
+    if (from?.closest('.reel-transcript')) wrapRef.current?.focus({ preventScroll: true })
+    setShowTranscript((s) => !s)
   }
 
   /* ── render ── */
@@ -321,7 +329,7 @@ export function ReelPlayer({ reel, accent, onCite, onProgress, citeNumber }: Ree
           <button className="rc-btn rc-rate" onClick={() => setRate(RATES[(RATES.indexOf(rate) + 1) % RATES.length])} aria-label={`Speed ${rate}×`} title="Playback speed">
             {rate}×
           </button>
-          <button className={`rc-btn ${showTranscript ? 'on' : ''}`} onClick={() => setShowTranscript((s) => !s)} aria-pressed={showTranscript} aria-label="Transcript" title="Transcript (T)">
+          <button className={`rc-btn ${showTranscript ? 'on' : ''}`} onClick={(e) => toggleTranscript(e.currentTarget)} aria-pressed={showTranscript} aria-label="Transcript" title="Transcript (T)">
             <Glyph name="transcript" size={20} />
           </button>
           <button className="rc-btn" onClick={fullscreen} aria-label="Fullscreen" title="Full screen (F)">
@@ -363,7 +371,7 @@ function PosterFrame({ title, tl }: { title: string; tl: ReturnType<typeof build
       <div className="r-poster-kicker">
         Video · {tl.shots.length} scenes{tl.chapters.length > 1 ? ` · ${tl.chapters.length} chapters` : ''}
       </div>
-      <h2 className="r-poster-title">{title}</h2>
+      <p className="r-poster-title">{title}</p>
       {tl.chapters.length > 0 && (
         <div className="r-poster-chapters">
           <div className="r-poster-chapters-head">Chapters</div>

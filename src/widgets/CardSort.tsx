@@ -60,7 +60,11 @@ export function CardSort({ props, complete, done, Cite }: WidgetApi) {
   }
 
   return (
-    <LabFrame goal={`Sort all ${cards.length} cards correctly`} met={done || allRight} aside={checked ? <><span className="mono">{correct}/{cards.length}</span> correct</> : null}>
+    <LabFrame
+      goal={`Sort all ${cards.length} cards correctly`}
+      met={allRight}
+      aside={checked ? <><span className="mono">{correct}/{cards.length}</span> correct</> : done ? 'Completed earlier · sort again to practise' : null}
+    >
       <div className="sort">
         <div className="sort-deck" role="group" aria-label="Cards to sort">
           {unplaced.length ? (

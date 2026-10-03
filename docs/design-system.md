@@ -47,7 +47,9 @@ of those products, not screenshots.
 | `--surface` cards | `#ffffff` | `#171b22` | |
 | `--surface-sunken` wells, tracks | `#f0f2f5` | `#12161c` | |
 | `--border` | `#dfe3e9` | `#2a313b` | |
-| `--border-strong` inputs, outline buttons | `#c3cad4` | `#3c4552` | |
+| `--border-strong` outline buttons, decorative edges | `#c3cad4` | `#3c4552` | |
+| `--border-input` form-control edges | `#7d8695` | `#6b7586` | 3.7:1 / 3.7:1 (WCAG 1.4.11) |
+| `--track` unfilled progress tracks | `#dfe3e9` | `#2f3742` | visible on bands and cards |
 | `--text` | `#16191d` | `#e9ecf1` | 17.6:1 / 15.6:1 |
 | `--text-muted` | `#4b5563` | `#b3bbc7` | 7.6:1 / 9.6:1 |
 | `--text-subtle` meta | `#5f6775` | `#8f98a5` | 5.8:1 / 6.3:1 |
@@ -60,6 +62,10 @@ of those products, not screenshots.
 | `--danger` / `--danger-soft` | `#c0352b` / `#fbe9e7` | `#f07c6c` / `#33171a` | |
 | `--brand-red` | `#d63a26` | `#f0563c` | wordmark dot, top rule only |
 | `--theatre*` video area | `#0b0d11`, `#161a21`, ink `#eef1f5`, faint `#8b93a1` | same | |
+| `--focus-shadow` focus ring | 2px gap in `--bg`, then 2px `--primary` | same | ≥7:1; never a translucent halo |
+| `--range-accent` slider accent | `--primary-bg` | `#8fa2ff` | a light accent makes Chromium draw a dark track |
+
+Print always uses the light palette (`@media print` in `tokens.css`).
 
 Claim statuses: **verified** uses success, **derived** uses primary, **estimate** uses warning,
 **contested** uses danger.
@@ -247,6 +253,39 @@ under the video. They stay one glance away without stealing width from the video
 | `.lesson-ticks` | `ProgressRing` in the player bar |
 | ruled textarea | plain bordered textarea |
 
+## Rules learned in QA
+
+A three-lens review (visual, accessibility, behaviour) of the first build led to these rules:
+
+- **One filled button per view.** Buttons that run something inside a lab (Simulate, Measure,
+  Oracle, Run) are `.btn-secondary`. The step's Continue is the filled one; "Save to notebook"
+  is filled only until it has been used.
+- **Focus.** Use `box-shadow: var(--focus-shadow)` or the global outline. Tab rows draw the ring
+  inside (`outline-offset: -3px`), because they scroll horizontally.
+- **Keyboard flow in lessons.**
+  - Moving to a step focuses its `h1.step-title`, and the lesson-complete screen focuses its
+    heading.
+  - Quizzes move focus to the explanation after "Check answer", to the next prompt, and then to
+    the result.
+  - While the outline drawer is open, the page behind it is `inert`.
+  - The skip link targets `#lesson-content` inside lessons.
+- **Composite widgets.** Anything with `role=tablist` gets arrow keys and a roving tabIndex
+  (`src/ui/tabs.ts`). Single-choice button rows use `aria-pressed` toggle buttons, not
+  `role=radio`.
+- **Selected state is structural.** A selected segmented option gets a white surface, a primary
+  edge and bold text, not just a hue change.
+- **Links inside running text are underlined**, not distinguished by colour alone.
+- **Each page sets its own title** via `useDocumentTitle`, e.g. "Step · 2.1 Lesson · Margin".
+- **Motion.** JS animations and smooth scrolling check `prefersReducedMotion()`
+  (`src/ui/motion.ts`).
+- **Shared pieces.**
+  - `StatusTiles` and the `STATUS_*` maps in `src/ui/Cite.tsx` give one status wording for the
+    course page, ledger and method page.
+  - `.partner-mark` is the single "Margin Originals" mark.
+  - `.empty-state` is used for both the 404 and the locked lesson.
+- **Words.** The UI and the course text say "Module", following MOOC conventions; the data model
+  still calls them `units`.
+
 ## CSS ownership (wave 2 works on disjoint files)
 
 | Package | May edit |
@@ -258,4 +297,6 @@ under the video. They stay one glance away without stealing width from the video
 | Labs | `labs.css`, `src/ui/{LabFrame,charts}.tsx`, `src/widgets/*`, `src/plugins/quantum/{widgets/*,BlochSphere.tsx,shots.tsx}` (styling only) |
 | Pages | `pages.css`, `WorkPage`, `CertificatePage`, `LedgerPage`, `CommissionPage` (incl. `?topic=` prefill), `SettingsPage`, `MethodPage`, `NotFound`, `src/ui/Cite.tsx` |
 
-`app.css` is removed once every rule has a new home.
+`app.css` was removed once every rule had a new home. Shared rules that more than one page uses
+(status tiles, partner mark, empty states, citation defaults) live in `base.css`, or in
+`pages.css` for the citation notes.

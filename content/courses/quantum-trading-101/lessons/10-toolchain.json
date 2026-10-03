@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "The tools",
-            "kicker": "Unit 6 · Practice",
+            "kicker": "Module 6 · Practice",
             "title": "Three\nsnippets.",
             "subtitle": "Every line here was run before it went on screen.",
             "narration": "Labs in your browser are great for intuition. Here's what the same ideas look like in the code real teams write. Every snippet was run before it went on screen."
@@ -32,7 +32,7 @@
             "language": "python · qiskit 2.5",
             "code": "from qiskit import QuantumCircuit\nfrom qiskit.quantum_info import Statevector\n\nqc = QuantumCircuit(2)\nqc.h(0)        # superpose qubit 0\nqc.cx(0, 1)    # qubit 0 controls qubit 1\nprint(Statevector(qc).probabilities().round(3))\n# [0.5 0.  0.  0.5]  -> only 00 and 11",
             "focus": [[4, 5, 6], [7, 8]],
-            "narration": "Snippet one is the Bell state you built in Unit 3. Two qubits, a Hadamard, a controlled NOT. Ask for the exact probabilities and you get one half on zero zero, one half on one one, nothing else.",
+            "narration": "Snippet one is the Bell state you built in Module 3. Two qubits, a Hadamard, a controlled NOT. Ask for the exact probabilities and you get one half on zero zero, one half on one one, nothing else.",
             "cite": ["bell-state"]
           },
           {
@@ -41,7 +41,7 @@
             "language": "python · qiskit 2.5",
             "code": "from qiskit.primitives import StatevectorSampler\n\nqc.measure_all()\njob = StatevectorSampler().run([qc], shots=1000)\nprint(job.result()[0].data.meas.get_counts())\n# e.g. {'11': 498, '00': 502}",
             "focus": [[3, 4], [5, 6]],
-            "narration": "Snippet two measures it a thousand times, the way real hardware would. You get counts, not probabilities: about five hundred each, never exactly. That's the shot noise from Unit 2.",
+            "narration": "Snippet two measures it a thousand times, the way real hardware would. You get counts, not probabilities: about five hundred each, never exactly. That's the shot noise from Module 2.",
             "cite": ["born-rule", "shot-noise"]
           },
           {

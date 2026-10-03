@@ -25,8 +25,8 @@ export function App() {
   return (
     <>
       <div className="margin-rule" aria-hidden />
-      <a className="skip-link" href="#main">
-        Skip to content
+      <a className="skip-link" href={inLesson ? '#lesson-content' : '#main'}>
+        {inLesson ? 'Skip to lesson content' : 'Skip to content'}
       </a>
       {!inLesson && <SiteHeader />}
       <main id="main">

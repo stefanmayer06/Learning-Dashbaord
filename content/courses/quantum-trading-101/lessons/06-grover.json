@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "The problem",
-            "kicker": "Unit 4 · Theory",
+            "kicker": "Module 4 · Theory",
             "title": "Flip, reflect,\nrepeat.",
             "subtitle": "Grover's algorithm, and why its idea matters more than its use.",
             "narration": "Before we get to finance, one algorithm whose idea powers most of what follows: Grover's search."
@@ -68,7 +68,7 @@
           },
           {
             "kind": "statement",
-            "text": "Estimating a probability is exactly what a **price** or a **risk number** is. That's amplitude estimation — Unit 5.",
+            "text": "Estimating a probability is exactly what a **price** or a **risk number** is. That's amplitude estimation — Module 5.",
             "narration": "And estimating a probability, an expected value, is exactly what a price or a risk figure is. That is amplitude estimation, and it's where we're heading.",
             "cite": ["amplitude-amplification", "qae-finance"]
           }

@@ -7,6 +7,7 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from 're
 import type { Claim, CourseBundle, Lesson, Source, Step } from '../content/schema'
 import { fmtDate } from '../content/stats'
 import { Glyph } from './Glyph'
+import { scrollBehavior } from './motion'
 
 interface CiteCtx {
   number: (id: string) => number
@@ -81,7 +82,7 @@ export function CiteMarks({ ids }: { ids: string[] }) {
           className="cite-mark"
           onClick={() => {
             ctx.focus(id)
-            document.getElementById(`note-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+            document.getElementById(`note-${id}`)?.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' })
           }}
           aria-label={`Source note ${ctx.number(id)}: ${ctx.claims[id]?.text ?? id}`}
           title={ctx.claims[id]?.text}
@@ -104,6 +105,32 @@ export const STATUS_CLASS: Record<string, string> = {
   contested: 'chip-red',
   estimate: 'chip-warn',
   derived: 'chip-accent',
+}
+/** One wording for what each status means — used by the course page, ledger and method page. */
+export const STATUS_DESC: Record<string, string> = {
+  verified: 'Matches the primary source.',
+  derived: 'Follows by mathematics; the source shows the derivation.',
+  estimate: 'A projection or resource estimate, not a measurement.',
+  contested: 'Credible parties dispute it; the note explains the dispute.',
+}
+export const STATUS_ORDER = ['verified', 'derived', 'estimate', 'contested'] as const
+const STATUS_TONE: Record<string, string> = { verified: 'good', derived: 'accent', estimate: 'warn', contested: 'red' }
+
+export function StatusTiles({ counts, className }: { counts: Record<string, number>; className?: string }) {
+  return (
+    <ul className={`ledger-tiles${className ? ' ' + className : ''}`} aria-label="Claims by status">
+      {STATUS_ORDER.map((k) => (
+        <li key={k} className={`ledger-tile tone-${STATUS_TONE[k]}`}>
+          <span className="ledger-tile-label">
+            <span className="ledger-dot" aria-hidden />
+            {STATUS_LABEL[k]}
+          </span>
+          <span className="ledger-tile-n">{counts[k] ?? 0}</span>
+          <span className="ledger-tile-line">{STATUS_DESC[k]}</span>
+        </li>
+      ))}
+    </ul>
+  )
 }
 export const KIND_LABEL: Record<string, string> = {
   paper: 'peer-reviewed',

@@ -73,14 +73,14 @@ export function MeasurementSampler({ props, complete, done }: WidgetApi) {
       <div className="sampler">
         <div className="sampler-controls">
           <section className="lab-section">
-            <h3 className="lab-h">1 · Prepare the qubit</h3>
+            <h2 className="lab-h">1 · Prepare the qubit</h2>
             <Slider label="Tilt θ away from |0⟩" value={thetaDeg} min={0} max={180} step={1} onChange={setThetaDeg} format={(v) => `${v}°`} />
             <p className="soft small sampler-theory">
               Theory (Born rule): P(1) = sin²(θ/2) = <span className="mono">{p.toFixed(4)}</span>
             </p>
           </section>
           <section className="lab-section">
-            <h3 className="lab-h">2 · Measure it, again and again</h3>
+            <h2 className="lab-h">2 · Measure it, again and again</h2>
             <div className="shot-row" role="group" aria-label="Run shots">
               {[1, 10, 100, 1000].map((k) => (
                 <button key={k} className="btn btn-small btn-ghost" onClick={() => run(k)}>
@@ -105,7 +105,7 @@ export function MeasurementSampler({ props, complete, done }: WidgetApi) {
           </section>
         </div>
         <div className="sampler-chart">
-          <h3 className="lab-h">How the estimate settles</h3>
+          <h2 className="lab-h">How the estimate settles</h2>
           {history.length > 1 ? (
             <LineChart
               series={[
@@ -122,7 +122,7 @@ export function MeasurementSampler({ props, complete, done }: WidgetApi) {
             <div className="chart-empty">Run some shots to draw the convergence chart.</div>
           )}
           <p className="small soft lab-note">
-            10× more shots buys only ~3.2× (√10) more precision. Keep that in mind for Unit 3.
+            10× more shots buys only ~3.2× (√10) more precision. Keep that in mind for Module 3.
           </p>
         </div>
       </div>

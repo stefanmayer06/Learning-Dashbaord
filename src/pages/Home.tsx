@@ -8,6 +8,7 @@ import { courseFraction, lessonDone, nextUp, orderedLessons, type CourseProgress
 import { Cover } from '../ui/Cover'
 import { Glyph, STEP_GLYPH, STEP_LABEL } from '../ui/Glyph'
 import { ProgressBar, ProgressRing } from '../ui/Progress'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
 
 /* ───────────── derived data ───────────── */
 
@@ -45,7 +46,8 @@ const fold = (s: string) =>
 /** Every word of the query must appear somewhere in the course's searchable text ("options" also finds "option"). */
 function matches(b: CourseBundle, q: string) {
   const c = b.course
-  const hay = fold([c.title, c.subtitle, c.summary, ...c.outcomes, ...c.units.map((u) => u.title), ...skillsOf(b)].join('\n'))
+  const lessons = Object.values(b.lessons).flatMap((l) => [l.title, l.summary, ...l.steps.map((s) => s.title)])
+  const hay = fold([c.title, c.subtitle, c.summary, ...c.outcomes, ...c.units.map((u) => u.title), ...skillsOf(b), ...lessons].join('\n'))
   return fold(q)
     .split(/[\s,.;:!?"“”'‘’()]+/)
     .filter(Boolean)
@@ -72,12 +74,14 @@ function lessonsDone(b: CourseBundle, cp: CourseProgress | undefined) {
 /* ───────────── page ───────────── */
 
 export function Home() {
+  useDocumentTitle('Courses')
   const { courses } = loadCatalogue()
   const { state } = useLearner()
   const [params] = useSearchParams()
   const location = useLocation()
   const q = (params.get('q') ?? '').trim()
   const [filter, setFilter] = useState<Filter>('all')
+  useEffect(() => setFilter('all'), [q])
 
   const entries: Entry[] = useMemo(
     () =>
@@ -390,9 +394,16 @@ function Catalog({ entries, q, filter, setFilter }: { entries: Entry[]; q: strin
       <div className="container-wide">
         <div className="section-head">
           <div>
-            <h2 id="catalog-title" className="t-h2">
-              {q ? <>Results for “{q}”</> : 'All courses'}
-            </h2>
+            {/* the hero (and its h1) is hidden while searching, so the results heading becomes the h1 */}
+            {q ? (
+              <h1 id="catalog-title" className="t-h2">
+                Results for “{q}”
+              </h1>
+            ) : (
+              <h2 id="catalog-title" className="t-h2">
+                All courses
+              </h2>
+            )}
             <p className="meta home-section-sub">
               {q ? (
                 <>
@@ -441,9 +452,17 @@ function Catalog({ entries, q, filter, setFilter }: { entries: Entry[]; q: strin
             ))}
             {shown.length === 0 && (
               <div className="catalog-grid-empty">
-                <p className="soft">{filter === 'progress' ? 'No courses in progress yet.' : filter === 'done' ? 'No completed courses yet.' : 'You have started every course.'}</p>
+                <p className="soft">
+                  {q
+                    ? 'No matching courses in this filter.'
+                    : filter === 'progress'
+                      ? 'No courses in progress yet.'
+                      : filter === 'done'
+                        ? 'No completed courses yet.'
+                        : 'You have started every course.'}
+                </p>
                 <button type="button" className="link-btn" onClick={() => setFilter('all')}>
-                  Show all courses
+                  {q ? 'Show every match' : 'Show all courses'}
                 </button>
               </div>
             )}
@@ -509,7 +528,7 @@ function CourseCard({ entry }: { entry: Entry }) {
 
 function PartnerMark() {
   return (
-    <span className="catalog-mark" aria-hidden>
+    <span className="partner-mark" aria-hidden>
       M<span />
     </span>
   )

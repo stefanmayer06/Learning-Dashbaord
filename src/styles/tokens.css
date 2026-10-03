@@ -14,6 +14,8 @@
   --border: #dfe3e9;
   --border-soft: #eceff3;
   --border-strong: #c3cad4;
+  --track: #dfe3e9; /* unfilled progress / slider tracks */
+  --border-input: #7d8695; /* form-control edges: 3.7:1 on white */
 
   /* text */
   --text: #16191d;
@@ -27,7 +29,9 @@
   --primary-pressed: #162b92;
   --primary-soft: #e9edfc;
   --on-primary: #ffffff;
-  --focus-ring: color-mix(in oklab, var(--primary) 35%, transparent);
+  --focus-ring: var(--primary);
+  /* two-tone ring: a gap in the page colour, then 2px of primary (7.4:1 light, 7.6:1 dark) */
+  --focus-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--primary);
 
   /* status */
   --success: #1d7a4c;
@@ -130,6 +134,9 @@
     --border: #2a313b;
     --border-soft: #222831;
     --border-strong: #3c4552;
+    --track: #2f3742;
+    --border-input: #6b7586;
+    --range-accent: #8fa2ff;
     --text: #e9ecf1;
     --text-muted: #b3bbc7;
     --text-subtle: #8f98a5;
@@ -161,6 +168,9 @@
   --border: #2a313b;
   --border-soft: #222831;
   --border-strong: #3c4552;
+  --track: #2f3742;
+  --border-input: #6b7586;
+  --range-accent: #8fa2ff;
   --text: #e9ecf1;
   --text-muted: #b3bbc7;
   --text-subtle: #8f98a5;

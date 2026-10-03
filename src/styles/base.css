@@ -47,6 +47,12 @@ a:hover {
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
+/* links inside running text get an underline, not just a colour (WCAG 1.4.1) */
+:where(p, .small, .meta, .lede, .callout, .notes-intro, .field-help) a:not(.btn):not(.chip):not(.badge):not(.card-link):not(.tab) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
 
 ::selection {
   background: var(--primary-soft);
@@ -301,7 +307,7 @@ p {
 }
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--focus-ring);
+  box-shadow: var(--focus-shadow);
 }
 .btn:disabled,
 .btn[aria-disabled='true'] {
@@ -468,7 +474,7 @@ a.chip:hover {
   position: relative;
   display: block;
   height: 8px;
-  background: var(--surface-sunken);
+  background: var(--track);
   border-radius: var(--r-pill);
   overflow: hidden;
 }
@@ -497,7 +503,7 @@ a.chip:hover {
   transform: rotate(-90deg);
 }
 .ring-track {
-  stroke: var(--surface-sunken);
+  stroke: var(--track);
 }
 .ring-fill {
   stroke: var(--primary-bg);
@@ -594,6 +600,119 @@ a.chip:hover {
 .empty-state .lede {
   margin-inline: auto;
 }
+.empty-tile {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--s2);
+  border-radius: var(--r-xl);
+}
+.empty-actions {
+  justify-content: center;
+  margin-top: var(--s3);
+}
+
+/* ─────────── "Margin Originals" partner mark ─────────── */
+
+.partner-mark {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  padding-top: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text);
+}
+.partner-mark > span {
+  width: 3px;
+  height: 3px;
+  margin-left: 1px;
+  background: var(--brand-red);
+}
+.partner-mark-lg {
+  width: 30px;
+  height: 30px;
+  padding-top: 4px;
+  font-size: 18px;
+}
+.partner-mark-lg > span {
+  width: 4px;
+  height: 4px;
+}
+
+/* ─────────── claim status tiles (StatusTiles in src/ui/Cite.tsx) ─────────── */
+
+.ledger-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s4);
+  margin: var(--s6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ledger-tile {
+  --tone: var(--text-muted);
+  --tone-soft: var(--surface-sunken);
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  padding: var(--s4) var(--s5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.ledger-tile.tone-good {
+  --tone: var(--success);
+}
+.ledger-tile.tone-accent {
+  --tone: var(--primary);
+}
+.ledger-tile.tone-warn {
+  --tone: var(--warning);
+}
+.ledger-tile.tone-red {
+  --tone: var(--danger);
+}
+.ledger-tile-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--tone);
+}
+.ledger-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--tone);
+}
+.ledger-tile-n {
+  font-size: 32px;
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.ledger-tile-line {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-subtle);
+}
+
+@media (max-width: 960px) {
+  .ledger-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 /* ─────────── breadcrumbs ─────────── */
 
@@ -671,6 +790,11 @@ a.chip:hover {
   background: var(--primary-bg);
   border-radius: 3px 3px 0 0;
 }
+.tab:focus-visible {
+  /* tab rows scroll horizontally, which would clip an outer ring */
+  outline-offset: -3px;
+  border-radius: var(--r-sm);
+}
 .tab-count {
   margin-left: 6px;
   padding: 0 7px;
@@ -742,7 +866,7 @@ details[open] > .acc-head .acc-chevron {
   font-size: 15px;
   color: var(--text);
   background: var(--surface);
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border-input);
   border-radius: var(--r-sm);
   padding: 10px 12px;
   transition:
@@ -763,7 +887,7 @@ details[open] > .acc-head .acc-chevron {
 .textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--focus-ring);
+  box-shadow: 0 0 0 1px var(--primary);
 }
 .textarea {
   line-height: 1.6;
@@ -776,8 +900,13 @@ details[open] > .acc-head .acc-chevron {
 
 input[type='range'] {
   width: 100%;
-  accent-color: var(--primary-bg);
+  /* native slider with a filled track; dark mode uses the light primary so Chromium draws a dark track */
+  accent-color: var(--range-accent, var(--primary-bg));
   cursor: pointer;
+}
+input[type='range']:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 input[type='checkbox'],
 input[type='radio'] {

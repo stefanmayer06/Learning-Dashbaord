@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "The contract",
-            "kicker": "Unit 5 · Practice",
+            "kicker": "Module 5 · Practice",
             "title": "The pricing\nrace.",
             "subtitle": "One option. A formula, a simulation, and a quantum algorithm.",
             "narration": "Time to use what we've learned on a real finance problem: pricing an option."

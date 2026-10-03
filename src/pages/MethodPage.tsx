@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { loadCatalogue } from '../content/loader'
+import { STATUS_CLASS, STATUS_DESC, STATUS_LABEL, STATUS_ORDER } from '../ui/Cite'
 import { Glyph } from '../ui/Glyph'
 import { Breadcrumbs } from '../ui/Shell'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
 
 const STEPS = [
   { t: 'Brief', d: 'You commission a subject: what you want to be able to do, your level, your time budget.' },
@@ -21,14 +23,10 @@ const RULES = [
   'Third-party material (external tools, videos) is labelled with who made it.',
 ]
 
-const LABELS = [
-  { chip: 'chip-good', label: 'Verified', d: 'Matches the primary source.' },
-  { chip: 'chip-accent', label: 'Derived', d: 'Follows by mathematics; the source shows the derivation.' },
-  { chip: 'chip-warn', label: 'Estimate', d: 'A projection or resource estimate, not a measurement.' },
-  { chip: 'chip-red', label: 'Contested', d: 'The primary source says it; credible parties dispute it. The dispute is explained.' },
-]
+const LABELS = STATUS_ORDER.map((k) => ({ chip: STATUS_CLASS[k], label: STATUS_LABEL[k], d: STATUS_DESC[k] }))
 
 export function MethodPage() {
+  useDocumentTitle('How we fact-check')
   const { courses } = loadCatalogue()
   return (
     <div className="pg method">

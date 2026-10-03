@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "Exponential",
-            "kicker": "Unit 3 · Theory",
+            "kicker": "Module 3 · Theory",
             "title": "The exponential\nwall.",
             "subtitle": "Each qubit doubles what a classical computer must track.",
             "narration": "Why would anyone build a quantum computer? Because simulating one on a classical machine gets out of hand, fast."

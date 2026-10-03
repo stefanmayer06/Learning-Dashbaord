@@ -11,6 +11,7 @@ import { ProgressBar } from '../ui/Progress'
 import { Breadcrumbs } from '../ui/Shell'
 import { NotFound } from './NotFound'
 import { fieldComplete } from '../steps/DeliverableStep'
+import { useDocumentTitle } from '../ui/useDocumentTitle'
 
 /** Every deliverable step for an output, in course order. */
 function partsFor(bundle: CourseBundle, outputId: string) {
@@ -68,6 +69,7 @@ const plural = (n: number, one: string, many = one + 's') => `${n} ${n === 1 ? o
 export function WorkPage() {
   const { courseId } = useParams()
   const bundle = findCourse(courseId)
+  useDocumentTitle(bundle ? `Your work · ${bundle.course.title}` : undefined)
   const { course: getCp, state } = useLearner()
   const { hash } = useLocation()
 

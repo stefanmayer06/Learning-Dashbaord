@@ -4,6 +4,7 @@ import { LabFrame, Readout } from '../../../ui/LabFrame'
 import { Glyph } from '../../../ui/Glyph'
 import { BlochSphere, DEFAULT_VIEW, type Vec3, type View } from '../BlochSphere'
 import { State, toAngles, type GateName } from '../sim'
+import { prefersReducedMotion } from '../../../ui/motion'
 
 /** Every single-qubit gate is a rotation of the Bloch sphere (up to global phase). */
 const ROTATIONS: Record<string, { axis: Vec3; angle: number; about: string }> = {
@@ -74,10 +75,10 @@ export function BlochExplorer({ props, complete, done, capture, captured }: Widg
     const rot = ROTATIONS[g]
     const from = state.bloch(0)
     const start = performance.now()
-    const dur = 520
+    const dur = prefersReducedMotion() ? 0 : 520
     const pts: Vec3[] = []
     const step = (now: number) => {
-      const t = Math.min(1, (now - start) / dur)
+      const t = dur ? Math.min(1, (now - start) / dur) : 1
       const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
       const v = rotate(from, rot.axis, rot.angle * e)
       pts.push(v)
@@ -143,7 +144,7 @@ export function BlochExplorer({ props, complete, done, capture, captured }: Widg
         </div>
         <div className="bloch-lab-side">
           <section className="lab-section">
-            <h3 className="lab-h">Apply a gate</h3>
+            <h2 className="lab-h">Apply a gate</h2>
             <div className="gate-row" role="group" aria-label="Gates">
               {Object.keys(ROTATIONS).map((g) => (
                 <button key={g} className="gate-btn" onClick={() => applyGate(g)} title={ROTATIONS[g].about}>
@@ -156,7 +157,7 @@ export function BlochExplorer({ props, complete, done, capture, captured }: Widg
             </p>
           </section>
           <section className="lab-section">
-            <h3 className="lab-h">Current state</h3>
+            <h2 className="lab-h">Current state</h2>
             <div className="ket">
               <span className="ket-psi">|ψ⟩ =</span>
               <span>
@@ -190,7 +191,7 @@ export function BlochExplorer({ props, complete, done, capture, captured }: Widg
             </div>
           </section>
           <div className="lab-actions">
-            <button className="btn btn-small" onClick={measure}>
+            <button className="btn btn-small btn-secondary" onClick={measure}>
               Measure {measured !== null ? `(got ${measured})` : ''} <Glyph name="spark" size={14} />
             </button>
             <button className="btn btn-small btn-ghost" onClick={reset}>

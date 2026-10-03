@@ -132,8 +132,8 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
       captured={captured}
     >
       <div className="clab">
-        <h3 className="lab-h">Pick a gate, then click the circuit</h3>
-        <div className="clab-palette" role="toolbar" aria-label="Gate palette">
+        <h2 className="lab-h">Pick a gate, then click the circuit</h2>
+        <div className="clab-palette" role="group" aria-label="Gate palette">
           {(['H', 'X', 'Y', 'Z', 'S', 'T', 'CX', 'CZ', 'erase'] as Palette[]).map((g) => (
             <button
               key={g}
@@ -210,7 +210,7 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
           </svg>
         </div>
         <div className="lab-actions">
-          <button className="btn btn-small" onClick={run}>
+          <button className="btn btn-small btn-secondary" onClick={run}>
             Run 1,024 shots <Glyph name="play" size={12} />
           </button>
           <button className="btn btn-small btn-ghost" onClick={() => (setOps([]), setPending(null))}>
@@ -225,7 +225,7 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
 
         <div className="clab-results">
           <div className="clab-amps">
-            <h3 className="lab-h">Exact state</h3>
+            <h2 className="lab-h">Exact state</h2>
             <div className="lab-table-wrap">
               <table className="amp-table lab-table">
                 <thead>
@@ -269,7 +269,7 @@ export function CircuitLab({ props, complete, done, capture, captured }: WidgetA
             {counts && <p className="small soft lab-note">Counts come from 1,024 simulated measurements — close to, but never exactly, the probabilities.</p>}
           </div>
           <div className="clab-blochs">
-            <h3 className="lab-h">Each qubit on its own</h3>
+            <h2 className="lab-h">Each qubit on its own</h2>
             <div className="mini-blochs">
               {Array.from({ length: n }, (_, q) => {
                 const b = state.bloch(q)

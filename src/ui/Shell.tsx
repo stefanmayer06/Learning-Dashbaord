@@ -28,7 +28,7 @@ export function ThemeToggle() {
   const { dark, toggle } = useDarkTheme()
   return (
     <button className="icon-btn" onClick={toggle} aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'} title={dark ? 'Light theme' : 'Dark theme'}>
-      <Glyph name="lamp" size={19} />
+      <Glyph name={dark ? 'sun' : 'moon'} size={19} />
     </button>
   )
 }
@@ -66,9 +66,9 @@ const NAV = [
 
 export function SiteHeader() {
   const { sync } = useLearner()
-  const { pathname } = useLocation()
+  const { key } = useLocation()
   const [open, setOpen] = useState(false)
-  useEffect(() => setOpen(false), [pathname])
+  useEffect(() => setOpen(false), [key])
   return (
     <header className="site-header no-print">
       <div className="site-header-row container-wide">

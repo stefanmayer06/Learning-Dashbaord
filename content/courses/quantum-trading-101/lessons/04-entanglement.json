@@ -14,7 +14,7 @@
           {
             "kind": "title",
             "chapter": "Two qubits",
-            "kicker": "Unit 3 · Theory",
+            "kicker": "Module 3 · Theory",
             "title": "Two qubits,\none state.",
             "subtitle": "Entanglement is what makes many qubits more than many coins.",
             "narration": "One qubit is interesting. Two qubits are where quantum computing really starts."

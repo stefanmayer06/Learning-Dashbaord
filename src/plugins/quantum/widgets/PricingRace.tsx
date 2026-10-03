@@ -131,7 +131,7 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
     >
       <div className="race">
         <section className="race-params">
-          <h3 className="lab-h race-h">The contract: a European call option</h3>
+          <h2 className="lab-h race-h">The contract: a European call option</h2>
           <div className="race-params-grid">
             <Slider label="Spot S₀" value={S0} min={50} max={150} step={1} onChange={setS0} format={(v) => `$${v}`} />
             <Slider label="Strike K" value={K} min={50} max={150} step={1} onChange={setK} format={(v) => `$${v}`} />
@@ -152,7 +152,7 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
             <span className="chip">Classical</span>
           </div>
           <Slider label="Paths to simulate" value={logN} min={2} max={6} step={0.25} onChange={setLogN} format={(v) => Math.round(10 ** v).toLocaleString()} />
-          <button className="btn btn-small race-run" onClick={runMc}>
+          <button className="btn btn-small btn-secondary race-run" onClick={runMc}>
             Simulate <Glyph name="play" size={12} />
           </button>
           {mc ? (
@@ -176,7 +176,7 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
           </div>
           <Slider label="Price-grid qubits (2ⁿ price points)" value={gridQ} min={3} max={7} step={1} onChange={setGridQ} format={(v) => `${v} · ${2 ** v} pts`} />
           <Slider label="Evaluation qubits m (precision)" value={evalQ} min={3} max={11} step={1} onChange={setEvalQ} format={(v) => `${v} · M=${2 ** v}`} />
-          <button className="btn btn-small race-run" onClick={runQae}>
+          <button className="btn btn-small btn-secondary race-run" onClick={runQae}>
             Sample one run <Glyph name="play" size={12} />
           </button>
           <div className="qae-dist" aria-label="Distribution of possible QAE outcomes">
@@ -207,7 +207,7 @@ export function PricingRace({ complete, done, capture, captured, Cite, props }: 
 
         <section className="race-verdict">
           <div className="race-verdict-chart">
-            <h3 className="lab-h race-h">The race: error vs. cost</h3>
+            <h2 className="lab-h race-h">The race: error vs. cost</h2>
             <LineChart
               series={[
                 { name: 'Monte Carlo', points: curves.mcPts, tone: 'ink' },
