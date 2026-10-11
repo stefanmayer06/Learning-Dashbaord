@@ -1,0 +1,156 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-periods",
+  "title": "A fast map of Western painting",
+  "summary": "From the Renaissance to Pop in one sweep — because a fake has to fit its period in style and in materials.",
+  "minutes": 18,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af3-reel",
+      "title": "Five centuries, fast",
+      "reel": {
+        "title": "Five centuries, fast",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Why periods matter",
+            "kicker": "Art & Forgery · Lesson 3",
+            "title": "Five centuries,\nfast.",
+            "subtitle": "A fake must fit its period — in **style** and in **materials**.",
+            "narration": "A fake has to fit its period twice: in style, and in materials. So before we meet the forgers, here is a fast map of five centuries of Western painting."
+          },
+          {
+            "kind": "timeline",
+            "events": [
+              { "year": "1400s–1500s", "label": "Renaissance", "detail": "revival of Antiquity" },
+              { "year": "1600s", "label": "Baroque", "detail": "drama, diagonals" },
+              { "year": "1715–74", "label": "Rococo", "detail": "curves, light colour" },
+              { "year": "mid-1800s", "label": "Realism", "detail": "everyday life" },
+              { "year": "1874", "label": "Impressionism", "detail": "first independent show" },
+              { "year": "c. 1886", "label": "Post-impressionism" },
+              { "year": "1907–08", "label": "Cubism" },
+              { "year": "1940s–50s", "label": "Abstract expressionism" },
+              { "year": "1950s–60s", "label": "Pop art" }
+            ],
+            "narration": "The route: Renaissance, Baroque, Rococo, Realism, Impressionism, Post-impressionism, Cubism, Abstract expressionism and Pop. Each is a family of looks, not a hard border.",
+            "cite": ["renaissance", "baroque", "rococo", "realism", "impressionism", "post-impressionism", "cubism", "abex", "pop-art"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Old masters",
+            "text": "**Renaissance**: the revival of Antiquity, from the 15th to the end of the 16th century.",
+            "narration": "The Renaissance revived the art of Antiquity. It began in Italy in the fourteenth century; as a period it runs broadly from the fifteenth century to the end of the sixteenth.",
+            "cite": ["renaissance"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Baroque**: drama, diagonals, illusion — Rubens, Bernini.",
+            "narration": "Baroque works, mostly seventeenth-century, are dramatic and exuberant, with diagonal compositions and illusionistic effects. Rubens and Bernini are the classic examples.",
+            "cite": ["baroque"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Rococo**: asymmetry, curves, light and bright colour.",
+            "narration": "Rococo flourished in France under Louis the Fifteenth, from 1715 to 1774: asymmetry, curving forms and light, bright colours.",
+            "cite": ["rococo"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Modern life",
+            "text": "**Realism** → **Impressionism** (1874) → **Post-impressionism** (c. 1886).",
+            "narration": "Realism painted everyday life. In 1874 the Impressionists exhibited independently of the Salon, working fast and outdoors with new materials; from about 1886, Cézanne, Gauguin, Seurat and Van Gogh went further.",
+            "cite": ["realism", "impressionism", "post-impressionism"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Cubism** (1907–08): many viewpoints at once.",
+            "narration": "Around 1907 and 1908, Picasso and Braque invented Cubism, combining several views of one subject in a single picture.",
+            "cite": ["cubism"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Abstract expressionism**: Pollock, Rothko, de Kooning.",
+            "narration": "In the 1940s and 1950s American painters such as Pollock, Rothko and de Kooning made abstraction gestural and expressive. Pollock's famous drip paintings date from 1947 to 1950.",
+            "cite": ["abex", "pollock-drips"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Pop art**: the 1950s and 60s, from adverts and comics.",
+            "narration": "Pop art emerged in the 1950s and flourished in the 1960s in America and Britain, borrowing from advertising and popular culture.",
+            "cite": ["pop-art"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Why it matters",
+            "text": "A 'Pollock' drip painting dated before his drip years fails **on style alone**.",
+            "narration": "Why does this matter? A drip painting signed by Pollock but dated before his drip years fails on style alone. Later in the course, we'll catch one that fails on chemistry.",
+            "cite": ["pollock-drips"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af3-video",
+      "title": "Watch: new pigments and the Impressionists",
+      "optional": true,
+      "provider": "youtube",
+      "src": "VzsN00Hs_V0",
+      "caption": "The National Gallery on how new, factory-made pigments shaped Impressionist painting — a first look at the link between style and materials.",
+      "credit": "The National Gallery, London (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af3-seq",
+      "title": "Put the movements in order",
+      "widget": "sequence",
+      "brief": "Use the arrows to put the movements in the order they began. Dates appear once you solve it.",
+      "props": {
+        "items": [
+          { "label": "Renaissance", "detail": "15th–16th century; revival of Antiquity", "cite": ["renaissance"] },
+          { "label": "Baroque", "detail": "mostly 17th century; Rubens, Bernini", "cite": ["baroque"] },
+          { "label": "Rococo", "detail": "France under Louis XV, 1715–1774", "cite": ["rococo"] },
+          { "label": "Realism", "detail": "mid-19th century", "cite": ["realism"] },
+          { "label": "Impressionism", "detail": "first independent exhibition, 1874", "cite": ["impressionism"] },
+          { "label": "Post-impressionism", "detail": "from about 1886", "cite": ["post-impressionism"] },
+          { "label": "Cubism", "detail": "around 1907–08", "cite": ["cubism"] },
+          { "label": "Abstract expressionism", "detail": "1940s–1950s", "cite": ["abex"] },
+          { "label": "Pop art", "detail": "emerged 1950s, flourished 1960s", "cite": ["pop-art"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af3-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "A large 17th-century canvas with a dramatic diagonal composition and illusionistic effects is best described as…",
+          "options": ["Rococo", "Baroque", "Impressionist", "Cubist"],
+          "answer": 1,
+          "explain": "Baroque works are usually 17th-century, dramatic and exuberant, with diagonal compositions.",
+          "cite": ["baroque"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "In which year did the Impressionists first exhibit independently of the Paris Salon?",
+          "answer": 1874,
+          "tolerance": 0,
+          "explain": "The name came from a Monet painting shown in 1874; the group exhibited eight times up to 1886.",
+          "cite": ["impressionism"]
+        },
+        {
+          "type": "single",
+          "prompt": "A Cubist 'Picasso' is dated 1895. What should you do?",
+          "options": ["Accept it — Picasso was precocious", "Be suspicious: Cubism was invented around 1907–08", "Check only the signature"],
+          "answer": 1,
+          "explain": "A style that didn't yet exist is a red flag in itself — though dates on paintings can also simply be wrong.",
+          "cite": ["cubism"]
+        }
+      ]
+    }
+  ]
+}

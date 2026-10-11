@@ -1,0 +1,304 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-forger-method",
+  "title": "The forger's playbook — and its weak points",
+  "summary": "Four tests every fake must pass, the tricks used to pass each one, and the red flags that recur.",
+  "minutes": 20,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af9-reel",
+      "title": "Four tests",
+      "reel": {
+        "title": "Four tests",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Four tests",
+            "kicker": "Art & Forgery · Lesson 9",
+            "title": "Four tests every\nfake must pass.",
+            "subtitle": "The eye, the lab, the archive, the market.",
+            "narration": "Think like a forger. To succeed, a fake has to pass four tests: the expert's eye, the laboratory, the archive and the market. Every forger we've met failed at least one."
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              {
+                "id": "fake",
+                "label": "The fake",
+                "x": 50,
+                "y": 50,
+                "tone": "signal"
+              },
+              {
+                "id": "eye",
+                "label": "The eye: style",
+                "x": 14,
+                "y": 20,
+                "tone": "ink"
+              },
+              {
+                "id": "lab",
+                "label": "The lab: materials, age",
+                "x": 86,
+                "y": 20,
+                "tone": "ink"
+              },
+              {
+                "id": "archive",
+                "label": "The archive: paper trail",
+                "x": 14,
+                "y": 82,
+                "tone": "ink"
+              },
+              {
+                "id": "market",
+                "label": "The market: who asks?",
+                "x": 86,
+                "y": 82,
+                "tone": "ink"
+              }
+            ],
+            "edges": [
+              {
+                "from": "fake",
+                "to": "eye"
+              },
+              {
+                "from": "fake",
+                "to": "lab"
+              },
+              {
+                "from": "fake",
+                "to": "archive"
+              },
+              {
+                "from": "fake",
+                "to": "market"
+              }
+            ],
+            "narration": "The eye judges style. The lab tests materials and age. The archive checks the paper trail. And the market decides whether anyone asks hard questions at all."
+          },
+          {
+            "kind": "statement",
+            "chapter": "The eye",
+            "text": "Supply what the experts are **hoping for**.",
+            "narration": "Beating the eye is easier when you supply what experts hope to find. Beltracchi painted works recorded in old catalogues but long lost, so a 'rediscovery' felt like confirmation.",
+            "cite": [
+              "beltracchi-gap"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The lab",
+            "text": "Old support, **new paint**.",
+            "narration": "To beat the lab, forgers reuse old supports. Van Meegeren and de Hory scraped old paintings; Beltracchi bought frames and supports at antique markets. The support then dates correctly.",
+            "cite": [
+              "hvm-reused-canvas",
+              "dehory-method"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Fake cracks have the **wrong shape**.",
+            "narration": "Ageing is the hardest part. A 3D imaging study found genuine cracks roughly square in section and as deep as the paint layer; cracks made by an expert forger were simpler V-shaped grooves.",
+            "cite": [
+              "craquelure-3d"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The archive",
+            "text": "A good **story** explains away a missing history.",
+            "narration": "The archive is beaten with stories: a Hungarian aristocrat, a Swiss client who never existed, a famous screenwriter's storage unit. Each explains why a masterpiece has no history.",
+            "cite": [
+              "dehory",
+              "rosales-provenance",
+              "barzman"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The market",
+            "text": "When prices rise, **new works appear**.",
+            "narration": "The market is the forger's ally. When an artist's prices rise or a major study appears, unknown works surface — and buyers who want them to be real stop asking questions.",
+            "cite": [
+              "market-surges"
+            ]
+          },
+          {
+            "kind": "list",
+            "heading": "Red flags that recur",
+            "items": [
+              "An unknown work by an expensive artist",
+              "An anonymous or untraceable owner",
+              "Labels and certificates instead of records",
+              "A price — or a profit — too good to be true",
+              "No scientific examination before sale"
+            ],
+            "narration": "From these cases, a checklist of recurring red flags: an unknown work by a pricey artist, an untraceable owner, labels instead of records, an implausible price, and no scientific examination.",
+            "cite": [
+              "knoedler-red-flags",
+              "campendonk-provenance",
+              "market-surges",
+              "campendonk-no-checks"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Passing one test is **not** authentication.",
+            "narration": "Remember the asymmetry. One failed test can expose a fake, but passing one test proves little. Real authentication combines all four.",
+            "cite": [
+              "tpq-def"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "af9-sort",
+      "title": "Which test would catch it?",
+      "widget": "card-sort",
+      "brief": "For each weakness, which line of defence is most likely to catch it: the expert's eye, the laboratory, or the archive?",
+      "props": {
+        "buckets": [
+          "The eye",
+          "The lab",
+          "The archive"
+        ],
+        "cards": [
+          {
+            "text": "A 'Hals' whose brushwork is smooth and timid where the master's is bold.",
+            "bucket": "The eye",
+            "why": "A stylistic mismatch — what connoisseurship is good at."
+          },
+          {
+            "text": "A painting dated 1914 containing a white pigment first made in 1937.",
+            "bucket": "The lab",
+            "why": "The Campendonk case: a material anachronism.",
+            "cite": [
+              "campendonk-titanium"
+            ]
+          },
+          {
+            "text": "A gallery label from a collection that never used labels.",
+            "bucket": "The archive",
+            "why": "Checking the dealer's practice and records exposes it.",
+            "cite": [
+              "campendonk-provenance"
+            ]
+          },
+          {
+            "text": "Records inserted into a museum archive by the seller.",
+            "bucket": "The archive",
+            "why": "Cross-checking other copies and sources reveals the insertion, as in the Drewe case.",
+            "cite": [
+              "myatt-drewe"
+            ]
+          },
+          {
+            "text": "Paint hardened with Bakelite.",
+            "bucket": "The lab",
+            "why": "Modern instrumental analysis readily identifies Bakelite.",
+            "cite": [
+              "hvm-bakelite"
+            ]
+          },
+          {
+            "text": "A canvas consistent with 1866 but oil that grew in the 1980s.",
+            "bucket": "The lab",
+            "why": "Radiocarbon dating of the binder, as in the Trotter study.",
+            "cite": [
+              "trotter-c14"
+            ]
+          },
+          {
+            "text": "A former owner who appears in no inventory or sale catalogue.",
+            "bucket": "The archive",
+            "why": "Provenance is built from inventories, catalogues and other documents.",
+            "cite": [
+              "provenance-def"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af9-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "multi",
+          "prompt": "Which are classic provenance red flags?",
+          "options": [
+            "An anonymous owner who cannot be traced",
+            "A sale-catalogue entry with matching dimensions",
+            "A gallery label with no supporting records",
+            "An unbroken chain of inventories"
+          ],
+          "answers": [
+            0,
+            2
+          ],
+          "explain": "Untraceable owners and unsupported labels recur in the Knoedler and Beltracchi cases; matching documents are what you want.",
+          "cite": [
+            "knoedler-red-flags",
+            "campendonk-provenance"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Why do forgers reuse old canvases and panels?",
+          "options": [
+            "To save money",
+            "So the support dates correctly and distracts from the new paint",
+            "Because old wood holds paint better"
+          ],
+          "answer": 1,
+          "explain": "It defeats tests that look only at the support — so date the paint too.",
+          "cite": [
+            "hvm-reused-canvas"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "A painting passes one test — say, no anachronistic pigment. On its own, this means…",
+          "options": [
+            "it is authentic",
+            "very little",
+            "it is a forgery"
+          ],
+          "answer": 1,
+          "explain": "Consistency with a date is not proof of authorship.",
+          "cite": [
+            "tpq-def"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af9-checklist",
+      "title": "Casebook: your red-flag checklist",
+      "output": "casebook",
+      "brief": "Start your examiner's casebook with the checklist you will apply for the rest of the course. Be specific: each flag should say what to look for and which test (eye, lab, archive, market) it belongs to.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "cb-redflags",
+          "label": "List at least six red flags across the eye, the lab, the archive and the market.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "cb-weakest",
+          "label": "Which of the four tests do forgers find easiest to beat today, and why?",
+          "minWords": 40
+        }
+      ]
+    }
+  ]
+}

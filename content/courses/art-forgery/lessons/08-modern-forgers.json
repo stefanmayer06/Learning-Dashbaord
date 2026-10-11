@@ -1,0 +1,175 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-modern-forgers",
+  "title": "The modern masters of deception",
+  "summary": "De Hory, Myatt and Drewe, Beltracchi, the Knoedler 'Rothkos' and Mark Landis: five methods, five weak points.",
+  "minutes": 28,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af8-reel",
+      "title": "Five forgers",
+      "reel": {
+        "title": "Five forgers",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Five cases",
+            "kicker": "Art & Forgery · Lesson 8",
+            "title": "The modern\nmasters.",
+            "subtitle": "Five forgers, five weak points.",
+            "narration": "Every forger has a method and a weak point. Here are five who fooled the experts within living memory — and how each was caught."
+          },
+          {
+            "kind": "statement",
+            "chapter": "De Hory",
+            "text": "**Elmyr de Hory**: the 'dispossessed Hungarian aristocrat'.",
+            "narration": "Elmyr de Hory posed as a dispossessed Hungarian aristocrat. With the dealer Fernand Legros he sold fakes on five continents, until 1967, when forty sold to one Texas collector were exposed.",
+            "cite": ["dehory"]
+          },
+          {
+            "kind": "statement",
+            "text": "Old canvases scraped down. Fake **expert stamps**. Photos slipped into catalogues.",
+            "narration": "De Hory scraped flea-market paintings down to the primer. Legros forged experts' certification stamps and slipped photographs of the fakes into auction catalogues and monographs.",
+            "cite": ["dehory-method"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Myatt & Drewe",
+            "text": "**John Drewe** forged the archive itself.",
+            "narration": "In Britain, John Drewe went further. Posing as a collector, he got into museum archives and altered the records, so that John Myatt's fakes acquired a documented past.",
+            "cite": ["myatt-drewe"]
+          },
+          {
+            "kind": "statement",
+            "text": "House paint, lubricating jelly, coffee grounds, vacuum dust.",
+            "narration": "Myatt's materials were absurdly modern: household paint thickened with lubricating jelly, aged with coffee grounds and vacuum-cleaner dust. The paperwork did the convincing.",
+            "cite": ["myatt-materials"]
+          },
+          {
+            "kind": "stat",
+            "value": 120,
+            "prefix": "≈",
+            "label": "Myatt fakes thought to be **still circulating**",
+            "context": "Of more than 200 made over seven years. Drewe got six years; Myatt one.",
+            "narration": "After a 1999 trial, Drewe received six years and Myatt one. Of more than two hundred fakes, about 120 are thought to be still circulating.",
+            "cite": ["myatt-drewe", "myatt-count"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Beltracchi",
+            "text": "**Beltracchi** painted the lost works in the catalogues.",
+            "narration": "Wolfgang Beltracchi filled gaps. He painted pictures recorded in old catalogues but long lost, and gave them labels from a collection that never existed.",
+            "cite": ["beltracchi-gap", "beltracchi-tells"]
+          },
+          {
+            "kind": "statement",
+            "text": "Undone by **one tube of white**.",
+            "narration": "A 'Campendonk' signed 1914 sold for 2.88 million euros in 2006. The laboratory then found titanium white of a kind made only from 1937. In 2011 Beltracchi was sentenced to six years.",
+            "cite": ["campendonk-sale", "campendonk-titanium", "beltracchi-sentence"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Knoedler",
+            "text": "More than **60** fakes. Buyers paid over **80 million dollars**.",
+            "narration": "In New York, the dealer Glafira Rosales sold more than sixty never-exhibited 'Pollocks', 'Rothkos' and 'Motherwells' to two galleries. Buyers paid them over eighty million dollars.",
+            "cite": ["rosales-scheme"]
+          },
+          {
+            "kind": "statement",
+            "text": "One painter in Queens. A Swiss client **who never existed**.",
+            "narration": "All were painted by one man in Queens. The provenance was an anonymous Swiss client who never existed. Knoedler, one of New York's oldest galleries, closed in 2011.",
+            "cite": ["rosales-provenance", "knoedler-closure"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Landis",
+            "text": "**Mark Landis** never sold a thing.",
+            "narration": "And Mark Landis? For thirty years he gave fakes away to museums, posing as a philanthropist. Because nobody paid him, he technically committed no fraud.",
+            "cite": ["landis-donations"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af8-video-beltracchi",
+      "title": "Watch: Beltracchi in his own words",
+      "optional": true,
+      "provider": "youtube",
+      "src": "6S2HgibGbb0",
+      "caption": "CBS 60 Minutes interviews Wolfgang Beltracchi about how he worked. A forger's account of himself — enjoy it, but don't take it as evidence.",
+      "credit": "CBS News, 60 Minutes (YouTube)"
+    },
+    {
+      "type": "embed",
+      "id": "af8-video-landis",
+      "title": "Watch: how Mark Landis was found out",
+      "optional": true,
+      "provider": "youtube",
+      "src": "NClrxjaLD20",
+      "caption": "ABC News on Mark Landis, subject of the documentary 'Art and Craft'.",
+      "credit": "ABC News (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af8-sort",
+      "title": "Faked object or faked story?",
+      "widget": "card-sort",
+      "brief": "Each trick below comes from a real case. Did it fake the object's materials and age, or the documents and story around it?",
+      "props": {
+        "buckets": ["Materials & ageing", "Documents & story"],
+        "cards": [
+          { "text": "Bakelite mixed into the paint to harden it", "bucket": "Materials & ageing", "why": "Van Meegeren's way of passing the age tests of his day.", "cite": ["hvm-bakelite"] },
+          { "text": "Coffee grounds and vacuum dust rubbed into the canvas", "bucket": "Materials & ageing", "why": "John Myatt's ageing trick.", "cite": ["myatt-materials"] },
+          { "text": "Drilled 'woodworm' holes and artificial patina", "bucket": "Materials & ageing", "why": "Tells found in Beltracchi's fakes.", "cite": ["beltracchi-tells"] },
+          { "text": "19th-century canvases scraped back to the primer", "bucket": "Materials & ageing", "why": "De Hory's way of getting an old support.", "cite": ["dehory-method"] },
+          { "text": "Altered records planted in museum archives", "bucket": "Documents & story", "why": "John Drewe's speciality.", "cite": ["myatt-drewe"] },
+          { "text": "A label from a collection that never used labels", "bucket": "Documents & story", "why": "The 'Sammlung Flechtheim' label on the fake Campendonk.", "cite": ["campendonk-provenance"] },
+          { "text": "An anonymous Swiss client who never existed", "bucket": "Documents & story", "why": "Rosales's invented source for the Knoedler fakes.", "cite": ["rosales-provenance"] },
+          { "text": "Photographs of fakes slipped into auction catalogues", "bucket": "Documents & story", "why": "Legros manufactured a published history for de Hory's work.", "cite": ["dehory-method"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af8-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What exposed Beltracchi's 'Campendonk' dated 1914?",
+          "options": ["A witness came forward", "Titanium white of a kind industrially made only from 1937/38", "A misspelt signature"],
+          "answer": 1,
+          "explain": "The Doerner Institut found rutile titanium white in two layers.",
+          "cite": ["campendonk-titanium"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why did Drewe and Myatt's scheme work despite unconvincing paintings?",
+          "options": ["Myatt used period pigments", "Drewe planted false records in archives that experts trust", "No one examined the works"],
+          "answer": 1,
+          "explain": "The forged paper trail made weak paintings look documented.",
+          "cite": ["myatt-drewe"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why was Mark Landis never convicted of fraud?",
+          "options": ["He was never identified", "He gave the works away and claimed no tax deductions", "His fakes were never found"],
+          "answer": 1,
+          "explain": "With no payment and no financial loss, there was technically no fraud.",
+          "cite": ["landis-donations"]
+        },
+        {
+          "type": "single",
+          "prompt": "In the Knoedler case, what provenance did the dealer offer?",
+          "options": ["A famous museum's deaccession", "An anonymous Swiss client — who never existed", "The artists' estates"],
+          "answer": 1,
+          "explain": "She also claimed a Spanish collector who never owned the works.",
+          "cite": ["rosales-provenance"]
+        }
+      ]
+    }
+  ]
+}

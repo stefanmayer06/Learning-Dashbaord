@@ -1,0 +1,171 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-start",
+  "title": "Real, fake — or something in between?",
+  "summary": "What makes a forgery, how museums grade authorship, and why honest uncertainty is part of the job.",
+  "minutes": 12,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af1-reel",
+      "title": "What counts as a fake?",
+      "reel": {
+        "title": "What counts as a fake?",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The question",
+            "kicker": "Art & Forgery · Lesson 1",
+            "title": "Real, fake —\nor in between?",
+            "subtitle": "Authenticity is rarely a **yes-or-no** question.",
+            "narration": "Is this painting real? It sounds like a yes-or-no question. In the art world it almost never is — and that gap is exactly where forgers work."
+          },
+          {
+            "kind": "statement",
+            "text": "A forgery is made or sold **to deceive**. A copy or a student's study is not — until someone lies about it.",
+            "narration": "What makes a fake is intent. Curators treat the intent to deceive as central, and the motives vary: money, wounded pride, a wish to fool the experts, a need for attention.",
+            "cite": ["intent-central"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "Honest", "items": ["A copy made to learn", "A pastiche 'in the style of'", "A 'genuine fake', signed by the copyist"] },
+            "right": { "heading": "Forgery", "items": ["Signed with the master's name", "Given an invented history", "Sold as the real thing"] },
+            "narration": "The same brushstrokes can be honest or fraudulent. John Myatt, once jailed for forgery, now sells 'genuine fakes', clearly signed so they can never pass as originals.",
+            "cite": ["myatt-genuine-fakes"]
+          },
+          {
+            "kind": "list",
+            "heading": "Between 'by' and 'not by'",
+            "items": ["**By** Raphael — reasonable certainty", "**Attributed to** — some doubt", "**Studio of** — a pupil, under direction", "**Follower of** — admired the style", "**Imitator of** — perhaps much later"],
+            "narration": "Museums grade authorship. 'By' means reasonable certainty; 'attributed to' signals doubt; 'studio', 'follower' and 'imitator' step further and further from the master's own hand.",
+            "cite": ["attribution-ladder"]
+          },
+          {
+            "kind": "statement",
+            "text": "Old workshops were teams. A **workshop piece** can be genuinely old — and still not by the master.",
+            "narration": "Renaissance painters ran workshops with apprentices and assistants. A picture by the chief assistant is a genuine old painting — just not an autograph one, painted entirely by the master.",
+            "cite": ["workshop-def", "autograph-def"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Honest doubt",
+            "text": "The Getty dates its marble youth **'about 530 B.C. or modern forgery'**.",
+            "footnote": "J. Paul Getty Museum, Kouros, accession 85.AA.40",
+            "narration": "Sometimes even the owner cannot decide. The Getty Museum labels its marble kouros 'about 530 B.C. or modern forgery': experts have never resolved it.",
+            "cite": ["kouros-label"]
+          },
+          {
+            "kind": "statement",
+            "text": "When prices rise, **'new' works appear**.",
+            "narration": "Forgers follow the money. When an artist's prices rise, or a major study is published, previously unknown works tend to surface — a pattern collectors are warned to watch.",
+            "cite": ["market-surges"]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "The route",
+            "nodes": [
+              { "id": "look", "label": "Learn to look", "x": 8, "y": 30, "tone": "accent" },
+              { "id": "mat", "label": "Materials", "x": 26, "y": 70, "tone": "ink" },
+              { "id": "hist", "label": "The forgers", "x": 44, "y": 30, "tone": "ink" },
+              { "id": "lab", "label": "Eye, archive, lab", "x": 62, "y": 70, "tone": "ink" },
+              { "id": "now", "label": "2026", "x": 78, "y": 30, "tone": "ink" },
+              { "id": "dossier", "label": "Your dossier", "x": 94, "y": 70, "tone": "signal" }
+            ],
+            "edges": [
+              { "from": "look", "to": "mat" },
+              { "from": "mat", "to": "hist" },
+              { "from": "hist", "to": "lab" },
+              { "from": "lab", "to": "now" },
+              { "from": "now", "to": "dossier" }
+            ],
+            "narration": "We start with looking, then materials, then the forgers themselves. You'll practise every detection method in labs, survey the field today, and finish with your own authentication dossier."
+          },
+          {
+            "kind": "statement",
+            "text": "Every claim has a **source** and a **date**. Where experts disagree, you'll see the **disagreement**.",
+            "narration": "One rule throughout: every fact is sourced and dated, and where experts disagree you'll see the disagreement, not a tidy story. Look in the margin for the evidence."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "af1-sort",
+      "title": "Forgery, honest work or open question?",
+      "widget": "card-sort",
+      "brief": "Sort each case. What matters is not how good the work is, but whether anyone set out to deceive — and whether the question is actually settled.",
+      "props": {
+        "buckets": ["Forgery", "Honest work", "Open question"],
+        "cards": [
+          {
+            "text": "A life-size Cupid, buried and aged so that it would sell in Rome as an ancient sculpture.",
+            "bucket": "Forgery",
+            "why": "Vasari reports it was sold to a cardinal as an antique. The deception makes it a fake — even though, by his account, Michelangelo carved it.",
+            "cite": ["vasari-cupid"]
+          },
+          {
+            "text": "A Van Gogh–style canvas, clearly signed by the copyist and sold as his own work.",
+            "bucket": "Honest work",
+            "why": "John Myatt's 'genuine fakes' are signed so they can never be sold as authentic.",
+            "cite": ["myatt-genuine-fakes"]
+          },
+          {
+            "text": "A marble statue its museum catalogues as 'about 530 B.C. or modern forgery'.",
+            "bucket": "Open question",
+            "why": "The Getty says neither art historians nor scientists have resolved the kouros's authenticity.",
+            "cite": ["kouros-label"]
+          },
+          {
+            "text": "An old portrait catalogued as 'studio of' a famous master.",
+            "bucket": "Honest work",
+            "why": "A workshop piece is a genuine period painting; the label honestly says a pupil probably painted it.",
+            "cite": ["attribution-ladder", "workshop-def"]
+          },
+          {
+            "text": "Fake 'old masters' given to museums as gifts, in memory of a parent.",
+            "bucket": "Forgery",
+            "why": "Mark Landis's gifts were forgeries — though, as nobody paid him, he technically committed no fraud.",
+            "cite": ["landis-donations"]
+          },
+          {
+            "text": "A painting on which two AI systems disagree: one says Raphael, one says not.",
+            "bucket": "Open question",
+            "why": "The de Brécy Tondo split two AI models in 2023; neither result settles the attribution.",
+            "cite": ["brecy-artrec"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af1-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What turns a skilful copy into a forgery?",
+          "options": ["How good it is", "The intent to deceive when it is made or sold", "Its age", "The materials used"],
+          "answer": 1,
+          "explain": "Copies, pastiches and studies are legitimate. Curators treat the intent to deceive as central to fakes.",
+          "cite": ["intent-central"]
+        },
+        {
+          "type": "order",
+          "prompt": "Order these labels from most to least certain about the master's own hand.",
+          "items": ["By the artist", "Attributed to the artist", "Studio of the artist", "Follower of the artist"],
+          "explain": "'Attributed to' signals doubt; 'studio of' means a pupil under direction; a 'follower' only admired the style.",
+          "cite": ["attribution-ladder"]
+        },
+        {
+          "type": "single",
+          "prompt": "The Getty catalogues its kouros as 'about 530 B.C. or modern forgery'. What does that tell you?",
+          "options": ["The museum has proved it fake", "The museum has proved it ancient", "Experts have not resolved its authenticity", "It is a copy of a lost statue"],
+          "answer": 2,
+          "explain": "The Getty states that neither art historians nor scientists have completely resolved the question — an honest label.",
+          "cite": ["kouros-label"]
+        }
+      ]
+    }
+  ]
+}

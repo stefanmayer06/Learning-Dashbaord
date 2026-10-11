@@ -1,0 +1,288 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-dating",
+  "title": "Clocks in the materials",
+  "summary": "Tree rings in oak panels, the nuclear-test spike in carbon-14, and the radioactive and isotopic clocks in lead white.",
+  "minutes": 32,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af14-reel",
+      "title": "Clocks inside the materials",
+      "reel": {
+        "title": "Clocks inside the materials",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Clocks",
+            "kicker": "Art & Forgery · Lesson 14",
+            "title": "Clocks inside\nthe materials.",
+            "subtitle": "Tree rings, carbon-14 and lead.",
+            "narration": "Pigments give a lower bound. Some materials carry clocks that can do better: the growth rings of a panel, the carbon in its oil, the radioactivity of its lead."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Tree rings",
+            "text": "Ring widths are a **barcode** of the years a tree grew.",
+            "narration": "Dendrochronology matches the pattern of ring widths in an oak panel to a regional master chronology. It works for oak — not for poplar, the usual wood of Italian panels.",
+            "cite": ["dendro-def"]
+          },
+          {
+            "kind": "statement",
+            "text": "The sapwood was **cut away** — so add it back.",
+            "narration": "Panel makers cut away the bark and the soft sapwood, so the youngest surviving ring is not the felling date. The missing rings have to be estimated from statistics.",
+            "cite": ["dendro-sapwood-removed"]
+          },
+          {
+            "kind": "statement",
+            "text": "Baltic oak: **9 to 36** sapwood rings, median **15** — then seasoning.",
+            "narration": "For Baltic oak, the usual wood of Netherlandish panels, sapwood has at least nine rings, typically fifteen, at most thirty-six. Then add the years the planks dried: two to eight for most panels of the 1500s and 1600s.",
+            "cite": ["sapwood-stats", "seasoning"]
+          },
+          {
+            "kind": "equation",
+            "tex": ["\\text{earliest felling} = \\text{youngest ring} + 9", "\\text{plausible painting date} = \\text{youngest ring} + 15 + \\text{seasoning}"],
+            "notes": ["minimum Baltic sapwood", "median sapwood, plus drying time"],
+            "narration": "So: earliest felling is the youngest ring plus nine. A plausible painting date adds the median fifteen and the seasoning. Klein's example: ring 1466 means felling from 1475, painting from about 1491.",
+            "cite": ["dendro-example", "sapwood-stats"]
+          },
+          {
+            "kind": "statement",
+            "text": "A 'Holbein' on a panel cut **after Holbein's death**.",
+            "narration": "Tree rings have corrected great museums. The National Gallery's 'A Man with a Skull', bought as a Holbein in 1845, is on a panel that postdates Holbein's death.",
+            "cite": ["holbein-skull"]
+          },
+          {
+            "kind": "chart",
+            "chapter": "Carbon-14",
+            "xLabel": "year",
+            "yLabel": "carbon-14 in the air (F14C)",
+            "series": [
+              {
+                "name": "northern hemisphere",
+                "tone": "accent",
+                "points": [[1950.5, 0.9741], [1952.5, 0.9743], [1954.5, 0.9775], [1955.5, 1.0137], [1956.5, 1.0408], [1957.5, 1.082], [1958.5, 1.1542], [1959.5, 1.2975], [1960.5, 1.2295], [1961.5, 1.2266], [1962.5, 1.3891], [1963.5, 1.831], [1964.5, 1.8993], [1965.5, 1.7853], [1966.5, 1.7105], [1968.5, 1.5785], [1970.5, 1.5267], [1972.5, 1.4649], [1975.5, 1.3903], [1980.5, 1.2787], [1985.5, 1.2101], [1990.5, 1.1566], [1995.5, 1.1201], [2000.5, 1.0927], [2005.5, 1.0661], [2010.5, 1.0477], [2015.5, 1.023], [2019.5, 1.0085]]
+              }
+            ],
+            "annotations": [{ "x": 1964.5, "y": 1.8993, "text": "1964: almost double" }],
+            "narration": "Nuclear tests between 1954 and 1963 nearly doubled the carbon-14 in the air, and it has been falling ever since. Anything that grew after 1955 — flax for canvas, linseed for oil — carries the spike.",
+            "cite": ["bomb-peak", "bomb-curve"]
+          },
+          {
+            "kind": "statement",
+            "text": "One measurement, **two answers**.",
+            "narration": "Because the curve rises and then falls, one measurement often matches two dates: one in the late 1950s, one decades later. Either way, the material is modern.",
+            "cite": ["bomb-peak"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "A real case",
+            "text": "Canvas: consistent with **1866**. Oil: **1958–61 or 1983–89**.",
+            "narration": "Researchers dated a forgery signed 'Sarah Honn, 1866'. The canvas fitted the date, but the oil came from seeds harvested in 1958 to 1961 or 1983 to 1989. The forger had confessed to 1985.",
+            "cite": ["trotter-c14"]
+          },
+          {
+            "kind": "statement",
+            "text": "From a speck of paint: **160 micrograms**.",
+            "narration": "It took a paint sample of 160 micrograms, leaving about 19 micrograms of carbon to measure. Dating the paint, not just the canvas, defeats the old-support trick.",
+            "cite": ["c14-microsample", "hvm-reused-canvas"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Lead",
+            "text": "Lead white carries **two clocks**.",
+            "narration": "Lead white carries clocks too: radioactive lead-210, and isotope ratios. In 77 well-dated Dutch paintings, lead isotopes shifted across the seventeenth century, tracking events such as the English Civil War.",
+            "cite": ["lead210", "lead-isotopes"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af14-video-dendro",
+      "title": "Watch: tree-ring dating of paintings",
+      "provider": "youtube",
+      "src": "lZMaoXnjW0k",
+      "caption": "A short film from the National Portrait Gallery, London, on dendrochronology — tree-ring dating — in the study of paintings.",
+      "credit": "National Portrait Gallery (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af14-dendro",
+      "title": "Tree-ring lab",
+      "widget": "dendro-lab",
+      "brief": "Four panels. For each, set the wood and the seasoning time from the case notes, read off the felling and painting dates, then judge the claimed date. The last case is your capstone case file — save it to your casebook.",
+      "props": {
+        "capture": "dendro",
+        "cases": [
+          {
+            "id": "melbourne",
+            "title": "Klein's example",
+            "synthetic": false,
+            "context": "Peter Klein's analysis of a Netherlandish triptych at the National Gallery of Victoria: the centre panel's youngest ring is 1466, in Baltic oak. Klein assumed ten years' seasoning for the fifteenth century. Suppose someone claimed it was painted in 1480.",
+            "origin": "baltic",
+            "lastRing": 1466,
+            "claimed": 1480,
+            "claimLabel": "a hypothetical claim",
+            "seasoning": 10,
+            "expect": "tight",
+            "reveal": "Felling no earlier than 1475 makes 1480 possible only if the tree had very little sapwood and the wood was used almost at once. Klein's plausible date is from 1491.",
+            "cite": ["dendro-example", "seasoning"]
+          },
+          {
+            "id": "flemish",
+            "title": "'1559' panel",
+            "synthetic": true,
+            "context": "A panel signed and dated 1559 in the manner of a Flemish master. Baltic oak; youngest heartwood ring 1561. Use two years' seasoning.",
+            "origin": "baltic",
+            "lastRing": 1561,
+            "claimed": 1559,
+            "claimLabel": "signed and dated 1559",
+            "seasoning": 2,
+            "expect": "impossible",
+            "reveal": "The tree was still growing in 1561, two years after the 'date', and was felled no earlier than 1570. The date is impossible.",
+            "cite": ["sapwood-stats"]
+          },
+          {
+            "id": "italian",
+            "title": "Italian panel",
+            "synthetic": true,
+            "context": "An Italian Renaissance Madonna on a poplar panel, offered as about 1500.",
+            "origin": "poplar",
+            "lastRing": 0,
+            "claimed": 1500,
+            "claimLabel": "offered as about 1500",
+            "seasoning": 2,
+            "expect": "undatable",
+            "reveal": "Poplar, the usual wood of Italian panels, grew too erratically to match a master chronology. Tree rings can't help here; other methods must.",
+            "cite": ["dendro-def"]
+          },
+          {
+            "id": "casefile",
+            "title": "Case file 'HM 1631'",
+            "synthetic": true,
+            "caseFile": true,
+            "context": "The case-file portrait is on Baltic oak; the youngest heartwood ring is 1598, with no sapwood left. Use two years' seasoning, typical of the period.",
+            "origin": "baltic",
+            "lastRing": 1598,
+            "claimed": 1631,
+            "claimLabel": "signed 'HM · 1631'",
+            "seasoning": 2,
+            "expect": "consistent",
+            "reveal": "Felled from 1607 (most likely around 1613), the panel was usable by about 1615 — comfortably before 1631. But remember the X-ray: an old panel shows the wood is old, not the paint.",
+            "cite": ["sapwood-stats", "seasoning", "hvm-reused-canvas"]
+          }
+        ]
+      },
+      "cite": ["dendro-example", "seasoning", "sapwood-stats", "dendro-def", "hvm-reused-canvas"]
+    },
+    {
+      "type": "embed",
+      "id": "af14-video-carbon",
+      "title": "Watch: how radiocarbon dating works",
+      "provider": "youtube",
+      "src": "phZeE7Att_s",
+      "caption": "Scientific American's 'Instant Egghead' explains the basics of radiocarbon dating in about two minutes.",
+      "credit": "Scientific American (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af14-carbon",
+      "title": "Bomb-peak radiocarbon lab",
+      "widget": "carbon-lab",
+      "brief": "The curve is real: the carbon-14 of the northern-hemisphere air, year by year. For each sample, move through the years and **mark every year that matches** the measurement (within ±2σ). A modern sample usually matches more than once. The last sample is from your case file — save it to your casebook.",
+      "props": {
+        "capture": "carbon",
+        "cases": [
+          {
+            "id": "canvas",
+            "title": "Canvas",
+            "synthetic": true,
+            "sample": "Canvas fibre from a painting signed 1866",
+            "context": "A synthetic measurement, modelled on the Trotter study.",
+            "F": 0.976,
+            "sigma": 0.003,
+            "reveal": "The flax grew before the bomb spike, around 1955 or earlier. This curve can't say how much earlier; the real study needed the long-term calibration curve, which allowed anything from the late 1600s to the mid-1900s. A canvas date alone can't expose an old canvas repainted.",
+            "cite": ["trotter-c14", "canvas-lag"]
+          },
+          {
+            "id": "binder",
+            "title": "Binder",
+            "synthetic": true,
+            "sample": "Oil binder from the same painting",
+            "context": "A synthetic measurement, modelled on the Trotter study.",
+            "F": 1.21,
+            "sigma": 0.006,
+            "reveal": "Two windows — around 1959 on the rise, and the mid-1980s on the fall. Either way the paint is modern: the same double answer as in the real case, where the forger had painted it in 1985.",
+            "cite": ["trotter-c14", "bomb-peak"]
+          },
+          {
+            "id": "casefile",
+            "title": "Case file",
+            "synthetic": true,
+            "caseFile": true,
+            "sample": "Oil binder from the background of the case-file portrait",
+            "context": "A synthetic measurement on the case-file portrait.",
+            "F": 1.115,
+            "sigma": 0.005,
+            "reveal": "The oil grew either around 1958 or in the mid-1990s. Whichever it was, the paint is modern — applied to an old panel that the tree rings date correctly.",
+            "cite": ["bomb-peak"]
+          }
+        ]
+      },
+      "cite": ["bomb-curve", "trotter-c14", "canvas-lag", "bomb-peak"]
+    },
+    {
+      "type": "quiz",
+      "id": "af14-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "A Baltic oak panel's youngest heartwood ring is 1500, with no sapwood left. What is the earliest possible felling year?",
+          "answer": 1509,
+          "tolerance": 0,
+          "explain": "Add the minimum of nine Baltic sapwood rings: 1500 + 9 = 1509.",
+          "cite": ["sapwood-stats"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why can't tree rings date most Italian panels?",
+          "options": ["They are too small", "They are poplar, whose growth is too erratic to match a chronology", "Italian panels have no rings"],
+          "answer": 1,
+          "explain": "Dendrochronology works for oak, not for poplar.",
+          "cite": ["dendro-def"]
+        },
+        {
+          "type": "single",
+          "prompt": "A binder's carbon-14 matches both 1959 and 1986. What do you conclude?",
+          "options": ["The test failed", "The paint is modern either way", "Average them: 1972"],
+          "answer": 1,
+          "explain": "The bomb curve rises then falls, so modern samples often match twice — both answers are modern.",
+          "cite": ["bomb-peak"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why date the paint, not just the canvas or panel?",
+          "options": ["Paint is easier to sample", "Forgers reuse old supports; only the paint dates the act of painting", "Canvas can't be dated"],
+          "answer": 1,
+          "explain": "In the Trotter case the canvas fitted 1866; only the binder revealed the forgery.",
+          "cite": ["hvm-reused-canvas", "trotter-c14"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af14-casebook",
+      "title": "Casebook: dating",
+      "output": "casebook",
+      "brief": "Add both dating results for the case file, and reconcile them.",
+      "fields": [
+        { "type": "capture", "id": "cb-dendro", "label": "Tree-ring dating of the case file (saved from the lab)", "from": "dendro" },
+        { "type": "capture", "id": "cb-carbon", "label": "Radiocarbon dating of the case file's binder (saved from the lab)", "from": "carbon" },
+        { "type": "text", "id": "cb-clock-note", "label": "The panel and the paint disagree. Explain how both results can be true.", "minWords": 40 }
+      ]
+    }
+  ]
+}

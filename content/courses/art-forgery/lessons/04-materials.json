@@ -1,0 +1,154 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-materials",
+  "title": "Anatomy of a painting",
+  "summary": "Support, ground, underdrawing, paint, glaze, varnish — the stack a forger has to fake, layer by layer.",
+  "minutes": 22,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af4-reel",
+      "title": "Built in layers",
+      "reel": {
+        "title": "Built in layers",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Layers",
+            "kicker": "Art & Forgery · Lesson 4",
+            "title": "A painting is\na stack.",
+            "subtitle": "Support, ground, drawing, paint, varnish.",
+            "narration": "A painting is not just a picture on a surface. It is a stack of layers, each with its own materials and its own history — and a forger has to fake every one."
+          },
+          {
+            "kind": "plugin",
+            "plugin": "layers",
+            "props": {
+              "layers": [
+                { "kind": "support", "label": "Support: oak panel" },
+                { "kind": "ground", "label": "Ground: gesso" },
+                { "kind": "underdrawing", "label": "Underdrawing" },
+                { "kind": "paint", "label": "Paint: pigment + medium" },
+                { "kind": "glaze", "label": "Glaze" },
+                { "kind": "varnish", "label": "Varnish" }
+              ]
+            },
+            "narration": "From the bottom: a support, a ground that prepares it, an underdrawing, layers of paint, perhaps transparent glazes, and on top a protective varnish."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Support & ground",
+            "text": "Panels came first. **Canvas** — hemp or flax on a wooden frame — spread later.",
+            "narration": "Wooden panels were the usual support before canvas: cloth of hemp or flax stretched on a wooden frame. The earliest surviving painted canvases date from the late fourteenth century.",
+            "cite": ["canvas"]
+          },
+          {
+            "kind": "statement",
+            "text": "On panels the ground is **gesso**: gypsum in animal glue, sanded smooth.",
+            "narration": "The ground prepares the support. On panels it is usually gesso — gypsum bound in animal-skin glue, laid coarse, then fine, and sanded absolutely smooth.",
+            "cite": ["ground-gesso"]
+          },
+          {
+            "kind": "statement",
+            "text": "The **underdrawing** maps the composition.",
+            "narration": "Next, the artist drew the composition on the primed surface. That underdrawing usually disappears under the paint, but infrared imaging can bring it back.",
+            "cite": ["underdrawing"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Paint",
+            "text": "Paint = **pigment** + **medium**.",
+            "narration": "Paint is pigment — the colour — bound in a medium. Egg tempera, oil, watercolour and glue size are all media, and each one handles differently.",
+            "cite": ["paint-def"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "Egg tempera", "items": ["Egg yolk binds the pigment", "Used since Antiquity", "Most early Italian paintings", "Rarer after 1500"] },
+            "right": { "heading": "Oil", "items": ["Linseed, walnut or poppy oil", "Used in the North from the 13th century", "Van Eyck and Campin → Italy", "Dries slowly, blends softly"] },
+            "narration": "Egg tempera was the medium of most early Italian paintings and grew rarer after 1500. Oil, developed by Van Eyck and Campin, reached Italy in the early fifteenth century and dries slowly.",
+            "cite": ["tempera", "oil"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Varnish & age",
+            "text": "**Varnish** protects — and yellows.",
+            "narration": "Varnish adds gloss and protection. Natural varnishes darken and discolour with time, which is why old pictures are periodically cleaned and varnished again.",
+            "cite": ["varnish"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Craquelure**: the cracks of age, running into the varnish.",
+            "narration": "As paint layers age and shrink they crack. Almost every old picture has craquelure across its whole surface — so forgers have to manufacture it.",
+            "cite": ["craquelure-def"]
+          },
+          {
+            "kind": "statement",
+            "text": "A **cross-section** under the microscope shows the whole stack.",
+            "narration": "A pinhead-sized sample, mounted and polished as a cross-section, shows every layer under the microscope and identifies the pigments — evidence that helps to date a painting.",
+            "cite": ["cross-section"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af4-video",
+      "title": "Watch: from drawing to panel",
+      "provider": "youtube",
+      "src": "46_wiOboDk4",
+      "caption": "A short Getty Museum film on how artists transferred a design from a full-size drawing (a 'cartoon') onto the surface they painted — one way an underdrawing got there.",
+      "credit": "J. Paul Getty Museum (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af4-sort",
+      "title": "Which layer is it?",
+      "widget": "card-sort",
+      "brief": "An examiner's notes describe materials found in a painting. Put each in its layer of the stack.",
+      "props": {
+        "buckets": ["Support", "Ground", "Underdrawing", "Paint layer", "Varnish"],
+        "cards": [
+          { "text": "Oak boards, glued edge to edge", "bucket": "Support", "why": "Wooden panels were the usual support before canvas.", "cite": ["canvas"] },
+          { "text": "Hemp cloth stretched over a wooden frame", "bucket": "Support", "why": "Canvas: hemp or flax on a wooden framework.", "cite": ["canvas"] },
+          { "text": "Gypsum bound in animal glue, sanded smooth", "bucket": "Ground", "why": "That is gesso, the usual ground on panels.", "cite": ["ground-gesso"] },
+          { "text": "Black lines that show up in infrared", "bucket": "Underdrawing", "why": "Carbon-black drawing on the ground, under the paint.", "cite": ["underdrawing"] },
+          { "text": "Lead white mixed with oil", "bucket": "Paint layer", "why": "A pigment in a medium is paint.", "cite": ["paint-def", "lead-white"] },
+          { "text": "A transparent red film over the cloak", "bucket": "Paint layer", "why": "A glaze is a translucent paint layer.", "cite": ["glaze-def"] },
+          { "text": "A natural resin film that has yellowed", "bucket": "Varnish", "why": "Natural resin varnishes darken and discolour with age.", "cite": ["varnish"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af4-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Paint consists of…",
+          "options": ["pigment bound in a medium", "dye dissolved in varnish", "chalk mixed with water"],
+          "answer": 0,
+          "explain": "The pigment gives colour; the medium binds the particles together.",
+          "cite": ["paint-def"]
+        },
+        {
+          "type": "single",
+          "prompt": "Most early Italian paintings are in which medium?",
+          "options": ["Oil", "Egg tempera", "Acrylic", "Watercolour"],
+          "answer": 1,
+          "explain": "Egg tempera was used since Antiquity and became less common after 1500.",
+          "cite": ["tempera"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why must a forger manufacture craquelure?",
+          "options": ["It is required by auction houses", "Paint layers crack as they age and shrink, so an old picture without cracks looks wrong", "Cracks make colours brighter"],
+          "answer": 1,
+          "explain": "Most old pictures show a network of cracks across the whole surface.",
+          "cite": ["craquelure-def"]
+        }
+      ]
+    }
+  ]
+}

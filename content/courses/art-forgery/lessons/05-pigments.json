@@ -1,0 +1,170 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-pigments",
+  "title": "Pigments: a timeline in colour",
+  "summary": "Every colour has a birthday. Learn the dates that matter — and why they can disprove a date but never prove an author.",
+  "minutes": 25,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af5-reel",
+      "title": "Colours with birthdays",
+      "reel": {
+        "title": "Colours with birthdays",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Birthdays",
+            "kicker": "Art & Forgery · Lesson 5",
+            "title": "Every colour\nhas a birthday.",
+            "subtitle": "A painting can't be older than its **youngest** paint.",
+            "narration": "Many pigments were invented on a known date. A painting cannot be older than the newest material in it — and that simple rule has unmasked famous forgeries."
+          },
+          {
+            "kind": "statement",
+            "chapter": "The old palette",
+            "text": "**Lead white**: the painter's white until the 19th century.",
+            "narration": "For centuries, painters' white was lead white, basic lead carbonate. It remained the main white pigment until the nineteenth century.",
+            "cite": ["lead-white"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Ultramarine**, ground from lapis lazuli mined in Afghanistan.",
+            "narration": "The richest blue, natural ultramarine, was ground from lapis lazuli mined in Badakhshan in Afghanistan, and was the most expensive blue. An artificial version arrived in the nineteenth century.",
+            "cite": ["ultramarine-lapis"]
+          },
+          {
+            "kind": "timeline",
+            "chapter": "New colours",
+            "events": [
+              { "year": "1704", "label": "Prussian blue", "detail": "first modern synthetic" },
+              { "year": "early 1800s", "label": "Cobalt blue · zinc white" },
+              { "year": "1800–25", "label": "Chrome yellow · emerald green" },
+              { "year": "c. 1840", "label": "Cadmium pigments" },
+              { "year": "1918–20", "label": "Titanium white" },
+              { "year": "1930s", "label": "Phthalocyanine blue" }
+            ],
+            "narration": "Then came the chemists. Prussian blue in 1704; cobalt blue and zinc white in the early 1800s; chrome yellow and emerald green soon after; cadmiums around 1840; titanium white from 1918; phthalocyanines in the 1930s.",
+            "cite": ["prussian-blue-date", "cobalt-blue-date", "zinc-white-date", "chrome-yellow-date", "emerald-green-date", "cadmium-date", "titanium-white-date", "phthalo-date"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Prussian blue** in a sky dated 1650? A problem.",
+            "narration": "Prussian blue, discovered in 1704, is the oldest modern synthetic pigment. Find it in the original paint of a sky dated 1650, and the date is impossible.",
+            "cite": ["prussian-blue-date"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Titanium white**: produced from 1918, sold to artists from 1920.",
+            "narration": "Titanium white is the key twentieth-century marker. It was first produced in Norway in 1918; artists could buy it as paint from 1920 in America and by 1924 in Europe.",
+            "cite": ["titanium-white-date"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Fine print",
+            "text": "Introduction dates are **disputed in detail**. Use the earliest plausible date.",
+            "narration": "Be careful with dates. Sources disagree in detail: one standard reference puts the first artists' titanium white in Europe in 1919, with experimental use before 1916. Always use the earliest plausible date.",
+            "cite": ["titanium-dates-disputed"]
+          },
+          {
+            "kind": "statement",
+            "text": "Available isn't the same as **used**.",
+            "narration": "And availability isn't popularity. In a survey of 184 paintings from 1920 to the 1990s, titanium white turned up in only sixteen, and was extremely rare before the 1940s.",
+            "cite": ["titanium-rare-early"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The rule",
+            "text": "**Terminus post quem**: the date after which the painting must have been made.",
+            "narration": "Historians call this lower bound the terminus post quem. It can prove a date impossible. On its own, it can never prove a painting genuine.",
+            "cite": ["tpq-def"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af5-video",
+      "title": "Watch: the story of ultramarine",
+      "provider": "youtube",
+      "src": "1EzUlnRtDGM",
+      "caption": "The National Gallery traces ultramarine from Afghan lapis lazuli to the artificial blue of the 19th century.",
+      "credit": "The National Gallery, London (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af5-seq",
+      "title": "Order the pigments by first availability",
+      "widget": "sequence",
+      "brief": "Use the arrows to put these materials in the order they became available to painters, oldest first.",
+      "props": {
+        "items": [
+          { "label": "Lead white", "detail": "in use since antiquity; main white until the 19th century", "cite": ["lead-white"] },
+          { "label": "Prussian blue", "detail": "1704", "cite": ["prussian-blue-date"] },
+          { "label": "Cobalt blue", "detail": "early 19th century", "cite": ["cobalt-blue-date"] },
+          { "label": "Cadmium yellow", "detail": "about 1840", "cite": ["cadmium-date"] },
+          { "label": "Titanium white", "detail": "produced from 1918; artists' paint from 1920", "cite": ["titanium-white-date"] },
+          { "label": "Phthalocyanine blue", "detail": "1930s", "cite": ["phthalo-date"] },
+          { "label": "ASA acrylic binder", "detail": "commercially available since 1970", "cite": ["asa-1970"] }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "af5-est",
+      "title": "Estimate: how often did painters use it?",
+      "widget": "estimator",
+      "brief": "Commit to a guess before you see the answer.",
+      "props": {
+        "question": "A survey analysed **184** paintings made between 1920 and the 1990s. In how many did it find titanium white?",
+        "answer": 16,
+        "min": 1,
+        "max": 184,
+        "log": true,
+        "unit": "paintings",
+        "reveal": "Only sixteen. Titanium white was on the market from 1920 but stayed extremely rare in paintings until the 1940s — so its absence from an early-20th-century work proves nothing, and its presence is a strong date marker.",
+        "cite": ["titanium-rare-early"]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af5-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "The original paint of a sky dated 1650 contains Prussian blue. What follows?",
+          "options": ["Nothing — blue is blue", "The paint cannot date from 1650", "The painter must have been Prussian"],
+          "answer": 1,
+          "explain": "Prussian blue dates from 1704. Only a later retouching could explain it — which is why examiners check where the sample came from.",
+          "cite": ["prussian-blue-date"]
+        },
+        {
+          "type": "single",
+          "prompt": "What does a terminus post quem give you?",
+          "options": ["The latest date a painting could be made", "The earliest date a painting could have been made", "The exact year"],
+          "answer": 1,
+          "explain": "It is a lower bound from the newest material present.",
+          "cite": ["tpq-def"]
+        },
+        {
+          "type": "single",
+          "prompt": "No anachronistic pigment is found. The painting is…",
+          "options": ["proven genuine", "consistent with its date — not proven genuine", "proven fake"],
+          "answer": 1,
+          "explain": "Pigment dating gives relative information only; a careful forger can use period materials.",
+          "cite": ["tpq-def"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "In which year was titanium white first produced (in Norway)?",
+          "answer": 1918,
+          "tolerance": 0,
+          "explain": "US production followed a year later; artists' paint from 1920 in the USA.",
+          "cite": ["titanium-white-date"]
+        }
+      ]
+    }
+  ]
+}

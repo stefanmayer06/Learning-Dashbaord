@@ -1,0 +1,221 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-imaging",
+  "title": "Seeing beneath the surface",
+  "summary": "Raking light, ultraviolet, infrared and X-rays: what each reveals, and how to read them on the case-file portrait.",
+  "minutes": 28,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af12-reel",
+      "title": "Invisible light",
+      "reel": {
+        "title": "Invisible light",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Invisible light",
+            "kicker": "Art & Forgery · Lesson 12",
+            "title": "Seeing beneath\nthe surface.",
+            "subtitle": "Raking light, ultraviolet, infrared, X-ray.",
+            "narration": "Before anyone takes a sample, examiners look — with light the eye can't use on its own. Each kind of light answers a different question about the layers."
+          },
+          {
+            "kind": "plugin",
+            "chapter": "Raking light",
+            "plugin": "scan",
+            "props": { "mode": "raking", "notes": ["Light skims the surface", "Cracks look sharp and regular"] },
+            "narration": "Raking light skims the surface from one side, throwing every crack, ridge of impasto and lifting flake into relief. On our case file the cracks look suspiciously sharp and regular.",
+            "cite": ["craquelure-3d"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Ultraviolet",
+            "text": "Old varnish **glows greenish-yellow**. Paint on top of it **reads dark**.",
+            "narration": "Under ultraviolet, traditional resin varnishes glow a greenish yellow. Anything painted on top of that varnish — a retouching, or a convenient signature — blocks the glow and reads dark.",
+            "cite": ["uv-fluorescence"]
+          },
+          {
+            "kind": "plugin",
+            "plugin": "scan",
+            "props": { "mode": "uv", "notes": ["Even glow: aged varnish", "Dark patch: the signature"] },
+            "narration": "On the case-file portrait, the varnish glows evenly — but the signature sits on top of it, dark. It was added after the picture had been varnished.",
+            "cite": ["uv-fluorescence"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Infrared",
+            "text": "Infrared passes through paint. **Carbon black** stops it.",
+            "narration": "Infrared passes through most paint until something absorbs it. Carbon black absorbs strongly, so a black underdrawing on a white ground shows up in an infrared image.",
+            "cite": ["infrared"]
+          },
+          {
+            "kind": "plugin",
+            "plugin": "scan",
+            "props": { "mode": "ir", "notes": ["Underdrawing of the face", "The hand first drawn lower"] },
+            "narration": "Here the underdrawing appears, and the hand was first drawn lower, then moved: a pentimento. That suggests an original composition rather than a copy — but it is not proof.",
+            "cite": ["pentimento-def"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "X-rays",
+            "text": "Heavy atoms block X-rays: **lead white** shows bright.",
+            "narration": "X-rays pass through light materials but are blocked by heavy atoms. Lead, atomic number 82, makes lead white show bright; nails show too, and every layer appears at once.",
+            "cite": ["xrays", "lead-heavy"]
+          },
+          {
+            "kind": "plugin",
+            "plugin": "scan",
+            "props": { "mode": "xray", "notes": ["Bright: lead-white cap and ruff", "Beneath: an older landscape"] },
+            "narration": "The X-ray of our panel shows the lead-white cap and ruff — and, underneath, a horizon and trees. The portrait was painted over an older picture.",
+            "cite": ["xrays", "hvm-reused-canvas"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Old tools, new resolution",
+            "text": "X-ray and UV entered authentication in the **1930s**.",
+            "narration": "These tools aren't new: X-ray and ultraviolet photography, with chemical analysis of pigments, entered art authentication in the 1930s. What's new is resolution, and combining methods.",
+            "cite": ["analysis-1930s"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af12-video",
+      "title": "Watch: Van Eyck's drawing under the paint",
+      "provider": "youtube",
+      "src": "GsjKKvbVsOs",
+      "caption": "The National Gallery shows Jan van Eyck's original drawing beneath 'The Arnolfini Portrait', revealed by infrared imaging.",
+      "credit": "The National Gallery, London (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af12-lab",
+      "title": "The examination bench",
+      "widget": "exam-bench",
+      "brief": "This is the case-file portrait you will judge in your capstone. Switch light sources and inspect each region. Log every finding — some point to a fake, one is normal for an old painting, and one points the other way. Then save the results to your casebook.",
+      "props": {
+        "capture": "exam",
+        "items": [
+          {
+            "id": "crack",
+            "mode": "raking",
+            "region": "surface",
+            "title": "Sharp, regular cracks",
+            "finding": "The crack network is crisp and evenly spaced, with straight segments, like shallow grooves.",
+            "reading": "suspicious",
+            "hint": "Does the surface age the way old paint does?",
+            "why": "Real craquelure forms as layers age and shrink; a 3D study found forged cracks shaped as simple V-grooves rather than deep, square-sided breaks.",
+            "cite": ["craquelure-def", "craquelure-3d"]
+          },
+          {
+            "id": "varnish",
+            "mode": "uv",
+            "region": "background",
+            "title": "Even greenish glow",
+            "finding": "The varnish fluoresces an even greenish yellow across the background.",
+            "reading": "normal",
+            "hint": "What is the varnish like?",
+            "why": "Aged natural-resin varnishes glow greenish yellow under UV — normal for an old, varnished picture. (A forger can varnish too.)",
+            "cite": ["uv-fluorescence"]
+          },
+          {
+            "id": "signature",
+            "mode": "uv",
+            "region": "signature",
+            "title": "Signature on top of the varnish",
+            "finding": "The signature and date read dark against the glowing varnish.",
+            "reading": "suspicious",
+            "hint": "Is the signature as old as the paint around it?",
+            "why": "Paint applied over the varnish blocks the UV and shows dark, so the signature was added after the picture was varnished.",
+            "cite": ["uv-fluorescence"]
+          },
+          {
+            "id": "hand",
+            "mode": "ir",
+            "region": "hand",
+            "title": "A moved hand (pentimento)",
+            "finding": "The underdrawing shows the hand first sketched lower, then shifted up.",
+            "reading": "supports",
+            "hint": "Did the painter change their mind anywhere?",
+            "why": "Pentimenti record a composition being worked out — typical of an original rather than a copy, though a forger can change his mind too.",
+            "cite": ["infrared", "pentimento-def"]
+          },
+          {
+            "id": "beneath",
+            "mode": "xray",
+            "region": "background",
+            "title": "Another picture underneath",
+            "finding": "A horizon, trees and a lead-white sky lie beneath the portrait.",
+            "reading": "suspicious",
+            "hint": "What is under the portrait?",
+            "why": "Reused supports are a classic forger's tactic: an old panel dates correctly while the new paint does not. Artists reused panels too, so the paint itself must be dated.",
+            "cite": ["xrays", "hvm-reused-canvas"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af12-video-mauritshuis",
+      "title": "Go deeper: 'The Girl in the Spotlight'",
+      "optional": true,
+      "provider": "youtube",
+      "src": "93kp3RKu1gg",
+      "caption": "The Mauritshuis documents its research project on Vermeer's 'Girl with a Pearl Earring' — what a modern technical examination of a masterpiece looks like.",
+      "credit": "Mauritshuis (YouTube)"
+    },
+    {
+      "type": "quiz",
+      "id": "af12-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Under UV, a signature reads dark against glowing varnish. What does that suggest?",
+          "options": ["It is the oldest part of the painting", "It was painted after the varnish was applied", "It is written in lead white"],
+          "answer": 1,
+          "explain": "Paint on top of the varnish blocks the fluorescence.",
+          "cite": ["uv-fluorescence"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why does infrared reveal underdrawings?",
+          "options": ["It makes carbon glow", "It passes through paint, and carbon black absorbs it", "It dissolves the varnish"],
+          "answer": 1,
+          "explain": "A black drawing on a white ground contrasts strongly in infrared.",
+          "cite": ["infrared"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why does lead white appear bright in an X-radiograph?",
+          "options": ["It is fluorescent", "Lead's heavy atoms block X-rays", "It is the top layer"],
+          "answer": 1,
+          "explain": "The heavier the atoms, the more they impede X-rays.",
+          "cite": ["xrays", "lead-heavy"]
+        },
+        {
+          "type": "single",
+          "prompt": "An X-ray shows a different picture underneath. What follows?",
+          "options": ["It must be a forgery", "The support was reused — common in forgeries, but artists did it too; date the paint", "It must be authentic"],
+          "answer": 1,
+          "explain": "Reuse is suggestive, not conclusive.",
+          "cite": ["hvm-reused-canvas", "xrays"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af12-casebook",
+      "title": "Casebook: imaging",
+      "output": "casebook",
+      "brief": "Add your imaging findings to the casebook and say what they do and don't prove.",
+      "fields": [
+        { "type": "capture", "id": "cb-exam", "label": "Your imaging findings (saved from the examination bench)", "from": "exam" },
+        { "type": "text", "id": "cb-exam-note", "label": "Which finding weighs most, and what further test would settle it?", "minWords": 40 }
+      ]
+    }
+  ]
+}
