@@ -152,7 +152,7 @@ export function SiteFooter() {
       </div>
       <div className="container-wide site-footer-base">
         <span>Runs offline in your browser. Optional Supabase sync stores learner data only.</span>
-        <span>Learning material, not investment advice.</span>
+        <span>Learning material, not investment or medical advice.</span>
       </div>
     </footer>
   )

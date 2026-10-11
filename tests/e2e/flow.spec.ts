@@ -5,7 +5,8 @@ test('a new learner finishes lesson 1 and unlocks unit 2', async ({ page }) => {
   const errors = collectErrors(page)
   await page.goto('/')
   await page.evaluate(() => localStorage.clear())
-  await page.goto('/')
+  // The home hero features the first course alphabetically; start this one from its own page.
+  await page.goto(`/c/${COURSE}`)
 
   await page.getByRole('link', { name: /Begin/ }).first().click()
   await expect(page).toHaveURL(new RegExp(`/c/${COURSE}/l/qt-two-meanings/qt1-reel`))

@@ -1,0 +1,305 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-vqe",
+  "title": "VQE on a real Hamiltonian",
+  "summary": "From a PySCF calculation to a 15-term qubit Hamiltonian, a one-parameter ansatz, parameter-shift gradients and the measurement bill for chemical accuracy — then the lab.",
+  "minutes": 55,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo13-reel",
+      "title": "VQE, end to end",
+      "reel": {
+        "title": "VQE, end to end",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Workflow",
+            "kicker": "Unit 6 · Quantum methods for oncology",
+            "title": "VQE on a real\nHamiltonian.",
+            "subtitle": "Small molecule, full workflow, honest bill.",
+            "narration": "You know VQE in principle. Here is the full chemistry workflow on the smallest real molecule, with numbers you can check, so you can judge VQE claims about drug molecules."
+          },
+          {
+            "kind": "code",
+            "language": "python",
+            "code": "from pyscf import gto, scf, fci\n\nmol = gto.M(atom=\"H 0 0 0; H 0 0 0.75\", basis=\"sto-3g\", verbose=0)\nhf = scf.RHF(mol).run()\ne_fci = fci.FCI(hf).kernel()[0]\n\nprint(f\"{hf.e_tot:.4f}\")   # -1.1162  Hartree-Fock\nprint(f\"{e_fci:.4f}\")      # -1.1371  exact in this basis\nprint(f\"{(hf.e_tot - e_fci) * 1000:.1f} mHa missed\")  # 21.0",
+            "focus": [
+              [
+                3,
+                4
+              ],
+              [
+                5
+              ],
+              [
+                7,
+                8,
+                9
+              ]
+            ],
+            "narration": "Step one is classical. PySCF builds hydrogen at seventy-five picometres in a minimal basis and solves it: Hartree–Fock gives minus one point one one six two hartree, the exact answer minus one point one three seven one. Mean field misses twenty-one millihartree.",
+            "cite": [
+              "h2-sto3g"
+            ]
+          },
+          {
+            "kind": "equation",
+            "tex": [
+              "H = \\sum_{P} c_P P, \\quad P \\in \\{I,X,Y,Z\\}^{\\otimes 4}",
+              "c_{ZIII} = 0.170, \\quad c_{XXYY} = -0.045"
+            ],
+            "notes": [
+              "15 terms; 4 spin orbitals → 4 qubits (Jordan–Wigner)",
+              "coefficients in hartree, at 0.75 Å"
+            ],
+            "narration": "Step two: map to qubits. Four spin orbitals become four qubits, and the Hamiltonian becomes a weighted sum of fifteen Pauli strings. Most are Z-type; four are XY-type terms that describe electrons hopping between orbitals.",
+            "cite": [
+              "h2-sto3g",
+              "jw-qubits"
+            ]
+          },
+          {
+            "kind": "equation",
+            "chapter": "Ansatz",
+            "tex": [
+              "|\\psi(\\theta)\\rangle = \\cos\\tfrac{\\theta}{2}\\,|1100\\rangle - \\sin\\tfrac{\\theta}{2}\\,|0011\\rangle",
+              "E(\\theta) = a + b\\cos\\theta + c\\sin\\theta"
+            ],
+            "notes": [
+              "θ = 0 is Hartree–Fock",
+              "one double excitation is exact for H₂ in this basis"
+            ],
+            "narration": "Step three: an ansatz. Start from Hartree–Fock, one one zero zero, and rotate into the doubly excited state. For this molecule, one angle is enough to reach the exact answer, and the energy is a simple sinusoid in theta.",
+            "cite": [
+              "vqe"
+            ]
+          },
+          {
+            "kind": "equation",
+            "tex": [
+              "\\frac{\\partial E}{\\partial \\theta} = \\frac{E(\\theta + \\pi/2) - E(\\theta - \\pi/2)}{2}"
+            ],
+            "notes": [
+              "parameter-shift rule: exact for this ansatz",
+              "two energy estimates per gradient"
+            ],
+            "narration": "Step four: gradients. Because E is a sinusoid, the parameter-shift rule gives the exact derivative from two energy estimates, at theta plus and minus a quarter turn. No finite differences, no extra noise from step size.",
+            "cite": [
+              "vqe"
+            ]
+          },
+          {
+            "kind": "stat",
+            "chapter": "The bill",
+            "value": 1.6,
+            "decimals": 1,
+            "suffix": " mHa",
+            "label": "chemical accuracy — about 1 kcal/mol",
+            "context": "error small enough to predict room-temperature rates within ~10×",
+            "narration": "The target is chemical accuracy: one point six millihartree, about one kilocalorie per mole — the error that lets you predict room-temperature reaction rates to within an order of magnitude.",
+            "cite": [
+              "chemical-accuracy"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Every energy is **measured**: error falls as **1/√shots**. Ten times the precision costs **a hundred times** the shots.",
+            "narration": "But every energy is estimated from measurement shots, and the error falls only as one over the square root of the shots. Ten times more precision costs a hundred times more measurements.",
+            "cite": [
+              "shot-noise"
+            ]
+          },
+          {
+            "kind": "stat",
+            "value": 100,
+            "suffix": " million",
+            "label": "measurements for one VQE run to chemical accuracy — for a 4-qubit molecule",
+            "context": "this course's lab · 14 terms measured separately · ~10⁴–10⁵ shots per term",
+            "narration": "In this course's lab, a full optimisation to chemical accuracy takes on the order of a hundred million measurements — for a four-qubit molecule. Grouping terms helps, but this bill is why drug-sized VQE is hard.",
+            "cite": [
+              "vqe-shot-bill"
+            ]
+          },
+          {
+            "kind": "timeline",
+            "chapter": "History",
+            "events": [
+              {
+                "year": "2014",
+                "label": "VQE proposed",
+                "detail": "photonic processor"
+              },
+              {
+                "year": "2016",
+                "label": "H₂ on superconducting qubits",
+                "detail": "VQE and phase estimation"
+              },
+              {
+                "year": "2017",
+                "label": "Up to BeH₂",
+                "detail": "6 qubits, 100+ Pauli terms"
+              },
+              {
+                "year": "2022",
+                "label": "Protein–ligand energies",
+                "detail": "embedding + VQE on hardware"
+              }
+            ],
+            "narration": "VQE was introduced in 2014; hydrogen was run on superconducting qubits in 2016; six-qubit molecules up to beryllium hydride in 2017; and protein–ligand binding energies, with embedding, on hardware in 2022.",
+            "cite": [
+              "vqe",
+              "omalley-h2",
+              "kandala-beh2",
+              "kirsopp-bace"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "At scale, random ansätze hit **barren plateaus**: gradients vanish exponentially with qubit number.",
+            "narration": "And at scale, there is a second wall: for randomly initialised circuits, gradients vanish exponentially with the number of qubits — barren plateaus. Chemistry-inspired ansätze like ours avoid the worst of it.",
+            "cite": [
+              "barren-plateaus"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "H₂ is a **toy** a laptop solves exactly. The point of the lab is the **workflow** — and its cost.",
+            "narration": "Remember, hydrogen is a toy: sixteen amplitudes, solved exactly on any laptop. The point of the lab is the workflow and its cost. Run it, and watch where the measurements go.",
+            "cite": [
+              "n-qubit-amplitudes"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo13-lab",
+      "title": "Lab: VQE on H₂",
+      "widget": "vqe-lab",
+      "brief": "Pick a bond length, set the shots, and run VQE from Hartree–Fock. Reach chemical accuracy at two bond lengths — then try a stretched bond (2.0 Å or more) and compare how much Hartree–Fock misses.",
+      "props": {
+        "capture": "vqe-run"
+      },
+      "cite": [
+        "h2-sto3g",
+        "jw-qubits",
+        "shot-noise",
+        "chemical-accuracy",
+        "vqe-shot-bill"
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo13-notebook",
+      "title": "Notebook: VQE",
+      "output": "lab-notebook",
+      "brief": "Save your runs, then interpret them.",
+      "fields": [
+        {
+          "type": "capture",
+          "id": "vqe-result",
+          "label": "Your saved runs",
+          "from": "vqe-run"
+        },
+        {
+          "type": "text",
+          "id": "vqe-shots",
+          "label": "How many shots per term did you need for chemical accuracy, and what was the total measurement count? Extrapolate: what would this bill look like for a 100-qubit active space?",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "vqe-stretch",
+          "label": "Why does Hartree–Fock fail as the bond stretches, and why does that regime matter for drug chemistry?",
+          "minWords": 40
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo13-quiz",
+      "title": "Problem set · VQE",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "How many Pauli terms (including the identity) are in the H₂ STO-3G Jordan–Wigner Hamiltonian?",
+          "answer": 15,
+          "tolerance": 0,
+          "explain": "15 terms: the identity, 10 Z-type terms and 4 XY-type exchange terms.",
+          "cite": [
+            "h2-sto3g"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "10,000 shots per term give an energy error of 1.2 mHa. How many shots per term for 0.4 mHa?",
+          "answer": 90000,
+          "tolerance": 1000,
+          "unit": "shots",
+          "explain": "Three times the precision costs 3² = 9 times the shots: 90,000.",
+          "cite": [
+            "shot-noise"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "How many energy estimates does the parameter-shift rule need per parameter for one gradient?",
+          "options": [
+            "One",
+            "Two",
+            "One per Pauli term"
+          ],
+          "answer": 1,
+          "explain": "E(θ + π/2) and E(θ − π/2) — each itself estimated over all the Pauli terms.",
+          "cite": [
+            "vqe"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "In the lab, Hartree–Fock's error grows as the bond stretches because…",
+          "options": [
+            "The basis set changes",
+            "The electrons become strongly correlated and one determinant can't describe them",
+            "The Hamiltonian loses terms"
+          ],
+          "answer": 1,
+          "explain": "Near dissociation, |1100⟩ and |0011⟩ mix strongly — static correlation, the regime where quantum methods are most interesting.",
+          "cite": [
+            "h2-sto3g"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo13-hw",
+      "title": "Homework 12 · Reproduce and extend",
+      "output": "problem-sets",
+      "brief": "About 90 minutes at a computer with Python. The script used for the lab is in the course repository (scripts/oncology/h2_hamiltonians.py).",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw12-reproduce",
+          "label": "1. Install PySCF and reproduce the H₂ energies at 0.75 Å. Then compute LiH in STO-3G: how many spatial orbitals, how many qubits under Jordan–Wigner, and how many Pauli terms?",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw12-group",
+          "label": "2. Group the 15 H₂ terms into sets that can be measured together (qubit-wise commuting). How many groups, and how much does that cut the measurement bill?",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw12-claim",
+          "label": "3. A preprint claims a “drug-relevant VQE on 12 qubits”. List five things you would check before believing it is useful.",
+          "minWords": 80
+        }
+      ]
+    }
+  ]
+}

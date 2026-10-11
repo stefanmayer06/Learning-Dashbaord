@@ -1,0 +1,298 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-chemistry",
+  "title": "Quantum chemistry for cancer drugs",
+  "summary": "Why drug chemistry is a quantum problem, when classical methods suffice, qubit counting, and the published resource estimates — P450, ibrutinib, photosensitizers — with the evidence on advantage.",
+  "minutes": 50,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo12-reel",
+      "title": "The chemistry case",
+      "reel": {
+        "title": "The chemistry case",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Why chemistry",
+            "kicker": "Unit 6 · Quantum methods for oncology",
+            "title": "Quantum chemistry\nfor cancer drugs.",
+            "subtitle": "The strongest case — and its resource bill.",
+            "narration": "Of all the proposed uses of quantum computers in oncology, chemistry has the strongest theoretical case. It also has the clearest resource estimates, so we can be precise about when it might pay."
+          },
+          {
+            "kind": "statement",
+            "text": "Molecules obey quantum mechanics; their exact simulation is exponentially hard classically — **Feynman's argument**.",
+            "narration": "The argument goes back to Feynman: molecules obey quantum mechanics, and simulating quantum systems exactly takes exponential resources on classical machines, but not, in principle, on quantum ones.",
+            "cite": [
+              "feynman-simulation",
+              "n-qubit-amplitudes"
+            ]
+          },
+          {
+            "kind": "equation",
+            "tex": [
+              "H = \\sum_{pq} h_{pq} a_p^{\\dagger} a_q + \\tfrac12 \\sum_{pqrs} g_{pqrs} a_p^{\\dagger} a_q^{\\dagger} a_s a_r",
+              "N \\text{ orbitals} \\to 2N \\text{ qubits}"
+            ],
+            "notes": [
+              "one- and two-electron integrals from a classical code",
+              "Jordan–Wigner: one qubit per spin orbital, occupied = 1"
+            ],
+            "narration": "The electronic Hamiltonian in second quantisation has one- and two-electron terms. Under the Jordan–Wigner mapping each spin orbital becomes a qubit, so an active space of N spatial orbitals needs two N qubits.",
+            "cite": [
+              "jw-qubits"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "When classical is enough",
+            "text": "Most drug chemistry is handled well by **DFT and coupled cluster**. The opening is **strong correlation**: metals, bond breaking, excited states.",
+            "narration": "Be precise about the opening. Most drug chemistry is handled well by density functional theory and coupled cluster. Quantum computers matter where those fail: strongly correlated electrons in metal centres, bonds breaking, and excited states.",
+            "cite": [
+              "goings-boundary",
+              "lee-no-exp"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Example: **cytochrome P450 3A4** is the main enzyme that metabolises imatinib — and P450's iron centre is strongly correlated.",
+            "narration": "An oncology-relevant example: cytochrome P450 three A four is the main enzyme that metabolises imatinib. P450 enzymes have an iron centre whose electronic structure is hard for classical methods.",
+            "cite": [
+              "imatinib-cyp3a4",
+              "goings-boundary"
+            ]
+          },
+          {
+            "kind": "stat",
+            "chapter": "The bill",
+            "value": 4.6,
+            "decimals": 1,
+            "suffix": " million",
+            "label": "physical qubits for phase estimation on the largest P450 model (73 hours)",
+            "context": "at 0.1% error · ~500,000 qubits and 25 hours at 0.001% · an estimate",
+            "narration": "The bill: for the largest P450 model, phase estimation was estimated to need about four point six million physical qubits and seventy-three hours at today's error rates — or half a million qubits and twenty-five hours if errors fall a hundredfold.",
+            "cite": [
+              "goings-p450"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Algorithms improve fast: for ~50-orbital spaces around the cancer drug **ibrutinib**, estimates fell from **over 1,000 years** to **a few days**.",
+            "narration": "Resource estimates began with the nitrogenase enzyme in 2017, and the algorithms keep improving. For active spaces of about fifty orbitals around ibrutinib, a covalent drug for blood cancers, better methods cut the estimated runtime from over a thousand years to a few days.",
+            "cite": [
+              "reiher-femoco",
+              "blunt-ibrutinib",
+              "ibrutinib"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Photodynamic therapy: screening photosensitizers was estimated at **180–350 logical qubits** (preprint, 2025).",
+            "narration": "And for photodynamic therapy, a December 2025 preprint estimated that screening light-activated photosensitizer drugs would need a hundred and eighty to three hundred and fifty logical qubits on a fault-tolerant machine.",
+            "cite": [
+              "photosensitizer-ft"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The evidence",
+            "text": "No evidence yet of **generic exponential** advantage for ground-state chemistry. **Polynomial** speed-ups may still matter.",
+            "narration": "Now the sobering part. A 2023 analysis found no evidence yet of a generic exponential quantum advantage for ground-state chemistry, because the states quantum computers prepare easily are often the ones classical heuristics handle too. Polynomial speed-ups may still matter.",
+            "cite": [
+              "lee-no-exp"
+            ]
+          },
+          {
+            "kind": "compare",
+            "left": {
+              "heading": "Near term (noisy)",
+              "items": [
+                "VQE and embedding on small active spaces",
+                "e.g. protein–ligand energies on hardware (2022)",
+                "Proofs of workflow, not of advantage"
+              ]
+            },
+            "right": {
+              "heading": "Fault tolerant",
+              "items": [
+                "Phase estimation, qubitisation",
+                "P450, ibrutinib, photosensitizers",
+                "Hundreds of logical, ~10⁵–10⁶ physical qubits"
+              ]
+            },
+            "narration": "So two horizons. Near term: variational methods and embedding on small active spaces — already run on hardware for protein–ligand energies — proving workflows, not advantage. Fault tolerant: phase estimation on the hard cases, needing hundreds of logical and up to millions of physical qubits.",
+            "cite": [
+              "kirsopp-bace",
+              "goings-p450",
+              "photosensitizer-ft",
+              "nisq"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo12-estimate",
+      "title": "Count the qubits",
+      "widget": "estimator",
+      "brief": "Jordan–Wigner: one qubit per spin orbital.",
+      "props": {
+        "question": "An active space of **50 spatial orbitals** around a drug's binding site. How many qubits does the Jordan–Wigner encoding need (before any ancillas or error correction)?",
+        "answer": 100,
+        "min": 10,
+        "max": 10000,
+        "log": true,
+        "unit": "logical qubits",
+        "reveal": "2 × 50 = 100 — just for the system register. Phase-estimation algorithms add ancilla qubits, and error correction multiplies every logical qubit into many physical ones.",
+        "cite": [
+          "jw-qubits",
+          "logical-qubits"
+        ]
+      },
+      "cite": [
+        "jw-qubits",
+        "logical-qubits"
+      ]
+    },
+    {
+      "type": "widget",
+      "id": "qo12-sort",
+      "title": "Quantum candidate or not?",
+      "widget": "card-sort",
+      "brief": "Sort these computational tasks from cancer drug discovery.",
+      "props": {
+        "buckets": [
+          "Classical methods already do well",
+          "Plausible quantum candidate",
+          "Not an electronic-structure problem"
+        ],
+        "cards": [
+          {
+            "text": "Spin-state energetics of P450's reactive iron species",
+            "bucket": "Plausible quantum candidate",
+            "why": "Strong, multireference correlation; a published quantum-advantage candidate.",
+            "cite": [
+              "goings-boundary"
+            ]
+          },
+          {
+            "text": "Excited states of a heavy-atom photosensitizer for photodynamic therapy",
+            "bucket": "Plausible quantum candidate",
+            "why": "Excited states and heavy atoms challenge classical methods; resource estimates exist.",
+            "cite": [
+              "photosensitizer-ft"
+            ]
+          },
+          {
+            "text": "Relative binding free energies across a congeneric series",
+            "bucket": "Classical methods already do well",
+            "why": "FEP-style methods were validated prospectively; the bottleneck is sampling and force fields.",
+            "cite": [
+              "fep"
+            ]
+          },
+          {
+            "text": "Predicting a protein–ligand complex structure",
+            "bucket": "Classical methods already do well",
+            "why": "AlphaFold 3 and docking address structure; it is not an electronic-structure problem.",
+            "cite": [
+              "alphafold3"
+            ]
+          },
+          {
+            "text": "Predicting which patients respond, from clinical records",
+            "bucket": "Not an electronic-structure problem",
+            "why": "That is statistics and machine learning — a different quantum argument, if any."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo12-quiz",
+      "title": "Problem set · Resources",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "Qubits needed (Jordan–Wigner, system register only) for an active space of 30 spatial orbitals?",
+          "answer": 60,
+          "tolerance": 0,
+          "explain": "Two spin orbitals per spatial orbital: 60 qubits.",
+          "cite": [
+            "jw-qubits"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "Goings et al.: millions of physical qubits for the largest P450 model at 0.1% error rates?",
+          "answer": 4.6,
+          "tolerance": 0.1,
+          "unit": "million",
+          "explain": "About 4.6 million physical qubits and 73 hours — an estimate, not a demonstration.",
+          "cite": [
+            "goings-p450"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "What did Lee et al. (2023) conclude about quantum chemistry?",
+          "options": [
+            "Exponential advantage is proven for drug molecules",
+            "No evidence yet of generic exponential advantage for ground states; polynomial speed-ups may still help",
+            "Quantum computers cannot do chemistry"
+          ],
+          "answer": 1,
+          "explain": "The features that make quantum state preparation easy often make classical heuristics work too.",
+          "cite": [
+            "lee-no-exp"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Which regime offers the strongest case for quantum chemistry in drug design?",
+          "options": [
+            "Large, weakly correlated organic molecules in water",
+            "Strongly correlated electrons: metal centres, bond breaking, excited states",
+            "Any molecule with more than 100 atoms"
+          ],
+          "answer": 1,
+          "explain": "That is where DFT and coupled cluster struggle.",
+          "cite": [
+            "goings-boundary"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo12-hw",
+      "title": "Homework 11 · A resource sketch",
+      "output": "problem-sets",
+      "brief": "About 60 minutes. This is the skeleton of a resource-estimation paper.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw11-system",
+          "label": "1. Choose a cancer-relevant chemistry problem (an enzyme, a covalent drug, a photosensitizer…). Argue why it might be strongly correlated, citing what you can.",
+          "minWords": 80
+        },
+        {
+          "type": "text",
+          "id": "hw11-count",
+          "label": "2. Propose an active space (orbitals, electrons) and count system qubits. Which algorithm (VQE, phase estimation) and why?",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw11-classical",
+          "label": "3. Which classical methods (e.g. DFT, CCSD(T), DMRG) must you compare against, and what result would show the quantum route is not needed?",
+          "minWords": 60
+        }
+      ]
+    }
+  ]
+}

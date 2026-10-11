@@ -1,0 +1,229 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-hallmarks",
+  "title": "Hallmarks, oncogenes and suppressors",
+  "summary": "The hallmarks of cancer as an organising heuristic; accelerators and brakes; Knudson's two-hit model as a Poisson calculation; drivers and passengers.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo3-reel",
+      "title": "What makes a cancer",
+      "reel": {
+        "title": "What makes a cancer",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Hallmarks",
+            "kicker": "Unit 2 · Cancer biology",
+            "title": "What makes\na cancer.",
+            "subtitle": "Six capabilities, then more — a heuristic, not a law.",
+            "narration": "What does a normal cell have to acquire to become a cancer? The most cited answer is a list of capabilities called the hallmarks of cancer."
+          },
+          {
+            "kind": "timeline",
+            "events": [
+              { "year": "2000", "label": "Six hallmarks", "detail": "Hanahan & Weinberg, Cell" },
+              { "year": "2011", "label": "+2 hallmarks, +2 enabling traits", "detail": "metabolism, immune evasion; instability, inflammation" },
+              { "year": "2022", "label": "New dimensions", "detail": "plasticity, epigenetics, microbiomes, senescent cells" }
+            ],
+            "narration": "Hanahan and Weinberg proposed six hallmarks in 2000. In 2011 they added two more and two enabling characteristics. In 2022 Hanahan proposed further dimensions.",
+            "cite": ["hallmarks-2000", "hallmarks-2011", "hallmarks-2022"]
+          },
+          {
+            "kind": "list",
+            "heading": "The original six (2000)",
+            "items": [
+              "Sustaining proliferative signalling",
+              "Evading growth suppressors",
+              "Resisting cell death",
+              "Enabling replicative immortality",
+              "Inducing angiogenesis (new blood vessels)",
+              "Activating invasion and metastasis"
+            ],
+            "narration": "The original six: keep the growth signal on, ignore the brakes, refuse to die, divide without limit, recruit blood vessels, and invade other tissues.",
+            "cite": ["hallmarks-2000"]
+          },
+          {
+            "kind": "list",
+            "heading": "Added in 2011",
+            "items": [
+              "Hallmark: **reprogramming energy metabolism**",
+              "Hallmark: **evading immune destruction**",
+              "Enabling: **genome instability**",
+              "Enabling: **tumour-promoting inflammation**",
+              "Context: the recruited normal cells of the **tumour microenvironment**"
+            ],
+            "narration": "The 2011 update added reprogrammed metabolism and immune evasion as hallmarks, genome instability and inflammation as enabling characteristics, and the tumour microenvironment as context.",
+            "cite": ["hallmarks-2011"]
+          },
+          {
+            "kind": "statement",
+            "text": "Reprogrammed metabolism: many tumours **ferment glucose to lactate even with oxygen** — the Warburg effect.",
+            "narration": "One example: many tumours take up glucose and ferment it to lactate even when oxygen is available. One explanation is that dividing cells need carbon for building material, not just energy.",
+            "cite": ["warburg", "warburg-biomass"]
+          },
+          {
+            "kind": "statement",
+            "text": "Hanahan calls the scheme **provisional** — a way to organise complexity, not a physical law.",
+            "narration": "Treat the hallmarks as Hanahan himself does: a provisional heuristic for organising complexity, not a law of nature. Useful for framing a paper; not a model you can fit.",
+            "cite": ["hallmarks-2022"]
+          },
+          {
+            "kind": "compare",
+            "chapter": "Accelerators & brakes",
+            "left": { "heading": "Oncogenes (accelerators)", "items": ["Gain of function", "One altered copy usually enough", "Example: KRAS"] },
+            "right": { "heading": "Tumour suppressors (brakes)", "items": ["Loss of function", "Usually both copies lost", "Examples: TP53, RB1"] },
+            "narration": "Two kinds of gene matter most. Oncogenes are accelerators: one activating mutation can be enough. Tumour suppressors are brakes: usually both copies must be lost before the brake fails.",
+            "cite": ["oncogene-tsg"]
+          },
+          {
+            "kind": "equation",
+            "chapter": "Two hits",
+            "tex": ["P(k \\text{ tumours}) = \\dfrac{e^{-m} m^{k}}{k!}", "m = 3 \\Rightarrow P(0) = e^{-3} \\approx 0.05"],
+            "notes": ["Knudson, 1971: 48 retinoblastoma cases", "carriers average three tumours", "so about 5% of carriers get none"],
+            "narration": "In 1971 Knudson studied forty-eight cases of a childhood eye cancer. If carriers average three tumours, Poisson statistics say about five percent get none — explaining carriers who stay healthy.",
+            "cite": ["knudson-poisson", "poisson-zero"]
+          },
+          {
+            "kind": "statement",
+            "text": "Inherited form: one hit **inherited**, one acquired. Sporadic form: **both** hits acquired in the same cell lineage.",
+            "narration": "His explanation: the cancer needs two mutational hits. In the inherited form, one hit is inherited and the second occurs in a body cell. In the sporadic form, both occur by chance in body cells.",
+            "cite": ["knudson-two-hit"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Drivers",
+            "text": "A typical tumour carries **two to eight** driver mutations. Most of its other mutations are **passengers**.",
+            "narration": "Most of a tumour's mutations do nothing. A typical tumour carries two to eight driver mutations, in genes like these, among many passengers. Telling them apart is a statistics problem.",
+            "cite": ["driver-genes"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo3-sort",
+      "title": "Hallmark, enabler, or neither?",
+      "widget": "card-sort",
+      "brief": "Hanahan and Weinberg distinguish hallmark capabilities from the enabling characteristics that help a tumour acquire them. Sort each item.",
+      "props": {
+        "buckets": ["Hallmark capability", "Enabling characteristic", "Not part of the scheme"],
+        "cards": [
+          { "text": "Resisting cell death", "bucket": "Hallmark capability", "why": "One of the original six (2000).", "cite": ["hallmarks-2000"] },
+          { "text": "Inducing angiogenesis", "bucket": "Hallmark capability", "why": "One of the original six: tumours recruit their own blood supply.", "cite": ["hallmarks-2000"] },
+          { "text": "Evading immune destruction", "bucket": "Hallmark capability", "why": "Added in 2011 — and the target of checkpoint immunotherapy.", "cite": ["hallmarks-2011"] },
+          { "text": "Genome instability", "bucket": "Enabling characteristic", "why": "It generates the variation from which hallmarks are selected.", "cite": ["hallmarks-2011"] },
+          { "text": "Tumour-promoting inflammation", "bucket": "Enabling characteristic", "why": "Enabling characteristic since 2011.", "cite": ["hallmarks-2011"] },
+          { "text": "Polymorphic microbiomes", "bucket": "Enabling characteristic", "why": "Proposed in 2022 as a new enabling characteristic.", "cite": ["hallmarks-2022"] },
+          { "text": "Being caused by one single mutation", "bucket": "Not part of the scheme", "why": "Tumours typically need several drivers; the hallmarks are acquired step by step.", "cite": ["driver-genes"] }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo3-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "A tumour-suppressor gene usually contributes to cancer when…",
+          "options": ["one copy gains a mutation that activates it", "both copies are lost or inactivated", "it is copied many times"],
+          "answer": 1,
+          "explain": "Brakes fail when both copies are gone — Knudson's two hits.",
+          "cite": ["oncogene-tsg", "knudson-two-hit"]
+        },
+        {
+          "type": "single",
+          "prompt": "How many driver mutations does a typical tumour carry, according to Vogelstein et al. (2013)?",
+          "options": ["One", "Two to eight", "Around a hundred"],
+          "answer": 1,
+          "explain": "Two to eight drivers; the many other mutations are passengers.",
+          "cite": ["driver-genes"]
+        },
+        {
+          "type": "single",
+          "prompt": "How does Hanahan (2022) describe the hallmarks scheme?",
+          "options": ["As a complete mechanistic model of cancer", "As a provisional heuristic for distilling complexity", "As superseded by genomics"],
+          "answer": 1,
+          "explain": "A provisional organising framework — useful for structure, not for prediction.",
+          "cite": ["hallmarks-2022"]
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo3-ps",
+      "title": "Problem set · Knudson's arithmetic",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "Carriers develop on average m = 3 tumours (Poisson). What percentage of carriers develop no tumour at all? (one decimal)",
+          "answer": 5,
+          "tolerance": 0.2,
+          "unit": "%",
+          "explain": "P(0) = e⁻³ = 0.0498 ≈ 5.0%.",
+          "cite": ["poisson-zero"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "Same model: what percentage of carriers develop exactly one tumour?",
+          "answer": 14.9,
+          "tolerance": 0.3,
+          "unit": "%",
+          "explain": "P(1) = 3·e⁻³ ≈ 0.149, about 14.9%.",
+          "cite": ["knudson-poisson"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "Now suppose tumours fall independently in each eye, with mean 1.5 per eye. What percentage of carriers have tumours in both eyes?",
+          "answer": 60.4,
+          "tolerance": 0.5,
+          "unit": "%",
+          "explain": "P(an eye has at least one) = 1 − e^(−1.5) ≈ 0.777; both eyes: 0.777² ≈ 0.604. Bilateral tumours in carriers are exactly what Knudson's model explains.",
+          "cite": ["knudson-poisson"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "And what percentage have tumours in exactly one eye?",
+          "answer": 34.7,
+          "tolerance": 0.5,
+          "unit": "%",
+          "explain": "2 × 0.777 × 0.223 ≈ 0.347. The three cases (none, one eye, both) sum to 100%.",
+          "cite": ["knudson-poisson"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo3-hw",
+      "title": "Homework 2 · Hallmarks as research questions",
+      "output": "problem-sets",
+      "brief": "About 40 minutes. Short, precise answers beat long ones.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw2-derive",
+          "label": "1. Show your working for the problem set: derive P(none), P(one eye) and P(both eyes) for the two-eye Poisson model, and explain what a different mean (say m = 1) would predict.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw2-hallmark",
+          "label": "2. Pick one hallmark. Propose a computational question about it where a quantum method could plausibly help — then argue the opposite case as a sceptical referee would.",
+          "hint": "Chemistry of a target in that pathway? An optimisation over interacting genes? Be concrete about what is computed.",
+          "minWords": 100
+        },
+        {
+          "type": "text",
+          "id": "hw2-passengers",
+          "label": "3. Drivers versus passengers is a statistics problem. In one paragraph, say what null model you would need to call a gene a driver, and why getting it wrong produces false positives.",
+          "minWords": 60
+        }
+      ]
+    }
+  ]
+}

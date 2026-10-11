@@ -1,0 +1,151 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-sensing",
+  "title": "Quantum beyond computing",
+  "summary": "Quantum sensing with diamond defects, hyperpolarised MRI of tumour metabolism, the proton-tunnelling hypothesis of mutation — and how to write about “quantum” without feeding pseudoscience.",
+  "minutes": 40,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo17-reel",
+      "title": "Sensing and quantum biology",
+      "reel": {
+        "title": "Sensing and quantum biology",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Sensing",
+            "kicker": "Unit 8 · The field in 2026",
+            "title": "Quantum beyond\ncomputing.",
+            "subtitle": "Sensors already in the clinic, hypotheses still in theory.",
+            "narration": "Not all quantum oncology is computing. Some of it is measurement, already working in patients. Some of it is biology, still hypothesis. Knowing the difference keeps your papers credible."
+          },
+          {
+            "kind": "statement",
+            "text": "**Quantum sensing**: using quantum systems — such as the spin states of atomic defects — to measure physical quantities.",
+            "narration": "Quantum sensing means using quantum systems, properties or phenomena — such as the spin states of single atomic defects — to measure physical quantities with high sensitivity.",
+            "cite": ["quantum-sensing"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Nitrogen-vacancy centres** in diamond: stable, photostable, low-toxicity — nanoscale sensors of magnetic and electric fields.",
+            "narration": "The workhorse is the nitrogen-vacancy centre in diamond: a defect that is stable, photostable and low in toxicity, whose spin state senses magnetic and electric fields at the nanoscale.",
+            "cite": ["nv-centres"]
+          },
+          {
+            "kind": "stat",
+            "value": 100000,
+            "suffix": "×",
+            "label": "lower detection limit than gold nanoparticles in a lateral-flow test",
+            "context": "microwave-modulated fluorescent nanodiamonds · model assay; single-copy HIV-1 RNA with amplification",
+            "narration": "In 2020, fluorescent nanodiamonds modulated with microwaves made a lateral-flow test a hundred thousand times more sensitive than gold nanoparticles in a model assay, and detected single copies of HIV RNA with a ten-minute amplification step.",
+            "cite": ["nanodiamond-lfa"]
+          },
+          {
+            "kind": "stat",
+            "chapter": "Imaging",
+            "value": 10000,
+            "prefix": "> ",
+            "suffix": "×",
+            "label": "signal-to-noise gain from dissolution hyperpolarisation in NMR",
+            "context": "polarising nuclear spins before injection",
+            "narration": "Hyperpolarisation works on nuclear spins. Polarising a molecule before injecting it can raise the magnetic resonance signal more than ten-thousand-fold.",
+            "cite": ["hyperpolarisation"]
+          },
+          {
+            "kind": "statement",
+            "text": "2013: first-in-human hyperpolarised **pyruvate MRI** — **31** men with prostate cancer; more **lactate** where the cancer was.",
+            "narration": "In 2013 the first study in humans imaged thirty-one men with prostate cancer using hyperpolarised pyruvate. It was safe, and it showed more lactate, relative to pyruvate, in regions of biopsy-proven cancer — the Warburg effect, imaged.",
+            "cite": ["hp-pyruvate", "warburg"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Quantum biology",
+            "text": "1963: could protons **tunnelling** across DNA base pairs create rare forms that cause **mutations**?",
+            "narration": "Now quantum biology. In 1963 Per-Olov Löwdin proposed that protons tunnelling along the hydrogen bonds of DNA could create rare base forms — tautomers — that cause mutations.",
+            "cite": ["lowdin"]
+          },
+          {
+            "kind": "statement",
+            "text": "A 2022 model: tunnelling dominates, tautomer occupation **1.73 × 10⁻⁴** — but **no one has measured** its share of real mutations.",
+            "narration": "A 2022 open-quantum-systems model found tunnelling dominates proton transfer in guanine–cytosine pairs, with a tautomer occupation of one point seven three in ten thousand. But it is theory: whether these tautomers survive replication, and how many real mutations they cause, has not been measured.",
+            "cite": ["slocombe"]
+          },
+          {
+            "kind": "statement",
+            "text": "Treat quantum-biology claims about cancer as **hypotheses** until they are **measured in cells**.",
+            "narration": "So treat quantum-biology claims about cancer as hypotheses until they are measured in cells. They make good theory papers; they are not yet facts about tumours."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Pseudoscience",
+            "text": "Replacing treatment with alternative medicine: **2.5×** the risk of death. The word “quantum” is often the product.",
+            "narration": "And the dark side. Patients who replaced conventional treatment with alternative medicine had two and a half times the risk of death. “Quantum” is a favourite word on those products. Write precisely, so your work cannot be borrowed for them.",
+            "cite": ["alt-medicine-risk"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo17-sort",
+      "title": "How established is it?",
+      "widget": "card-sort",
+      "brief": "Sort each claim by the strongest evidence behind it.",
+      "props": {
+        "buckets": ["Shown in patients", "Shown in the lab", "Hypothesis", "Red flag"],
+        "cards": [
+          { "text": "Hyperpolarised pyruvate MRI shows high lactate in prostate tumours", "bucket": "Shown in patients", "why": "First-in-human study, 31 patients.", "cite": ["hp-pyruvate"] },
+          { "text": "Nanodiamond labels make a lateral-flow test far more sensitive", "bucket": "Shown in the lab", "why": "Model assays plus a clinical plasma sample — a long way from routine use.", "cite": ["nanodiamond-lfa"] },
+          { "text": "Proton tunnelling causes a measurable share of cancer mutations", "bucket": "Hypothesis", "why": "Modelled, not measured.", "cite": ["slocombe"] },
+          { "text": "G–C base pairs reach tautomeric equilibrium fast through tunnelling", "bucket": "Hypothesis", "why": "A theoretical result from a 2022 model.", "cite": ["slocombe"] },
+          { "text": "“Quantum-structured water” dissolves tumours", "bucket": "Red flag", "why": "No mechanism, no evidence, and a real risk to patients who delay treatment.", "cite": ["alt-medicine-risk"] }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo17-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What did the first-in-human hyperpolarised pyruvate study find in prostate cancer?",
+          "options": ["No signal in tumours", "Elevated lactate-to-pyruvate ratios in biopsy-proven cancer", "That the agent was toxic"],
+          "answer": 1,
+          "explain": "Safe, and more lactate where the cancer was.",
+          "cite": ["hp-pyruvate"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why is the 2022 proton-tunnelling result marked “contested”?",
+          "options": ["It was retracted", "It is a theoretical model; its contribution to real mutation rates has not been measured", "It contradicts quantum mechanics"],
+          "answer": 1,
+          "explain": "A strong theory paper, not yet a measured fact about cells.",
+          "cite": ["slocombe"]
+        },
+        {
+          "type": "single",
+          "prompt": "Which is quantum sensing?",
+          "options": ["VQE on a drug fragment", "Reading the spin of a nitrogen-vacancy centre to measure a magnetic field", "QAOA for a gene panel"],
+          "answer": 1,
+          "explain": "Sensing uses quantum states to measure; computing uses them to calculate.",
+          "cite": ["nv-centres"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo17-hw",
+      "title": "Homework 15 · Sensing or computing?",
+      "output": "problem-sets",
+      "brief": "About 40 minutes.",
+      "fields": [
+        { "type": "text", "id": "hw15-compare", "label": "1. Compare quantum sensing and quantum computing as research directions in oncology over the next five years: maturity, path to patients, and what a physicist would contribute.", "minWords": 120 },
+        { "type": "text", "id": "hw15-wording", "label": "2. Rewrite this press sentence so it is accurate: “Quantum physics explains why cancer mutations happen.”", "minWords": 30 }
+      ]
+    }
+  ]
+}

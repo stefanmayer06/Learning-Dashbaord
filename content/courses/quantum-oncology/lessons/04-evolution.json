@@ -1,0 +1,403 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-evolution",
+  "title": "Cancer as evolution",
+  "summary": "Clonal evolution, how many drivers a tumour really has, mutational signatures as an inverse problem, multistage models of incidence — and the “bad luck” debate.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo4-reel",
+      "title": "Cancer evolves",
+      "reel": {
+        "title": "Cancer evolves",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Clones",
+            "kicker": "Unit 2 · Cancer biology",
+            "title": "Cancer\nevolves.",
+            "subtitle": "Variation, selection, fingerprints — and chance.",
+            "narration": "A tumour is not a static object. It is a population of cells under selection, and evolution is the right frame for nearly everything that follows, including drug resistance."
+          },
+          {
+            "kind": "statement",
+            "text": "Most tumours start from **one cell**  genetic instability makes **variant sublines**  the fittest are **selected**.",
+            "narration": "In 1976 Peter Nowell proposed that most tumours arise from a single cell, that genetic instability creates variant sublines, and that the most aggressive are selected — so every patient's cancer becomes unique.",
+            "cite": [
+              "clonal-evolution"
+            ]
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              {
+                "id": "n",
+                "label": "Normal cell",
+                "x": 8,
+                "y": 50,
+                "tone": "muted"
+              },
+              {
+                "id": "f",
+                "label": "Founder: driver 1",
+                "x": 30,
+                "y": 50,
+                "tone": "ink"
+              },
+              {
+                "id": "a",
+                "label": "Clone A: + driver 2",
+                "x": 56,
+                "y": 25,
+                "tone": "ink"
+              },
+              {
+                "id": "b",
+                "label": "Clone B: + driver 3",
+                "x": 56,
+                "y": 75,
+                "tone": "ink"
+              },
+              {
+                "id": "r",
+                "label": "B′: survives therapy",
+                "x": 86,
+                "y": 75,
+                "tone": "signal"
+              },
+              {
+                "id": "a2",
+                "label": "A′: invasive",
+                "x": 86,
+                "y": 25,
+                "tone": "accent"
+              }
+            ],
+            "edges": [
+              {
+                "from": "n",
+                "to": "f"
+              },
+              {
+                "from": "f",
+                "to": "a"
+              },
+              {
+                "from": "f",
+                "to": "b"
+              },
+              {
+                "from": "a",
+                "to": "a2"
+              },
+              {
+                "from": "b",
+                "to": "r"
+              }
+            ],
+            "narration": "Picture a family tree of clones. A founder acquires a driver  its descendants branch  one branch invades, another happens to resist a drug. Treatment then selects the resistant branch.",
+            "cite": [
+              "clonal-evolution"
+            ]
+          },
+          {
+            "kind": "stat",
+            "chapter": "How many drivers?",
+            "value": 4,
+            "label": "coding driver substitutions per tumour, on average",
+            "context": "7,664 tumours, 29 types · under 1 in thyroid, over 10 in colorectal",
+            "narration": "How many drivers does a tumour need? Across seven thousand six hundred and sixty-four tumours, about four coding driver substitutions on average — fewer than one in thyroid cancer, over ten in colorectal.",
+            "cite": [
+              "drivers-martincorena"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Whole genomes: **4–5** drivers per cancer, coding and non-coding — but in about **5%** no driver was found.",
+            "narration": "Whole-genome sequencing of two thousand six hundred and fifty-eight cancers found four to five drivers on average, counting non-coding ones. In about five percent, none was found: the catalogue is incomplete.",
+            "cite": [
+              "pcawg-drivers"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Most often hit: **TP53**, mutated in **42%** of a 3,281-tumour pan-cancer cohort — and **95%** of serous ovarian cancers.",
+            "narration": "Which gene is hit most? In TCGA's twelve-cancer analysis of three thousand two hundred and eighty-one tumours, the tumour suppressor TP53 was mutated in forty-two percent of samples, and in ninety-five percent of serous ovarian cancers. Most tumours carried two to six significantly mutated genes.",
+            "cite": [
+              "tp53-frequency",
+              "drivers-kandoth"
+            ]
+          },
+          {
+            "kind": "bars",
+            "chapter": "Fingerprints",
+            "labels": [
+              "single-base",
+              "doublet-base",
+              "indel",
+              "clustered"
+            ],
+            "frames": [
+              {
+                "values": [
+                  49,
+                  11,
+                  17,
+                  4
+                ],
+                "caption": "Mutational signatures catalogued in 2020"
+              }
+            ],
+            "max": 55,
+            "narration": "Mutational processes leave fingerprints. The 2020 catalogue, built from nearly eighty-five million mutations, lists forty-nine single-base, eleven doublet, seventeen insertion-deletion and four clustered signatures.",
+            "cite": [
+              "signatures-2020"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Signatures are an **inverse problem**: decompose each tumour's mutation counts into a mixture of processes — ageing, APOBEC enzymes, mutagens, broken DNA repair.",
+            "narration": "Finding signatures is an inverse problem: decompose each tumour's mutation counts into a mixture of processes such as ageing, APOBEC enzymes, mutagens and broken DNA repair. The first large analysis, in 2013, found more than twenty.",
+            "cite": [
+              "signatures-2013"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Ignore that mutation rates **vary**, and your “cancer genes” list fills with olfactory receptors and titin.",
+            "narration": "A warning for anyone with a statistical model: mutation rates vary hugely between tumours and across the genome. Ignore that, and your list of significant cancer genes fills with implausible ones, like smell receptors and the muscle protein titin.",
+            "cite": [
+              "mutation-heterogeneity"
+            ]
+          },
+          {
+            "kind": "equation",
+            "chapter": "Age and stages",
+            "tex": [
+              "P(\\text{all } k \\text{ hits by age } t) \\approx \\prod_{i=1}^{k} u_i t  \\propto  t^{k}",
+              "\\text{incidence} \\propto \\dfrac{d}{dt}  t^{k} \\propto t^{k-1}"
+            ],
+            "notes": [
+              "Armitage & Doll, 1954",
+              "k rare, independent hits at rates uᵢ",
+              "so incidence climbs steeply with age"
+            ],
+            "narration": "A physicist's first model of cancer risk: if a cell needs k rare, independent hits, the chance of all of them by age t grows like t to the k, so incidence grows like t to the k minus one. That is Armitage and Doll's multistage theory.",
+            "cite": [
+              "multistage"
+            ]
+          },
+          {
+            "kind": "compare",
+            "chapter": "Bad luck?",
+            "left": {
+              "heading": "Tomasetti & Vogelstein, 2015",
+              "items": [
+                "Risk across tissues correlates (r = 0.81) with stem-cell divisions",
+                "Most variation is “bad luck” in DNA copying"
+              ]
+            },
+            "right": {
+              "heading": "Wu et al., 2016",
+              "items": [
+                "The correlation can't separate intrinsic from extrinsic causes",
+                "Intrinsic factors: under ~10–30% of lifetime risk"
+              ]
+            },
+            "narration": "Then a famous dispute. Tomasetti and Vogelstein found lifetime risk across tissues correlates with stem-cell divisions and called most of it bad luck. Wu and colleagues replied that the correlation cannot separate intrinsic from extrinsic causes.",
+            "cite": [
+              "bad-luck"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "The lesson for your papers: a correlation across tissues **does not apportion causes**. Say what your statistic can and cannot tell.",
+            "narration": "The lesson for your own papers: a correlation across groups does not by itself apportion causes. Say exactly what your statistic can tell, and what it cannot."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo4-estimate",
+      "title": "Guess the drivers",
+      "widget": "estimator",
+      "brief": "Commit to a number before you see the answer. Calibrating your intuition is half of reading oncology papers.",
+      "props": {
+        "question": "Across 7,664 tumours, how many **coding substitutions under positive selection** (driver substitutions) does a tumour carry on average?",
+        "answer": 4,
+        "min": 1,
+        "max": 300,
+        "log": true,
+        "unit": "drivers",
+        "reveal": "About four on average — from under one in thyroid and testicular cancers to over ten in endometrial and colorectal. Half of them were in genes not yet known as cancer genes.",
+        "cite": [
+          "drivers-martincorena"
+        ]
+      },
+      "cite": [
+        "drivers-martincorena"
+      ]
+    },
+    {
+      "type": "widget",
+      "id": "qo4-sequence",
+      "title": "Order the evolution",
+      "widget": "sequence",
+      "brief": "Put the steps of clonal evolution under treatment in order.",
+      "props": {
+        "items": [
+          {
+            "label": "A normal cell acquires a driver mutation",
+            "cite": [
+              "driver-genes"
+            ]
+          },
+          {
+            "label": "Its descendants outgrow their neighbours"
+          },
+          {
+            "label": "Genetic instability creates variant sublines",
+            "cite": [
+              "clonal-evolution"
+            ]
+          },
+          {
+            "label": "A more aggressive subline takes over",
+            "cite": [
+              "clonal-evolution"
+            ]
+          },
+          {
+            "label": "Treatment kills most of the tumour"
+          },
+          {
+            "label": "A resistant subline survives and regrows",
+            "detail": "Nowell predicted this in 1976.",
+            "cite": [
+              "clonal-evolution"
+            ]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo4-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What is a mutational signature?",
+          "options": [
+            "A mutation in a single named gene",
+            "A characteristic pattern of mutation types left by one mutational process",
+            "A test that detects cancer in blood"
+          ],
+          "answer": 1,
+          "explain": "Each process (ageing, APOBEC, tobacco, repair defects…) leaves a typical pattern  tumours carry mixtures.",
+          "cite": [
+            "signatures-2013"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Why did early large studies flag olfactory-receptor genes as “significantly mutated”?",
+          "options": [
+            "They are real drivers",
+            "Their models ignored large variation in mutation rates",
+            "Smell is a hallmark of cancer"
+          ],
+          "answer": 1,
+          "explain": "Genes in late-replicating, low-expression regions mutate more often by chance  a uniform background rate makes them look significant.",
+          "cite": [
+            "mutation-heterogeneity"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Which is the fairest summary of the “bad luck” debate?",
+          "options": [
+            "It proved two-thirds of cancers are unpreventable",
+            "A strong correlation with stem-cell divisions is undisputed  how much risk it attributes to intrinsic causes is disputed",
+            "It was retracted"
+          ],
+          "answer": 1,
+          "explain": "Both sides accept the correlation  they disagree on what it implies about preventable risk.",
+          "cite": [
+            "bad-luck"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many single-base-substitution signatures did the 2020 catalogue identify?",
+          "answer": 49,
+          "tolerance": 0,
+          "explain": "49 single-base, 11 doublet-base, 4 clustered-base and 17 indel signatures.",
+          "cite": [
+            "signatures-2020"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo4-ps",
+      "title": "Problem set · Multistage arithmetic",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "In the multistage model, incidence ∝ t^(k−1). With k = 6 hits, by what factor does incidence rise between age 40 and age 80?",
+          "answer": 32,
+          "tolerance": 0.5,
+          "unit": "×",
+          "explain": "(80/40)^(6−1) = 2⁵ = 32. A sixfold-hit model makes cancer a disease of age.",
+          "cite": [
+            "multistage"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "On a log–log plot of incidence against age, what slope does the model predict for k = 6?",
+          "answer": 5,
+          "tolerance": 0,
+          "explain": "log(incidence) = (k − 1)·log t + const, so the slope is k − 1 = 5.",
+          "cite": [
+            "multistage"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo4-hw",
+      "title": "Homework 3 · Evolution and inference",
+      "output": "problem-sets",
+      "brief": "About 50 minutes. Two short derivations and one paper-reading task.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw3-multistage",
+          "label": "1. Derive the multistage result: with k independent hits at small constant rates uᵢ, show P(all k by t) ≈ (Πuᵢ)tᵏ/k! when hits must happen in a fixed order, and explain what changes if the order is free.",
+          "minWords": 70
+        },
+        {
+          "type": "text",
+          "id": "hw3-badluck",
+          "label": "2. Read the abstracts of Tomasetti & Vogelstein (2015) and Wu et al. (2016). In about 150 words: what would each predict for a tissue whose stem cells divide often but that is shielded from carcinogens? What data would decide between them?",
+          "minWords": 120
+        },
+        {
+          "type": "text",
+          "id": "hw3-signatures",
+          "label": "3. Signature extraction is a non-negative decomposition problem. Sketch how you would benchmark any new method for it (classical or quantum): where would ground truth come from, and what would count as success?",
+          "minWords": 80
+        }
+      ]
+    }
+  ]
+}

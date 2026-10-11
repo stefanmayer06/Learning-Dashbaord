@@ -1,0 +1,170 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-data",
+  "title": "Cancer data at scale",
+  "summary": "TCGA, PCAWG, cBioPortal, DepMap, GDSC and OncoKB; controlled access; FAIR data; and the shape of omics data — many features, few patients, batch effects.",
+  "minutes": 40,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo9-reel",
+      "title": "Where the data are",
+      "reel": {
+        "title": "Where the data are",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Atlases",
+            "kicker": "Unit 5 · Computational oncology today",
+            "title": "Cancer data,\nat scale.",
+            "subtitle": "What exists, how to get it, and its shape.",
+            "narration": "Any computational paper in oncology lives or dies on its data. Here is what exists publicly, how access works, and the statistical shape of the data — which matters a great deal for small quantum models."
+          },
+          {
+            "kind": "stat",
+            "value": 10000,
+            "label": "tumours from 33 cancer types in TCGA's PanCancer Atlas",
+            "context": "DNA, RNA, methylation, microRNA and protein data",
+            "narration": "The Cancer Genome Atlas profiled about ten thousand tumours from thirty-three cancer types, at many molecular layers.",
+            "cite": ["tcga-pancan"]
+          },
+          {
+            "kind": "statement",
+            "text": "Its molecular clusters were dominated by **cell of origin** — tissue type. Your classifier may be learning the tissue, not the disease.",
+            "narration": "A striking result: when those tumours were clustered on their molecular data, the clusters were dominated by the tissue the cancer came from. A classifier can easily learn tissue of origin instead of the biology you care about.",
+            "cite": ["tcga-pancan"]
+          },
+          {
+            "kind": "stat",
+            "value": 2658,
+            "label": "whole cancer genomes with matched normal tissue (PCAWG)",
+            "context": "38 tumour types · ICGC and TCGA",
+            "narration": "The Pan-Cancer Analysis of Whole Genomes added two thousand six hundred and fifty-eight whole cancer genomes, with matched normal tissue, across thirty-eight tumour types.",
+            "cite": ["pcawg-drivers"]
+          },
+          {
+            "kind": "list",
+            "chapter": "Resources",
+            "heading": "Tools you will use",
+            "items": [
+              "**cBioPortal** — browse mutations and outcomes across studies",
+              "**DepMap** — which genes cancer cell lines depend on",
+              "**GDSC** — drug sensitivity of cancer cell lines",
+              "**OncoKB / ESCAT** — which alterations are actionable"
+            ],
+            "narration": "Four tools you will use constantly: cBioPortal to browse genomic studies; DepMap for which genes cancer cell lines depend on; GDSC for how cell lines respond to drugs; and OncoKB or ESCAT for which alterations are actionable.",
+            "cite": ["cbioportal", "depmap", "gdsc", "oncokb", "escat"]
+          },
+          {
+            "kind": "statement",
+            "text": "DepMap: **501** genome-scale screens; in **82%** of predictive models the top biomarkers were **gene-expression** features.",
+            "narration": "DepMap's first map analysed five hundred and one genome-scale knockdown screens. In eighty-two percent of its predictive models, the best biomarkers were gene-expression features, not mutations.",
+            "cite": ["depmap"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Access",
+            "text": "Open data are a click away; **controlled** data need dbGaP authorisation and an eRA Commons login.",
+            "narration": "Summary data are open. Individual-level genomic data are controlled: in NCI's Genomic Data Commons you need authorisation through dbGaP and an eRA Commons login, granted per project. Plan for this months ahead.",
+            "cite": ["controlled-access"]
+          },
+          {
+            "kind": "statement",
+            "text": "Share what you make **FAIR**: findable, accessible, interoperable, reusable — by machines too.",
+            "narration": "And share what you produce following the FAIR principles: findable, accessible, interoperable and reusable — by machines as well as people.",
+            "cite": ["fair"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Shape",
+            "text": "Omics data are **wide**: thousands of features, tens or hundreds of patients. Some features will separate any two groups **by chance**.",
+            "narration": "Now the shape. Omics data are wide: thousands of features on tens or hundreds of patients. With that many features, some will separate any two groups by pure chance. The next lesson shows how that fools people.",
+            "cite": ["p-much-greater-n"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Batch effects** — lab, reagent lot, operator — become disasters when they line up with the outcome.",
+            "narration": "And measurements carry batch effects from the laboratory, the reagent lot or the operator. They become disasters when they line up with the outcome you are predicting.",
+            "cite": ["batch-effects"]
+          },
+          {
+            "kind": "statement",
+            "text": "Small quantum models force **dimension reduction** first — and that step can carry most of the signal.",
+            "narration": "For quantum models with tens of qubits, everything starts with dimension reduction. In one study, multi-omics data were cut to forty-four principal components to fit the device — so ask how much of the result came from that step.",
+            "cite": ["li2021-caveat"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo9-sort",
+      "title": "Which resource?",
+      "widget": "card-sort",
+      "brief": "Match each research task to the resource you would start with.",
+      "props": {
+        "buckets": ["TCGA / GDC", "DepMap", "GDSC", "cBioPortal", "OncoKB / ESCAT"],
+        "cards": [
+          { "text": "Download tumour sequencing reads for a lung cancer cohort (with authorisation)", "bucket": "TCGA / GDC", "why": "Individual-level data are controlled in the Genomic Data Commons.", "cite": ["controlled-access"] },
+          { "text": "Which genes do KRAS-mutant cell lines depend on?", "bucket": "DepMap", "why": "Genome-scale loss-of-function screens across cancer cell lines.", "cite": ["depmap"] },
+          { "text": "How sensitive are ~700 cell lines to a given anticancer drug?", "bucket": "GDSC", "why": "Drug-sensitivity data for 138 drugs in its 2013 release.", "cite": ["gdsc"] },
+          { "text": "Quickly check how often TP53 is mutated across published studies", "bucket": "cBioPortal", "why": "An open portal for exploring cancer genomics studies.", "cite": ["cbioportal"] },
+          { "text": "Is this alteration a validated target with an approved drug?", "bucket": "OncoKB / ESCAT", "why": "Curated actionability levels and evidence tiers.", "cite": ["oncokb", "escat"] }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo9-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "How many cancer types are in TCGA's PanCancer Atlas?",
+          "answer": 33,
+          "tolerance": 0,
+          "explain": "About 10,000 tumours from 33 types.",
+          "cite": ["tcga-pancan"]
+        },
+        {
+          "type": "single",
+          "prompt": "What dominated molecular clustering of the TCGA tumours?",
+          "options": ["Patient age", "Cell of origin (tissue type)", "Treatment received"],
+          "answer": 1,
+          "explain": "Clusters were organised largely by histology and tissue — a confounder to watch in any pan-cancer model.",
+          "cite": ["tcga-pancan"]
+        },
+        {
+          "type": "single",
+          "prompt": "To download individual-level controlled data from the GDC you need…",
+          "options": ["Nothing; it is open", "dbGaP authorisation and an eRA Commons login", "A paid licence"],
+          "answer": 1,
+          "explain": "Permissions are set per project according to dbGaP authorisations.",
+          "cite": ["controlled-access"]
+        },
+        {
+          "type": "single",
+          "prompt": "When is a batch effect most dangerous?",
+          "options": ["When it is small", "When it is correlated with the outcome", "When samples were run on the same day"],
+          "answer": 1,
+          "explain": "If cases and controls were processed in different batches, a model can learn the batch.",
+          "cite": ["batch-effects"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo9-hw",
+      "title": "Homework 8 · Get your hands on data",
+      "output": "problem-sets",
+      "brief": "About 60 minutes, at a computer.",
+      "fields": [
+        { "type": "text", "id": "hw8-explore", "label": "1. On cBioPortal, open one TCGA PanCancer study. Record: number of samples, data types available, the five most frequently mutated genes, and the date you checked.", "minWords": 60 },
+        { "type": "text", "id": "hw8-access", "label": "2. Write a one-paragraph data-access plan for a study using individual-level TCGA RNA-seq: what is open, what is controlled, who must apply, and how long you would budget.", "minWords": 80 },
+        { "type": "text", "id": "hw8-confound", "label": "3. Name two confounders (e.g. tissue of origin, batch) that could make a pan-cancer classifier look better than it is, and how you would control each.", "minWords": 60 }
+      ]
+    }
+  ]
+}

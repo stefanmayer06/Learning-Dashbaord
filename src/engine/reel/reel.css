@@ -746,7 +746,6 @@
 }
 .r-tone-ink {
   stroke: var(--t-ink);
-  fill: var(--t-ink);
   color: var(--t-ink);
 }
 .r-tone-accent {
@@ -770,6 +769,7 @@ text.r-tone-signal {
   stroke: none;
 }
 text.r-tone-ink {
+  fill: var(--t-ink);
   stroke: none;
 }
 text.r-tone-muted {

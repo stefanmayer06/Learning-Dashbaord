@@ -1,0 +1,370 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-map",
+  "title": "Four meanings, one phrase",
+  "summary": "What “quantum oncology” covers — computing, sensing, quantum biology and pseudoscience — the scale of cancer, and how this course grades every claim.",
+  "minutes": 25,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo1-reel",
+      "title": "What quantum oncology is",
+      "reel": {
+        "title": "What quantum oncology is",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Why",
+            "kicker": "Unit 1 · Orientation",
+            "title": "Quantum\noncology.",
+            "subtitle": "One phrase, four meanings — and one of them can kill.",
+            "narration": "You already know quantum computing. This course teaches you cancer, then puts the two together carefully enough to publish."
+          },
+          {
+            "kind": "stat",
+            "value": 20,
+            "suffix": " million",
+            "label": "new cancer cases worldwide in 2022",
+            "context": "plus 9.7 million deaths · GLOBOCAN 2022",
+            "narration": "Start with the scale. In 2022 there were close to twenty million new cancer cases worldwide, and nine point seven million cancer deaths.",
+            "cite": [
+              "globocan-2022"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "About **one in five** people develop cancer in their lifetime; about one in nine men and one in twelve women die from it.",
+            "narration": "About one in five people develop cancer in their lifetime. Around one in nine men and one in twelve women die from it.",
+            "cite": [
+              "globocan-lifetime"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Lung cancer: the most diagnosed (**~2.5 million**) and the deadliest (**~1.8 million**). Cases are projected to reach **~35 million a year by 2050** (an estimate).",
+            "narration": "Lung cancer was both the most diagnosed cancer, almost two and a half million cases, and the deadliest, about one point eight million deaths. Demographic projections put new cases at about thirty-five million a year by 2050.",
+            "cite": [
+              "globocan-lung",
+              "globocan-2050"
+            ]
+          },
+          {
+            "kind": "list",
+            "chapter": "Four meanings",
+            "heading": "“Quantum oncology” can mean",
+            "items": [
+              "**Quantum computing** for cancer research",
+              "**Quantum sensing** and imaging",
+              "**Quantum biology** hypotheses",
+              "**Pseudoscience** sold to patients"
+            ],
+            "narration": "The phrase covers four different things: quantum computing for cancer research, quantum sensing and imaging, speculative quantum biology, and pseudoscience sold to patients."
+          },
+          {
+            "kind": "statement",
+            "text": "This course is mostly about the **first**, with a lesson on the second and third — and a warning about the fourth.",
+            "narration": "This course is mostly about the first. One lesson covers sensing and quantum biology. And the fourth gets a warning, because it does real harm."
+          },
+          {
+            "kind": "stat",
+            "value": 2.5,
+            "decimals": 1,
+            "suffix": "×",
+            "label": "the risk of death when alternative medicine replaced conventional treatment",
+            "context": "US cohort, curable cancers · hazard ratio 2.50 (95% CI 1.88–3.27)",
+            "narration": "In a US study of curable cancers, patients who chose alternative medicine instead of conventional treatment had two and a half times the risk of death.",
+            "cite": [
+              "alt-medicine-risk"
+            ]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "The route",
+            "nodes": [
+              {
+                "id": "bio",
+                "label": "Cancer biology",
+                "x": 10,
+                "y": 30,
+                "tone": "ink"
+              },
+              {
+                "id": "clin",
+                "label": "Clinic & evidence",
+                "x": 36,
+                "y": 30,
+                "tone": "ink"
+              },
+              {
+                "id": "comp",
+                "label": "Classical computation",
+                "x": 64,
+                "y": 30,
+                "tone": "ink"
+              },
+              {
+                "id": "q",
+                "label": "Quantum methods",
+                "x": 90,
+                "y": 30,
+                "tone": "accent"
+              },
+              {
+                "id": "land",
+                "label": "The field in 2026",
+                "x": 30,
+                "y": 72,
+                "tone": "muted"
+              },
+              {
+                "id": "res",
+                "label": "Research practice",
+                "x": 58,
+                "y": 72,
+                "tone": "muted"
+              },
+              {
+                "id": "prop",
+                "label": "Your proposal",
+                "x": 86,
+                "y": 72,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "bio",
+                "to": "clin"
+              },
+              {
+                "from": "clin",
+                "to": "comp"
+              },
+              {
+                "from": "comp",
+                "to": "q"
+              },
+              {
+                "from": "q",
+                "to": "land"
+              },
+              {
+                "from": "land",
+                "to": "res"
+              },
+              {
+                "from": "res",
+                "to": "prop"
+              }
+            ],
+            "narration": "Here is the route: cancer biology, the clinic and its evidence, the classical computation you must beat, quantum methods, the field today, and research practice — ending in your own proposal."
+          },
+          {
+            "kind": "statement",
+            "text": "Every factual sentence links to the ledger: **sourced, dated and graded** — verified, derived, estimate or contested.",
+            "narration": "Every factual sentence links to a ledger entry with its sources, the date it was checked, and a grade: verified, derived, estimate or contested. Use the same discipline in your papers."
+          },
+          {
+            "kind": "statement",
+            "text": "The deep reason to care: to simulate **quantum** nature, use a **quantum** computer. Drug molecules are quantum systems. Tumours are not.",
+            "narration": "The deepest reason to care was given in 1982, when Richard Feynman argued that simulating quantum physics efficiently needs a quantum computer. Drug molecules are quantum systems. Tumours, as a whole, are not.",
+            "cite": [
+              "feynman-simulation"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Homework starts now: write down **where you're starting from**.",
+            "narration": "Your first piece of homework starts now: a short note on where you are starting from. It becomes the first page of your research proposal."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo1-sort",
+      "title": "Which kind of quantum oncology?",
+      "widget": "card-sort",
+      "brief": "Sort each statement by what kind of “quantum oncology” it is. The last bucket is for claims a patient should walk away from.",
+      "props": {
+        "buckets": [
+          "Quantum computing",
+          "Quantum sensing & imaging",
+          "Quantum biology (hypothesis)",
+          "Pseudoscience red flag"
+        ],
+        "cards": [
+          {
+            "text": "A 16-qubit circuit supplies the prior of a generative model that proposes KRAS inhibitors.",
+            "bucket": "Quantum computing",
+            "why": "A quantum circuit Born machine on an IBM processor fed a classical model (Nature Biotechnology, 2025).",
+            "cite": [
+              "vakili-workflow"
+            ]
+          },
+          {
+            "text": "Phase estimation could compute the electronic structure of cytochrome P450, the enzyme family that breaks down drugs such as imatinib.",
+            "bucket": "Quantum computing",
+            "why": "A resource estimate for a fault-tolerant computer.",
+            "cite": [
+              "goings-p450",
+              "imatinib-cyp3a4"
+            ]
+          },
+          {
+            "text": "A quantum annealer optimises radiotherapy beam intensities.",
+            "bucket": "Quantum computing",
+            "why": "First tried in 2015 on two prostate cases.",
+            "cite": [
+              "nazareth-imrt"
+            ]
+          },
+          {
+            "text": "Fluorescent nanodiamonds, modulated with microwaves, make a lateral-flow test far more sensitive.",
+            "bucket": "Quantum sensing & imaging",
+            "why": "The quantum spin states of nitrogen-vacancy defects are used to separate signal from background.",
+            "cite": [
+              "nanodiamond-lfa"
+            ]
+          },
+          {
+            "text": "Hyperpolarised pyruvate MRI shows tumour metabolism in men with prostate cancer.",
+            "bucket": "Quantum sensing & imaging",
+            "why": "Nuclear spin polarisation boosts the MRI signal; first done in patients in 2013.",
+            "cite": [
+              "hp-pyruvate"
+            ]
+          },
+          {
+            "text": "Protons tunnelling across DNA base pairs may create mutation-prone tautomers.",
+            "bucket": "Quantum biology (hypothesis)",
+            "why": "Proposed in 1963 and modelled in 2022, but not measured in cells.",
+            "cite": [
+              "lowdin",
+              "slocombe"
+            ]
+          },
+          {
+            "text": "A clinic offers “quantum frequency healing” instead of chemotherapy.",
+            "bucket": "Pseudoscience red flag",
+            "why": "Replacing treatment with alternative medicine was linked to 2.5× the risk of death.",
+            "cite": [
+              "alt-medicine-risk"
+            ]
+          },
+          {
+            "text": "A “quantum energy” bracelet is sold to shrink tumours.",
+            "bucket": "Pseudoscience red flag",
+            "why": "No mechanism, no evidence — the word “quantum” is the product."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo1-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Roughly how many new cancer cases were there worldwide in 2022?",
+          "options": [
+            "About 2 million",
+            "About 20 million",
+            "About 200 million"
+          ],
+          "answer": 1,
+          "explain": "GLOBOCAN estimates close to 20 million new cases and 9.7 million deaths in 2022.",
+          "cite": [
+            "globocan-2022"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Which cancer was both the most diagnosed and the leading cause of cancer death worldwide in 2022?",
+          "options": [
+            "Breast",
+            "Lung",
+            "Colorectal"
+          ],
+          "answer": 1,
+          "explain": "Lung: almost 2.5 million cases (12.4%) and about 1.8 million deaths (18.7%).",
+          "cite": [
+            "globocan-lung"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Which of these is quantum sensing rather than quantum computing?",
+          "options": [
+            "QAOA selecting a gene panel",
+            "Hyperpolarised MRI of tumour metabolism",
+            "VQE on a drug fragment"
+          ],
+          "answer": 1,
+          "explain": "Hyperpolarisation manipulates nuclear spins to boost an imaging signal; no computation is quantum.",
+          "cite": [
+            "hp-pyruvate"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "In this course's ledger, what does “contested” mean?",
+          "options": [
+            "The claim is false",
+            "A primary source makes it, but credible parties dispute it or it rests only on preprints — the note explains the dispute",
+            "The claim is a projection about the future"
+          ],
+          "answer": 1,
+          "explain": "Projections are “estimate”. “Contested” keeps a disputed claim visible, with the dispute written out — exactly what a careful paper does."
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo1-start",
+      "title": "Starting point",
+      "output": "research-proposal",
+      "brief": "The first page of your proposal. Be specific about what you can already do — it is your half of any collaboration.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "background",
+          "label": "Your quantum background: what can you already build, prove or run?",
+          "hint": "Algorithms you know well, hardware you've used, papers you've written.",
+          "minWords": 30
+        },
+        {
+          "type": "choice",
+          "id": "pull",
+          "label": "Which part of oncology pulls you most right now?",
+          "options": [
+            "Drug discovery and chemistry",
+            "Genomics and biomarkers",
+            "Imaging and diagnosis",
+            "Radiotherapy and treatment planning",
+            "Clinical trials and outcomes",
+            "Not sure yet"
+          ]
+        },
+        {
+          "type": "text",
+          "id": "first-question",
+          "label": "One question you would love to be able to answer by the end of this course.",
+          "minWords": 15
+        },
+        {
+          "type": "scale",
+          "id": "bio-comfort",
+          "label": "How comfortable are you reading a biology paper today?",
+          "min": 1,
+          "max": 5,
+          "minLabel": "Lost",
+          "maxLabel": "Fluent"
+        }
+      ]
+    }
+  ]
+}

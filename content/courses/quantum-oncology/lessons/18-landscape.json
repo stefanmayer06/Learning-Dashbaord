@@ -1,0 +1,333 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-landscape",
+  "title": "Who is doing what (checked 11 October 2026)",
+  "summary": "The institutions, programmes and results that define quantum oncology in 2026 — Cleveland Clinic and IBM, Wellcome Leap's Q4Bio and its prize, biomarker and neoantigen projects — against the state of the hardware.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo18-reel",
+      "title": "The field in 2026",
+      "reel": {
+        "title": "The field in 2026",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Who",
+            "kicker": "Unit 8 · The field in 2026 · checked 11 Oct 2026",
+            "title": "Who is doing\nwhat.",
+            "subtitle": "Demonstrations, estimates and plans — kept apart.",
+            "narration": "This lesson is a dated snapshot — the check date is on the title card. The field moves quickly, so the habit to learn is separating demonstrations from estimates and plans."
+          },
+          {
+            "kind": "timeline",
+            "events": [
+              {
+                "year": "2023",
+                "label": "Quantum computer at Cleveland Clinic",
+                "detail": "dedicated to healthcare research"
+              },
+              {
+                "year": "2023",
+                "label": "Q4Bio launched",
+                "detail": "Wellcome Leap, $40M + $10M prizes"
+              },
+              {
+                "year": "2025",
+                "label": "KRAS hits, quantum-assisted",
+                "detail": "Nature Biotechnology"
+              },
+              {
+                "year": "Dec 2025",
+                "label": "Photosensitizer resource estimate",
+                "detail": "preprint"
+              },
+              {
+                "year": "Apr 2026",
+                "label": "Q4Bio $2M prize",
+                "detail": "Algorithmiq, IBM, Cleveland Clinic"
+              },
+              {
+                "year": "Oct 2026",
+                "label": "Neoantigen project launched",
+                "detail": "NEC, Taiho, JFCR, AIST, Waseda"
+              }
+            ],
+            "narration": "The milestones: a quantum computer installed at Cleveland Clinic in 2023; Wellcome Leap's Q4Bio programme the same year; the KRAS study in 2025; a photosensitizer resource estimate that December; the Q4Bio prize in April 2026; and a neoantigen project launched this month.",
+            "cite": [
+              "cleveland-ibm",
+              "q4bio-structure",
+              "vakili-workflow",
+              "photosensitizer-ft",
+              "q4bio-prize",
+              "nedo-neoantigen"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "March 2023: an IBM Quantum System One at **Cleveland Clinic** — described as the first dedicated to healthcare research.",
+            "narration": "In March 2023 Cleveland Clinic and IBM unveiled an on-site IBM Quantum System One, described as the first quantum computer dedicated to healthcare research, inside a ten-year partnership. That is a fact about deployment, not about results.",
+            "cite": [
+              "cleveland-ibm"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Q4Bio",
+            "text": "Q4Bio prizes: **$2M** for a working application on **>50 qubits** at depth **10³–10⁴**; **$5M** for quantum **advantage**.",
+            "narration": "Wellcome Leap's Q4Bio set two bars: two million dollars for a working application on more than fifty qubits at a program depth of a thousand to ten thousand, and five million for quantum advantage over the best classical methods.",
+            "cite": [
+              "q4bio-structure"
+            ]
+          },
+          {
+            "kind": "stat",
+            "value": 100,
+            "prefix": "up to ",
+            "suffix": " qubits",
+            "label": "in the prize-winning photodynamic-therapy workflow",
+            "context": "Algorithmiq with IBM and Cleveland Clinic · April 2026 · no grand-prize winner announced",
+            "narration": "In April 2026 the Algorithmiq-led team, with IBM and Cleveland Clinic, met the two-million-dollar criteria, computing excited-state properties of a photodynamic-therapy drug on circuits of up to a hundred qubits. No grand-prize winner for advantage was announced.",
+            "cite": [
+              "q4bio-prize"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Six finalists — Infleqtion, Nottingham, Harvard, Stanford, Algorithmiq, Oxford; **five of six** used IBM hardware.",
+            "narration": "The six finalists were led by Infleqtion, the University of Nottingham, Harvard, Stanford, Algorithmiq and Oxford, and five of the six ran on IBM hardware.",
+            "cite": [
+              "q4bio-finalists"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Cancer biomarkers: quantum **feature selection** on real hardware, forecasting **head-and-neck** treatment response — claimed gains **not yet peer-reviewed**.",
+            "narration": "On the oncology side, Infleqtion, the University of Chicago and MIT took quantum feature selection for cancer biomarkers onto real hardware, aiming to forecast treatment response in head-and-neck cancer. Their claimed improvement is, so far, a press-release quotation.",
+            "cite": [
+              "infleqtion-biomarkers",
+              "infleqtion-claim"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "October 2026: a NEDO project (to **March 2029**) will use AI plus quantum optimisation to design **neoantigen** cancer-vaccine candidates.",
+            "narration": "And in October 2026, NEC, Taiho Pharmaceutical, the Japanese Foundation for Cancer Research, AIST and Waseda University announced a project running to March 2029 to design neoantigen cancer-vaccine candidates with AI and quantum optimisation. A plan, not a result.",
+            "cite": [
+              "nedo-neoantigen"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Hardware",
+            "text": "Error correction is real: **below threshold** (Google, 2024); **48** logical qubits on **98** physical (Quantinuum, 2025).",
+            "narration": "The hardware is moving. Google showed error correction below threshold in 2024, and Quantinuum's Helios ran forty-eight error-corrected logical qubits on ninety-eight physical ones in 2025.",
+            "cite": [
+              "willow-threshold",
+              "helios"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Roadmap: **~200 logical qubits by 2029** (IBM, an estimate). The P450 estimate needs **millions** of physical qubits.",
+            "narration": "IBM's roadmap targets about two hundred logical qubits by 2029 — a plan, not a fact. Compare the needs: photosensitizer screening at a hundred and eighty to three hundred and fifty logical qubits, the largest P450 model at millions of physical qubits.",
+            "cite": [
+              "ibm-starling",
+              "photosensitizer-ft",
+              "goings-p450"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Advantage claims draw **classical replies**: IBM's 2023 utility run and 2026 advantage run were both simulated classically soon after.",
+            "narration": "And advantage claims draw classical replies. IBM's 2023 utility experiment was reproduced by tensor networks, and its 2026 seventy-qubit advantage claim was simulated classically within weeks, in a preprint. Expect the same for any biomedical claim.",
+            "cite": [
+              "utility-2023",
+              "ibm-advantage-2026"
+            ]
+          },
+          {
+            "kind": "compare",
+            "left": {
+              "heading": "Demonstrated",
+              "items": [
+                "~100-qubit workflows on real biomedical problems",
+                "Error correction below threshold",
+                "Quantum-assisted molecules made and tested"
+              ]
+            },
+            "right": {
+              "heading": "Not yet",
+              "items": [
+                "Quantum advantage on any oncology task",
+                "Peer-reviewed biomarker gains from quantum hardware",
+                "Any benefit to a patient"
+              ]
+            },
+            "narration": "The scoreboard, as of today. Demonstrated: hundred-qubit workflows on real biomedical problems, error correction below threshold, and quantum-assisted molecules made and tested. Not yet: advantage on any oncology task, peer-reviewed biomarker gains, or any benefit to a patient.",
+            "cite": [
+              "q4bio-prize",
+              "willow-threshold",
+              "vakili-results",
+              "infleqtion-claim"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo18-sort",
+      "title": "Demonstrated, estimated or contested?",
+      "widget": "card-sort",
+      "brief": "Sort these 2026-landscape statements by their evidence level.",
+      "props": {
+        "buckets": [
+          "Demonstrated",
+          "Estimate or plan",
+          "Contested"
+        ],
+        "cards": [
+          {
+            "text": "A ~100-qubit workflow computed excited-state properties of a photodynamic-therapy drug",
+            "bucket": "Demonstrated",
+            "why": "Met Wellcome Leap's $2M criteria, April 2026.",
+            "cite": [
+              "q4bio-prize"
+            ]
+          },
+          {
+            "text": "Google's Willow showed logical errors falling as the code grew",
+            "bucket": "Demonstrated",
+            "why": "Published in Nature.",
+            "cite": [
+              "willow-threshold"
+            ]
+          },
+          {
+            "text": "Two quantum-assisted KRAS molecules showed activity in assays",
+            "bucket": "Demonstrated",
+            "why": "Synthesised and tested; early-stage.",
+            "cite": [
+              "vakili-results"
+            ]
+          },
+          {
+            "text": "The largest P450 model needs ~4.6 million physical qubits",
+            "bucket": "Estimate or plan",
+            "why": "A resource estimate.",
+            "cite": [
+              "goings-p450"
+            ]
+          },
+          {
+            "text": "IBM will have ~200 logical qubits by 2029",
+            "bucket": "Estimate or plan",
+            "why": "A roadmap.",
+            "cite": [
+              "ibm-starling"
+            ]
+          },
+          {
+            "text": "AI plus quantum optimisation will design neoantigen candidates by 2029",
+            "bucket": "Estimate or plan",
+            "why": "A newly launched project.",
+            "cite": [
+              "nedo-neoantigen"
+            ]
+          },
+          {
+            "text": "A hybrid quantum approach found novel cancer biomarkers",
+            "bucket": "Contested",
+            "why": "A press-release quotation without peer-reviewed results when checked.",
+            "cite": [
+              "infleqtion-claim"
+            ]
+          },
+          {
+            "text": "IBM's 70-logical-qubit run is beyond classical computers",
+            "bucket": "Contested",
+            "why": "Reproduced classically within weeks, in a preprint.",
+            "cite": [
+              "ibm-advantage-2026"
+            ]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo18-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What did the Q4Bio $2M prize require?",
+          "options": [
+            "Proven quantum advantage",
+            "A working application on more than 50 qubits at program depth 10³–10⁴, with a path to scale",
+            "A patient trial"
+          ],
+          "answer": 1,
+          "explain": "Advantage was the separate $5M grand prize; no winner was announced for it.",
+          "cite": [
+            "q4bio-structure",
+            "q4bio-prize"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Which statement about quantum oncology in 2026 is supported?",
+          "options": [
+            "Quantum computers have improved cancer patients' outcomes",
+            "Hybrid workflows have run at ~100 qubits on biomedical problems, without demonstrated advantage",
+            "Quantum biomarker gains are peer-reviewed"
+          ],
+          "answer": 1,
+          "explain": "Demonstrations, not advantage — and no patient benefit yet.",
+          "cite": [
+            "q4bio-prize"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "IBM's ~200-logical-qubit target for 2029 is best classified as…",
+          "options": [
+            "Verified",
+            "An estimate (roadmap)",
+            "Contested"
+          ],
+          "answer": 1,
+          "explain": "A roadmap is a plan; treat it as an estimate until delivered.",
+          "cite": [
+            "ibm-starling"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo18-hw",
+      "title": "Homework 16 · Keep the map current",
+      "output": "problem-sets",
+      "brief": "About 45 minutes. Landscape knowledge goes stale; build the habit of re-checking.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw16-track",
+          "label": "1. Find three quantum-oncology announcements newer than 11 October 2026 (or the newest you can find). For each: date, claim, evidence level (demonstrated / estimate / contested), primary source.",
+          "minWords": 120
+        },
+        {
+          "type": "text",
+          "id": "hw16-gap",
+          "label": "2. Where is the gap between the hardware roadmaps and the published resource estimates smallest? Which oncology problem could become feasible first, and why?",
+          "minWords": 80
+        }
+      ]
+    }
+  ]
+}

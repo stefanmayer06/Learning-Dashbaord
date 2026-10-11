@@ -1,0 +1,206 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-trials",
+  "title": "How we know a drug works",
+  "summary": "Trial phases and why most oncology drugs fail; endpoints; censoring; Kaplan–Meier, the log-rank test and hazard ratios computed on a real 1963 trial; and statistical power.",
+  "minutes": 60,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo8-reel",
+      "title": "Trials and survival",
+      "reel": {
+        "title": "Trials and survival",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Trials",
+            "kicker": "Unit 4 · Clinical evidence",
+            "title": "How we know\na drug works.",
+            "subtitle": "Phases, endpoints, censoring — and the curve every oncology paper shows.",
+            "narration": "Oncology's standard of evidence is the randomised trial, and its native statistics are survival curves. If you publish in this field, referees will expect you to read both fluently."
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              { "id": "pre", "label": "Preclinical", "x": 8, "y": 45, "tone": "muted" },
+              { "id": "p1", "label": "Phase 1: safe dose", "x": 30, "y": 45, "tone": "ink" },
+              { "id": "p2", "label": "Phase 2: activity", "x": 52, "y": 45, "tone": "ink" },
+              { "id": "p3", "label": "Phase 3: v. control", "x": 74, "y": 45, "tone": "accent" },
+              { "id": "ap", "label": "Approval", "x": 93, "y": 45, "tone": "signal" }
+            ],
+            "edges": [
+              { "from": "pre", "to": "p1" },
+              { "from": "p1", "to": "p2" },
+              { "from": "p2", "to": "p3" },
+              { "from": "p3", "to": "ap" }
+            ],
+            "narration": "Drugs move through phases. Phase one finds a safe dose — imatinib's first trial escalated doses in eighty-three patients. Phase two looks for activity. Phase three compares against a control, usually randomised.",
+            "cite": ["trial-phases"]
+          },
+          {
+            "kind": "stat",
+            "value": 3.4,
+            "decimals": 1,
+            "suffix": "%",
+            "label": "of oncology drug programmes went from phase 1 to approval",
+            "context": "2000–2015 trial records · the lowest of any therapeutic area",
+            "narration": "And most fail. In trial records from 2000 to 2015, only three point four percent of oncology programmes went from phase one to approval — the lowest of any therapeutic area. Trials that selected patients by biomarker did better.",
+            "cite": ["oncology-success", "biomarker-trials"]
+          },
+          {
+            "kind": "stat",
+            "value": 2.77,
+            "decimals": 2,
+            "prefix": "$",
+            "suffix": " billion",
+            "label": "median R&D investment per approved cancer or immune drug (2018 dollars)",
+            "context": "public data, 2009–2018 · overall median $985 million",
+            "narration": "Failure is expensive. From public data on drugs approved between 2009 and 2018, the median research investment for cancer and immune drugs was two point seven seven billion dollars. Older industry-supplied estimates are disputed.",
+            "cite": ["rd-cost", "rd-cost-dimasi"]
+          },
+          {
+            "kind": "list",
+            "chapter": "Endpoints",
+            "heading": "What trials measure",
+            "items": [
+              "**Overall survival (OS)** — time to death from any cause",
+              "**Progression-free survival (PFS)** — time to progression or death",
+              "**Objective response rate (ORR)** — share of tumours that shrink enough"
+            ],
+            "narration": "Three endpoints dominate. Overall survival: time to death from any cause. Progression-free survival: time until the cancer grows or the patient dies. And objective response rate: the share of tumours that shrink enough to count.",
+            "cite": ["endpoints"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Censoring",
+            "text": "Patients enter at different times; some are still alive at analysis. Their times are **censored** — known to be *at least* this long.",
+            "narration": "The defining problem: patients enter at different times, and some are still alive and well when the data are analysed. Their survival times are censored — we only know they are at least that long.",
+            "cite": ["km-rule"]
+          },
+          {
+            "kind": "equation",
+            "tex": ["\\hat S(t) = \\prod_{t_i \\le t} \\left( 1 - \\frac{d_i}{n_i} \\right)"],
+            "notes": ["d_i: events at time t_i", "n_i: patients still at risk just before t_i", "censored patients leave the risk set without a step"],
+            "narration": "Kaplan and Meier's answer, from 1958: at each event time, multiply the survival estimate by one minus the events over the number still at risk. Censored patients count as at risk until they leave.",
+            "cite": ["km-estimator", "km-rule"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "A real trial",
+            "text": "1963: **6-mercaptopurine** to keep children with leukaemia in remission. **42** children, **21** matched pairs.",
+            "narration": "We'll use a real trial from 1963: six-mercaptopurine, given to keep children with acute leukaemia in remission. Forty-two children in twenty-one matched pairs, with remission times in weeks.",
+            "cite": ["freireich-trial"]
+          },
+          {
+            "kind": "chart",
+            "xLabel": "Weeks in remission",
+            "yLabel": "Proportion in remission",
+            "series": [
+              { "name": "6-MP", "points": [[0, 1], [6, 1], [6, 0.857], [7, 0.857], [7, 0.807], [10, 0.807], [10, 0.753], [13, 0.753], [13, 0.69], [16, 0.69], [16, 0.627], [22, 0.627], [22, 0.538], [23, 0.538], [23, 0.448], [35, 0.448]], "tone": "accent" },
+              { "name": "placebo", "points": [[0, 1], [1, 1], [1, 0.905], [2, 0.905], [2, 0.81], [3, 0.81], [3, 0.762], [4, 0.762], [4, 0.667], [5, 0.667], [5, 0.571], [8, 0.571], [8, 0.381], [11, 0.381], [11, 0.286], [12, 0.286], [12, 0.19], [15, 0.19], [15, 0.143], [17, 0.143], [17, 0.095], [22, 0.095], [22, 0.048], [23, 0.048], [23, 0]], "tone": "ink" }
+            ],
+            "annotations": [{ "x": 23, "y": 0.5, "text": "median 23 v. 8 weeks" }],
+            "narration": "Here are the two Kaplan–Meier curves. Median remission: twenty-three weeks on the drug, eight on placebo. The log-rank chi-squared is sixteen point eight, and the hazard ratio about zero point two one.",
+            "cite": ["freireich-results"]
+          },
+          {
+            "kind": "equation",
+            "tex": ["\\chi^2 = \\frac{(O - E)^2}{V}", "h_{\\text{treat}}(t) = \\text{HR} \\cdot h_{\\text{control}}(t)"],
+            "notes": ["log-rank: observed v. expected events, summed over event times", "Cox: hazard ratio, baseline hazard left unspecified"],
+            "narration": "The log-rank test compares observed and expected events in each arm at every event time. Cox's proportional-hazards model estimates the hazard ratio — the ratio of instantaneous event rates — without assuming a baseline shape.",
+            "cite": ["logrank", "cox-ph"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Power",
+            "text": "A real effect can still be **missed**: small trials are underpowered. Your lab: find how big is big enough.",
+            "narration": "One more idea: power. A drug that truly works can still produce a non-significant trial if the trial is small. In the lab you'll compute this trial's statistics yourself, then design trials of your own."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo8-lab",
+      "title": "Lab: survival analysis",
+      "widget": "survival-lab",
+      "brief": "Three parts: read the real 1963 trial, compute its Kaplan–Meier table by hand, then simulate trials to see how sample size controls power.",
+      "props": { "capture": "survival-run" },
+      "cite": ["freireich-trial", "freireich-results", "km-estimator", "km-rule", "logrank", "cox-ph"]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo8-notebook",
+      "title": "Notebook: survival",
+      "output": "lab-notebook",
+      "brief": "Save the lab result (after running 200 simulated trials), then interpret it.",
+      "fields": [
+        { "type": "capture", "id": "survival-result", "label": "Your saved run", "from": "survival-run" },
+        { "type": "text", "id": "survival-meaning", "label": "Explain the 6-MP result to a quantum colleague: what the median, the log-rank p and the hazard ratio each tell you.", "minWords": 60 },
+        { "type": "text", "id": "survival-power", "label": "What sample size gave you about 80% power for your chosen hazard ratio? What does that imply for a study that reports p = 0.3?", "minWords": 40 }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo8-ps",
+      "title": "Problem set · Survival arithmetic",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "6-MP arm, week 10: 15 children at risk, 1 relapse. Survival just before was 0.8067. What is S(10)? (4 decimals)",
+          "answer": 0.7529,
+          "tolerance": 0.0005,
+          "explain": "0.8067 × (1 − 1/15) = 0.8067 × 0.9333 = 0.7529.",
+          "cite": ["km-rule", "freireich-results"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "Constant hazard with median survival 12 months: what is λ per month? (4 decimals)",
+          "answer": 0.0578,
+          "tolerance": 0.0005,
+          "unit": "per month",
+          "explain": "λ = ln 2 / 12 = 0.0578 per month.",
+          "cite": ["exp-survival"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "Same control arm; the treatment has hazard ratio 0.5. What is the treated median survival in months?",
+          "answer": 24,
+          "tolerance": 0,
+          "unit": "months",
+          "explain": "λ halves to 0.0289, so the median doubles: ln 2 / 0.0289 = 24 months. Under constant hazards, median ratio = 1/HR.",
+          "cite": ["exp-survival", "cox-ph"]
+        },
+        {
+          "type": "single",
+          "prompt": "A small trial of a drug reports p = 0.3 for overall survival. The right conclusion is…",
+          "options": ["The drug does not work", "The trial could not distinguish the drug from control; it may have been underpowered", "The drug works but less than hoped"],
+          "answer": 1,
+          "explain": "Absence of evidence is not evidence of absence. Check the confidence interval and the power calculation."
+        },
+        {
+          "type": "single",
+          "prompt": "What should you do with a patient who moved away, still in remission, at week 11?",
+          "options": ["Drop them from the analysis", "Count them as a relapse at week 11", "Keep them at risk until week 11, then censor them"],
+          "answer": 2,
+          "explain": "Censoring uses every patient for as long as they were followed.",
+          "cite": ["km-rule"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo8-hw",
+      "title": "Homework 7 · Reading a trial",
+      "output": "problem-sets",
+      "brief": "About 50 minutes.",
+      "fields": [
+        { "type": "text", "id": "hw7-km", "label": "1. By hand: patients relapse or are censored at months 3, 5+, 7, 7, 9+, 12, 15+ (+ = censored). Write the Kaplan–Meier table (time, at risk, events, S) and give the median.", "hint": "Check: S after month 3 is 6/7; after month 7 it is 6/7 × 3/5.", "minWords": 40 },
+        { "type": "text", "id": "hw7-hodi", "label": "2. Read the abstract of Hodi et al. (2010, NEJM). Identify the population, comparator, primary endpoint, hazard ratio, and one threat to generalising the result.", "minWords": 80 },
+        { "type": "text", "id": "hw7-endpoint", "label": "3. Your future model predicts something about patients. Which of OS, PFS or ORR would you validate it against, and why that one?", "minWords": 50 }
+      ]
+    }
+  ]
+}

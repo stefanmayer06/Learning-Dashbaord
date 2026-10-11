@@ -1,0 +1,225 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-writing",
+  "title": "Writing it up",
+  "summary": "Structuring an interdisciplinary paper, calibrating every claim, authorship, data ethics and access, preprints, choosing referees' expectations — and drafting your abstract.",
+  "minutes": 50,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo22-reel",
+      "title": "From results to paper",
+      "reel": {
+        "title": "From results to paper",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Structure",
+            "kicker": "Unit 9 · From question to publication",
+            "title": "Writing\nit up.",
+            "subtitle": "Two audiences, one paper.",
+            "narration": "An interdisciplinary paper has two sets of referees. Quantum referees check the algorithm and the resource claims. Oncology referees check the question, the data, the validation and the endpoint. Write for both."
+          },
+          {
+            "kind": "list",
+            "heading": "IMRaD, for this interface",
+            "items": [
+              "**Introduction** — oncology problem first, then why quantum",
+              "**Methods** — data, splits, baselines, ablations",
+              "**Results** — numbers with uncertainty, side by side",
+              "**Discussion** — limitations first"
+            ],
+            "narration": "Use the standard structure, adapted. Introduction: the oncology problem first, then why quantum. Methods: data access, splits, baselines, ablations and resources. Results: numbers with uncertainty, side by side. Discussion: limitations first."
+          },
+          {
+            "kind": "list",
+            "chapter": "Calibration",
+            "heading": "Calibrate every claim",
+            "items": [
+              "**Verified** — measured, peer-reviewed: say it plainly",
+              "**Derived** — follows from the maths: show it",
+              "**Estimate** — a projection: say “we estimate”",
+              "**Contested** — disputed or preprint-only: name the dispute"
+            ],
+            "narration": "Borrow this course's grades for your own sentences. Verified results, say plainly. Derived ones, show the derivation. Estimates, label as estimates. Contested or preprint-only claims, name the dispute."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Authorship",
+            "text": "Authorship needs **all four**: contribution, drafting or revising, final approval, accountability.",
+            "narration": "Agree authorship early. Medical journals follow the ICMJE criteria: substantial contribution, drafting or critical revision, final approval, and accountability. All four are required — including for your clinical collaborators.",
+            "cite": [
+              "icmje"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Ethics",
+            "text": "Patient data come with **rules**: controlled access, no re-identification, and an ethics or data-use approval.",
+            "narration": "Patient data come with rules. Controlled genomic data need authorisation, and your data-use agreement will forbid re-identification and limit sharing. Budget time for approvals, and never move controlled data to a quantum cloud service without checking the agreement.",
+            "cite": [
+              "controlled-access"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Release what you can: code, simulated data, processed features — **FAIR**ly.",
+            "narration": "Release what you can: code, synthetic or processed data, and exact circuit and solver settings, so others can reproduce your numbers.",
+            "cite": [
+              "fair"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Preprints",
+            "text": "Preprints are fine — label them. A preprint-only claim is **contested** until reviewed.",
+            "narration": "Post preprints; the quantum community lives on arXiv. But label preprints as such in your citations, and treat preprint-only claims — including your own — as provisional until peer review."
+          },
+          {
+            "kind": "list",
+            "chapter": "Abstract",
+            "heading": "A five-sentence abstract",
+            "items": [
+              "The oncology **problem** and why it matters",
+              "The **gap** — what current methods can't do",
+              "Your **approach** — quantum method and classical baselines",
+              "**Results** — numbers with uncertainty",
+              "**Meaning** and the main limitation"
+            ],
+            "narration": "Then the abstract, in five sentences: the oncology problem, the gap, your approach and baselines, the results with uncertainty, and what it means — including the main limitation."
+          },
+          {
+            "kind": "statement",
+            "text": "Write the **limitations** paragraph first. If it kills the paper, better now than at review.",
+            "narration": "A last tip: write the limitations paragraph first. If honest limitations kill the paper, it is better to know now than from a referee."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo22-sort",
+      "title": "Calibrated or overclaimed?",
+      "widget": "card-sort",
+      "brief": "Sentences from hypothetical abstracts. Sort them.",
+      "props": {
+        "buckets": [
+          "Calibrated",
+          "Overclaim"
+        ],
+        "cards": [
+          {
+            "text": "Our quantum model outperforms classical machine learning on cancer data.",
+            "bucket": "Overclaim",
+            "why": "Which model, which data, against which baseline, by how much?"
+          },
+          {
+            "text": "(Hypothetical) On three TCGA subtype tasks, an 8-qubit kernel matched a tuned RBF-SVM (AUC 0.81 v. 0.82; CIs overlap); removing entanglement did not change accuracy.",
+            "bucket": "Calibrated",
+            "why": "Specific task, baseline, uncertainty and ablation."
+          },
+          {
+            "text": "Quantum computing will revolutionise cancer drug discovery.",
+            "bucket": "Overclaim",
+            "why": "A forecast stated as a fact."
+          },
+          {
+            "text": "We estimate that phase estimation for this active space would need ~200 logical qubits; no hardware run was performed.",
+            "bucket": "Calibrated",
+            "why": "Labelled as an estimate, with its scope."
+          },
+          {
+            "text": "We discovered novel cancer biomarkers using a quantum computer.",
+            "bucket": "Overclaim",
+            "why": "“Discovered” needs validation; “using a quantum computer” needs a comparison."
+          },
+          {
+            "text": "These results (preprint, not yet peer-reviewed) suggest…",
+            "bucket": "Calibrated",
+            "why": "Evidence level stated."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "deliverable",
+      "id": "qo22-abstract",
+      "title": "Abstract and publication plan",
+      "output": "research-proposal",
+      "brief": "Write the abstract you hope to submit — with placeholder numbers marked [X] where results don't exist yet.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "ab-abstract",
+          "label": "Abstract (five sentences: problem, gap, approach, results, meaning).",
+          "minWords": 120,
+          "maxWords": 260
+        },
+        {
+          "type": "text",
+          "id": "ab-limitations",
+          "label": "Limitations paragraph — written first, as advised.",
+          "minWords": 60
+        },
+        {
+          "type": "choice",
+          "id": "ab-venue",
+          "label": "Target venue type",
+          "options": [
+            "Quantum-information journal",
+            "Computational chemistry journal",
+            "Bioinformatics or computational-biology journal",
+            "Clinical or cancer-informatics journal",
+            "Broad multidisciplinary journal"
+          ]
+        },
+        {
+          "type": "text",
+          "id": "ab-authors",
+          "label": "Authorship and contributions (roles, ICMJE criteria).",
+          "minWords": 30
+        },
+        {
+          "type": "text",
+          "id": "ab-availability",
+          "label": "Data and code availability statement.",
+          "minWords": 30
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo22-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "A clinician supplied the data but did not review the manuscript or approve the final version. Under ICMJE they are…",
+          "options": [
+            "An author",
+            "Acknowledged as a contributor, unless they meet all four criteria",
+            "Corresponding author"
+          ],
+          "answer": 1,
+          "explain": "All four criteria are required; give them the chance to meet criteria 2 and 3.",
+          "cite": [
+            "icmje"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "How should you cite a preprint-only result in your paper?",
+          "options": [
+            "As established fact",
+            "Label it a preprint and treat it as provisional",
+            "Don't cite preprints"
+          ],
+          "answer": 1,
+          "explain": "Preprints are valuable but unreviewed; say so."
+        }
+      ]
+    }
+  ]
+}

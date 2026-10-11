@@ -294,7 +294,7 @@ A three-lens review (visual, accessibility, behaviour) of the first build led to
 | Home | `Home.tsx`, `catalog.css` |
 | Course landing | `CoursePage.tsx`, `course.css`, `content/courses/*/course.json` `skills` (with the schema field) |
 | Player | `LessonPage.tsx`, `player.css`, `src/steps/*`, `src/engine/reel/{ReelPlayer.tsx,reel.css,shots.tsx}` |
-| Labs | `labs.css`, `src/ui/{LabFrame,charts}.tsx`, `src/widgets/*`, `src/plugins/quantum/{widgets/*,BlochSphere.tsx,shots.tsx}` (styling only) |
+| Labs | `labs.css`, `src/ui/{LabFrame,charts}.tsx`, `src/widgets/*`, `src/plugins/quantum/{widgets/*,BlochSphere.tsx,shots.tsx}`, `src/plugins/oncology/widgets/*` (styling only) |
 | Pages | `pages.css`, `WorkPage`, `CertificatePage`, `LedgerPage`, `CommissionPage` (incl. `?topic=` prefill), `SettingsPage`, `MethodPage`, `NotFound`, `src/ui/Cite.tsx` |
 
 `app.css` was removed once every rule had a new home. Shared rules that more than one page uses

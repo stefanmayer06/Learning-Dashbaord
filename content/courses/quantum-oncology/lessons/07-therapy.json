@@ -1,0 +1,173 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-therapy",
+  "title": "Four pillars, one problem",
+  "summary": "Surgery, radiotherapy, systemic drugs and immunotherapy — the landmark results from aminopterin to sotorasib — and why tumours come back.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo7-reel",
+      "title": "How cancer is treated",
+      "reel": {
+        "title": "How cancer is treated",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Pillars",
+            "kicker": "Unit 3 · From tumour to patient",
+            "title": "Four pillars,\none problem.",
+            "subtitle": "Surgery, radiation, drugs, immunity — and resistance.",
+            "narration": "Cancer treatment rests on four pillars. Each has computational problems inside it, and each fails in the same characteristic way: the tumour evolves."
+          },
+          {
+            "kind": "list",
+            "heading": "The pillars",
+            "items": [
+              "**Surgery** — remove the tumour",
+              "**Radiotherapy** — damage DNA with planned beams",
+              "**Systemic drugs** — chemotherapy, targeted and hormonal therapy",
+              "**Immunotherapy** — release or engineer the immune response"
+            ],
+            "narration": "Surgery removes the tumour. Radiotherapy damages tumour DNA with carefully planned beams. Systemic drugs reach the whole body. And immunotherapy releases or engineers the patient's own immune response."
+          },
+          {
+            "kind": "stat",
+            "value": 52,
+            "suffix": "%",
+            "label": "of new cancer patients should receive radiotherapy at least once",
+            "context": "evidence-based estimate, Delaney et al. 2005",
+            "narration": "Radiotherapy is everywhere: an evidence-based model estimated that fifty-two percent of new cancer patients should receive it at least once. Planning each course is an optimisation problem.",
+            "cite": ["radiotherapy-52"]
+          },
+          {
+            "kind": "timeline",
+            "chapter": "Landmarks",
+            "events": [
+              { "year": "1948", "label": "Aminopterin", "detail": "first remissions in childhood leukaemia" },
+              { "year": "2001", "label": "Imatinib approved", "detail": "a drug designed against BCR-ABL" },
+              { "year": "2010", "label": "Ipilimumab", "detail": "checkpoint antibody extends survival" },
+              { "year": "2017", "label": "CAR-T & tissue-agnostic", "detail": "engineered T cells; a biomarker-defined approval" },
+              { "year": "2018", "label": "Nobel Prize", "detail": "immune checkpoint therapy" },
+              { "year": "2021", "label": "Sotorasib", "detail": "the “undruggable” KRAS, drugged" }
+            ],
+            "narration": "Six landmarks: aminopterin in 1948; imatinib, designed against a single fusion kinase, approved in 2001; checkpoint immunotherapy proven in 2010; CAR-T and the first biomarker-defined approval in 2017; a Nobel in 2018; and KRAS drugged in 2021.",
+            "cite": ["farber-1948", "imatinib-approval", "ipilimumab", "kymriah", "pembro-agnostic", "nobel-2018", "sotorasib"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Targeted",
+            "text": "Imatinib: find the **fusion kinase** that drives the leukaemia, design a drug against it — **53 of 54** patients responded.",
+            "narration": "Imatinib is the template for rational drug design. Chronic myeloid leukaemia is driven by the BCR-ABL fusion kinase. A drug designed to block it gave complete blood responses in fifty-three of fifty-four patients in its first trial.",
+            "cite": ["bcr-abl-fusion", "imatinib-trial"]
+          },
+          {
+            "kind": "statement",
+            "text": "KRAS: picomolar affinity for GTP, no known pocket — **“undruggable”** until a new pocket was found in the G12C mutant (2013).",
+            "narration": "KRAS resisted for decades: it grips its GTP with picomolar affinity and offered no obvious pocket. In 2013 chemists found a new pocket in the G12C mutant, reachable through the mutant cysteine. Sotorasib followed, approved in 2021.",
+            "cite": ["kras-pocket", "sotorasib"]
+          },
+          {
+            "kind": "stat",
+            "chapter": "Immunity",
+            "value": 0.68,
+            "decimals": 2,
+            "label": "hazard ratio for death with ipilimumab v. vaccine control",
+            "context": "metastatic melanoma, 676 patients · median survival 10.0 v. 6.4 months",
+            "narration": "Immunotherapy changed melanoma. In a six-hundred-and-seventy-six-patient trial, the checkpoint antibody ipilimumab raised median survival from six point four to ten months: a hazard ratio for death of zero point six eight.",
+            "cite": ["ipilimumab"]
+          },
+          {
+            "kind": "statement",
+            "text": "Checkpoint therapy releases the **brakes on T cells** — the 2018 Nobel Prize. CAR-T **engineers** them against a target.",
+            "narration": "Checkpoint drugs release brakes the tumour exploits to calm the immune system — the discovery recognised by the 2018 Nobel Prize. CAR-T goes further: the patient's own T cells are engineered to attack a target such as CD19.",
+            "cite": ["nobel-2018", "kymriah"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Resistance",
+            "text": "Why tumours come back: treatment **selects** the subline that already resisted it.",
+            "narration": "And why do tumours come back? Because treatment is a selection pressure. A variant subline that happens to resist the drug survives and regrows — exactly as Nowell predicted in 1976.",
+            "cite": ["clonal-evolution"]
+          },
+          {
+            "kind": "statement",
+            "text": "Computation is inside every pillar: **beam planning**, **drug design**, **patient selection**, **combination scheduling**.",
+            "narration": "Computation sits inside every pillar: planning radiation beams, designing drugs, selecting patients by biomarker, and scheduling combinations. Those are the problems the rest of this course asks quantum methods to help with."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo7-sequence",
+      "title": "Put the landmarks in order",
+      "widget": "sequence",
+      "brief": "Order these milestones in cancer treatment, earliest first.",
+      "props": {
+        "items": [
+          { "label": "Aminopterin gives temporary remissions in childhood leukaemia", "detail": "Farber, 1948", "cite": ["farber-1948"] },
+          { "label": "Imatinib approved for chronic myeloid leukaemia", "detail": "10 May 2001", "cite": ["imatinib-approval"] },
+          { "label": "Ipilimumab extends survival in metastatic melanoma", "detail": "Phase 3 trial reported 2010", "cite": ["ipilimumab"] },
+          { "label": "A small-molecule pocket is found in KRAS G12C", "detail": "Ostrem et al., 2013", "cite": ["kras-pocket"] },
+          { "label": "First CAR-T therapy and first biomarker-defined, organ-agnostic approval", "detail": "2017", "cite": ["kymriah", "pembro-agnostic"] },
+          { "label": "Sotorasib approved for KRAS G12C lung cancer", "detail": "28 May 2021", "cite": ["sotorasib"] }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo7-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Imatinib was designed to block…",
+          "options": ["DNA replication in all dividing cells", "The BCR-ABL fusion kinase", "PD-1 on T cells"],
+          "answer": 1,
+          "explain": "BCR-ABL is the constitutively active kinase that drives chronic myeloid leukaemia.",
+          "cite": ["bcr-abl-fusion"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why was KRAS long considered undruggable?",
+          "options": ["It is not mutated in cancer", "It binds GTP/GDP with picomolar affinity and had no known allosteric pocket", "It sits outside the cell"],
+          "answer": 1,
+          "explain": "Competing with GTP was hopeless; the G12C pocket offered another route.",
+          "cite": ["kras-pocket"]
+        },
+        {
+          "type": "single",
+          "prompt": "A hazard ratio for death of 0.68 means…",
+          "options": ["32% of patients were cured", "At any moment, the treated group died at about 68% of the control group's rate", "Median survival rose by 68%"],
+          "answer": 1,
+          "explain": "A hazard ratio compares instantaneous event rates; it is not a cure rate or a change in median.",
+          "cite": ["cox-ph", "ipilimumab"]
+        },
+        {
+          "type": "single",
+          "prompt": "What was new about the 2017 pembrolizumab approval for MSI-high tumours?",
+          "options": ["It was defined by a biomarker, not by the organ the cancer started in", "It was the first chemotherapy", "It required no trial data"],
+          "answer": 0,
+          "explain": "Any unresectable or metastatic MSI-high or mismatch-repair-deficient solid tumour qualified.",
+          "cite": ["pembro-agnostic"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo7-hw",
+      "title": "Homework 6 · A therapy, end to end",
+      "output": "problem-sets",
+      "brief": "About 45 minutes. Pick one therapy and follow it from mechanism to failure.",
+      "fields": [
+        { "type": "choice", "id": "hw6-therapy", "label": "Your therapy", "options": ["Imatinib (targeted)", "Sotorasib (targeted, covalent)", "Ipilimumab (checkpoint)", "Tisagenlecleucel (CAR-T)", "Radiotherapy", "Cytotoxic chemotherapy"] },
+        { "type": "text", "id": "hw6-mechanism", "label": "1. Its mechanism, in your own words, at the level of molecules and cells.", "minWords": 80 },
+        { "type": "text", "id": "hw6-resistance", "label": "2. One way tumours escape it, framed as clonal evolution. What would you measure to see it coming?", "minWords": 60 },
+        { "type": "text", "id": "hw6-compute", "label": "3. One computational problem inside this therapy (design, planning, selection, scheduling) and whether it has quantum-friendly structure.", "minWords": 60 }
+      ]
+    }
+  ]
+}

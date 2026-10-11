@@ -1,0 +1,93 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-capstone",
+  "title": "Capstone: your research proposal",
+  "summary": "Assemble the proposal: background, aims, methods, baselines, data and ethics, pilot evidence from your own labs, risks and a timeline — a document you can take to a collaborator.",
+  "minutes": 75,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo23-reel",
+      "title": "Assembling the proposal",
+      "reel": {
+        "title": "Assembling the proposal",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The proposal",
+            "kicker": "Unit 10 · Capstone",
+            "title": "Your research\nproposal.",
+            "subtitle": "The document you take to a collaborator.",
+            "narration": "Your capstone is a research proposal: the document you would send to an oncology collaborator or a funder. Most of it already exists in your earlier work."
+          },
+          {
+            "kind": "list",
+            "heading": "What it contains",
+            "items": [
+              "**Starting point** and **question canvas** — already written",
+              "**Benchmark protocol** and **abstract** — already written",
+              "**Background** with sourced claims",
+              "**Pilot evidence** — your saved lab results",
+              "**Risks**, **ethics** and a **12-month plan**"
+            ],
+            "narration": "Your starting point, question canvas, benchmark protocol and abstract are already part of it. Now add a sourced background, pilot evidence from your labs, risks, ethics, and a twelve-month plan."
+          },
+          {
+            "kind": "compare",
+            "chapter": "Quality",
+            "left": { "heading": "Weak proposal", "items": ["“Quantum will transform oncology”", "No classical baseline", "Qubit counts with no context", "No data-access plan"] },
+            "right": { "heading": "Strong proposal", "items": ["“P450 at this active space needs ~10⁶ physical qubits (estimate); we test whether…”", "Strongest classical method named and budgeted", "Simulability stated", "dbGaP application in month 1"] },
+            "narration": "Compare. A weak proposal says quantum will transform oncology. A strong one names the problem, the estimate and its status, the strongest classical method with an equal budget, what a simulator can do, and when data access will be requested.",
+            "cite": ["goings-p450", "controlled-access"]
+          },
+          {
+            "kind": "statement",
+            "text": "Your **lab results** are pilot evidence: they show you can run the workflow and that you know its limits.",
+            "narration": "Your saved lab results are pilot evidence. They are toy problems, and you should say so — but they show you can run the workflow, and that you understand its costs and traps."
+          },
+          {
+            "kind": "statement",
+            "text": "End with **what would change your mind** — the result that would make you stop.",
+            "narration": "End with what would change your mind: the result that would make you abandon the quantum route. Referees and funders trust proposals that say this out loud. Good luck."
+          }
+        ]
+      }
+    },
+    {
+      "type": "deliverable",
+      "id": "qo23-proposal",
+      "title": "Full proposal",
+      "output": "research-proposal",
+      "brief": "Write for an oncologist collaborator who knows no quantum computing, and a quantum referee who knows no oncology. Cite the course ledger or primary sources for every fact.",
+      "fields": [
+        { "type": "text", "id": "pr-background", "label": "Background: the oncology problem, current classical approaches and their limits — with sources.", "minWords": 150 },
+        { "type": "text", "id": "pr-aims", "label": "Aims: two or three specific aims, each testable.", "minWords": 60 },
+        { "type": "text", "id": "pr-methods", "label": "Quantum methods: algorithm, encoding, qubits, depth, hardware or simulator, and why.", "minWords": 100 },
+        { "type": "capture", "id": "pr-pilot-survival", "label": "Pilot evidence — survival analysis", "from": "survival-run" },
+        { "type": "capture", "id": "pr-pilot-leakage", "label": "Pilot evidence — leakage-free validation", "from": "leakage-run" },
+        { "type": "capture", "id": "pr-pilot-vqe", "label": "Pilot evidence — VQE workflow", "from": "vqe-run" },
+        { "type": "capture", "id": "pr-pilot-panel", "label": "Pilot evidence — QUBO feature selection", "from": "panel-run" },
+        { "type": "text", "id": "pr-pilot-reading", "label": "What your pilot results do and do not show for this proposal.", "minWords": 60 },
+        { "type": "text", "id": "pr-ethics", "label": "Data, ethics and governance: access route, approvals, de-identification, what can be shared.", "minWords": 60 },
+        { "type": "text", "id": "pr-risks", "label": "Risks and mitigations — including the risk that classical methods win.", "minWords": 60 },
+        { "type": "text", "id": "pr-plan", "label": "Twelve-month plan with milestones and the planned preprint/journal submission.", "minWords": 60 },
+        { "type": "text", "id": "pr-stop", "label": "What result would make you abandon the quantum route?", "minWords": 30 },
+        { "type": "scale", "id": "pr-confidence", "label": "How confident are you that this project can produce a publishable result within a year?", "min": 1, "max": 5, "minLabel": "Low", "maxLabel": "High" }
+      ]
+    },
+    {
+      "type": "recap",
+      "id": "qo23-recap",
+      "title": "What you now know",
+      "points": [
+        { "text": "Cancer is an evolving population of cells driven by a handful of driver mutations among many passengers, organised by the hallmarks heuristic.", "cite": ["driver-genes", "clonal-evolution", "hallmarks-2022"] },
+        { "text": "Clinical evidence is built from staged, randomised trials and survival curves; most oncology drug programmes fail, and biomarker selection helps.", "cite": ["oncology-success", "biomarker-trials", "freireich-results"] },
+        { "text": "Omics data are wide and confounded; selection bias and leakage make noise look like signal — for quantum and classical models alike.", "cite": ["selection-bias", "leakage-294", "tcga-pancan"] },
+        { "text": "Quantum chemistry has the strongest case — strongly correlated electrons — but its resource bills run to hundreds of logical and up to millions of physical qubits.", "cite": ["goings-p450", "photosensitizer-ft", "lee-no-exp"] },
+        { "text": "Quantum ML and optimisation claims in oncology so far have not beaten strong classical baselines; ablations and random controls are decisive.", "cite": ["bowles-benchmark", "li2021-caveat", "nazareth-imrt"] },
+        { "text": "As of October 2026, hybrid workflows run at about 100 qubits on biomedical problems, with no demonstrated advantage and no patient benefit yet.", "cite": ["q4bio-prize", "infleqtion-claim"] },
+        { "text": "Publishable work here is a careful resource estimate, an honest benchmark — positive or negative — or a workflow, reported to the right guideline.", "cite": ["goings-p450", "schuld-killoran", "tripod-ai"] }
+      ]
+    }
+  ]
+}

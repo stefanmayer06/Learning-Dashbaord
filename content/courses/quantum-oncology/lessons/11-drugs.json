@@ -1,0 +1,279 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-drugs",
+  "title": "Designing cancer drugs",
+  "summary": "The drug-discovery pipeline, chemical space, binding free energy and why a kilocalorie matters, structure prediction, generative AI — and the KRAS story end to end.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo11-reel",
+      "title": "Computational drug design",
+      "reel": {
+        "title": "Computational drug design",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Pipeline",
+            "kicker": "Unit 5 · Computational oncology today",
+            "title": "Designing\ncancer drugs.",
+            "subtitle": "Where computation already earns its keep.",
+            "narration": "Drug discovery is the oncology problem most often named as a quantum application. To judge that, you need to know the pipeline and where classical computation already works."
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              {
+                "id": "t",
+                "label": "Target",
+                "x": 8,
+                "y": 45,
+                "tone": "ink"
+              },
+              {
+                "id": "h",
+                "label": "Hits",
+                "x": 28,
+                "y": 45,
+                "tone": "ink"
+              },
+              {
+                "id": "l",
+                "label": "Lead optimisation",
+                "x": 50,
+                "y": 45,
+                "tone": "accent"
+              },
+              {
+                "id": "c",
+                "label": "Candidate",
+                "x": 72,
+                "y": 45,
+                "tone": "ink"
+              },
+              {
+                "id": "tr",
+                "label": "Trials",
+                "x": 92,
+                "y": 45,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "t",
+                "to": "h"
+              },
+              {
+                "from": "h",
+                "to": "l"
+              },
+              {
+                "from": "l",
+                "to": "c"
+              },
+              {
+                "from": "c",
+                "to": "tr"
+              }
+            ],
+            "narration": "Pick a target, find hits that bind it, optimise them into a lead with the right potency and safety, nominate a candidate, and go to trials. Computation helps most in finding hits and optimising leads."
+          },
+          {
+            "kind": "statement",
+            "text": "Chemical space is vast: estimates of drug-like molecules run from **10²³** to **10⁶⁰**.",
+            "narration": "The search space is vast and poorly known: estimates of the number of drug-like molecules range from ten to the twenty-three to ten to the sixty. One enumeration lists a hundred and sixty-six billion small molecules of up to seventeen atoms.",
+            "cite": [
+              "chemical-space",
+              "gdb17"
+            ]
+          },
+          {
+            "kind": "equation",
+            "chapter": "Binding",
+            "tex": [
+              "\\Delta G = RT \\ln K_d",
+              "RT \\ln 10 \\approx 1.36\\ \\text{kcal/mol at } 25^{\\circ}\\text{C}"
+            ],
+            "notes": [
+              "each 1.36 kcal/mol ≈ tenfold tighter binding",
+              "lead optimisation needs about fivefold accuracy"
+            ],
+            "narration": "Binding strength is free energy. Delta G equals R T log K d, so at room temperature every one point three six kilocalories per mole means tenfold tighter binding. Optimising leads needs predictions good to about fivefold.",
+            "cite": [
+              "dg-kd",
+              "fep"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "A kilocalorie per mole is also **chemical accuracy** — the target of quantum chemistry. Same scale, same problem.",
+            "narration": "Notice the scale: about one kilocalorie per mole is also what quantum chemists call chemical accuracy. That is not a coincidence; it is the scale at which binding predictions become useful.",
+            "cite": [
+              "chemical-accuracy",
+              "dg-kd"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Free-energy perturbation (FEP+) was validated on **200** ligands and in prospective projects — classical physics plus sampling.",
+            "narration": "Classical physics-based methods already reach that regime for many systems: one free-energy perturbation protocol was validated on two hundred ligands across targets and in live drug projects.",
+            "cite": [
+              "fep"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Structure & AI",
+            "text": "**AlphaFold** (2021) predicts protein structures near experimental accuracy; **AlphaFold 3** (2024) adds ligands, DNA and RNA.",
+            "narration": "Structure prediction changed the field. AlphaFold, in 2021, predicted protein structures competitive with experiment in most test cases. AlphaFold 3 extended this to complexes with drugs, DNA and RNA — and the work won the 2024 Nobel Prize in Chemistry.",
+            "cite": [
+              "alphafold",
+              "alphafold3",
+              "nobel-2024"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Classical generative AI designed **DDR1** kinase inhibitors in **21 days** — the baseline any quantum generative model must beat.",
+            "narration": "And generative AI already designs molecules: a classical model proposed DDR1 kinase inhibitors in twenty-one days, with two active in cells. Keep that baseline in mind for the quantum case study later.",
+            "cite": [
+              "gentrl"
+            ]
+          },
+          {
+            "kind": "timeline",
+            "chapter": "KRAS",
+            "events": [
+              {
+                "year": "decades",
+                "label": "“Undruggable”",
+                "detail": "picomolar GTP affinity, no pocket"
+              },
+              {
+                "year": "2013",
+                "label": "G12C pocket",
+                "detail": "covalent, through the mutant cysteine"
+              },
+              {
+                "year": "2019",
+                "label": "AMG 510",
+                "detail": "first G12C inhibitor in the clinic"
+              },
+              {
+                "year": "2021",
+                "label": "Sotorasib approved",
+                "detail": "36% response, lung cancer"
+              }
+            ],
+            "narration": "The KRAS story ties it together. The most frequently mutated oncogene was undruggable for decades. A pocket was found in 2013, the first clinical inhibitor reported in 2019, and sotorasib approved in 2021.",
+            "cite": [
+              "kras-most-mutated",
+              "kras-pocket",
+              "sotorasib"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Where might quantum fit? Where classical **electronic structure** struggles: covalent bonds forming and breaking, metals, excited states.",
+            "narration": "So where might quantum computers fit? Where classical electronic-structure methods struggle: covalent bonds forming and breaking, as in sotorasib; metal centres, as in the enzymes that metabolise drugs; and excited states. That is the next unit."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo11-estimate",
+      "title": "How much free energy is a better drug?",
+      "widget": "estimator",
+      "brief": "Use ΔG = RT ln K_d. Guess first, then check.",
+      "props": {
+        "question": "A lead binds its target with K_d = 1 μM. You need 10 nM. How much more binding free energy (kcal/mol, at 25 °C) must the new molecule find?",
+        "answer": 2.73,
+        "min": 0.1,
+        "max": 30,
+        "log": true,
+        "unit": "kcal/mol",
+        "reveal": "1 μM → 10 nM is a hundredfold, two factors of ten: 2 × 1.36 ≈ 2.7 kcal/mol Small energies, large consequences: the whole optimisation lives within a few kcal/mol.",
+        "cite": [
+          "dg-kd"
+        ]
+      },
+      "cite": [
+        "dg-kd"
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo11-quiz",
+      "title": "Problem set · Free energy",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "A modification improves ΔG by 4.09 kcal/mol at 25 °C. By what factor does binding tighten?",
+          "answer": 1000,
+          "tolerance": 30,
+          "unit": "×",
+          "explain": "4.09 / 1.36 ≈ 3 factors of ten: about 1,000-fold.",
+          "cite": [
+            "dg-kd"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "A method's binding free energies have an error of 1.36 kcal/mol. Roughly what factor of uncertainty is that in K_d?",
+          "answer": 10,
+          "tolerance": 0.5,
+          "unit": "×",
+          "explain": "One factor of ten — twice the roughly fivefold accuracy lead optimisation needs.",
+          "cite": [
+            "dg-kd",
+            "fep"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "What did AlphaFold 3 add over AlphaFold?",
+          "options": [
+            "Faster folding of single proteins only",
+            "Joint structures of complexes including small molecules, nucleic acids and ions",
+            "Binding free energies to chemical accuracy"
+          ],
+          "answer": 1,
+          "explain": "AlphaFold 3 predicts complexes, with much better protein–ligand accuracy than docking tools — but it predicts structure, not binding free energy.",
+          "cite": [
+            "alphafold3"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo11-hw",
+      "title": "Homework 10 · A drug, molecule by molecule",
+      "output": "problem-sets",
+      "brief": "About 50 minutes.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw10-pdb",
+          "label": "1. Find a crystal structure of KRAS G12C bound to sotorasib or a related inhibitor in the Protein Data Bank (rcsb.org). Record the PDB ID and describe, in words, how the drug binds.",
+          "minWords": 70
+        },
+        {
+          "type": "text",
+          "id": "hw10-error",
+          "label": "2. If your method's error is ±1 kcal/mol, what fold-range of K_d does that imply? Is that good enough to rank ten close analogues? Show the arithmetic.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw10-where",
+          "label": "3. List the steps in the pipeline where computation is used, and mark which you think are limited by electronic-structure accuracy (a quantum opportunity) and which by data, sampling or biology.",
+          "minWords": 80
+        }
+      ]
+    }
+  ]
+}
