@@ -3,21 +3,26 @@ import { readCourses } from '../../scripts/read-courses'
 import { validateCourse } from '../../src/content/validate'
 
 export const COURSE = 'quantum-trading-101'
+/** Every shipped course, for tests that should cover them all. */
+export const COURSES = readCourses().map((r) => r.folder)
 
-export function bundle() {
-  return validateCourse(readCourses(COURSE)[0], { today: '2026-10-02' }).bundle!
+export function bundle(course = COURSE) {
+  return validateCourse(readCourses(course)[0], { today: '2026-10-11' }).bundle!
 }
 
-/** Learner state with every step of the course completed. */
-export function completedState() {
-  const b = bundle()
-  const steps: Record<string, unknown> = {}
-  for (const l of Object.values(b.lessons)) for (const s of l.steps) steps[s.id] = { status: 'done', updatedAt: '2026-10-02T00:00:00Z' }
+/** Learner state with every step of the given courses completed. */
+export function completedState(courses: string[] = [COURSE]) {
+  const progress: Record<string, unknown> = {}
+  for (const course of courses) {
+    const steps: Record<string, unknown> = {}
+    for (const l of Object.values(bundle(course).lessons)) for (const s of l.steps) steps[s.id] = { status: 'done', updatedAt: '2026-10-02T00:00:00Z' }
+    progress[course] = { steps, captures: {}, outputs: {} }
+  }
   return {
     version: 1,
     name: 'Test Learner',
     prefs: { narration: false, captions: true, voiceURI: null, speechRate: 1, theme: 'light' },
-    courses: { [COURSE]: { steps, captures: {}, outputs: {} } },
+    courses: progress,
   }
 }
 

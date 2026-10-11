@@ -123,7 +123,7 @@ export function CarbonLab({ props, complete, done, capture, captured, Cite }: Wi
         <Slider label="Year the oil seeds (or flax) grew" value={year} min={1950.5} max={2019.5} step={0.1} onChange={setYear} format={(v) => v.toFixed(1)} />
         <div className="readouts">
           <Readout label="Air that year" value={here.toFixed(3)} />
-          <Readout label="Sample" value={`${c.F.toFixed(3)} ± ${(K * c.sigma).toFixed(3)}`} />
+          <Readout label="Sample (±2σ band)" value={`${c.F.toFixed(3)} ± ${(K * c.sigma).toFixed(3)}`} />
           <Readout label="Match?" value={inBand ? 'Yes — within ±2σ' : 'No'} tone={inBand ? 'good' : undefined} />
         </div>
         <div className="lab-actions">

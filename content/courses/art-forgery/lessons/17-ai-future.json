@@ -1,0 +1,204 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-ai-future",
+  "title": "AI, authentication and the future",
+  "summary": "What machine learning has shown, what companies claim, where it has been disputed — and five questions to ask of any 'AI says' headline.",
+  "minutes": 28,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af17-reel",
+      "title": "Can a machine spot a fake?",
+      "reel": {
+        "title": "Can a machine spot a fake?",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The promise",
+            "kicker": "Module 9 · Landscape",
+            "title": "Can a machine\nspot a fake?",
+            "narration": "Headlines say AI can tell a real Rubens from a fake. Some of that is solid research, some is marketing, and some is disputed. This lesson teaches you to tell which is which."
+          },
+          {
+            "kind": "statement",
+            "text": "Morelli's idea, **automated**: the habits of a hand.",
+            "narration": "The idea is Morelli's: an artist's hand has habits. In 2018 researchers presented automated, stroke-level analysis of drawings by artists such as Picasso and Matisse for attribution.",
+            "cite": ["morelli-method", "elgammal-2018"]
+          },
+          {
+            "kind": "stat",
+            "chapter": "What's been shown",
+            "value": 98.9,
+            "decimals": 1,
+            "suffix": "%",
+            "label": "accuracy separating Pollocks from **imitations**",
+            "context": "Peer reviewed, 2024 — on a small set of images, as the authors note.",
+            "narration": "A 2024 peer-reviewed study separated authentic Pollock poured paintings from imitations with 98.9 percent accuracy — while noting that the small number of available images is a limitation.",
+            "cite": ["smith-2024"]
+          },
+          {
+            "kind": "stat",
+            "value": 55,
+            "label": "examined artworks in one training set — **12 forged**",
+            "context": "The authors concluded much larger datasets are needed.",
+            "narration": "Small data is the recurring problem. One 2021 model was trained on 55 examined artworks, twelve of them forged, and its authors concluded much larger datasets with known provenance are needed.",
+            "cite": ["lydzba-dataset"]
+          },
+          {
+            "kind": "statement",
+            "text": "Too few fakes to learn from? **Generate some.**",
+            "narration": "Because few known forgeries exist, a 2024 study added AI-generated images in an artist's style to the training data. They consistently improved detection of human-made forgeries.",
+            "cite": ["ostmeyer-2024"]
+          },
+          {
+            "kind": "statement",
+            "text": "Two of its six authors work for **an AI-authentication firm**.",
+            "narration": "Note who wrote it: two of its six authors are affiliated with Art Recognition, a company that sells AI authentication, including its chief executive. The paper declares no competing interests.",
+            "cite": ["ostmeyer-artrec"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "What's sold",
+            "text": "A photo in. **Yes or no** out.",
+            "narration": "The Swiss company Art Recognition runs artist-specific models on high-resolution photographs and gives a yes-or-no answer on stylistic consistency, with a certificate if positive. It excludes sculpture, drip painting and street art.",
+            "cite": ["artrec-service"]
+          },
+          {
+            "kind": "stat",
+            "value": 50,
+            "prefix": "<",
+            "label": "authenticated works for **some artists**",
+            "context": "The company says it enlarges such datasets with synthetic examples.",
+            "narration": "The company says some artists have fewer than fifty authenticated works to train on, and that it enlarges such datasets by augmentation, including synthetic examples.",
+            "cite": ["artrec-small-data"]
+          },
+          {
+            "kind": "statement",
+            "text": "A sale on the **certificate alone**.",
+            "narration": "It says the first auction house to offer a work on the strength of its certificate alone was Germann Auctions in Zurich, in November 2024. That's the company's own account.",
+            "cite": ["artrec-auction"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "What's disputed",
+            "text": "'**91%** not Rubens.' The museum disagrees.",
+            "narration": "In 2021, an Art Recognition analysis publicised in the press judged the National Gallery's 'Samson and Delilah' about 91 percent likely not to be by Rubens. The Gallery still catalogues it as Rubens.",
+            "cite": ["samson-ai"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "University of Bradford, 2023", "items": ["Facial-recognition software", "Faces 'identical' to Raphael's", "'Undoubtedly by the same artist'"] },
+            "right": { "heading": "Art Recognition", "items": ["Artist-specific style model", "85% probability: not Raphael", "A party to the dispute"] },
+            "narration": "The de Brécy Tondo shows two AIs colliding. Bradford's facial recognition called it Raphael; Art Recognition's model said not, at 85 percent. A second Bradford model, trained on 49 images, again said authentic.",
+            "cite": ["brecy-bradford", "brecy-artrec"]
+          },
+          {
+            "kind": "statement",
+            "text": "A similar face is **not a signature**.",
+            "narration": "And a similar face is weak evidence: painters of a period shared ideals of beauty. A model can be accurate about resemblance and still wrong about authorship.",
+            "cite": ["face-not-author"]
+          },
+          {
+            "kind": "list",
+            "chapter": "Five questions",
+            "heading": "Ask of any 'AI says' headline",
+            "items": ["What was it trained on — how many works?", "Was it tested on known forgeries?", "Is it peer reviewed?", "Who paid, and who profits?", "Do materials and archive agree?"],
+            "narration": "So ask five questions. What was it trained on? Was it tested on known forgeries? Is it peer reviewed? Who paid, and who profits? And do the materials and the archive agree?",
+            "cite": ["smith-2024", "lydzba-dataset", "artrec-small-data", "ostmeyer-artrec"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The old question",
+            "text": "Real or fake? **The eye or chemistry?**",
+            "narration": "In 1925 Hofstede de Groot titled his book 'Real or fake? The eye or chemistry?' A century on, a 2026 preprint reports the Laughing Cavalier he defended under re-examination in a new research project. The answer is still: both, and the archive.",
+            "cite": ["hdg-book", "artdetect"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af17-video",
+      "title": "Go deeper: a vendor's view",
+      "optional": true,
+      "provider": "youtube",
+      "src": "Tuynqg8Vp-A",
+      "caption": "'Can AI detect forged art?' — a TEDx talk by Carina Popovici, chief executive and co-founder of Art Recognition. A company's case for its own technology: watch it with the five questions in mind.",
+      "credit": "TEDx Talks, TEDxNuremberg (YouTube)",
+      "cite": ["ostmeyer-artrec"]
+    },
+    {
+      "type": "widget",
+      "id": "af17-sort",
+      "title": "Shown, claimed or disputed?",
+      "widget": "card-sort",
+      "brief": "Sort each statement about AI and authentication: **demonstrated** in peer-reviewed research, **claimed** by a company, or **disputed**.",
+      "props": {
+        "buckets": ["Demonstrated", "Claimed", "Disputed"],
+        "cards": [
+          { "text": "A model separated Pollocks from imitations with 98.9% accuracy", "bucket": "Demonstrated", "why": "Peer reviewed — with the authors' own caveat about the small number of images.", "cite": ["smith-2024"] },
+          { "text": "Adding AI-generated images to training data improved forgery detection", "bucket": "Demonstrated", "why": "A peer-reviewed 2024 study — though two authors work for an AI-authentication company.", "cite": ["ostmeyer-2024", "ostmeyer-artrec"] },
+          { "text": "An auction house has offered a work on an AI certificate alone", "bucket": "Claimed", "why": "This is the company's own account of its first certificate-only sale.", "cite": ["artrec-auction"] },
+          { "text": "Synthetic examples make up for having fewer than 50 authentic works", "bucket": "Claimed", "why": "This is the company's description of its own method; the related peer-reviewed study was co-written by its staff.", "cite": ["artrec-small-data", "ostmeyer-artrec"] },
+          { "text": "'Samson and Delilah' is about 91% likely not by Rubens", "bucket": "Disputed", "why": "The National Gallery maintains the attribution to Rubens; no peer-reviewed publication of the analysis was found.", "cite": ["samson-ai"] },
+          { "text": "The de Brécy Tondo is by Raphael", "bucket": "Disputed", "why": "Two AI teams reached opposite conclusions, and one of them is a company with a stake in the dispute.", "cite": ["brecy-bradford", "brecy-artrec"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af17-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What limitation did the authors of the 98.9% Pollock study themselves point out?",
+          "options": ["The model was too slow", "The small number of available images", "It only works on drawings"],
+          "answer": 1,
+          "explain": "Small datasets are the recurring problem in AI attribution.",
+          "cite": ["smith-2024"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why did one study add AI-generated images to its training data?",
+          "options": ["To make the model faster", "Because few known forgeries exist to learn from", "To create new artworks for sale"],
+          "answer": 1,
+          "explain": "Synthetic images in an artist's style consistently improved detection of human-made forgeries.",
+          "cite": ["ostmeyer-2024"]
+        },
+        {
+          "type": "single",
+          "prompt": "What does the de Brécy Tondo dispute show?",
+          "options": ["AI settles attribution questions", "Different models can reach opposite verdicts on the same picture", "Facial recognition is the most reliable method"],
+          "answer": 1,
+          "explain": "Bradford's models said Raphael; Art Recognition's said not.",
+          "cite": ["brecy-bradford", "brecy-artrec"]
+        },
+        {
+          "type": "single",
+          "prompt": "An AI analysis of a photograph says a painting is 'consistent with' an artist. What can't it tell you?",
+          "options": ["Whether the style resembles the artist's", "Whether the pigments existed at the claimed date", "Whether the image matches the training set"],
+          "answer": 1,
+          "explain": "A photograph carries no information about materials; only analysis of the object can date them.",
+          "cite": ["artrec-service", "tpq-def"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af17-audit",
+      "title": "Headline audit",
+      "output": "headline-audit",
+      "brief": "Find a recent news story in which an attribution was announced or overturned — by AI, by science or by an expert. Audit it the way this course has taught you.",
+      "fields": [
+        { "type": "text", "id": "ha-headline", "label": "The headline, outlet and date (with a link)", "minWords": 8 },
+        { "type": "text", "id": "ha-claim", "label": "What exactly is claimed — and by whom?", "minWords": 30 },
+        { "type": "choice", "id": "ha-evidence", "label": "What is the best evidence behind it?", "options": ["Peer-reviewed research", "A museum's or court's own statement", "A company's own statement", "News reports only", "A mix of these"] },
+        { "type": "text", "id": "ha-dispute", "label": "Who disagrees, or who might — and who profits if the claim is believed?", "minWords": 30 },
+        { "type": "text", "id": "ha-settle", "label": "What evidence would settle it? Think materials, dating, provenance and the eye.", "minWords": 40 },
+        { "type": "scale", "id": "ha-trust", "label": "How far would you trust the headline?", "min": 1, "max": 5, "minLabel": "Not at all", "maxLabel": "Fully" }
+      ]
+    }
+  ]
+}

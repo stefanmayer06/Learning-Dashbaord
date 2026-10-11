@@ -15,7 +15,7 @@
           {
             "kind": "title",
             "chapter": "Instruments",
-            "kicker": "Art & Forgery · Lesson 13",
+            "kicker": "Module 7 · Practice",
             "title": "Reading\nthe paint.",
             "subtitle": "What each instrument can — and **can't** — see.",
             "narration": "Imaging shows where things are. Analysis says what they are. And knowing what an instrument cannot see matters as much as what it can."
@@ -62,6 +62,12 @@
           },
           {
             "kind": "statement",
+            "text": "Even the National Gallery **bought one**.",
+            "narration": "Museums are not immune. A painting the National Gallery acquired in 1923 as a 15th-century work was proven by scientific analysis of its materials to be a 20th-century forgery.",
+            "cite": ["ng-1923-forgery"]
+          },
+          {
+            "kind": "statement",
             "chapter": "Caveats",
             "text": "A modern pigment in a **retouching** dates the restoration, not the picture.",
             "narration": "Two cautions. Old paintings get restored, so a modern pigment in a retouched area dates the repair. Check under UV, and sample the original paint.",
@@ -81,6 +87,7 @@
       "id": "af13-lab",
       "title": "Pigment dating lab",
       "widget": "pigment-lab",
+      "cite": ["tpq-def", "prussian-blue-date", "titanium-white-date", "campendonk-titanium", "asa-1970", "pollock-drips"],
       "brief": "Five paintings, five analysis tables. For each, find the material that sets the earliest possible date of the **original** paint (a retouching doesn't count), then judge the claimed date. The last case is your capstone case file — save its result to your casebook.",
       "props": {
         "capture": "pigments",

@@ -15,7 +15,7 @@
           {
             "kind": "title",
             "chapter": "Clocks",
-            "kicker": "Art & Forgery · Lesson 14",
+            "kicker": "Module 7 · Practice",
             "title": "Clocks inside\nthe materials.",
             "subtitle": "Tree rings, carbon-14 and lead.",
             "narration": "Pigments give a lower bound. Some materials carry clocks that can do better: the growth rings of a panel, the carbon in its oil, the radioactivity of its lead."
@@ -174,7 +174,7 @@
           }
         ]
       },
-      "cite": ["dendro-example", "seasoning", "sapwood-stats", "dendro-def", "hvm-reused-canvas"]
+      "cite": ["dendro-example", "dendro-example-2", "seasoning", "sapwood-stats", "dendro-def", "hvm-reused-canvas"]
     },
     {
       "type": "embed",

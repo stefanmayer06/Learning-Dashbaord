@@ -2057,6 +2057,9 @@
     grid-template-columns: 1fr;
   }
 }
+.exam-modes {
+  grid-column: 1 / -1;
+}
 .exam-view {
   display: grid;
   gap: var(--s3);

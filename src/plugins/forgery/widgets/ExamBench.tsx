@@ -78,8 +78,10 @@ export function ExamBench({ props, complete, done, capture, captured, Cite }: Wi
       captured={captured}
     >
       <div className="exam">
-        <div className="exam-view">
+        <div className="exam-modes">
           <Segmented label="Light source" value={mode} onChange={(m) => (setMode(m), setMessage(null))} options={MODES.map((m) => ({ value: m, label: MODE_LABEL[m] }))} />
+        </div>
+        <div className="exam-view">
           <div className={`exam-panel exam-${mode}`}>
             <Painting mode={mode} highlight={region} />
           </div>

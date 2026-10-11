@@ -13,12 +13,12 @@ describe('shipped courses', () => {
 
   for (const raw of courses) {
     it(`${raw.folder} passes strict validation (citations, ledger, numbers)`, () => {
-      const { issues } = validateCourse(raw, { strict: true, today: '2026-10-02' })
+      const { issues } = validateCourse(raw, { strict: true, today: '2026-10-11' })
       expect(issues.filter((i) => i.level === 'error')).toEqual([])
     })
 
     it(`${raw.folder}: every reel caption chunk fits on two lines`, () => {
-      const { bundle } = validateCourse(raw, { today: '2026-10-02' })
+      const { bundle } = validateCourse(raw, { today: '2026-10-11' })
       for (const lesson of Object.values(bundle!.lessons))
         for (const step of lesson.steps)
           if (step.type === 'reel')

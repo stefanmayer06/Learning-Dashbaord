@@ -1,0 +1,172 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-beyond-painting",
+  "title": "Beyond painting: sculpture, antiquities and objects",
+  "summary": "A kouros no one can settle, an 'ancient Egyptian' princess bought by a council, folk art, silver and cardboard 'Basquiats': the same questions in other media.",
+  "minutes": 22,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af15-reel",
+      "title": "Not only paintings",
+      "reel": {
+        "title": "Not only paintings",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Other media",
+            "kicker": "Module 8 · Practice",
+            "title": "Not only\npaintings.",
+            "subtitle": "Stone, silver, folk art — and cardboard.",
+            "narration": "Forgers work in every medium that sells. The tools change from one material to the next, but the questions you've learned stay the same."
+          },
+          {
+            "kind": "quote",
+            "chapter": "The kouros",
+            "text": "About 530 B.C. or modern forgery",
+            "by": "The J. Paul Getty Museum's own date for its marble kouros",
+            "narration": "The Getty Museum's marble kouros carries one of the most honest labels in any museum: about 530 B.C., or modern forgery. Neither art historians nor scientists have settled it.",
+            "cite": ["kouros-label"]
+          },
+          {
+            "kind": "statement",
+            "text": "Odd traits — or **gaps in what we know**?",
+            "narration": "The doubts: a mix of earlier and later stylistic traits, and marble from Thasos at an unexpected date. The museum suggests these may reflect how little we know of the period, not a forger's mistakes.",
+            "cite": ["kouros-anomalies"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Antiquities",
+            "text": "The **Amarna Princess**: authenticated, bought — and fake.",
+            "narration": "Shaun Greenhalgh made several hundred forgeries. Bolton Council bought his 'Amarna Princess' after a British Museum report authenticated it as 3,300 years old. Bolton Museum now displays it.",
+            "cite": ["greenhalgh"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Folk art",
+            "text": "Old canvases, **new paint**, invented histories.",
+            "narration": "Robert Trotter stripped old, low-value paintings, repainted and aged them, and invented provenances. He admitted selling 52 paintings to six dealers and was sentenced to ten months in prison.",
+            "cite": ["trotter"]
+          },
+          {
+            "kind": "statement",
+            "text": "Fakes kept **for teaching**, stamped as forgeries.",
+            "narration": "The court ordered his fakes indelibly stamped as forgeries, and gave some to Yale University Art Gallery and Buffalo State College, to help identify his work still in circulation.",
+            "cite": ["trotter-stamped"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Silver",
+            "text": "XRF can date **silver**, too.",
+            "narration": "Silver refined before the mid-19th century carries traces of gold and lead. Their absence shows metal refined after about 1850 — chemistry again setting an earliest date.",
+            "cite": ["lenssen-silver"]
+          },
+          {
+            "kind": "stat",
+            "value": 90,
+            "suffix": "%",
+            "label": "of one collector's fakes came from **two dealers**",
+            "context": "He had bought nearly 280 objects from them.",
+            "narration": "One collector bought nearly 280 objects from two Philadelphia dealers, and found that 90 percent of the fakes in his collection came from them. The source matters as much as the object.",
+            "cite": ["lenssen-silver"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Contemporary art",
+            "text": "'Basquiats' on cardboard, **five minutes each**.",
+            "narration": "Fakes of recent art need no ageing at all. In 2023 Michael Barzman admitted that in 2012 he and another man made fake Basquiats on cardboard, some in as little as five minutes each.",
+            "cite": ["barzman"]
+          },
+          {
+            "kind": "statement",
+            "text": "Exhibited by a museum. **Seized by the FBI.**",
+            "narration": "With an invented provenance from a screenwriter's storage unit, they became an exhibition at the Orlando Museum of Art in February 2022. The FBI seized 25 pieces in June 2022.",
+            "cite": ["barzman"]
+          },
+          {
+            "kind": "statement",
+            "text": "His own name, **painted over**.",
+            "narration": "On the back of one seized painting, Barzman's own name was on a mailing label that had been painted over. Always look at the back.",
+            "cite": ["barzman-label"]
+          },
+          {
+            "kind": "list",
+            "chapter": "Same questions",
+            "heading": "Every medium, the same three questions",
+            "items": ["Materials: could they exist at the claimed date?", "Making: does it look its age, and was it made the period way?", "Trail: can every link of the history be checked?"],
+            "narration": "Stone, silver, canvas or cardboard: ask whether the materials could exist at the claimed date, whether the making fits the period, and whether the history can be checked."
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af15-video",
+      "title": "Go deeper: forging the past",
+      "optional": true,
+      "provider": "youtube",
+      "src": "kNOlp9gSb_E",
+      "caption": "'Forging The Past', from the Getty Museum's 'True Crime in Ancient Times' series: forgery of antiquities, long before modern painting fakes.",
+      "credit": "Getty Museum (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af15-sort",
+      "title": "What gave it away?",
+      "widget": "card-sort",
+      "brief": "For each case, decide what kind of evidence did the work: the **materials or technique**, the **documents or story**, or is the question **still unresolved**?",
+      "props": {
+        "buckets": ["Materials or technique", "Documents or story", "Still unresolved"],
+        "cards": [
+          { "text": "Silver with no traces of gold or lead, sold as 18th-century", "bucket": "Materials or technique", "why": "Refining chemistry shows metal produced after about 1850.", "cite": ["lenssen-silver"] },
+          { "text": "A 'Sarah Honn, 1866' whose paint binder came from seeds harvested after 1958", "bucket": "Materials or technique", "why": "Bomb-peak radiocarbon dated the oil in the paint, not just the canvas.", "cite": ["trotter-c14"] },
+          { "text": "A 'drawing' that shows printed pixels under a microscope", "bucket": "Materials or technique", "why": "Mark Landis glued printouts of digital images to board, then sanded and painted over them.", "cite": ["landis-method"] },
+          { "text": "Cardboard 'Basquiats' said to come from a screenwriter's storage unit", "bucket": "Documents or story", "why": "The invented provenance was the selling point — and it collapsed under investigation.", "cite": ["barzman"] },
+          { "text": "Abstract Expressionist works from 'an anonymous Swiss client'", "bucket": "Documents or story", "why": "The client never existed; the story carried more than 60 works into two galleries.", "cite": ["rosales-provenance", "rosales-scheme"] },
+          { "text": "A Greek kouros with a mix of earlier and later stylistic traits", "bucket": "Still unresolved", "why": "Its own museum dates it 'about 530 B.C. or modern forgery'.", "cite": ["kouros-label", "kouros-anomalies"] },
+          { "text": "A Madonna tondo that two AI models classify in opposite ways", "bucket": "Still unresolved", "why": "One model says Raphael, another says not; neither settles it. More in lesson 9.2.", "cite": ["brecy-bradford", "brecy-artrec"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af15-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "How does the Getty Museum date its marble kouros?",
+          "options": ["About 530 B.C.", "A modern copy", "About 530 B.C. or modern forgery"],
+          "answer": 2,
+          "explain": "The museum states that the question of authenticity has not been fully resolved.",
+          "cite": ["kouros-label"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why can XRF help date silver?",
+          "options": ["Old silver is radioactive", "Silver refined before the mid-19th century contains traces of gold and lead", "Modern silver contains titanium"],
+          "answer": 1,
+          "explain": "Their absence points to silver refined after about 1850.",
+          "cite": ["lenssen-silver"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did the court order for Robert Trotter's forgeries?",
+          "options": ["That they be destroyed", "That they be stamped as forgeries, with some given to teaching collections", "That they be sold to repay buyers"],
+          "answer": 1,
+          "explain": "Yale University Art Gallery and Buffalo State College received some, to help identify others.",
+          "cite": ["trotter-stamped"]
+        },
+        {
+          "type": "single",
+          "prompt": "What clue was found on the back of one seized 'Basquiat'?",
+          "options": ["A modern staple gun mark", "The forger's own name on a painted-over mailing label", "A barcode from an art-supply shop"],
+          "answer": 1,
+          "explain": "Barzman's name appeared on a mailing label that had been painted over.",
+          "cite": ["barzman-label"]
+        }
+      ]
+    }
+  ]
+}

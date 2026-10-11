@@ -15,7 +15,7 @@
           {
             "kind": "title",
             "chapter": "Four tests",
-            "kicker": "Art & Forgery · Lesson 9",
+            "kicker": "Module 5 · Theory",
             "title": "Four tests every\nfake must pass.",
             "subtitle": "The eye, the lab, the archive, the market.",
             "narration": "Think like a forger. To succeed, a fake has to pass four tests: the expert's eye, the laboratory, the archive and the market. Every forger we've met failed at least one."
@@ -101,8 +101,9 @@
           {
             "kind": "statement",
             "text": "Fake cracks have the **wrong shape**.",
-            "narration": "Ageing is the hardest part. A 3D imaging study found genuine cracks roughly square in section and as deep as the paint layer; cracks made by an expert forger were simpler V-shaped grooves.",
+            "narration": "Ageing is hard to fake: forgery researchers count cracks among the most difficult features to mimic. A 3D study found genuine cracks square in section and as deep as the paint layer; an expert forger's were simpler V-shaped grooves.",
             "cite": [
+              "craquelure-hard",
               "craquelure-3d"
             ]
           },
