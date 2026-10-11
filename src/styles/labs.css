@@ -2035,3 +2035,381 @@
   margin: 0;
   max-width: 70ch;
 }
+
+/* ═════════════ forgery plugin: examination bench, pigment, dendro, carbon, provenance ═════════════ */
+
+/* toggle buttons that stay pressed (region, verdict) */
+.btn-ghost.on,
+.btn-ghost[aria-pressed='true'] {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.exam {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(260px, 1fr);
+  gap: var(--s5);
+  align-items: start;
+}
+@container lab (max-width: 700px) {
+  .exam {
+    grid-template-columns: 1fr;
+  }
+}
+.exam-view {
+  display: grid;
+  gap: var(--s3);
+}
+.exam-panel {
+  padding: 10px;
+  background: var(--art-panel-dark);
+  border-radius: var(--r);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--art-panel) 60%, var(--art-black));
+}
+.fg-painting {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+.exam-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.exam-result {
+  margin-top: var(--s4);
+  min-height: 92px;
+}
+.exam-finding {
+  display: grid;
+  gap: 6px;
+  padding: var(--s3) var(--s4);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.exam-finding p {
+  margin: 0;
+}
+.exam-finding .chip {
+  justify-self: start;
+}
+.exam-nothing {
+  display: flex;
+  gap: var(--s2);
+  align-items: flex-start;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.exam-nothing svg {
+  flex: none;
+  margin-top: 3px;
+}
+.exam-leads {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s2);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.exam-leads li {
+  display: flex;
+  gap: var(--s2);
+  color: var(--text-muted);
+}
+.exam-leads li.got {
+  color: var(--text);
+}
+.exam-lead-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--r-pill);
+  background: var(--surface-sunken);
+  color: var(--text-subtle);
+}
+.exam-leads li.got .exam-lead-mark {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.pig,
+.dendro,
+.carbon,
+.prov {
+  display: grid;
+  gap: var(--s3);
+}
+.pig-case,
+.dendro-case {
+  display: grid;
+  gap: var(--s2);
+}
+.pig-case p,
+.dendro-case p {
+  margin: 0;
+}
+.pig-case-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+.pig-case-head .lab-h {
+  margin: 0;
+}
+.pig-claim {
+  margin: 0;
+  font-size: 15px;
+}
+.pig-table td label {
+  cursor: pointer;
+}
+.pig-table input[type='radio'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--range-accent, var(--primary));
+}
+.pig-retouch td {
+  background: var(--warning-soft);
+}
+.pig-tag {
+  margin-left: var(--s2);
+}
+.pig-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.pig-feedback.ok {
+  color: var(--success);
+}
+.pig-feedback.no {
+  color: var(--danger);
+}
+.pig-verdicts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.pig-axis {
+  margin-top: var(--s3);
+}
+.pig-axis-track {
+  position: relative;
+  height: 44px;
+  border-bottom: 2px solid var(--border-strong);
+}
+.pig-dot {
+  position: absolute;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--text-subtle);
+  border: 2px solid var(--surface);
+}
+.pig-dot.tpq {
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  bottom: -9px;
+  background: var(--danger);
+}
+.pig-dot.retouch {
+  background: var(--warning);
+}
+.pig-claim-mark {
+  position: absolute;
+  bottom: -10px;
+  height: 52px;
+  border-left: 2px dashed var(--accent-fg);
+}
+.pig-claim-mark b {
+  position: absolute;
+  top: -2px;
+  left: 6px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--accent-fg);
+  white-space: nowrap;
+}
+.pig-axis-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-subtle);
+}
+
+.dendro-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s4) var(--s5);
+}
+.dendro-controls > div {
+  display: grid;
+  gap: 6px;
+}
+.dendro-controls .slider {
+  flex: 1 1 220px;
+}
+.dendro-bar {
+  position: relative;
+  height: 26px;
+  margin: var(--s4) 0 var(--s2);
+  background: var(--surface-sunken);
+  border-radius: var(--r-sm);
+}
+.dendro-seg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.dendro-heart {
+  background: var(--art-panel);
+}
+.dendro-sap {
+  background: color-mix(in oklab, var(--art-panel) 35%, var(--art-ground));
+}
+.dendro-season {
+  background: repeating-linear-gradient(45deg, var(--accent-fg) 0 4px, transparent 4px 9px);
+  opacity: 0.6;
+}
+.dendro-mark {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  border-left: 2px dashed var(--danger);
+}
+.dendro-mark b {
+  position: absolute;
+  top: -20px;
+  left: 4px;
+  font-size: 12px;
+  color: var(--danger);
+  white-space: nowrap;
+}
+.dendro-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+}
+.dendro-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  margin-right: 6px;
+  border-radius: 2px;
+  vertical-align: 0;
+}
+
+.carbon-chart {
+  max-width: 680px;
+}
+
+.prov-chain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s3);
+}
+.prov-link {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border-strong);
+  border-radius: var(--r);
+}
+.prov-link.ok {
+  border-left-color: var(--success);
+}
+.prov-link.wrong {
+  border-left-color: var(--danger);
+}
+@container lab (max-width: 520px) {
+  .prov-link {
+    grid-template-columns: 1fr;
+  }
+}
+.prov-years {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.prov-body {
+  display: grid;
+  gap: var(--s2);
+  min-width: 0;
+}
+.prov-body p {
+  margin: 0;
+}
+.prov-why {
+  display: block;
+}
+.prov-why svg {
+  vertical-align: -3px;
+}
+.prov-why.ok svg {
+  color: var(--success);
+}
+.prov-why.no svg {
+  color: var(--danger);
+}
+.prov-bar {
+  position: relative;
+  height: 22px;
+  background: var(--surface-sunken);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+.prov-nazi {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(-45deg, color-mix(in oklab, var(--danger) 45%, transparent) 0 3px, transparent 3px 7px);
+  z-index: 1;
+}
+.prov-seg {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-right: 2px solid var(--surface);
+}
+.prov-documented {
+  background: var(--success);
+}
+.prov-weak {
+  background: var(--warning);
+  opacity: 0.55;
+}
+.prov-red,
+.prov-none {
+  background: transparent;
+}
+.prov-axis {
+  margin-top: 6px;
+}

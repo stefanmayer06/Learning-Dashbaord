@@ -14,6 +14,12 @@ import { GroverLab } from './quantum/widgets/GroverLab'
 import { PricingRace } from './quantum/widgets/PricingRace'
 import { PortfolioLab } from './quantum/widgets/PortfolioLab'
 import { BlochShot, CircuitShot, GrowthShot } from './quantum/shots'
+import { ExamBench } from './forgery/widgets/ExamBench'
+import { PigmentLab } from './forgery/widgets/PigmentLab'
+import { DendroLab } from './forgery/widgets/DendroLab'
+import { CarbonLab } from './forgery/widgets/CarbonLab'
+import { ProvenanceLab } from './forgery/widgets/ProvenanceLab'
+import { LayersShot, ScanShot } from './forgery/shots'
 
 export const WIDGET_COMPONENTS: Record<string, Widget> = {
   'card-sort': CardSort,
@@ -26,10 +32,17 @@ export const WIDGET_COMPONENTS: Record<string, Widget> = {
   'grover-lab': GroverLab,
   'pricing-race': PricingRace,
   'portfolio-lab': PortfolioLab,
+  'exam-bench': ExamBench,
+  'pigment-lab': PigmentLab,
+  'dendro-lab': DendroLab,
+  'carbon-lab': CarbonLab,
+  'provenance-lab': ProvenanceLab,
 }
 
 export const PLUGIN_SHOT_COMPONENTS: Record<string, PluginShot> = {
   circuit: CircuitShot,
   bloch: BlochShot,
   growth: GrowthShot,
+  layers: LayersShot,
+  scan: ScanShot,
 }

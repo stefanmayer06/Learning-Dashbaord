@@ -1,0 +1,132 @@
+{
+  "$schema": "../../schema/course.schema.json",
+  "id": "art-forgery",
+  "title": "Art & Forgery",
+  "subtitle": "Learn to look like a curator, think like a forger and test like a conservation scientist — from your first close look at a painting to a full authentication dossier.",
+  "version": "1.0.0",
+  "lastVerified": "2026-10-11",
+  "level": "intro",
+  "hours": 7.5,
+  "theme": { "accent": "#a2421c", "cover": "craquelure" },
+  "summary": "Start from zero: how to look at a painting, what it is physically made of, and how styles and materials changed over five centuries. Then meet the forgers — from Michelangelo's buried Cupid to Van Meegeren, Beltracchi and the Knoedler scandal — and learn every tool used to catch them: connoisseurship, provenance research, ultraviolet, infrared and X-ray imaging, pigment dating, tree rings and bomb-peak radiocarbon. Labs run real methods on real data (the 1950–2019 carbon-14 curve, published sapwood statistics), and the course ends with your own authentication dossier on a case file. Every fact is sourced and dated; disputed attributions and AI claims are marked as disputed.",
+  "outcomes": [
+    "Describe and analyse a painting in the vocabulary of an expert — line, colour, technique, the artist's hand — and place it in its period.",
+    "Explain how a painting is built, layer by layer, and when key pigments, supports and binders became available.",
+    "Tell the stories of the major forgers and name the weakness each one exploited: the eye, the paper trail, the lab or the market.",
+    "Interpret ultraviolet, infrared and X-ray images, set a terminus post quem from pigment analysis, date an oak panel by its rings and read a bomb-peak radiocarbon result.",
+    "Audit a chain of ownership for gaps and red flags, including the 1933–1945 period.",
+    "Weigh connoisseurship, science and documents into a reasoned authentication opinion — and read an 'AI says it's genuine' headline critically."
+  ],
+  "prerequisites": ["None — the course starts from zero.", "Helpful: access to an online museum collection to choose paintings for your looking journal."],
+  "skills": [
+    "Formal analysis",
+    "Connoisseurship",
+    "Painting materials & techniques",
+    "Provenance research",
+    "Technical imaging (UV, IR, X-ray)",
+    "Pigment dating",
+    "Dendrochronology",
+    "Radiocarbon interpretation",
+    "Authentication reporting"
+  ],
+  "progression": "linear",
+  "outputs": [
+    {
+      "id": "looking-journal",
+      "title": "Looking journal",
+      "kind": "portfolio",
+      "description": "Close descriptions of real paintings you chose, written the way a curator looks: what is there, how it was made, what a forger would find hardest to copy."
+    },
+    {
+      "id": "casebook",
+      "title": "Examiner's casebook",
+      "kind": "lab-notebook",
+      "description": "Your red-flag checklist and the saved results of the provenance, imaging, pigment, tree-ring and radiocarbon labs, each with a note on what it does and doesn't prove."
+    },
+    {
+      "id": "headline-audit",
+      "title": "Headline audit",
+      "kind": "memo",
+      "description": "A short audit of one real authentication headline — an AI attribution or a 'lost masterpiece' — separating the claim, the evidence, the dispute and what would settle it."
+    },
+    {
+      "id": "dossier",
+      "title": "Authentication dossier",
+      "kind": "brief",
+      "description": "A sourced opinion on the case-file portrait, as an examiner would write it for a museum: the evidence from every method, how much each weighs, your verdict with a stated confidence, and what to do next.",
+      "capstone": true
+    }
+  ],
+  "units": [
+    {
+      "id": "orientation",
+      "title": "Start here: the question of authenticity",
+      "strand": "Orientation",
+      "summary": "Fakes, copies, workshop pieces and honest uncertainty — the vocabulary of authenticity, and the route through the course.",
+      "lessons": ["af-start"]
+    },
+    {
+      "id": "looking",
+      "title": "Learning to look",
+      "strand": "Theory",
+      "summary": "Formal analysis, the artist's 'hand', and a fast map of five centuries of Western painting.",
+      "lessons": ["af-looking", "af-periods"]
+    },
+    {
+      "id": "materials",
+      "title": "What a painting is made of",
+      "strand": "Theory",
+      "summary": "Supports, grounds, underdrawings, paint layers and varnish — and the pigments whose invention dates can expose a fake.",
+      "lessons": ["af-materials", "af-pigments"]
+    },
+    {
+      "id": "history",
+      "title": "A history of faking",
+      "strand": "Theory",
+      "summary": "Michelangelo's Cupid, the eye-versus-chemistry trial of 1925, Van Meegeren's Vermeers and the modern masters of deception.",
+      "lessons": ["af-early-fakes", "af-van-meegeren", "af-modern-forgers"]
+    },
+    {
+      "id": "forger-mind",
+      "title": "Thinking like a forger",
+      "strand": "Theory",
+      "summary": "The four tests every fake must pass — the eye, the lab, the archive and the market — and where each forger cut corners.",
+      "lessons": ["af-forger-method"]
+    },
+    {
+      "id": "eye-archive",
+      "title": "The eye and the archive",
+      "strand": "Practice",
+      "summary": "Connoisseurship and its limits; provenance research and the paper trail, including the Nazi era.",
+      "lessons": ["af-connoisseurship", "af-provenance"]
+    },
+    {
+      "id": "lab",
+      "title": "The laboratory",
+      "strand": "Practice",
+      "summary": "Imaging beneath the surface, reading the paint, and the clocks inside the materials: tree rings, carbon-14 and lead.",
+      "lessons": ["af-imaging", "af-materials-analysis", "af-dating"]
+    },
+    {
+      "id": "beyond",
+      "title": "Beyond painting",
+      "strand": "Practice",
+      "summary": "Sculpture, antiquities, folk art, silver and cardboard 'Basquiats': the same logic, different materials.",
+      "lessons": ["af-beyond-painting"]
+    },
+    {
+      "id": "landscape",
+      "title": "Authentication in 2026",
+      "strand": "Landscape",
+      "summary": "Markets, courts and the people who say 'yes' — and the AI tools now issuing certificates. Checked 11 October 2026.",
+      "lessons": ["af-market-law", "af-ai-future"]
+    },
+    {
+      "id": "capstone",
+      "title": "The authentication dossier",
+      "strand": "Capstone",
+      "summary": "Bring every method to bear on one case file and write the opinion a museum would act on.",
+      "lessons": ["af-dossier"]
+    }
+  ]
+}
