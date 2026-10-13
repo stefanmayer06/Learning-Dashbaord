@@ -56,6 +56,33 @@
   --theatre-faint: #8b93a1;
   --theatre-accent: color-mix(in oklab, var(--accent) 55%, white);
 
+  /*
+    artwork palette — pigment colours for the forgery plugin's synthetic painting and
+    paint cross-sections. An artwork looks the same in light and dark mode, so these
+    are not redefined for the dark theme.
+  */
+  --art-panel: #7a5531; /* oak */
+  --art-panel-dark: #4f3520;
+  --art-ground: #ece3cf; /* chalk / gesso */
+  --art-umber: #2a1f15; /* dark background */
+  --art-umber-2: #45331f;
+  --art-black: #17120d; /* black garment */
+  --art-lead: #f2ede1; /* lead white */
+  --art-flesh: #dcae88;
+  --art-flesh-shade: #a7714e;
+  --art-red: #a3301f; /* vermilion */
+  --art-varnish: #c99a3b; /* aged natural-resin varnish */
+  --art-carbon: #141414; /* carbon-black underdrawing */
+  --art-uv-bg: #1e1531;
+  --art-uv-glow: #b3d07e; /* greenish-yellow fluorescence of natural resin varnish */
+  --art-uv-dark: #0d0818; /* retouching on top of the varnish */
+  --art-ir-light: #dadada;
+  --art-ir-mid: #9c9c9c;
+  --art-ir-dark: #5c5c5c;
+  --art-xray-bright: #f5f5f5;
+  --art-xray-dark: #232323;
+  --art-crack: #120c07;
+
   /* legacy aliases — older lab/chart/reel code reads these */
   --paper: var(--bg);
   --paper-deep: var(--surface-sunken);

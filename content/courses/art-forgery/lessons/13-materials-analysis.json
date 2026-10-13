@@ -1,0 +1,249 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-materials-analysis",
+  "title": "Reading the paint",
+  "summary": "What XRF, Raman and cross-sections can and can't tell you — then date five paintings by their newest material.",
+  "minutes": 28,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af13-reel",
+      "title": "Elements and molecules",
+      "reel": {
+        "title": "Elements and molecules",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Instruments",
+            "kicker": "Module 7 · Practice",
+            "title": "Reading\nthe paint.",
+            "subtitle": "What each instrument can — and **can't** — see.",
+            "narration": "Imaging shows where things are. Analysis says what they are. And knowing what an instrument cannot see matters as much as what it can."
+          },
+          {
+            "kind": "statement",
+            "text": "**XRF** sees elements, not pigments.",
+            "narration": "X-ray fluorescence, now often portable, identifies chemical elements. Mercury in a red suggests vermilion — but it can't rule out other reds, including restorations or forgeries.",
+            "cite": ["xrf-elements"]
+          },
+          {
+            "kind": "list",
+            "heading": "XRF's blind spots",
+            "items": ["Light elements", "Organic pigments and binders", "Which layer an element sits in", "Old smalt versus modern cobalt blue"],
+            "narration": "Portable XRF can't identify individual light elements, almost entirely misses organic materials, can't say which layer it is reading, and has confused an old cobalt pigment with a modern one.",
+            "cite": ["xrf-limits", "xrf-cobalt-ambiguity"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Raman** and cross-sections identify compounds and layers.",
+            "narration": "So examiners combine methods. Raman spectroscopy distinguishes compounds at high resolution, and a cross-section shows the layers under the microscope.",
+            "cite": ["raman-compounds", "cross-section"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "A warning",
+            "text": "Portable XRF misuse is **documented and widespread**.",
+            "narration": "A 2026 review warns that misuse of portable XRF in authentication is documented and widespread. Results must be read for the instrument used, and never over-interpreted.",
+            "cite": ["xrf-misuse"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Anachronisms",
+            "text": "The newest material sets the **earliest possible date**.",
+            "narration": "Analysis gives you the materials; history gives you their dates. Nineteenth- and twentieth-century pigments are the classic markers, and the newest one present sets the terminus post quem.",
+            "cite": ["tpq-def", "pigment-markers"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "'Campendonk', signed 1914", "items": ["Rutile titanium white", "Made only from 1937/38", "→ impossible date"] },
+            "right": { "heading": "A 'Pollock' drip painting", "items": ["ASA acrylic binder", "Sold only since 1970", "Pollock died in 1956"] },
+            "narration": "Two real catches. Rutile titanium white, made from 1937, in Beltracchi's 'Campendonk' of 1914. And a plastic binder sold only since 1970 in fake 'Pollocks' — Pollock died in 1956.",
+            "cite": ["campendonk-titanium", "asa-1970", "pollock-drips"]
+          },
+          {
+            "kind": "statement",
+            "text": "Even the National Gallery **bought one**.",
+            "narration": "Museums are not immune. A painting the National Gallery acquired in 1923 as a 15th-century work was proven by scientific analysis of its materials to be a 20th-century forgery.",
+            "cite": ["ng-1923-forgery"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Caveats",
+            "text": "A modern pigment in a **retouching** dates the restoration, not the picture.",
+            "narration": "Two cautions. Old paintings get restored, so a modern pigment in a retouched area dates the repair. Check under UV, and sample the original paint.",
+            "cite": ["xrf-elements", "uv-fluorescence"]
+          },
+          {
+            "kind": "statement",
+            "text": "No anachronism **≠** authentic.",
+            "narration": "And absence proves nothing. A forger who uses only period pigments gets a perfectly 'consistent' result. Materials can disprove a date; they can't confirm an author.",
+            "cite": ["tpq-def"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "af13-lab",
+      "title": "Pigment dating lab",
+      "widget": "pigment-lab",
+      "cite": ["tpq-def", "prussian-blue-date", "titanium-white-date", "campendonk-titanium", "asa-1970", "pollock-drips"],
+      "brief": "Five paintings, five analysis tables. For each, find the material that sets the earliest possible date of the **original** paint (a retouching doesn't count), then judge the claimed date. The last case is your capstone case file — save its result to your casebook.",
+      "props": {
+        "capture": "pigments",
+        "items": [
+          { "id": "lead-white", "name": "Lead white", "earliest": null, "when": "since antiquity; main white until the 19th century", "elements": "Pb", "cite": ["lead-white"] },
+          { "id": "vermilion", "name": "Vermilion", "earliest": null, "when": "ancient", "elements": "Hg, S", "cite": ["vermilion-ancient"] },
+          { "id": "ultramarine-natural", "name": "Natural ultramarine (lapis lazuli)", "earliest": null, "when": "long before the modern era", "elements": "light elements — weak in XRF", "cite": ["ultramarine-lapis", "xrf-limits"] },
+          { "id": "prussian-blue", "name": "Prussian blue", "earliest": 1704, "when": "1704", "elements": "Fe", "cite": ["prussian-blue-date"] },
+          { "id": "cobalt-blue", "name": "Cobalt blue", "earliest": 1800, "when": "early 19th century", "elements": "Co, Al", "cite": ["cobalt-blue-date"] },
+          { "id": "zinc-white", "name": "Zinc white", "earliest": 1800, "when": "early 19th century", "elements": "Zn", "cite": ["zinc-white-date"] },
+          { "id": "chrome-yellow", "name": "Chrome yellow", "earliest": 1800, "when": "first quarter of the 19th century", "elements": "Pb, Cr", "cite": ["chrome-yellow-date"] },
+          { "id": "emerald-green", "name": "Emerald green", "earliest": 1800, "when": "first quarter of the 19th century", "elements": "Cu, As", "cite": ["emerald-green-date"] },
+          { "id": "cadmium-yellow", "name": "Cadmium yellow", "earliest": 1840, "when": "about 1840", "elements": "Cd, S", "cite": ["cadmium-date"] },
+          { "id": "titanium-white", "name": "Titanium white", "earliest": 1916, "when": "experimental from 1916; produced from 1918", "elements": "Ti", "cite": ["titanium-white-date", "titanium-dates-disputed"] },
+          { "id": "titanium-rutile", "name": "Titanium white, rutile form", "earliest": 1937, "when": "industrially produced from 1937/38", "elements": "Ti", "cite": ["campendonk-titanium"] },
+          { "id": "asa-binder", "name": "ASA acrylic binder", "earliest": 1970, "when": "commercially available since 1970", "elements": "organic — invisible to XRF", "cite": ["asa-1970", "xrf-limits"] }
+        ],
+        "cases": [
+          {
+            "id": "landscape",
+            "title": "Dutch landscape",
+            "claimed": 1650,
+            "claimLabel": "signed and dated 1650",
+            "synthetic": true,
+            "context": "A river landscape offered as a Dutch Golden Age work. Raman and XRF readings from four spots in the original paint:",
+            "found": [
+              { "pigment": "lead-white", "where": "clouds" },
+              { "pigment": "vermilion", "where": "boatman's cap" },
+              { "pigment": "ultramarine-natural", "where": "water" },
+              { "pigment": "prussian-blue", "where": "upper sky" }
+            ],
+            "expect": "anachronism",
+            "reveal": "Prussian blue dates from 1704. In the original sky paint — not a retouching — it makes a 1650 date impossible."
+          },
+          {
+            "id": "campendonk",
+            "title": "'Campendonk' 1914",
+            "claimed": 1914,
+            "claimLabel": "signed 'Campendonk 1914'",
+            "synthetic": false,
+            "context": "'Red Picture with Horses', sold at auction in 2006. The court record reports what the Doerner Institut found in 2008:",
+            "found": [{ "pigment": "titanium-rutile", "where": "two paint layers" }],
+            "expect": "anachronism",
+            "reveal": "Rutile titanium white was produced industrially only from 1937/38 — more than twenty years after the date on the picture. It was one of Beltracchi's forgeries.",
+            "cite": ["campendonk-sale", "campendonk-titanium"]
+          },
+          {
+            "id": "drip",
+            "title": "'Pollock' drip",
+            "claimed": 1956,
+            "claimLabel": "sold as a Pollock — he died in 1956",
+            "synthetic": false,
+            "context": "One of the drip paintings sold by John Re as Pollocks, analysed for the International Foundation for Art Research. The black paint's binder:",
+            "found": [{ "pigment": "asa-binder", "where": "black paint" }],
+            "expect": "anachronism",
+            "reveal": "ASA terpolymers have been commercially available only since 1970, after Pollock's death. Re pleaded guilty to wire fraud in 2014.",
+            "cite": ["asa-1970", "john-re", "pollock-drips"]
+          },
+          {
+            "id": "river",
+            "title": "River view 1875",
+            "claimed": 1875,
+            "claimLabel": "signed and dated 1875",
+            "synthetic": true,
+            "context": "An Impressionist-style river view. One reading came from a small area that fluoresces dark under UV.",
+            "found": [
+              { "pigment": "lead-white", "where": "sky" },
+              { "pigment": "zinc-white", "where": "clouds" },
+              { "pigment": "cobalt-blue", "where": "water" },
+              { "pigment": "chrome-yellow", "where": "sunlit bank" },
+              { "pigment": "emerald-green", "where": "trees" },
+              { "pigment": "titanium-white", "where": "repaired tear", "retouch": true }
+            ],
+            "expect": "consistent",
+            "reveal": "The titanium white sits only in a retouching, so it dates the repair, not the picture. The original paint's newest materials date from the early 19th century — consistent with 1875, which proves nothing about who painted it."
+          },
+          {
+            "id": "casefile",
+            "title": "Case file 'HM 1631'",
+            "claimed": 1631,
+            "claimLabel": "signed 'HM · 1631'",
+            "synthetic": true,
+            "caseFile": true,
+            "context": "The case-file portrait. All four samples come from the original paint, not from retouchings:",
+            "found": [
+              { "pigment": "lead-white", "where": "ruff" },
+              { "pigment": "vermilion", "where": "lips" },
+              { "pigment": "ultramarine-natural", "where": "dress lining" },
+              { "pigment": "prussian-blue", "where": "background glaze" }
+            ],
+            "expect": "anachronism",
+            "reveal": "Prussian blue in the original background paint puts the earliest possible date at 1704 — long after the date on the panel."
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af13-video",
+      "title": "Go deeper: Raman spectroscopy and forgery",
+      "optional": true,
+      "provider": "youtube",
+      "src": "ZPk5M7k4WJA",
+      "caption": "A lecture by the chemist Robin Clark for SCI on using Raman spectroscopy to identify pigments and expose forgeries (about 70 minutes).",
+      "credit": "SCI (YouTube)"
+    },
+    {
+      "type": "quiz",
+      "id": "af13-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "XRF finds mercury in a red area. What can you conclude?",
+          "options": ["It is definitely vermilion", "Probably vermilion or cinnabar — but other reds aren't ruled out", "It is a modern pigment"],
+          "answer": 1,
+          "explain": "XRF identifies elements; the pigment is a deduction.",
+          "cite": ["xrf-elements"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why might portable XRF miss a modern synthetic organic pigment?",
+          "options": ["It is too bright", "Organic compounds almost completely elude XRF", "It only works on canvas"],
+          "answer": 1,
+          "explain": "Use Raman, FTIR or chromatography for organics.",
+          "cite": ["xrf-limits"]
+        },
+        {
+          "type": "single",
+          "prompt": "Titanium white turns up only in an area that fluoresces dark under UV. What does it date?",
+          "options": ["The original painting", "The retouching", "The varnish"],
+          "answer": 1,
+          "explain": "Later paint on top of the varnish shows dark in UV; a modern pigment there dates the repair.",
+          "cite": ["uv-fluorescence", "xrf-elements"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did the Doerner Institut find in the 'Campendonk'?",
+          "options": ["Prussian blue", "Rutile titanium white", "Bakelite"],
+          "answer": 1,
+          "explain": "A form of titanium white produced industrially only from 1937/38.",
+          "cite": ["campendonk-titanium"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af13-casebook",
+      "title": "Casebook: pigment dating",
+      "output": "casebook",
+      "brief": "Add the case-file result to your casebook, and practise explaining the limits of pigment evidence.",
+      "fields": [
+        { "type": "capture", "id": "cb-pig", "label": "Pigment dating of the case file (saved from the lab)", "from": "pigments" },
+        { "type": "text", "id": "cb-pig-note", "label": "Explain to a non-specialist why 'no anachronism found' is not proof of authenticity.", "minWords": 40 }
+      ]
+    }
+  ]
+}

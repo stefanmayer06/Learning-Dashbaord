@@ -48,6 +48,7 @@ export function LineChart({
   hline,
   marker,
   yDomain,
+  xTickFormat,
   children,
 }: {
   series: Series[]
@@ -60,6 +61,8 @@ export function LineChart({
   hline?: { y: number; label: string }
   marker?: { x: number; y: number; label?: string }
   yDomain?: [number, number]
+  /** Format x tick labels (e.g. plain years instead of 1,960). */
+  xTickFormat?: (v: number) => string
   children?: ReactNode
 }) {
   const [ref, measured] = useRenderedWidth<SVGSVGElement>(width)
@@ -121,7 +124,7 @@ export function LineChart({
       ))}
       {ticks(x0, x1, logX, xTarget).map((v, i) => (
         <text key={'x' + i} x={sx(v)} y={Hh - m.b + 18} textAnchor="middle" className="chart-tick">
-          {fmt(v, logX)}
+          {xTickFormat ? xTickFormat(v) : fmt(v, logX)}
         </text>
       ))}
       <line x1={m.l} x2={W - m.r} y1={Hh - m.b} y2={Hh - m.b} className="chart-axis" />

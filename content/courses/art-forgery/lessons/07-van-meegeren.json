@@ -1,0 +1,167 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-van-meegeren",
+  "title": "Van Meegeren: the forger who fooled the Nazis",
+  "summary": "The 'Vermeers' that fooled a nation, the sale to Göring, the confession — and the chemistry that still identifies his work.",
+  "minutes": 25,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af7-reel",
+      "title": "The Vermeer that wasn't",
+      "reel": {
+        "title": "The Vermeer that wasn't",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The masterpiece",
+            "kicker": "Module 4 · Theory",
+            "title": "The Vermeer\nthat wasn't.",
+            "subtitle": "Han van Meegeren (1889–1947)",
+            "narration": "In 1937 the Netherlands celebrated the discovery of a new Vermeer. It had been painted that very year, by a frustrated painter named Han van Meegeren.",
+            "cite": ["emmaus-1937", "emmaus-by-hvm"]
+          },
+          {
+            "kind": "statement",
+            "text": "Hailed as Vermeer's **masterpiece** — compared to the Night Watch.",
+            "narration": "Dutch art historians hailed 'The Supper at Emmaus' as Vermeer's masterpiece and compared it in importance to Rembrandt's Night Watch.",
+            "cite": ["emmaus-1937"]
+          },
+          {
+            "kind": "stat",
+            "value": 520000,
+            "suffix": " guilders",
+            "label": "paid by **Museum Boijmans** for 'The Supper at Emmaus'",
+            "context": "It beat the Rijksmuseum to the purchase.",
+            "narration": "Museum Boijmans in Rotterdam beat the Rijksmuseum to it, paying 520,000 guilders.",
+            "cite": ["emmaus-1937"]
+          },
+          {
+            "kind": "statement",
+            "text": "Another 'Vermeer': **1.3 million guilders**.",
+            "narration": "The Rijksmuseum later paid 1.3 million guilders for another of his 'Vermeers'. One curator privately called it bad and crude — but his doubts stayed in his diary.",
+            "cite": ["washing-feet"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The trap",
+            "text": "After the war: a 'Vermeer' in **Göring's** collection.",
+            "narration": "After the war, a 'Vermeer' was found in the collection of Hermann Göring. Van Meegeren had sold it — and was arrested for collaborating with the Nazis, a capital charge.",
+            "cite": ["adulteress-goring"]
+          },
+          {
+            "kind": "statement",
+            "text": "His defence: **I painted it myself.**",
+            "narration": "His defence was astonishing: the painting was not Dutch heritage at all, because he had painted it himself. To prove it, he painted another 'Vermeer'.",
+            "cite": ["adulteress-goring", "hvm-proof-painting"]
+          },
+          {
+            "kind": "statement",
+            "text": "Convicted of **forgery and fraud** — dead before serving his year.",
+            "narration": "The charge became forgery and fraud. He was sentenced to one year in prison, and died in 1947 before serving it.",
+            "cite": ["hvm-sentence"]
+          },
+          {
+            "kind": "list",
+            "chapter": "The method",
+            "heading": "How he beat the tests",
+            "items": ["**Bakelite** hardened the paint", "It passed the alcohol-swab and hot-needle tests", "Old canvases scraped and reused", "Yet some **19th-century pigments** crept in"],
+            "narration": "An early plastic, Bakelite, hardened his paint so it passed the age tests of the day, and he scraped old paintings to reuse their canvases. Even so, nineteenth-century pigments slipped in.",
+            "cite": ["hvm-bakelite", "hvm-reused-canvas", "hvm-19c-pigments"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Science catches up",
+            "text": "**Lead-210**: a radioactive clock inside lead white.",
+            "narration": "In 1967 scientists showed how to tell old lead white from new, using lead-210: once lead is refined from ore, its excess lead-210 decays with a 22-year half-life.",
+            "cite": ["lead210"]
+          },
+          {
+            "kind": "statement",
+            "text": "Bakelite is his **fingerprint**.",
+            "narration": "Today Bakelite is his fingerprint. A copy of Baburen's 'Procuress' at the Courtauld showed no modern pigments, but traces of Bakelite confirmed it as Van Meegeren's work in 2011.",
+            "cite": ["procuress-2011"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af7-video",
+      "title": "Watch: the art forger who tricked the Nazis",
+      "provider": "youtube",
+      "src": "Y5JdbuBe6SY",
+      "caption": "A five-minute TED-Ed animation in which art historian Noah Charney retells the Van Meegeren case.",
+      "credit": "TED-Ed (YouTube)"
+    },
+    {
+      "type": "embed",
+      "id": "af7-video-boijmans",
+      "title": "Watch: Van Meegeren's fake Vermeers (Museum Boijmans)",
+      "optional": true,
+      "provider": "youtube",
+      "src": "NnnkuOz08GQ",
+      "caption": "Museum Boijmans Van Beuningen — which still owns 'The Supper at Emmaus' — on the fake Vermeers in its own collection.",
+      "credit": "Museum Boijmans Van Beuningen (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af7-seq",
+      "title": "The affair, in order",
+      "widget": "sequence",
+      "brief": "Use the arrows to put the events of the Van Meegeren affair in order.",
+      "props": {
+        "items": [
+          { "label": "Museum Boijmans buys 'The Supper at Emmaus' as a Vermeer", "detail": "1937", "cite": ["emmaus-1937"] },
+          { "label": "'Christ and the Adulteress' is painted and sold as a Vermeer", "detail": "1942; it reached Göring's collection", "cite": ["adulteress-goring"] },
+          { "label": "Arrested for collaboration, he confesses to forgery", "detail": "after the war", "cite": ["adulteress-goring"] },
+          { "label": "Convicted of forgery and fraud; dies before serving his sentence", "detail": "1947", "cite": ["hvm-sentence"] },
+          { "label": "Phenol-formaldehyde resin identified in his paint by UV spectra", "detail": "1956", "cite": ["hvm-phenol-1956"] },
+          { "label": "Lead-210 method for dating lead white published", "detail": "1967", "cite": ["lead210"] },
+          { "label": "Bakelite confirms the Courtauld 'Procuress' as his", "detail": "2011", "cite": ["procuress-2011"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af7-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Why did Van Meegeren confess?",
+          "options": ["Out of remorse", "To escape a collaboration charge by proving the 'Vermeer' sold to Göring was his own fake", "A chemist had already caught him"],
+          "answer": 1,
+          "explain": "Selling Dutch heritage to the Nazis carried a possible death sentence; forgery did not.",
+          "cite": ["adulteress-goring"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did Bakelite do for his forgeries?",
+          "options": ["Added colour", "Hardened the paint so it passed the alcohol-swab and hot-needle tests", "Made the canvas look older"],
+          "answer": 1,
+          "explain": "Hard paint resisted both period tests — but Bakelite is easy to detect with modern instruments.",
+          "cite": ["hvm-bakelite"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why did he reuse old canvases?",
+          "options": ["They were cheaper", "An old canvas looks — and dates — old, hiding the new paint", "Vermeer had used them"],
+          "answer": 1,
+          "explain": "Reusing a period support is a classic tactic; it is why examiners date the paint as well as the support.",
+          "cite": ["hvm-reused-canvas"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the half-life of lead-210, in years?",
+          "answer": 22,
+          "tolerance": 0,
+          "unit": "years",
+          "explain": "Freshly refined lead carries excess lead-210 that decays with a 22-year half-life — a clock for lead white.",
+          "cite": ["lead210"]
+        }
+      ]
+    }
+  ]
+}

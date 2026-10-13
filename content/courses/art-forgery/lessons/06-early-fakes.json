@@ -1,0 +1,136 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-early-fakes",
+  "title": "From Michelangelo to 'the eye or chemistry?'",
+  "summary": "A buried Cupid sold as an antique, and the 1920s trial that set the expert's eye against the chemist.",
+  "minutes": 18,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af6-reel",
+      "title": "Old tricks",
+      "reel": {
+        "title": "Old tricks",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "An 'antique' Cupid",
+            "kicker": "Module 4 · Theory",
+            "title": "Faking is\nas old as art.",
+            "subtitle": "Even Michelangelo's work was sold as an **antique**.",
+            "narration": "Forgery is not a modern crime. Our first case involves the most famous sculptor of the Renaissance, and comes from the first great biographer of artists."
+          },
+          {
+            "kind": "statement",
+            "text": "A life-size **sleeping Cupid**, carved by Michelangelo in Florence.",
+            "narration": "Giorgio Vasari tells how Michelangelo carved a life-size sleeping Cupid in Florence — and how a patron suggested a profitable deception.",
+            "cite": ["vasari-cupid"]
+          },
+          {
+            "kind": "quote",
+            "text": "If you were to bury it under ground and then sent it to Rome treated in such a manner as to make it look old, I am certain that it would pass for an antique, and you would thus obtain much more for it than by selling it here.",
+            "by": "Lorenzo di Pier Francesco de' Medici, as reported by Vasari (trans. G. de Vere)",
+            "narration": "The advice, as Vasari reports it: bury it, make it look old, send it to Rome, and it will pass for an antique — and fetch far more.",
+            "cite": ["vasari-cupid"]
+          },
+          {
+            "kind": "statement",
+            "text": "Sold to a cardinal as an antique — for **200 ducats**.",
+            "narration": "In one of Vasari's versions, a dealer sold it to Cardinal San Giorgio as an antique for two hundred ducats, and told Michelangelo it had fetched only thirty crowns.",
+            "cite": ["vasari-cupid", "vasari-cupid-refund"]
+          },
+          {
+            "kind": "statement",
+            "text": "The cardinal found out — and **got his money back**.",
+            "narration": "When the cardinal learned it had been made in Florence, he forced the dealer's agent to return the money. Lesson one: the story told about an object is part of the fake.",
+            "cite": ["vasari-cupid-refund"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The eye or chemistry?",
+            "text": "c. 1923: a 'Frans Hals' **Laughing Cavalier**, published by the leading expert.",
+            "narration": "Fast-forward to the 1920s. Cornelis Hofstede de Groot, a leading expert on Dutch painting, accepted a small 'Laughing Cavalier' as a Frans Hals and published it in The Burlington Magazine.",
+            "cite": ["laughing-cavalier-hdg"]
+          },
+          {
+            "kind": "list",
+            "heading": "What the court's experts reported",
+            "items": ["**Zinc white** — early 19th century", "**Cobalt blue** — early 19th century", "**Artificial ultramarine**", "**Machine-made nails** in the X-ray"],
+            "narration": "When the buyer sued, the experts reported modern materials: zinc white, cobalt blue, artificial ultramarine, and machine-made nails in an X-ray. It was the first time such evidence exposed a fake in a Dutch court.",
+            "cite": ["laughing-cavalier-evidence", "zinc-white-date", "cobalt-blue-date"]
+          },
+          {
+            "kind": "statement",
+            "text": "Real or fake? **The eye or chemistry?**",
+            "footnote": "C. Hofstede de Groot, Echt of onecht? Oog of chemie?, 1925",
+            "narration": "Hofstede de Groot would not back down. He bought the painting to end the case, and published a book whose title says it all: Real or fake? The eye or chemistry?",
+            "cite": ["hdg-book", "laughing-cavalier-halt"]
+          },
+          {
+            "kind": "statement",
+            "text": "Another 'Hals' he bought turned out to contain **water-soluble paint**.",
+            "narration": "He did it twice. Another 'Hals' he bought in 1923 was declared a forgery because its paint dissolved in water. He defended both to the end.",
+            "cite": ["amused-smoker"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "A century later",
+            "text": "The Laughing Cavalier is **back under examination**.",
+            "narration": "The Laughing Cavalier resurfaced in 2024, and a European research project on forgery detection is now re-examining it, with the court archive in hand. Its findings are not yet peer reviewed.",
+            "cite": ["artdetect"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "af6-sort",
+      "title": "Eye, lab or archive?",
+      "widget": "card-sort",
+      "brief": "Every piece of evidence about a painting comes from one of three places. Sort these into the expert's eye, the laboratory, or the documents.",
+      "props": {
+        "buckets": ["The eye", "The lab", "The archive"],
+        "cards": [
+          { "text": "The modelling of the face feels too timid for the master.", "bucket": "The eye", "why": "A stylistic judgement — the connoisseur's domain." },
+          { "text": "An expert's published certificate of authenticity.", "bucket": "The eye", "why": "A certificate records an opinion; it adds no new physical evidence.", "cite": ["laughing-cavalier-hdg"] },
+          { "text": "Zinc white in the original paint layer.", "bucket": "The lab", "why": "Material evidence: zinc white became available to artists only in the early 19th century.", "cite": ["zinc-white-date"] },
+          { "text": "Machine-made nails visible in an X-radiograph.", "bucket": "The lab", "why": "Metal shows up in X-rays, and machine-made nails date the construction.", "cite": ["xrays", "laughing-cavalier-evidence"] },
+          { "text": "A dealer's story that the work comes from an old family collection.", "bucket": "The archive", "why": "A provenance claim — to be checked against documents." },
+          { "text": "A sale catalogue from 1850 giving the picture's subject and size.", "bucket": "The archive", "why": "A document that can tie the object to a past owner.", "cite": ["provenance-def"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af6-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "According to Vasari, how was Michelangelo's Cupid to pass as ancient?",
+          "options": ["It was signed with a Greek name", "It was buried and treated to look old", "It was painted gold"],
+          "answer": 1,
+          "explain": "Lorenzo di Pier Francesco suggested burying it and making it look old before sending it to Rome.",
+          "cite": ["vasari-cupid"]
+        },
+        {
+          "type": "multi",
+          "prompt": "Which findings did the court's experts report in the Laughing Cavalier?",
+          "options": ["Zinc white", "Machine-made nails", "Cobalt blue", "Natural ultramarine from lapis lazuli"],
+          "answers": [0, 1, 2],
+          "explain": "Modern pigments and machine-made nails; the ultramarine reported was the artificial kind.",
+          "cite": ["laughing-cavalier-evidence"]
+        },
+        {
+          "type": "single",
+          "prompt": "What was Hofstede de Groot's position?",
+          "options": ["The chemistry was decisive", "His expert eye should outweigh the chemical evidence", "Neither mattered"],
+          "answer": 1,
+          "explain": "His book's title sums it up: Real or fake? The eye or chemistry?",
+          "cite": ["laughing-cavalier-halt", "hdg-book"]
+        }
+      ]
+    }
+  ]
+}

@@ -216,14 +216,22 @@ export function ChartShot({ shot, p }: ShotProps<'chart'>) {
     return Array.from({ length: 5 }, (_, i) => lo + ((hi - lo) * i) / 4)
   }
   const tickLabel = (v: number, log: boolean) => (log ? `10${sup(Math.round(Math.log10(v)))}` : fmt(v))
+  // calendar years: round ticks (…1960, 1970…) printed without a thousands separator
+  const years = !shot.logX && /\byear/i.test(shot.xLabel)
+  const yearTicks = (lo: number, hi: number) => {
+    const step = [1, 2, 5, 10, 20, 25, 50, 100, 200, 500].find((s) => (hi - lo) / s <= 6) ?? 1000
+    const out: number[] = []
+    for (let y = Math.ceil(lo / step) * step; y <= hi; y += step) out.push(y)
+    return out
+  }
   return (
     <div className="r-frame">
       <svg viewBox={`0 0 ${W} ${H}`} className="r-svg">
         <line x1={left} x2={right} y1={bottom} y2={bottom} className="r-axis" />
         <line x1={left} x2={left} y1={top} y2={bottom} className="r-axis" />
-        {ticks(x0, x1, shot.logX).map((v, i) => (
+        {(years ? yearTicks(x0, x1) : ticks(x0, x1, shot.logX)).map((v, i) => (
           <text key={i} x={sx(v)} y={bottom + 34} className="r-tick" textAnchor="middle">
-            {tickLabel(v, shot.logX)}
+            {years ? String(Math.round(v)) : tickLabel(v, shot.logX)}
           </text>
         ))}
         {ticks(y0, y1, shot.logY).map((v, i) => (
