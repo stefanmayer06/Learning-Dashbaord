@@ -166,6 +166,42 @@
         { "type": "text", "id": "hw9-external", "label": "2. Why is an external cohort (different hospital or study) stronger evidence than cross-validation? What could still go wrong?", "minWords": 60 },
         { "type": "text", "id": "hw9-find", "label": "3. Find one published omics or imaging classifier paper. Did it select features inside the folds? Quote the sentence that tells you (or note its absence).", "minWords": 50 }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo10-watch-screening-ml",
+      "title": "Watch: machine learning for personalised cancer care",
+      "optional": true,
+      "provider": "youtube",
+      "src": "tRa90Fu9HEA",
+      "caption": "Adam Yala (UC Berkeley) at the Simons Institute on using machine learning to make population screening — such as low-dose CT for lung cancer — more effective.",
+      "credit": "Simons Institute for the Theory of Computing (YouTube)",
+      "date": "2026-02-12",
+      "minutes": 62
+    },
+    {
+      "type": "embed",
+      "id": "qo10-watch-ai-oncology",
+      "title": "Watch: AI applications in oncology and cancer research",
+      "optional": true,
+      "provider": "youtube",
+      "src": "UOS4Palyj1Y",
+      "caption": "Jakob Nikolas Kather's talk at the CVPR 2026 MedVisionFM workshop on AI in oncology and cancer research. Listen with this lesson's leakage checklist in mind.",
+      "credit": "CVPR 2026 MedVisionFM workshop (YouTube, posted by MedSeg)",
+      "date": "2026-06-05",
+      "minutes": 34
+    },
+    {
+      "type": "embed",
+      "id": "qo10-listen-ai-medicine",
+      "title": "Listen: how is AI transforming medicine?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000793601023",
+      "caption": "The Francis Crick Institute's A Question of Science: Brian Cox and a panel including the Crick's chief AI scientist, Mihaela van der Schaar, take audience questions on AI in diagnosis, drug discovery and data privacy.",
+      "credit": "A Question of Science, The Francis Crick Institute (Apple Podcasts)",
+      "date": "2026-10-07",
+      "minutes": 43
     }
   ]
 }

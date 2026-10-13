@@ -274,6 +274,30 @@
           "minWords": 80
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo11-watch-protein-design",
+      "title": "Watch: AI-driven protein design and drug discovery",
+      "optional": true,
+      "provider": "youtube",
+      "src": "IPv8CkMlciI",
+      "caption": "Bruce R. Donald's keynote on AI-driven protein design and drug discovery at a September 2026 symposium on AI in healthcare, followed by questions from Peter Lee (Microsoft Research) and John Lorsch (NIH) — the classical state of the art any quantum method must beat.",
+      "credit": "Donald Laboratory (YouTube)",
+      "date": "2026-09-10",
+      "minutes": 55
+    },
+    {
+      "type": "embed",
+      "id": "qo11-listen-ai-hype",
+      "title": "Listen: cutting through the AI hype in drug discovery",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000788842334",
+      "caption": "Recursion's chief scientific officer, David Hallett, on where AI genuinely helps drug discovery today and where the hype outruns the reality — a template for judging quantum claims too.",
+      "credit": "The Genetics Podcast, Sano Genetics (Apple Podcasts)",
+      "date": "2026-09-10",
+      "minutes": 41
     }
   ]
 }

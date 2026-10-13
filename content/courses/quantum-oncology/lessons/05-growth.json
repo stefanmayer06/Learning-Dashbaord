@@ -155,6 +155,30 @@
         { "type": "text", "id": "hw4-identify", "label": "2. With three noisy measurements early in growth, why can't you tell exponential from Gompertz? Relate your answer to the mouse forecasting study and say what extra information would help.", "minWords": 80 },
         { "type": "text", "id": "hw4-quantum", "label": "3. Is there any role for a quantum computer in tumour-growth modelling? Give your honest answer and the strongest counter-argument.", "minWords": 60 }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo5-watch-metastasis-model",
+      "title": "Watch: modelling metastasis formation",
+      "optional": true,
+      "provider": "youtube",
+      "src": "e8A63sRhEK8",
+      "caption": "Tibor Antal (Edinburgh) on a branching-process model of metastasis: are undetectable metastases already present when the primary tumour is removed, and how long until they show? From IPAM's 2026 Mathematics of Cancer workshop.",
+      "credit": "Institute for Pure & Applied Mathematics, UCLA (YouTube)",
+      "date": "2026-02-27",
+      "minutes": 49
+    },
+    {
+      "type": "embed",
+      "id": "qo5-watch-dose-schedules",
+      "title": "Watch: gaming the cancer–immunity cycle",
+      "optional": true,
+      "provider": "youtube",
+      "src": "nDJfAjCD-ao",
+      "caption": "Paul Newton (USC) on an evolutionary game-theory model of the cancer–immunity cycle, and how timing chemotherapy and immunotherapy doses to the cycle can make up for a lower total dose.",
+      "credit": "Institute for Pure & Applied Mathematics, UCLA (YouTube)",
+      "date": "2026-02-27",
+      "minutes": 43
     }
   ]
 }

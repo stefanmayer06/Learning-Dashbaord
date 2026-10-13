@@ -260,6 +260,15 @@ export function validateCourse(
         if (step.provider === 'youtube' && !/^[A-Za-z0-9_-]{11}$/.test(step.src)) {
           err(where, 'youtube embeds take the 11-character video id as `src`')
         }
+        if (step.provider === 'apple-podcasts' && !/^\d{6,}$/.test(step.src)) {
+          err(where, 'apple-podcasts embeds take the numeric episode id (the `i=` parameter) as `src`')
+        }
+        if (step.provider === 'nih-videocast' && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(step.src)) {
+          err(where, 'nih-videocast embeds take the event id from videocast.nih.gov/watch/<id> as `src`')
+        }
+        if (step.date && step.date > course.lastVerified) {
+          err(where, `dated ${step.date}, after the course was last verified (${course.lastVerified})`)
+        }
         if (step.provider === 'quirk') {
           try {
             const c = JSON.parse(step.src)

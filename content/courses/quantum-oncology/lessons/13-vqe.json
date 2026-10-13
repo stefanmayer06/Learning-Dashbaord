@@ -300,6 +300,30 @@
           "minWords": 80
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo13-watch-sample-based",
+      "title": "Watch: sample-based methods for quantum simulation",
+      "optional": true,
+      "provider": "youtube",
+      "src": "WuaoaknYDrk",
+      "caption": "IBM's Javier Robledo Moreno at Qiskit Global Summer School 2026 on sample-based methods, in which quantum and classical computers work together to find ground states — a hybrid approach to set beside VQE.",
+      "credit": "Qiskit Global Summer School 2026, IBM (YouTube)",
+      "date": "2026-08-14",
+      "minutes": 54
+    },
+    {
+      "type": "embed",
+      "id": "qo13-watch-advantage-chemistry",
+      "title": "Watch: prospects for quantum advantage in chemistry",
+      "optional": true,
+      "provider": "youtube",
+      "src": "qU2dwurdmdE",
+      "caption": "A Simons Institute session with Andrew Baczewski (Sandia), William Huggins (Google) and Peter Love (Tufts) on the near-term and long-term prospects for quantum advantage in computational chemistry.",
+      "credit": "Simons Institute for the Theory of Computing (YouTube)",
+      "date": "2026-05-29",
+      "minutes": 47
     }
   ]
 }

@@ -271,6 +271,18 @@
           ]
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo21-watch-tracking-advantage",
+      "title": "Watch: tracking quantum advantage",
+      "optional": true,
+      "provider": "youtube",
+      "src": "aBlZlTWWjuE",
+      "caption": "Minh Tran at Qiskit Global Summer School 2026 on validating quantum computations — the test any claim of quantum advantage has to pass, and the spirit of this lesson's benchmark.",
+      "credit": "Qiskit Global Summer School 2026, IBM (YouTube)",
+      "date": "2026-08-17",
+      "minutes": 22
     }
   ]
 }

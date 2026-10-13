@@ -293,6 +293,42 @@
           "minWords": 60
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo12-watch-simulation",
+      "title": "Watch: quantum algorithms for simulating physical systems",
+      "optional": true,
+      "provider": "youtube",
+      "src": "X8YANoaMUGY",
+      "caption": "Will Kirby's Qiskit Global Summer School 2026 lecture: from circuits and time evolution to ground-state energies — the algorithms whose costs this lesson estimates.",
+      "credit": "Qiskit Global Summer School 2026, IBM (YouTube)",
+      "date": "2026-08-13",
+      "minutes": 77
+    },
+    {
+      "type": "embed",
+      "id": "qo12-listen-classical-limits",
+      "title": "Listen: quantum chemistry's classical limits",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000762411991",
+      "caption": "Caltech's Garnet Chan on how far classical methods reach in quantum chemistry, including the FeMo-cofactor flagship case — the strongest version of the classical side of this lesson's argument.",
+      "credit": "The New Quantum Era (Apple Podcasts)",
+      "date": "2026-04-20",
+      "minutes": 41
+    },
+    {
+      "type": "embed",
+      "id": "qo12-watch-drug-design-challenges",
+      "title": "Watch: scientific challenges for quantum computing in drug design",
+      "optional": true,
+      "provider": "youtube",
+      "src": "Dra-wAt1mCE",
+      "caption": "Michael Streif on what it would take for quantum computers to matter in pharmaceutical drug design — far more than ground-state energies of single molecules — and on recent work on fault-tolerant algorithms.",
+      "credit": "QuantumBW (YouTube)",
+      "date": "2026-06-11",
+      "minutes": 51
     }
   ]
 }

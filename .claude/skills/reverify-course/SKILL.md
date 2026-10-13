@@ -8,7 +8,9 @@ description: Re-check a Margin course's claims ledger against current sources an
 Landscape facts go stale: roadmaps slip, preprints get published (or rebutted), records fall.
 
 1. `npm run validate:strict -- <course-id>` lists claims older than 180 days.
-2. `npm run check-sources -- <course-id>` finds dead links and title drift.
+2. `npm run check-sources -- <course-id>` finds dead links and title drift — for sources and for
+   embedded talks and podcasts (taken down, embedding switched off, or a date that disagrees).
+   Replace dead talks, and swap superseded ones for newer recordings where a lesson's field moves fast.
 3. For each claim (start with `estimate` and `contested`, then landscape `verified` ones):
    - Re-open the primary source. Has it been corrected, published, retracted or superseded?
    - Search for newer primary results on the same question (e.g. new resource estimates,

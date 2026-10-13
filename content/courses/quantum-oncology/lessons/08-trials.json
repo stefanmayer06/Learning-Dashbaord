@@ -201,6 +201,42 @@
         { "type": "text", "id": "hw7-hodi", "label": "2. Read the abstract of Hodi et al. (2010, NEJM). Identify the population, comparator, primary endpoint, hazard ratio, and one threat to generalising the result.", "minWords": 80 },
         { "type": "text", "id": "hw7-endpoint", "label": "3. Your future model predicts something about patients. Which of OS, PFS or ORR would you validate it against, and why that one?", "minWords": 50 }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo8-watch-dose-optimisation",
+      "title": "Watch: oncology phase 1 trials and dose optimisation",
+      "optional": true,
+      "provider": "nih-videocast",
+      "src": "4dafc673-a224-11f1-82c0-124f0a52e769",
+      "caption": "Mark Ratain's lecture for NIH's Principles of Clinical Pharmacology course: how first-in-human oncology trials work and how the dose is chosen — the step before the trials this lesson analyses.",
+      "credit": "NIH Principles of Clinical Pharmacology (NIH VideoCast)",
+      "date": "2026-08-01",
+      "minutes": 46
+    },
+    {
+      "type": "embed",
+      "id": "qo8-watch-interim-os",
+      "title": "Watch: interpreting interim overall survival",
+      "optional": true,
+      "provider": "youtube",
+      "src": "sYK2fYm4ipc",
+      "caption": "A Friends of Cancer Research webinar — a presentation by Névine Zariffa, then a panel — on interpreting interim overall-survival results for decision-making: this lesson's survival curves, read before the trial is over.",
+      "credit": "Friends of Cancer Research (YouTube)",
+      "date": "2026-07-15",
+      "minutes": 60
+    },
+    {
+      "type": "embed",
+      "id": "qo8-listen-women-trials",
+      "title": "Listen: women not included — drugs and clinical trials",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000782045725",
+      "caption": "The BBC World Service's Discovery on how women were historically left out of clinical trials, and why that matters for how drugs work and for their side effects — who is enrolled decides what a trial can tell you.",
+      "credit": "Discovery, BBC World Service (Apple Podcasts)",
+      "date": "2026-08-10",
+      "minutes": 26
     }
   ]
 }

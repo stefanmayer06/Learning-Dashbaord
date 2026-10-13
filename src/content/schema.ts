@@ -319,11 +319,19 @@ export const Step = z.discriminatedUnion('type', [
   }),
   z.object({
     type: z.literal('embed'),
-    provider: z.enum(['quirk', 'youtube', 'iframe']),
+    /**
+     * youtube: 11-character video id · apple-podcasts: numeric episode id ·
+     * nih-videocast: event id (UUID) · quirk: circuit JSON · iframe: allowlisted https URL
+     */
+    provider: z.enum(['quirk', 'youtube', 'apple-podcasts', 'nih-videocast', 'iframe']),
     src: z.string(),
     caption: z.string(),
     /** Who made it — external material is labelled as such. */
     credit: z.string(),
+    /** For talks and episodes: when it was given or released, shown so learners can judge how current it is. */
+    date: isoDate.optional(),
+    /** Running time of a talk or episode. */
+    minutes: z.number().int().positive().optional(),
     cite,
     ...stepBase,
   }),

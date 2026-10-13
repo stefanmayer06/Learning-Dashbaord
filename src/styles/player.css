@@ -1400,6 +1400,11 @@ a.ol-lesson:hover .ol-lesson-title {
   aspect-ratio: 16 / 10;
   background: var(--surface-sunken);
 }
+/* podcast players are a fixed-height card, not a 16:10 screen */
+.embed-frame.is-audio {
+  aspect-ratio: auto;
+  height: 175px;
+}
 .embed-frame iframe {
   position: absolute;
   inset: 0;
@@ -1414,6 +1419,8 @@ a.ol-lesson:hover .ol-lesson-title {
   place-content: center;
   justify-items: center;
   gap: var(--s3);
+  padding: var(--s4);
+  text-align: center;
   font-size: 14px;
   color: var(--text-subtle);
 }

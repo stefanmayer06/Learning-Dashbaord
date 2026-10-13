@@ -254,6 +254,18 @@
           ]
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo20-watch-schuld",
+      "title": "Watch: why is it so hard to know what quantum computers are good for?",
+      "optional": true,
+      "provider": "youtube",
+      "src": "OoIVhl40nmE",
+      "caption": "Maria Schuld's 2026 public talk for NITheCS on why it is so hard to know what quantum computers are good for — the question to put to any research question you choose.",
+      "credit": "NITheCS (YouTube)",
+      "date": "2026-04-14",
+      "minutes": 62
     }
   ]
 }

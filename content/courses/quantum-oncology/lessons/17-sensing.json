@@ -146,6 +146,30 @@
         { "type": "text", "id": "hw15-compare", "label": "1. Compare quantum sensing and quantum computing as research directions in oncology over the next five years: maturity, path to patients, and what a physicist would contribute.", "minWords": 120 },
         { "type": "text", "id": "hw15-wording", "label": "2. Rewrite this press sentence so it is accurate: “Quantum physics explains why cancer mutations happen.”", "minWords": 30 }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo17-watch-diamond-sensors",
+      "title": "Watch: diamond quantum sensors for biomedical applications",
+      "optional": true,
+      "provider": "youtube",
+      "src": "6BcQSWi3FVM",
+      "caption": "Fedor Jelezko (Ulm University) on nitrogen-vacancy centres in diamond as nanoscale sensors: single-molecule NMR, thermometry inside living cells, and hyperpolarised markers for ultrasensitive MRI.",
+      "credit": "Celsius Lecture, Uppsala University (YouTube)",
+      "date": "2026-04-13",
+      "minutes": 59
+    },
+    {
+      "type": "embed",
+      "id": "qo17-watch-sensing-tissue",
+      "title": "Watch: what quantum sensors could reveal about living tissue",
+      "optional": true,
+      "provider": "youtube",
+      "src": "0-KzK9ih_oo",
+      "caption": "Wolfgang Losert (University of Maryland) at Quantum World Congress 2026, making the case that quantum biosensing could have near-term biomedical impact by measuring physical and metabolic signals that existing tools detect poorly or not at all.",
+      "credit": "Connected DMV (YouTube)",
+      "date": "2026-10-01",
+      "minutes": 13
     }
   ]
 }

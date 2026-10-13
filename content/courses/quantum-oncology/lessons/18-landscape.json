@@ -328,6 +328,33 @@
           "minWords": 80
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo18-listen-maniscalco",
+      "title": "Listen: quantum drug discovery and the path to advantage",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000772815586",
+      "caption": "Sabrina Maniscalco, founder of Algorithmiq — whose team met the Q4Bio prize criteria — on quantum drug discovery and what stands between today's demonstrations and a quantum advantage.",
+      "credit": "The New Quantum Era (Apple Podcasts)",
+      "date": "2026-06-15",
+      "minutes": 45,
+      "cite": [
+        "q4bio-prize"
+      ]
+    },
+    {
+      "type": "embed",
+      "id": "qo18-watch-martinis",
+      "title": "Watch: John Martinis's Nobel Prize lecture",
+      "optional": true,
+      "provider": "youtube",
+      "src": "s3CUsnHhTBQ",
+      "caption": "John Martinis's Nobel Prize lecture, “Prehistoric Superconducting Qubits” (Physics 2025): the early experiments on superconducting circuits that today's superconducting quantum processors grew from.",
+      "credit": "Nobel Prize (YouTube)",
+      "date": "2025-12-08",
+      "minutes": 31
     }
   ]
 }

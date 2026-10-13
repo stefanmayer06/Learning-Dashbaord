@@ -17,6 +17,7 @@ const paths: Record<string, string> = {
   quiz: 'M7.4 7.3a2.7 2.7 0 1 1 3.6 2.6c-.7.3-1 .8-1 1.5v.6M10 15v.4',
   output: 'M5 3.5h7l3 3v10H5zM12 3.5v3h3M7.5 10h5M7.5 13h3.5',
   embed: 'M7.5 6 3.5 10l4 4M12.5 6l4 4-4 4',
+  listen: 'M4 13.5V10a6 6 0 0 1 12 0v3.5M4 12h2.5v4.5H4zM13.5 12H16v4.5h-2.5z',
   recap: 'M4 5h12M4 10h12M4 15h7',
   cc: 'M3 5h14v10H3zM8.6 8.4a2 2 0 1 0 0 3.2M14 8.4a2 2 0 1 0 0 3.2',
   voice: 'M4 8v4h3l4 3.5v-11L7 8zM13.5 7.5a3.5 3.5 0 0 1 0 5M15.5 5.5a6.4 6.4 0 0 1 0 9',
@@ -106,6 +107,8 @@ export const STEP_GLYPH: Record<string, GlyphName> = {
   quiz: 'quiz',
   deliverable: 'output',
   embed: 'embed',
+  'external-video': 'external',
+  podcast: 'listen',
   recap: 'recap',
 }
 
@@ -115,5 +118,7 @@ export const STEP_LABEL: Record<string, string> = {
   quiz: 'Quiz',
   deliverable: 'Assignment',
   embed: 'Tool',
+  'external-video': 'External video',
+  podcast: 'Podcast',
   recap: 'Recap',
 }
