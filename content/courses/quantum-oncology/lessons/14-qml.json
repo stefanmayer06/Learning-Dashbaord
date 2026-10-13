@@ -1,0 +1,320 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-qml",
+  "title": "Quantum machine learning on cancer data",
+  "summary": "Quantum kernels and variational classifiers, the four walls (data loading, concentration, barren plateaus, dequantisation), what benchmarks show, and a TCGA case study read closely.",
+  "minutes": 50,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo14-reel",
+      "title": "QML, with the fine print",
+      "reel": {
+        "title": "QML, with the fine print",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Models",
+            "kicker": "Unit 6 · Quantum methods for oncology",
+            "title": "Quantum machine\nlearning on omics.",
+            "subtitle": "The most popular idea — and the weakest evidence.",
+            "narration": "Quantum machine learning on patient data is the most common quantum-oncology paper. It is also where the evidence is thinnest. Let's see why, so your work can be in the minority that holds up."
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              {
+                "id": "x",
+                "label": "Patient features x",
+                "x": 10,
+                "y": 45,
+                "tone": "ink"
+              },
+              {
+                "id": "u",
+                "label": "Feature map U(x)|0⟩",
+                "x": 36,
+                "y": 45,
+                "tone": "accent"
+              },
+              {
+                "id": "k",
+                "label": "Kernel |⟨φ(x)|φ(x′)⟩|²",
+                "x": 64,
+                "y": 45,
+                "tone": "accent"
+              },
+              {
+                "id": "svm",
+                "label": "Classical SVM",
+                "x": 90,
+                "y": 45,
+                "tone": "ink"
+              }
+            ],
+            "edges": [
+              {
+                "from": "x",
+                "to": "u"
+              },
+              {
+                "from": "u",
+                "to": "k"
+              },
+              {
+                "from": "k",
+                "to": "svm"
+              }
+            ],
+            "narration": "The canonical design, demonstrated in 2019: encode each patient's features in a quantum state, estimate overlaps between states by sampling, and hand the resulting kernel to an ordinary support vector machine.",
+            "cite": [
+              "quantum-kernels"
+            ]
+          },
+          {
+            "kind": "list",
+            "chapter": "Four walls",
+            "heading": "Why advantage is hard",
+            "items": [
+              "**Loading** — getting classical data into states efficiently",
+              "**Concentration** — kernel values collapse to a constant",
+              "**Barren plateaus** — gradients vanish with size",
+              "**Dequantisation** — classical algorithms catch up"
+            ],
+            "narration": "Four walls stand in the way: loading classical data efficiently, kernel concentration, barren plateaus, and dequantisation by clever classical algorithms. Let's take them one at a time.",
+            "cite": [
+              "fine-print",
+              "kernel-concentration",
+              "barren-plateaus",
+              "dequantization"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "**Fine print**: speed-ups assume efficient data loading, special structure, and an answer you can read out.",
+            "narration": "First, the fine print: quantum speed-ups for data problems usually assume the data can be loaded into quantum states efficiently, the problem has special structure, and the answer can be read out without losing the advantage.",
+            "cite": [
+              "fine-print"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "**Concentration**: with expressive embeddings, global measurements, entanglement or noise, kernel values crowd toward **one constant** — the model stops seeing the data.",
+            "narration": "Second, concentration. With expressive embeddings, global measurements, heavy entanglement or noise, kernel values crowd exponentially toward one constant. With a realistic number of shots, predictions stop depending on the patient at all.",
+            "cite": [
+              "kernel-concentration"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "**Data changes the game**: classical learners given data can match quantum models even on quantum-tailored problems.",
+            "narration": "Third, data changes the game. Classical models that learn from data can compete with quantum models even on problems tailored to quantum computers. And some celebrated quantum learning speed-ups were matched by quantum-inspired classical algorithms.",
+            "cite": [
+              "power-of-data",
+              "dequantization"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Benchmarks",
+            "text": "Benchmark of **12** QML models on **160** datasets: classical models generally won; removing entanglement often **didn't hurt**.",
+            "narration": "What do careful benchmarks show? One large study of twelve popular models on a hundred and sixty small datasets found that out-of-the-box classical models generally won, and removing entanglement often did not hurt. It is a preprint, but it sets the bar.",
+            "cite": [
+              "bowles-benchmark"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Case study",
+            "text": "TCGA multi-omics, Ising-type classifiers on a **D-Wave** annealer: matched standard ML, and **did better with small training sets**.",
+            "narration": "Now a published oncology case. In 2021, Ising-type classifiers solved on a D-Wave annealer were applied to TCGA multi-omics cancer data. They matched standard machine learning, and did better with small training sets.",
+            "cite": [
+              "li2021-ising"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "But **random bit-strings** ranked by the same energy did as well — and data were cut to **44** components to fit the chip.",
+            "narration": "Read on, and the authors themselves are clear: simulated annealing and even random bit-strings ranked by the same energy did as well as the quantum device in two of three small-data comparisons, and the data had been cut to forty-four components to fit the hardware. The gain came from the model, not the quantumness.",
+            "cite": [
+              "li2021-caveat"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Maybe “beat classical ML” is the **wrong goal**: theory and realistic benchmarks can't yet settle it.",
+            "narration": "Some leaders in the field argue that beating classical machine learning should not be the only goal, because neither theory nor realistic benchmarks can yet settle the question. Understanding what quantum models do is publishable too.",
+            "cite": [
+              "schuld-killoran"
+            ]
+          },
+          {
+            "kind": "list",
+            "heading": "A credible QML-oncology paper has…",
+            "items": [
+              "Classical baselines tuned with the **same budget**",
+              "**Leakage-free** validation, ideally an external cohort",
+              "**Ablations**: no entanglement; a random control",
+              "A **simulability** statement and the full **measurement bill**"
+            ],
+            "narration": "So a credible paper has classical baselines tuned with the same budget, leakage-free validation and ideally an external cohort, ablations that remove the quantum ingredient, and an honest statement of simulability and measurement cost.",
+            "cite": [
+              "bowles-benchmark",
+              "li2021-caveat",
+              "selection-bias"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo14-sort",
+      "title": "Strengthens or weakens the claim?",
+      "widget": "card-sort",
+      "brief": "You are refereeing a paper claiming a quantum classifier beats classical methods on tumour data. Sort what you find.",
+      "props": {
+        "buckets": [
+          "Strengthens the claim",
+          "Weakens the claim"
+        ],
+        "cards": [
+          {
+            "text": "Classical baselines got the same hyperparameter-tuning budget as the quantum model",
+            "bucket": "Strengthens the claim",
+            "why": "A fair comparison is the minimum standard."
+          },
+          {
+            "text": "Features were selected on the full dataset before cross-validation",
+            "bucket": "Weakens the claim",
+            "why": "Selection bias inflates every model's score.",
+            "cite": [
+              "selection-bias"
+            ]
+          },
+          {
+            "text": "Removing all entangling gates leaves accuracy unchanged",
+            "bucket": "Weakens the claim",
+            "why": "Then “quantumness” isn't doing the work.",
+            "cite": [
+              "bowles-benchmark"
+            ]
+          },
+          {
+            "text": "A random-bit-string control matches the quantum device",
+            "bucket": "Weakens the claim",
+            "why": "The objective, not the hardware, carries the result.",
+            "cite": [
+              "li2021-caveat"
+            ]
+          },
+          {
+            "text": "Kernel values for different patients are all ≈ the same number",
+            "bucket": "Weakens the claim",
+            "why": "Exponential concentration: the model can't distinguish inputs.",
+            "cite": [
+              "kernel-concentration"
+            ]
+          },
+          {
+            "text": "The result replicates on an external cohort from another hospital",
+            "bucket": "Strengthens the claim",
+            "why": "External validation is the strongest evidence a classifier can offer."
+          },
+          {
+            "text": "The paper reports shots, wall-clock time and classical pre-processing cost",
+            "bucket": "Strengthens the claim",
+            "why": "Without the full bill, an “advantage” can't be assessed."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo14-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What is the practical consequence of exponential kernel concentration?",
+          "options": [
+            "Training becomes non-convex",
+            "With a polynomial number of shots, predictions become independent of the input",
+            "The kernel becomes negative"
+          ],
+          "answer": 1,
+          "explain": "All kernel values approach one constant; shot noise swamps the differences.",
+          "cite": [
+            "kernel-concentration"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "In the 2021 TCGA Ising study, what did the random bit-string control show?",
+          "options": [
+            "That the annealer was broken",
+            "That the benefit came from the Ising objective, not quantum behaviour",
+            "That quantum annealing was much better"
+          ],
+          "answer": 1,
+          "explain": "Random strings ranked by the same energy did about as well — the authors say the benefit can't be attributed to quantum behaviour alone.",
+          "cite": [
+            "li2021-caveat"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Why is the 12-model benchmark marked “contested” in the ledger?",
+          "options": [
+            "It was retracted",
+            "It is a preprint covering small, simulated tasks",
+            "Its authors disagree with each other"
+          ],
+          "answer": 1,
+          "explain": "Preprint-only claims can't be “verified” under the course's rules; the note explains its limits.",
+          "cite": [
+            "bowles-benchmark"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo14-hw",
+      "title": "Homework 13 · Referee a QML paper",
+      "output": "problem-sets",
+      "brief": "About 75 minutes. Find a recent paper (arXiv or journal) applying quantum machine learning to cancer data.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw13-paper",
+          "label": "1. The paper: full reference, task, data (source, n, features), quantum model, qubits and hardware or simulator.",
+          "minWords": 40
+        },
+        {
+          "type": "text",
+          "id": "hw13-checklist",
+          "label": "2. Apply the checklist: baselines and tuning budget, leakage, ablations, simulability, measurement bill, external validation. One line each, with evidence.",
+          "minWords": 100
+        },
+        {
+          "type": "scale",
+          "id": "hw13-credibility",
+          "label": "How much does this paper support quantum advantage on cancer data?",
+          "min": 1,
+          "max": 5,
+          "minLabel": "Not at all",
+          "maxLabel": "Strongly"
+        },
+        {
+          "type": "text",
+          "id": "hw13-fix",
+          "label": "3. The single experiment that would most strengthen (or kill) its claim.",
+          "minWords": 40
+        }
+      ]
+    }
+  ]
+}

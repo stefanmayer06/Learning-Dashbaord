@@ -1,0 +1,371 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-generative",
+  "title": "Case study: a quantum-assisted KRAS campaign",
+  "summary": "The 2025 Nature Biotechnology study that used a 16-qubit circuit Born machine to help design KRAS inhibitors — what it did, what it found, what it did not show — and your referee report.",
+  "minutes": 60,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo16-reel",
+      "title": "Reading the KRAS paper",
+      "reel": {
+        "title": "Reading the KRAS paper",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The study",
+            "kicker": "Unit 7 · Optimisation and generative design",
+            "title": "Case study:\nquantum-assisted\nKRAS inhibitors.",
+            "subtitle": "Nature Biotechnology, 2025 — read like a referee.",
+            "narration": "This is the most-cited quantum result in cancer drug discovery so far. We'll read it closely: what it did, what it found, and what it does not show."
+          },
+          {
+            "kind": "statement",
+            "text": "Why KRAS: the **most frequently mutated oncogene**; RAS mutations in about **19%** of patients with cancer.",
+            "narration": "The target is well chosen. KRAS is the most frequently mutated oncogene, and RAS mutations are found in about nineteen percent of patients with cancer. The 2021 approval covered only the G12C mutant.",
+            "cite": [
+              "kras-most-mutated",
+              "ras-frequency",
+              "sotorasib"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "A **quantum circuit Born machine** is a parameterised circuit whose measurement probabilities |⟨x|ψ(θ)⟩|² are trained to model data.",
+            "narration": "The quantum ingredient is a quantum circuit Born machine: a parameterised circuit whose measurement probabilities are trained to model a distribution. Here it supplies a prior to a classical generative network.",
+            "cite": [
+              "qcbm"
+            ]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "Workflow",
+            "nodes": [
+              {
+                "id": "kn",
+                "label": "650 known inhibitors",
+                "x": 10,
+                "y": 22,
+                "tone": "muted"
+              },
+              {
+                "id": "an",
+                "label": "~850,000 analogues",
+                "x": 10,
+                "y": 50,
+                "tone": "muted"
+              },
+              {
+                "id": "vs",
+                "label": "250,000 docking hits",
+                "x": 10,
+                "y": 78,
+                "tone": "muted"
+              },
+              {
+                "id": "q",
+                "label": "16-qubit QCBM prior",
+                "x": 40,
+                "y": 30,
+                "tone": "accent"
+              },
+              {
+                "id": "l",
+                "label": "LSTM generator",
+                "x": 40,
+                "y": 70,
+                "tone": "ink"
+              },
+              {
+                "id": "f",
+                "label": "1 M samples → filters",
+                "x": 68,
+                "y": 50,
+                "tone": "ink"
+              },
+              {
+                "id": "s",
+                "label": "15 made, 2 promising",
+                "x": 91,
+                "y": 50,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "kn",
+                "to": "l"
+              },
+              {
+                "from": "an",
+                "to": "l"
+              },
+              {
+                "from": "vs",
+                "to": "l"
+              },
+              {
+                "from": "q",
+                "to": "l"
+              },
+              {
+                "from": "l",
+                "to": "f"
+              },
+              {
+                "from": "f",
+                "to": "s"
+              }
+            ],
+            "narration": "The workflow: about one point one million training molecules — known inhibitors, algorithmic analogues and the top hits from docking a hundred million compounds — train a classical network with a sixteen-qubit quantum prior. A million samples are filtered; fifteen are made; two are promising.",
+            "cite": [
+              "vakili-workflow",
+              "vakili-results"
+            ]
+          },
+          {
+            "kind": "stat",
+            "chapter": "Results",
+            "value": 1.4,
+            "decimals": 1,
+            "suffix": " μM",
+            "label": "binding of ISM061-018-2 to KRAS-G12D (surface plasmon resonance)",
+            "context": "signs of pan-RAS activity in cells; no general toxicity",
+            "narration": "The best compound bound the KRAS G12D mutant with one point four micromolar affinity, showed signs of activity across RAS proteins in cell assays, and was not generally toxic.",
+            "cite": [
+              "vakili-results"
+            ]
+          },
+          {
+            "kind": "stat",
+            "value": 21.5,
+            "decimals": 1,
+            "suffix": "%",
+            "label": "improvement in passing synthesizability and stability filters v. a classical LSTM",
+            "context": "as reported by the authors; success rose with qubit count",
+            "narration": "The authors report that the quantum prior raised the share of generated molecules passing synthesizability and stability filters by twenty-one point five percent compared with a purely classical network, and that success rose with the number of qubits.",
+            "cite": [
+              "vakili-improvement"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "The authors' own caveats: the second hit showed **non-specific activity**; the molecules are **early-stage**; co-crystal structures are **needed**.",
+            "narration": "The authors are candid: the second hit showed some non-specific activity, the molecules are early-stage and need refinement, and co-crystal structures are needed to establish how they bind.",
+            "cite": [
+              "vakili-caveats"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "As a referee",
+            "text": "**16 qubits = 65,536 amplitudes**: a laptop simulates it. The study also ran **simulated** priors.",
+            "narration": "Now read as a referee. Sixteen qubits means sixty-five thousand five hundred and thirty-six amplitudes — about a megabyte, simulated easily on a laptop. The study itself also ran simulated quantum priors. So hardware was not necessary for the result.",
+            "cite": [
+              "simulable-16"
+            ]
+          },
+          {
+            "kind": "list",
+            "heading": "Questions a referee would ask",
+            "items": [
+              "Is the gain from **quantumness**, or from a different prior?",
+              "Did classical baselines get the **same compute and tuning**?",
+              "Do filter pass-rates **predict binding**?",
+              "How many of the 15 came from **each** model?",
+              "Will an **independent lab** reproduce the hits?"
+            ],
+            "narration": "The questions a referee would ask: is the gain from quantumness or just a different prior? Did the classical baselines get the same budget? Do filter pass-rates predict binding? Which model produced which molecules? Would an independent lab reproduce the hits?",
+            "cite": [
+              "vakili-results"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Context: a **classical** generative model found DDR1 inhibitors in **21 days** (2019).",
+            "narration": "And remember the classical context: a purely classical generative model found active kinase inhibitors in twenty-one days back in 2019. The bar for a quantum generative model is the best classical one, not an untuned network.",
+            "cite": [
+              "gentrl"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Verdict: a **promising, honest early result** — and a template for the controls **your** paper needs.",
+            "narration": "The verdict: a promising and honestly reported early result, with real experimental validation — and a template for the controls your own paper will need. Now write the referee report."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo16-sort",
+      "title": "Shown, or not shown?",
+      "widget": "card-sort",
+      "brief": "Sort each statement about the KRAS study by whether the paper establishes it.",
+      "props": {
+        "buckets": [
+          "Supported by the paper",
+          "Not established"
+        ],
+        "cards": [
+          {
+            "text": "A 16-qubit IBM processor generated priors during training",
+            "bucket": "Supported by the paper",
+            "why": "The QCBM ran on a 16-qubit IBM device.",
+            "cite": [
+              "vakili-workflow"
+            ]
+          },
+          {
+            "text": "The quantum prior raised filter pass-rates by 21.5% over a classical LSTM",
+            "bucket": "Supported by the paper",
+            "why": "As reported by the authors, against their classical comparison.",
+            "cite": [
+              "vakili-improvement"
+            ]
+          },
+          {
+            "text": "ISM061-018-2 bound KRAS-G12D with micromolar affinity",
+            "bucket": "Supported by the paper",
+            "why": "1.4 μM by surface plasmon resonance.",
+            "cite": [
+              "vakili-results"
+            ]
+          },
+          {
+            "text": "Quantum hardware was necessary to find these molecules",
+            "bucket": "Not established",
+            "why": "16 qubits are classically simulable, and simulated priors were also used.",
+            "cite": [
+              "simulable-16"
+            ]
+          },
+          {
+            "text": "The molecules are ready for clinical trials",
+            "bucket": "Not established",
+            "why": "The authors call them early-stage and in need of refinement.",
+            "cite": [
+              "vakili-caveats"
+            ]
+          },
+          {
+            "text": "Both hits act specifically on mutant KRAS",
+            "bucket": "Not established",
+            "why": "ISM061-022 showed some non-specific activity.",
+            "cite": [
+              "vakili-caveats"
+            ]
+          },
+          {
+            "text": "This approach beats every classical generative model",
+            "bucket": "Not established",
+            "why": "Comparisons were to specific baselines on specific metrics, not to all methods."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "deliverable",
+      "id": "qo16-report",
+      "title": "Referee report",
+      "output": "referee-report",
+      "brief": "Read the paper (open access: PMC12700792). Write the report you would send the editor. Be specific, fair and constructive.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Summary of the claims, in your own words, with their numbers.",
+          "minWords": 80
+        },
+        {
+          "type": "text",
+          "id": "strengths",
+          "label": "Strengths.",
+          "minWords": 50
+        },
+        {
+          "type": "text",
+          "id": "major",
+          "label": "Major concerns: baselines, controls, simulability, statistics, experimental validation.",
+          "minWords": 120
+        },
+        {
+          "type": "text",
+          "id": "minor",
+          "label": "Minor points (clarity, reporting, data and code availability).",
+          "minWords": 40
+        },
+        {
+          "type": "text",
+          "id": "requests",
+          "label": "Experiments or analyses you would request.",
+          "minWords": 60
+        },
+        {
+          "type": "choice",
+          "id": "recommendation",
+          "label": "Recommendation",
+          "options": [
+            "Accept",
+            "Minor revision",
+            "Major revision",
+            "Reject"
+          ]
+        },
+        {
+          "type": "scale",
+          "id": "confidence",
+          "label": "Your confidence in this assessment",
+          "min": 1,
+          "max": 5,
+          "minLabel": "Low",
+          "maxLabel": "High"
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo16-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "How many amplitudes describe a general 16-qubit state?",
+          "answer": 65536,
+          "tolerance": 0,
+          "explain": "2¹⁶ = 65,536 — about 1 MB in double precision. Easy to simulate.",
+          "cite": [
+            "simulable-16"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many molecules were synthesised and tested?",
+          "answer": 15,
+          "tolerance": 0,
+          "explain": "15 synthesised; two were promising.",
+          "cite": [
+            "vakili-results"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Which control would best test whether quantumness matters?",
+          "options": [
+            "Running on a bigger quantum computer",
+            "Replacing the QCBM prior with an equally tuned classical prior of matched capacity",
+            "Making more molecules"
+          ],
+          "answer": 1,
+          "explain": "An ablation with a matched classical prior separates “quantum” from “a different prior”.",
+          "cite": [
+            "vakili-improvement"
+          ]
+        }
+      ]
+    }
+  ]
+}

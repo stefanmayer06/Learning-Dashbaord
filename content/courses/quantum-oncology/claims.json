@@ -1,0 +1,1591 @@
+[
+  {
+    "id": "globocan-2022",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "bray-2024"
+    ],
+    "text": "GLOBOCAN estimates close to 20 million new cancer cases and 9.7 million cancer deaths worldwide in 2022 (including non-melanoma skin cancers)."
+  },
+  {
+    "id": "globocan-lifetime",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "bray-2024"
+    ],
+    "text": "About one in five people develop cancer in their lifetime; around one in nine men and one in twelve women die from it (GLOBOCAN 2022)."
+  },
+  {
+    "id": "globocan-lung",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "bray-2024"
+    ],
+    "text": "Lung cancer was the most diagnosed cancer in 2022 (almost 2.5 million cases, 12.4% of the total) and the leading cause of cancer death (an estimated 1.8 million deaths, 18.7%)."
+  },
+  {
+    "id": "globocan-2050",
+    "status": "estimate",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "bray-2024"
+    ],
+    "text": "Demographic projections suggest the number of new cancer cases will reach about 35 million a year by 2050."
+  },
+  {
+    "id": "alt-medicine-risk",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "johnson-2018"
+    ],
+    "text": "In a matched US cohort of patients with curable (non-metastatic) breast, prostate, lung or colorectal cancer, choosing alternative medicine instead of conventional treatment was associated with 2.5 times the risk of death (hazard ratio 2.50, 95% CI 1.88–3.27)."
+  },
+  {
+    "id": "feynman-simulation",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "feynman-1982"
+    ],
+    "text": "In a 1982 paper, Richard Feynman argued that efficiently simulating quantum physics would need a computer that itself works by quantum rules."
+  },
+  {
+    "id": "central-dogma",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "alberts-2017"
+    ],
+    "text": "Genetic information flows from DNA to RNA (transcription) to protein (translation); a gene's DNA sequence fixes its protein's amino-acid sequence through a code of three-base codons."
+  },
+  {
+    "id": "genome-size",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nurk-2022"
+    ],
+    "text": "The first complete, telomere-to-telomere human genome sequence (T2T-CHM13, 2022) is 3.055 billion base pairs long."
+  },
+  {
+    "id": "cell-count",
+    "status": "estimate",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "sender-2016"
+    ],
+    "text": "A 70 kg reference adult has about 3.0 × 10¹³ human cells, roughly 90% of them in the blood-forming (haematopoietic) lineage."
+  },
+  {
+    "id": "cell-cycle",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "alberts-2017"
+    ],
+    "text": "Cells divide through a regulated cycle (G1, S, G2, M) with checkpoints that can halt division when DNA is damaged or incompletely replicated."
+  },
+  {
+    "id": "mutation-types",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "alberts-2017",
+      "weinberg-2013"
+    ],
+    "text": "Cancer-relevant DNA changes range from single-base substitutions and small insertions or deletions to copy-number gains and losses, chromosomal rearrangements and gene fusions."
+  },
+  {
+    "id": "ras-switch",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ostrem-2013",
+      "alberts-2017"
+    ],
+    "text": "RAS proteins are molecular switches that relay growth signals: active when bound to GTP, inactive when bound to GDP. Oncogenic mutations impair GTP hydrolysis, so more RAS stays switched on."
+  },
+  {
+    "id": "oncogene-tsg",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "weinberg-2013",
+      "knudson-1971"
+    ],
+    "text": "Oncogenes drive growth when mutated (gain of function; one altered copy usually suffices); tumour-suppressor genes restrain growth and usually must lose both copies (loss of function) before their brake fails. KRAS is a classic oncogene; TP53 and the retinoblastoma gene RB1 are classic tumour suppressors."
+  },
+  {
+    "id": "knudson-two-hit",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "knudson-1971"
+    ],
+    "text": "From 48 retinoblastoma cases, Knudson (1971) proposed that the cancer needs two mutational events: in the inherited form one is inherited and the second occurs in a body cell; in the sporadic form both occur in body cells."
+  },
+  {
+    "id": "knudson-poisson",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "knudson-1971"
+    ],
+    "text": "Knudson estimated that carriers of the inherited mutation develop on average three retinoblastomas, and used Poisson statistics to explain carriers with no tumour, with tumours in one eye, and with tumours in both eyes."
+  },
+  {
+    "id": "poisson-zero",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "knudson-1971"
+    ],
+    "text": "With a Poisson mean of 3 tumours per carrier, the chance that a carrier develops none is e⁻³ ≈ 0.050, about 5%."
+  },
+  {
+    "id": "warburg",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "warburg-1956",
+      "liberti-2016"
+    ],
+    "text": "Many cancer cells take up large amounts of glucose and ferment it to lactate even when oxygen is available — the Warburg effect."
+  },
+  {
+    "id": "warburg-biomass",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "vander-heiden-2009"
+    ],
+    "text": "One explanation of the Warburg effect is that proliferating cells need glucose carbon for biomass (nucleotides, amino acids, lipids), not just for ATP."
+  },
+  {
+    "id": "ras-frequency",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "prior-2020"
+    ],
+    "text": "About 19% of patients with cancer harbour RAS mutations — roughly 3.4 million new cases a year worldwide."
+  },
+  {
+    "id": "kras-most-mutated",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "canon-2019",
+      "ostrem-2013"
+    ],
+    "text": "KRAS is the most frequently mutated oncogene in cancer."
+  },
+  {
+    "id": "bcr-abl-fusion",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cohen-2002",
+      "druker-2001"
+    ],
+    "text": "Chronic myeloid leukaemia results from the BCR-ABL fusion gene, whose product is a constitutively active tyrosine kinase."
+  },
+  {
+    "id": "grade",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "amin-2017"
+    ],
+    "text": "Pathologists also grade tumours — how abnormal and undifferentiated the cells look under the microscope — and AJCC staging uses grade for some cancers."
+  },
+  {
+    "id": "trial-phases",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wong-2019",
+      "druker-2001",
+      "hodi-2010"
+    ],
+    "text": "New drugs are tested in phases: phase 1 finds a safe dose (imatinib's first trial escalated doses in 83 patients), phase 2 looks for activity, and phase 3 compares against a control, usually randomised (ipilimumab's trial randomised 676 patients)."
+  },
+  {
+    "id": "endpoints",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "eisenhauer-2009",
+      "hodi-2010"
+    ],
+    "text": "Common oncology endpoints are overall survival (time to death from any cause), progression-free survival (time to progression, judged by criteria such as RECIST, or death) and objective response rate (the share of patients whose tumours shrink enough to count as a response)."
+  },
+  {
+    "id": "exp-survival",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cox-1972"
+    ],
+    "text": "With a constant hazard λ, survival is S(t) = e^(−λt) and the median survival is ln 2 / λ; a hazard ratio of h multiplies λ by h."
+  },
+  {
+    "id": "multistage",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "armitage-doll-1954"
+    ],
+    "text": "Armitage and Doll's multistage theory (1954): if a cell must undergo k rare, independent changes, the chance that all have happened by age t grows roughly as t^k, so cancer incidence rises roughly as t^(k−1) — steeply with age."
+  },
+  {
+    "id": "vqe-shot-bill",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "montanaro-2015",
+      "nielsen-chuang",
+      "pyscf-2020"
+    ],
+    "text": "In this course's VQE lab (H₂, 14 Pauli terms measured separately), reported energies reach chemical accuracy at roughly 10⁴–10⁵ shots per term per estimate — about 10⁸ measurements over a 25-step optimisation.",
+    "note": "Computed for this course; grouping commuting terms or better estimators reduce the bill."
+  },
+  {
+    "id": "hallmarks-2000",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "hanahan-2000",
+      "hanahan-2011"
+    ],
+    "text": "Hanahan and Weinberg (2000) organised cancer into six acquired capabilities: sustaining proliferative signalling, evading growth suppressors, resisting cell death, enabling replicative immortality, inducing angiogenesis, and activating invasion and metastasis."
+  },
+  {
+    "id": "hallmarks-2011",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "hanahan-2011"
+    ],
+    "text": "In 2011 they added two emerging hallmarks (reprogramming energy metabolism, evading immune destruction) and two enabling characteristics (genome instability, tumour-promoting inflammation), and stressed the recruited normal cells of the tumour microenvironment."
+  },
+  {
+    "id": "hallmarks-2022",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "hanahan-2022"
+    ],
+    "text": "In 2022 Hanahan proposed phenotypic plasticity and disrupted differentiation as a further hallmark, non-mutational epigenetic reprogramming and polymorphic microbiomes as enabling characteristics, and senescent cells as important microenvironment cells — presenting the scheme as a provisional heuristic."
+  },
+  {
+    "id": "driver-genes",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "vogelstein-2013"
+    ],
+    "text": "By 2013 about 140 genes were known that can drive tumour growth when altered by intragenic mutations; a typical tumour carries two to eight driver mutations, and the rest of its mutations are passengers."
+  },
+  {
+    "id": "drivers-kandoth",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kandoth-2013"
+    ],
+    "text": "TCGA's 12-cancer analysis of 3,281 tumours found 127 significantly mutated genes, most tumours carrying two to six of them."
+  },
+  {
+    "id": "tp53-frequency",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kandoth-2013"
+    ],
+    "text": "TP53 was the most frequently mutated gene in that pan-cancer cohort (42% of samples), and mutated in 95% of serous ovarian carcinomas."
+  },
+  {
+    "id": "drivers-martincorena",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "martincorena-2017"
+    ],
+    "text": "Across 7,664 tumours of 29 types, tumours carried on average about four coding substitutions under positive selection — under one in thyroid and testicular cancers, over ten in endometrial and colorectal — and half of driver substitutions were in yet-to-be-discovered cancer genes."
+  },
+  {
+    "id": "pcawg-drivers",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "pcawg-2020"
+    ],
+    "text": "PCAWG analysed 2,658 whole cancer genomes across 38 tumour types: on average 4–5 driver mutations per genome (coding and non-coding), with no driver found in about 5% of cases."
+  },
+  {
+    "id": "clonal-evolution",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nowell-1976"
+    ],
+    "text": "Nowell (1976) proposed that most tumours arise from a single cell, then evolve: genetic instability creates variant sublines, the most aggressive are selected, each patient's cancer becomes unique — and resistant sublines can emerge under treatment."
+  },
+  {
+    "id": "signatures-2013",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "alexandrov-2013"
+    ],
+    "text": "Analysing 4.9 million mutations from 7,042 cancers, Alexandrov et al. (2013) extracted more than 20 distinct mutational signatures — imprints of processes such as APOBEC enzyme activity, ageing, mutagen exposure and DNA-repair defects."
+  },
+  {
+    "id": "signatures-2020",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "alexandrov-2020"
+    ],
+    "text": "From 84,729,690 somatic mutations in 4,645 genomes and 19,184 exomes, the 2020 catalogue identified 49 single-base-substitution, 11 doublet-base, 4 clustered-base and 17 small insertion-and-deletion signatures."
+  },
+  {
+    "id": "mutation-heterogeneity",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "lawrence-2013"
+    ],
+    "text": "Mutation frequency varies enormously within and across cancer types. Ignoring that heterogeneity inflated lists of \"significant\" cancer genes with implausible entries such as olfactory receptors and the muscle protein titin."
+  },
+  {
+    "id": "bad-luck",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "tomasetti-2015",
+      "wu-2016"
+    ],
+    "text": "Tomasetti and Vogelstein (2015) reported that lifetime cancer risk across tissues correlates (r = 0.81) with the total number of stem-cell divisions, and argued that most of the variation among tissues is due to \"bad luck\" mutations during DNA replication.",
+    "note": "Wu et al. (2016, Nature) argued that the correlation cannot separate intrinsic from extrinsic causes and that intrinsic factors contribute less than about 10–30% of lifetime risk. The dispute is about what the correlation measures, not the data."
+  },
+  {
+    "id": "cells-per-gram",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "del-monte-2009"
+    ],
+    "text": "A tumour of 1 cm³ (about 1 g) is commonly assumed to contain about 10⁹ cells.",
+    "note": "Del Monte (2009) traces the origin of this \"magic number\" and argues that for epithelial tumours (85% of human tumours) about 10⁸ cells per gram is more realistic."
+  },
+  {
+    "id": "doublings",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "del-monte-2009"
+    ],
+    "text": "From one cell, 30 doublings give 2³⁰ ≈ 1.07 × 10⁹ cells (about a gram of tumour at 10⁹ cells per gram); ten more doublings give about 10¹²."
+  },
+  {
+    "id": "growth-laws",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "gerlee-2013",
+      "gompertz-1825"
+    ],
+    "text": "Exponential growth: N(t) = N₀·2^(t/T_d) with doubling time T_d. Gompertz growth: N(t) = K·exp(ln(N₀/K)·e^(−bt)), whose relative growth rate decays exponentially as the tumour approaches the plateau K. Gompertz wrote the law down in 1825 to describe human mortality."
+  },
+  {
+    "id": "growth-example",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "gerlee-2013",
+      "gompertz-1825"
+    ],
+    "text": "With an initial doubling time of 60 days, an exponential tumour reaches 10⁹ cells from one cell in about 4.9 years; a Gompertz tumour with the same initial growth rate and a 10¹² plateau takes about 9.1 years.",
+    "note": "Illustrative parameters chosen for this course; real doubling times vary widely between tumours."
+  },
+  {
+    "id": "benzekry-fit",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "benzekry-2014"
+    ],
+    "text": "In mouse experiments the Gompertz and exponential-linear models best described breast tumour growth; for lung tumours no model forecast beyond the next measurement with ≥70% success unless prior information on the parameters was added."
+  },
+  {
+    "id": "log-kill",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "rodrigues-2013",
+      "dy-adjei-2008"
+    ],
+    "text": "Skipper's log-kill hypothesis: each dose of chemotherapy kills a fixed fraction of the remaining tumour cells, not a fixed number."
+  },
+  {
+    "id": "norton-simon",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "rodrigues-2013"
+    ],
+    "text": "The Norton–Simon hypothesis instead makes cell kill proportional to the tumour's growth rate, so large, slowly growing (Gompertzian) tumours respond less than small ones."
+  },
+  {
+    "id": "tnm",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "amin-2017"
+    ],
+    "text": "The TNM system stages solid tumours by the primary tumour's size and extent (T), spread to regional lymph nodes (N) and distant metastasis (M), combined into stage groups from I to IV."
+  },
+  {
+    "id": "recist",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "eisenhauer-2009"
+    ],
+    "text": "RECIST 1.1 (2009) follows at most five target lesions (two per organ). Progression needs at least a 20% increase in the sum of their diameters plus an absolute increase of at least 5 mm; a partial response is at least a 30% decrease; a complete response is the disappearance of all target lesions. It also covers FDG-PET evidence of new lesions."
+  },
+  {
+    "id": "liquid-biopsy",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wan-2017"
+    ],
+    "text": "Circulating tumour DNA in blood can be sequenced as a \"liquid biopsy\" for prognosis, molecular profiling and monitoring; it was entering clinical use by 2017, though the biology of cell-free DNA is still being learned."
+  },
+  {
+    "id": "radiotherapy-52",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "delaney-2005"
+    ],
+    "text": "An evidence-based model estimated that 52% of new cancer patients should receive external-beam radiotherapy at least once during their illness."
+  },
+  {
+    "id": "farber-1948",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "farber-1948",
+      "dy-adjei-2008"
+    ],
+    "text": "In 1948 Sidney Farber reported temporary remissions in children with acute leukaemia treated with the folic-acid antagonist aminopterin; nitrogen mustards and antifolates in the 1940s started modern chemotherapy."
+  },
+  {
+    "id": "imatinib-trial",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "druker-2001"
+    ],
+    "text": "In the phase 1 trial of imatinib (STI571), a drug designed to inhibit the BCR-ABL kinase that drives chronic myeloid leukaemia, 53 of 54 patients on at least 300 mg a day had complete haematological responses."
+  },
+  {
+    "id": "imatinib-approval",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cohen-2002"
+    ],
+    "text": "The FDA approved imatinib for chronic myeloid leukaemia on 10 May 2001."
+  },
+  {
+    "id": "imatinib-cyp3a4",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cohen-2002"
+    ],
+    "text": "Cytochrome P450 3A4 is the main enzyme that metabolises imatinib."
+  },
+  {
+    "id": "ipilimumab",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "hodi-2010"
+    ],
+    "text": "In a 676-patient phase 3 trial, the immune-checkpoint antibody ipilimumab raised median overall survival in previously treated metastatic melanoma to 10.0 months from 6.4 months (hazard ratio for death 0.68)."
+  },
+  {
+    "id": "nobel-2018",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nobel-2018"
+    ],
+    "text": "The 2018 Nobel Prize in Physiology or Medicine went to James P. Allison and Tasuku Honjo for their discovery of cancer therapy by inhibition of negative immune regulation."
+  },
+  {
+    "id": "kymriah",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "oleary-2019",
+      "maude-2018"
+    ],
+    "text": "On 30 August 2017 the FDA approved tisagenlecleucel, a CD19-directed CAR-T cell therapy, for patients up to 25 with relapsed or refractory B-cell acute lymphoblastic leukaemia, on the basis of a 63-patient single-arm trial."
+  },
+  {
+    "id": "pembro-agnostic",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "marcus-2019"
+    ],
+    "text": "On 23 May 2017 the FDA approved pembrolizumab for any unresectable or metastatic MSI-high or mismatch-repair-deficient solid tumour — an approval defined by a biomarker, not an organ — on an objective response rate of 39.6% in 149 patients with 15 tumour types."
+  },
+  {
+    "id": "kras-pocket",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ostrem-2013"
+    ],
+    "text": "KRAS resisted drugs for decades (picomolar affinity for GTP/GDP, no known allosteric site) until Ostrem et al. (2013) found small molecules that bind the G12C mutant irreversibly through its mutant cysteine, in a new pocket under the switch-II region."
+  },
+  {
+    "id": "sotorasib",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nakajima-2022",
+      "canon-2019"
+    ],
+    "text": "Sotorasib (AMG 510), reported in 2019 as the first KRAS G12C inhibitor in clinical development, received FDA accelerated approval for KRAS G12C-mutated lung cancer on 28 May 2021 (objective response rate 36% in 124 patients)."
+  },
+  {
+    "id": "ibrutinib",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "declaro-2015"
+    ],
+    "text": "Ibrutinib, a first-in-class covalent inhibitor of Bruton's tyrosine kinase, received FDA accelerated approvals for mantle cell lymphoma (2013) and chronic lymphocytic leukaemia (2014)."
+  },
+  {
+    "id": "oncology-success",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wong-2019"
+    ],
+    "text": "In 406,038 trial records (2000–2015), only 3.4% of oncology drug programmes went from phase 1 to approval — the lowest of all therapeutic areas studied (vaccines were highest, 33.4%)."
+  },
+  {
+    "id": "biomarker-trials",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wong-2019"
+    ],
+    "text": "Trials that use biomarkers to select patients have higher overall success probabilities than trials without them."
+  },
+  {
+    "id": "rd-cost",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wouters-2020"
+    ],
+    "text": "From public data on drugs approved 2009–2018, the median capitalised R&D investment per new drug was $985 million — and $2.77 billion for antineoplastic and immunomodulating agents (2018 dollars)."
+  },
+  {
+    "id": "rd-cost-dimasi",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "dimasi-2016",
+      "wouters-2020"
+    ],
+    "text": "DiMasi et al. (2016) estimated $2.56 billion (2013 dollars) to bring a new drug to approval, from data on 106 drugs supplied confidentially by 10 firms.",
+    "note": "The underlying data cannot be checked independently. Wouters et al. (2020), using public filings, estimated a median of $985 million, while noting that their own sample over-represents smaller firms and certain areas."
+  },
+  {
+    "id": "km-estimator",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kaplan-meier-1958"
+    ],
+    "text": "Kaplan and Meier (1958) gave the product-limit estimator of a survival curve from incomplete (censored) observations."
+  },
+  {
+    "id": "km-rule",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kaplan-meier-1958"
+    ],
+    "text": "At each event time the Kaplan–Meier estimate is multiplied by (1 − deaths ÷ number at risk). Censored patients count as at risk until they leave, then drop out of the denominator without causing a step."
+  },
+  {
+    "id": "logrank",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "peto-1972"
+    ],
+    "text": "The log-rank test (Peto and Peto, 1972) compares observed with expected events in each arm, summed over every event time."
+  },
+  {
+    "id": "cox-ph",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cox-1972"
+    ],
+    "text": "Cox's proportional-hazards model (1972) estimates a hazard ratio — the ratio of instantaneous event rates between groups — without specifying the baseline hazard."
+  },
+  {
+    "id": "freireich-trial",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "freireich-1963",
+      "gehan-1965",
+      "rdatasets-gehan"
+    ],
+    "text": "Freireich et al. (1963) tested 6-mercaptopurine (6-MP) for keeping children with acute leukaemia in remission: 42 patients in 21 matched pairs, remission times in weeks — now a classic survival-analysis dataset."
+  },
+  {
+    "id": "freireich-results",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "rdatasets-gehan",
+      "kaplan-meier-1958",
+      "peto-1972",
+      "cox-1972"
+    ],
+    "text": "Computed from those data: median remission 23 weeks on 6-MP v. 8 weeks on placebo; log-rank χ² = 16.79 (p ≈ 4 × 10⁻⁵); Cox hazard ratio 0.21 (Efron ties; 95% CI about 0.09–0.47).",
+    "note": "Computed for this course (scripts in the repository); matches values in standard survival-analysis texts."
+  },
+  {
+    "id": "tcga-pancan",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "hoadley-2018"
+    ],
+    "text": "TCGA's PanCancer Atlas analysed about 10,000 tumours from 33 cancer types; molecular clustering was dominated by cell-of-origin (tissue-type) patterns."
+  },
+  {
+    "id": "cbioportal",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cerami-2012"
+    ],
+    "text": "cBioPortal is an open-access portal for exploring multidimensional cancer genomics data; at launch in 2012 it held more than 5,000 tumour samples from 20 studies."
+  },
+  {
+    "id": "depmap",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "tsherniak-2017"
+    ],
+    "text": "The Cancer Dependency Map analysed 501 genome-scale loss-of-function screens in cancer cell lines; 769 genes were needed by only subsets of lines, and for 82% of predictive models the top biomarkers were gene-expression features."
+  },
+  {
+    "id": "gdsc",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "yang-2013"
+    ],
+    "text": "In 2013 GDSC held data on almost 75,000 drug-sensitivity experiments: 138 anticancer drugs across almost 700 cancer cell lines, freely available."
+  },
+  {
+    "id": "oncokb",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "chakravarty-2017"
+    ],
+    "text": "OncoKB is an expert-curated precision-oncology knowledge base of the effects and treatment implications of specific cancer gene alterations."
+  },
+  {
+    "id": "escat",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mateo-2018"
+    ],
+    "text": "ESMO's ESCAT ranks molecular targets in six tiers of evidence, from tier I (ready for routine clinical decisions) to tier X (no evidence of actionability)."
+  },
+  {
+    "id": "controlled-access",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "gdc-security"
+    ],
+    "text": "Controlled-access data in NCI's Genomic Data Commons require authorisation through dbGaP and login through eRA Commons; permissions are set per project."
+  },
+  {
+    "id": "p-much-greater-n",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ambroise-2002",
+      "simon-2003"
+    ],
+    "text": "Omics studies often measure thousands of features on tens or hundreds of patients (p ≫ n), so some features will separate any two groups by chance alone."
+  },
+  {
+    "id": "selection-bias",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ambroise-2002"
+    ],
+    "text": "Ambroise and McLachlan (2002) showed that reported near-zero error rates for few-gene cancer classifiers came from selecting genes on all samples before cross-validation; with selection repeated inside each fold, the error was no longer zero."
+  },
+  {
+    "id": "simon-pitfalls",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "simon-2003"
+    ],
+    "text": "Simon et al. (2003) warned that microarray classifiers are easily over-fitted and that resubstitution or incompletely cross-validated error estimates are badly biased."
+  },
+  {
+    "id": "leakage-294",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kapoor-2023"
+    ],
+    "text": "A survey found data leakage in 17 scientific fields, affecting 294 papers; in one re-analysis, complex ML models lost their claimed advantage over logistic regression once leakage was fixed."
+  },
+  {
+    "id": "batch-effects",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "leek-2010"
+    ],
+    "text": "Batch effects — differences from laboratory conditions, reagent lots or personnel — are widespread in high-throughput data and lead to wrong conclusions when they correlate with the outcome."
+  },
+  {
+    "id": "leakage-sim",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ambroise-2002"
+    ],
+    "text": "In this course's simulation on pure noise (40 patients, 2,000 genes, a 20-gene panel, 5-fold cross-validation), choosing genes before cross-validation reports about 97% accuracy; choosing them inside each fold gives about 50% — chance.",
+    "note": "Computed for this course; reproduce it in the leakage lab."
+  },
+  {
+    "id": "campanella",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "campanella-2019"
+    ],
+    "text": "A weakly supervised pathology model trained on 44,732 whole-slide images from 15,187 patients reached AUCs above 0.98 for prostate cancer, basal cell carcinoma and breast-cancer lymph-node metastases."
+  },
+  {
+    "id": "mckinney",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mckinney-2020"
+    ],
+    "text": "An AI mammography system cut false positives by 5.7% (US) and 1.2% (UK) and false negatives by 9.4% and 2.7%, in absolute terms, against the original readers."
+  },
+  {
+    "id": "chemical-space",
+    "status": "estimate",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "polishchuk-2013",
+      "bohacek-1996"
+    ],
+    "text": "Estimates of the number of drug-like molecules span from about 10²³ to 10⁶⁰ (Bohacek et al.), with one GDB-17-based estimate at about 10³³."
+  },
+  {
+    "id": "gdb17",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "reymond-2015"
+    ],
+    "text": "GDB-17 enumerates 166.4 billion plausible organic molecules of up to 17 atoms of C, N, O, S and halogens."
+  },
+  {
+    "id": "dg-kd",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wang-2015"
+    ],
+    "text": "Binding free energy and dissociation constant are linked by ΔG = RT·ln K_d. At 25 °C, RT·ln 10 ≈ 1.36 kcal/mol, so every 1.36 kcal/mol of extra binding energy means about tenfold tighter binding."
+  },
+  {
+    "id": "fep",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wang-2015"
+    ],
+    "text": "Lead optimisation needs binding predictions accurate to roughly fivefold in affinity; a free-energy perturbation protocol (FEP+) was validated on 200 ligands across target classes and in prospective drug projects."
+  },
+  {
+    "id": "alphafold",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "jumper-2021"
+    ],
+    "text": "AlphaFold (2021) predicted protein structures with accuracy competitive with experimental structures in a majority of CASP14 cases."
+  },
+  {
+    "id": "alphafold3",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "abramson-2024"
+    ],
+    "text": "AlphaFold 3 (2024) predicts joint structures of complexes of proteins, nucleic acids, small molecules and ions, with far greater accuracy for protein–ligand interactions than state-of-the-art docking tools."
+  },
+  {
+    "id": "nobel-2024",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nobel-2024"
+    ],
+    "text": "The 2024 Nobel Prize in Chemistry went half to David Baker for computational protein design, and half to Demis Hassabis and John Jumper for protein structure prediction."
+  },
+  {
+    "id": "gentrl",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "zhavoronkov-2019"
+    ],
+    "text": "A classical deep generative model (GENTRL) designed DDR1 kinase inhibitors in 21 days; four compounds were active in biochemical assays and two in cells."
+  },
+  {
+    "id": "n-qubit-amplitudes",
+    "status": "derived",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "nielsen-chuang",
+      "feynman-1982"
+    ],
+    "text": "Describing a general state of n qubits takes 2ⁿ complex amplitudes."
+  },
+  {
+    "id": "statevector-memory",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nielsen-chuang"
+    ],
+    "text": "Stored as double-precision complex numbers (16 bytes each), 2ⁿ amplitudes need 16·2ⁿ bytes: about 1 MB at 16 qubits, 17 GB at 30 and about 18 petabytes at 50."
+  },
+  {
+    "id": "logical-qubits",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nielsen-chuang",
+      "acharya-2025"
+    ],
+    "text": "Quantum error correction encodes each logical qubit in many physical qubits; large algorithms are costed in logical qubits, which multiply into far more physical ones."
+  },
+  {
+    "id": "nisq",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "preskill-2018"
+    ],
+    "text": "In 2018 John Preskill named the current era \"NISQ\" — noisy intermediate-scale quantum — for devices too noisy to run long algorithms with full error correction."
+  },
+  {
+    "id": "jw-qubits",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mcardle-2020",
+      "helgaker-2000"
+    ],
+    "text": "Under the Jordan–Wigner mapping each spin orbital becomes one qubit (occupied = 1), so an active space of N spatial orbitals needs 2N qubits."
+  },
+  {
+    "id": "chemical-accuracy",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mcardle-2020"
+    ],
+    "text": "\"Chemical accuracy\" is conventionally 1.6 × 10⁻³ hartree (about 1 kcal/mol): energies that accurate let room-temperature reaction rates be predicted to within about an order of magnitude."
+  },
+  {
+    "id": "vqe",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "peruzzo-2014",
+      "cerezo-2021"
+    ],
+    "text": "The variational quantum eigensolver (Peruzzo et al., 2014) pairs a short parameterised circuit that prepares a trial state with a classical optimiser that minimises the measured energy."
+  },
+  {
+    "id": "omalley-h2",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "omalley-2016"
+    ],
+    "text": "In 2016 Google computed the energy surface of H₂ on superconducting qubits with VQE (within chemical accuracy of the exact dissociation energy) and with phase estimation, finding VQE robust to certain errors."
+  },
+  {
+    "id": "kandala-beh2",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kandala-2017"
+    ],
+    "text": "In 2017 IBM ran a hardware-efficient VQE on up to six qubits with more than 100 Pauli terms, computing ground-state energies of molecules up to BeH₂."
+  },
+  {
+    "id": "h2-sto3g",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "pyscf-2020",
+      "helgaker-2000"
+    ],
+    "text": "For H₂ in the minimal STO-3G basis (2 spatial orbitals → 4 qubits) the Jordan–Wigner Hamiltonian has 15 Pauli terms. At 0.75 Å the exact (full-CI) energy is −1.1371 hartree and Hartree–Fock gives −1.1162; at 2.5 Å the gap grows to 0.23 hartree.",
+    "note": "Computed with PySCF for this course (scripts/oncology/h2_hamiltonians.py)."
+  },
+  {
+    "id": "shot-noise",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "montanaro-2015",
+      "nielsen-chuang"
+    ],
+    "text": "Estimating an expectation value from N measurement shots has a standard error proportional to 1/√N: ten times more precision costs a hundred times more shots."
+  },
+  {
+    "id": "barren-plateaus",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mcclean-2018"
+    ],
+    "text": "For a wide class of randomly initialised parameterised circuits, the gradient vanishes exponentially with the number of qubits (barren plateaus), making training infeasible beyond a few qubits without structure."
+  },
+  {
+    "id": "reiher-femoco",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "reiher-2017"
+    ],
+    "text": "Reiher et al. (2017) estimated that error-corrected quantum computers could elucidate the nitrogenase (FeMoco) reaction mechanism in reasonable time even counting error-correction overhead."
+  },
+  {
+    "id": "goings-p450",
+    "status": "estimate",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "goings-2022"
+    ],
+    "text": "For the largest model of cytochrome P450's reactive Compound I, Goings et al. (2022) estimated phase estimation would take about 4.6 million physical qubits and 73 hours at 0.1% physical error rates — or about 500,000 qubits and 25 hours at 0.001%."
+  },
+  {
+    "id": "goings-boundary",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "goings-2022"
+    ],
+    "text": "Comparing DMRG and CCSD(T) calculations with quantum resource estimates, Goings et al. concluded that P450 models large enough to balance dynamic and multiconfigurational correlation could be a quantum-advantage problem."
+  },
+  {
+    "id": "blunt-ibrutinib",
+    "status": "estimate",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "blunt-2022"
+    ],
+    "text": "For active spaces of about 50 orbitals around the covalent drug ibrutinib bound to its protein target, newer phase-estimation methods cut estimated runtimes from over 1,000 years (Trotterisation) to a few days (sparse qubitisation) on an error-corrected machine."
+  },
+  {
+    "id": "lee-no-exp",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "lee-2023"
+    ],
+    "text": "A 2023 analysis found no evidence yet of generic exponential quantum advantage for ground-state quantum chemistry; quantum computers may still help through polynomial speed-ups."
+  },
+  {
+    "id": "santagati-perspective",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "santagati-2024"
+    ],
+    "text": "A 2024 Nature Physics perspective by industry and academic authors maps where quantum computers could transform drug-design research and what is needed to get there."
+  },
+  {
+    "id": "kirsopp-bace",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kirsopp-2022"
+    ],
+    "text": "Kirsopp et al. (2022) rank-ordered β-secretase (BACE1) inhibitors by binding energies computed with DMET embedding plus VQE on IBM and Honeywell hardware — the first protein–ligand binding energies on real quantum computers."
+  },
+  {
+    "id": "li-2024-kras",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "li-2024"
+    ],
+    "text": "A 2024 hybrid pipeline applied quantum calculations to two drug-design tasks: the free-energy profile of covalent-bond cleavage in prodrug activation, and the covalent binding of sotorasib to KRAS G12C within QM/MM simulations."
+  },
+  {
+    "id": "photosensitizer-ft",
+    "status": "estimate",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "zhou-2025"
+    ],
+    "text": "A December 2025 preprint estimated that fault-tolerant algorithms could assess BODIPY photosensitizers for photodynamic therapy — active spaces of 11–45 orbitals — with 180–350 logical qubits and Toffoli depths of 10⁷–10⁹."
+  },
+  {
+    "id": "utility-2023",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kim-2023",
+      "tindall-2024"
+    ],
+    "text": "In 2023 IBM reported accurate expectation values from a noisy 127-qubit processor for circuits beyond brute-force classical simulation, as evidence of utility before fault tolerance.",
+    "note": "Within weeks, classical tensor-network simulations (e.g. Tindall et al., PRX Quantum 2024) reproduced the experiment more accurately than the quantum processor. \"Beyond brute force\" is not \"beyond all classical methods\"."
+  },
+  {
+    "id": "quantum-kernels",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "havlicek-2019"
+    ],
+    "text": "Havlíček et al. (2019) used a quantum state space as the feature space of a classifier — a quantum kernel and a variational classifier — on a superconducting processor."
+  },
+  {
+    "id": "power-of-data",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "huang-2021"
+    ],
+    "text": "Huang et al. (2021) showed that classical models given data can compete with quantum models even on problems tailored to quantum computers, and gave a test for whether a learning task could show quantum advantage."
+  },
+  {
+    "id": "kernel-concentration",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "thanasilp-2024"
+    ],
+    "text": "Quantum kernel values can concentrate exponentially (in qubit number) toward a fixed value — from expressive embeddings, global measurements, entanglement or noise — so with polynomially many shots the model's predictions stop depending on the input."
+  },
+  {
+    "id": "dequantization",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "tang-2019"
+    ],
+    "text": "Some claimed exponential quantum speed-ups for machine-learning tasks were matched by \"quantum-inspired\" classical algorithms (Tang, 2019)."
+  },
+  {
+    "id": "fine-print",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "aaronson-2015"
+    ],
+    "text": "Exponential quantum speed-ups for data problems usually come with fine print: the data must be loadable into quantum states efficiently, the problem must have special structure, and the answer must be readable without destroying the advantage."
+  },
+  {
+    "id": "schuld-killoran",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "schuld-killoran-2022"
+    ],
+    "text": "Schuld and Killoran (2022) argue that beating classical ML should not be quantum ML's only goal, because neither theory nor realistic-scale benchmarks can yet settle its practical power."
+  },
+  {
+    "id": "bowles-benchmark",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "bowles-2024"
+    ],
+    "text": "A benchmark of 12 popular quantum machine-learning models on 160 datasets found that out-of-the-box classical models generally outperformed the quantum classifiers, and that removing entanglement often did not hurt.",
+    "note": "Preprint (not peer-reviewed when checked), by authors at a quantum-software company; it covers small, simulated tasks, so it does not rule out advantage at scale — but it sets a bar every new claim should clear."
+  },
+  {
+    "id": "li2021-ising",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "li-2021"
+    ],
+    "text": "Li et al. (2021) classified TCGA multi-omics cancer data with Ising-type models solved by D-Wave quantum annealing and classical methods; they matched standard ML with full training sets and did better with small ones."
+  },
+  {
+    "id": "li2021-caveat",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "li-2021"
+    ],
+    "text": "The benefit could not be attributed to quantum behaviour: simulated annealing and random bit-strings ranked by the same Ising energy did as well as or better than the D-Wave device in two of three small-data comparisons, and the data were cut to 44 principal components to fit the hardware."
+  },
+  {
+    "id": "qubo-form",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "lucas-2014"
+    ],
+    "text": "Many combinatorial problems can be written as a QUBO (quadratic unconstrained binary optimisation) or Ising model — the input format for annealers and QAOA. Constraints become penalty terms."
+  },
+  {
+    "id": "qaoa",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "farhi-2014",
+      "hadfield-2019"
+    ],
+    "text": "QAOA (Farhi, Goldstone and Gutmann, 2014) alternates a cost step and a mixing step with tunable angles; a constraint-preserving mixer can keep the search inside valid solutions (Hadfield et al., 2019)."
+  },
+  {
+    "id": "annealing",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kadowaki-1998"
+    ],
+    "text": "Quantum annealing (Kadowaki and Nishimori, 1998) is a different model: the hardware is steered toward low-energy states of an Ising/QUBO problem."
+  },
+  {
+    "id": "simulated-annealing",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "kirkpatrick-1983"
+    ],
+    "text": "Simulated annealing (Kirkpatrick et al., 1983) is the classical baseline: random moves accepted with a temperature-dependent probability, the temperature lowered slowly."
+  },
+  {
+    "id": "mrmr",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "peng-2005"
+    ],
+    "text": "mRMR feature selection picks features with maximum relevance to the target and minimum redundancy among themselves."
+  },
+  {
+    "id": "qubo-feature-selection",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mucke-2023"
+    ],
+    "text": "Feature selection can be written as a QUBO that trades feature importance against redundancy for a fixed number of features; tested on a classical computer, a gate-based quantum computer and a quantum annealer, it was competitive with standard methods."
+  },
+  {
+    "id": "subset-count",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "lucas-2014"
+    ],
+    "text": "Choosing any subset of n candidate features gives 2ⁿ possibilities (about a million for 20 genes); choosing exactly k gives n!/(k!(n−k)!)."
+  },
+  {
+    "id": "nazareth-imrt",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nazareth-2015"
+    ],
+    "text": "In the first quantum-annealing test on radiotherapy (IMRT) beamlet optimisation — two prostate cases, reduced beamlet sets — annealing reached worse objective values than simulated annealing (16.9 v. 6.7; 70.7 v. 22.9) but ran in 27–38% of the time."
+  },
+  {
+    "id": "banchi-docking",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "banchi-2020"
+    ],
+    "text": "Molecular docking can be cast as finding a maximum-weight clique in a graph; Gaussian boson samplers can be programmed to sample such cliques, shown on a ligand binding to TACE, a target linked to immune disease and cancer."
+  },
+  {
+    "id": "protein-folding-qa",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "perdomo-ortiz-2012"
+    ],
+    "text": "Low-energy lattice-protein conformations were found with a quantum annealer in 2012, in experiments using up to 81 superconducting qubits."
+  },
+  {
+    "id": "protein-folding-vqa",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "robert-2021"
+    ],
+    "text": "A variational algorithm folded the 10-amino-acid peptide angiotensin on 22 qubits (in simulation) and a 7-amino-acid neuropeptide using 9 qubits of an IBM 20-qubit device."
+  },
+  {
+    "id": "panel-sim",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "peng-2005",
+      "mucke-2023"
+    ],
+    "text": "In this course's synthetic gene-panel lab (100 training, 4,000 validation patients), a moderate redundancy penalty (α = 0.5) raised validation accuracy from 72% to 76% for two genes and from 71% to 79% for three; a heavy penalty (α = 1.5) did worse than greedy selection.",
+    "note": "Computed for this course on synthetic data; illustrative only."
+  },
+  {
+    "id": "qcbm",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "benedetti-2019"
+    ],
+    "text": "A quantum circuit Born machine is a parameterised circuit whose measurement probabilities |⟨x|ψ(θ)⟩|² are trained to model a data distribution."
+  },
+  {
+    "id": "vakili-workflow",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "vakili-2025"
+    ],
+    "text": "Vakili et al. (2025) trained a hybrid generative model — a 16-qubit quantum circuit Born machine prior on an IBM processor feeding a classical LSTM — on about 1.1 million molecules: 650 known KRAS inhibitors, about 850,000 algorithmic analogues and the top 250,000 hits from docking 100 million Enamine REAL compounds."
+  },
+  {
+    "id": "vakili-results",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "vakili-2025"
+    ],
+    "text": "From 1 million sampled molecules filtered by Chemistry42, 15 were synthesised; two were promising. ISM061-018-2 bound KRAS-G12D with 1.4 μM affinity (surface plasmon resonance) and showed signs of pan-RAS activity in cell assays, without general toxicity."
+  },
+  {
+    "id": "vakili-improvement",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "vakili-2025"
+    ],
+    "text": "The authors report that the quantum prior raised the share of molecules passing synthesizability and stability filters by 21.5% relative to a classical LSTM, and that success rose with the number of qubits."
+  },
+  {
+    "id": "vakili-caveats",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "vakili-2025"
+    ],
+    "text": "The second hit, ISM061-022, showed some non-specific activity; the authors describe the molecules as early-stage and needing refinement, and call for co-crystal structures to establish how they bind."
+  },
+  {
+    "id": "simulable-16",
+    "status": "derived",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nielsen-chuang",
+      "vakili-2025"
+    ],
+    "text": "A 16-qubit circuit has 2¹⁶ = 65,536 amplitudes (about 1 MB) and is easy to simulate on a laptop; the KRAS study itself also ran QCBM priors on a simulator."
+  },
+  {
+    "id": "quantum-sensing",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "degen-2017"
+    ],
+    "text": "Quantum sensing uses quantum systems, properties or phenomena — such as the spin states of atomic defects — to measure physical quantities."
+  },
+  {
+    "id": "nv-centres",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "schirhagl-2014"
+    ],
+    "text": "Nitrogen-vacancy centres in diamond are stable, photostable, low-toxicity defects whose spin states let them sense magnetic and electric fields at the nanoscale."
+  },
+  {
+    "id": "nanodiamond-lfa",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "miller-2020"
+    ],
+    "text": "Microwave-modulated fluorescent nanodiamonds in a lateral-flow test reached a detection limit 10⁵ times lower than gold nanoparticles in a model assay, and single-copy detection of HIV-1 RNA with a 10-minute amplification step."
+  },
+  {
+    "id": "hyperpolarisation",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ardenkjaer-larsen-2003"
+    ],
+    "text": "Dissolution dynamic nuclear polarisation can raise NMR signal-to-noise more than 10,000-fold."
+  },
+  {
+    "id": "hp-pyruvate",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "nelson-2013"
+    ],
+    "text": "The first-in-human study of hyperpolarised [1-¹³C]pyruvate MRI (2013) imaged 31 men with prostate cancer without dose-limiting toxicity and found elevated lactate-to-pyruvate ratios in biopsy-proven cancer."
+  },
+  {
+    "id": "lowdin",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "lowdin-1963"
+    ],
+    "text": "Löwdin (1963) proposed that protons tunnelling along the hydrogen bonds of DNA base pairs could create rare tautomers and so cause mutations."
+  },
+  {
+    "id": "slocombe",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "slocombe-2022"
+    ],
+    "text": "A 2022 open-quantum-systems model of guanine–cytosine pairs found tunnelling dominates proton transfer, with a tautomer occupation of 1.73 × 10⁻⁴ — suggesting a larger role in mutation than previously assumed.",
+    "note": "A theoretical model only. Whether such tautomers survive long enough to be copied during replication, and how much they add to real mutation rates, has not been measured; earlier estimates gave tunnelling a far smaller role."
+  },
+  {
+    "id": "cleveland-ibm",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cleveland-ibm-2023"
+    ],
+    "text": "On 20 March 2023 Cleveland Clinic and IBM unveiled an on-site IBM Quantum System One, described as the first quantum computer dedicated to healthcare research, within a 10-year Discovery Accelerator partnership announced in 2021."
+  },
+  {
+    "id": "q4bio-structure",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "q4bio-program",
+      "q4bio-prize-2026"
+    ],
+    "text": "Wellcome Leap's Q4Bio programme (launched 2023; $40M research funding plus up to $10M prizes) offered $2M per team for a working application on more than 50 qubits at program depths of 10³–10⁴, and a $5M grand prize for quantum advantage over best-in-class classical baselines."
+  },
+  {
+    "id": "q4bio-prize",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "q4bio-prize-2026",
+      "ibm-q4bio-2026"
+    ],
+    "text": "On 16 April 2026 Wellcome Leap announced that the Algorithmiq-led team (with IBM and Cleveland Clinic) met the $2M prize criteria with an end-to-end workflow computing excited-state properties of a photosensitizer drug for photodynamic cancer therapy; IBM reports circuits on up to 100 qubits. No grand-prize winner was announced."
+  },
+  {
+    "id": "q4bio-finalists",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "q4bio-prize-2026",
+      "ibm-q4bio-2026"
+    ],
+    "text": "Q4Bio's six finalist teams were led by Infleqtion, the University of Nottingham, Harvard, Stanford, Algorithmiq and Oxford; five of the six used IBM quantum hardware."
+  },
+  {
+    "id": "infleqtion-biomarkers",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "infleqtion-2026",
+      "shah-2025"
+    ],
+    "text": "Infleqtion, UChicago and MIT took a quantum feature-selection workflow (Hyper-RQAOA) for cancer biomarker discovery into Q4Bio Phase 3, aiming to forecast treatment response in head-and-neck cancer from a UChicago cohort."
+  },
+  {
+    "id": "infleqtion-claim",
+    "status": "contested",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "ibm-q4bio-2026"
+    ],
+    "text": "Infleqtion's chief scientist for quantum software said the team showed a hybrid quantum-classical approach could improve a purely classical one at identifying biomarkers, and had found novel cancer biomarkers for clinical evaluation.",
+    "note": "A quotation in a company press release. When checked we found no peer-reviewed results or independent benchmark supporting the improvement."
+  },
+  {
+    "id": "nedo-neoantigen",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "waseda-nedo-2026"
+    ],
+    "text": "On 2 October 2026 NEC, Taiho Pharmaceutical, the Japanese Foundation for Cancer Research, AIST and Waseda University announced a NEDO-selected project (September 2026 to March 2029) to design neoantigen cancer-immunotherapy candidates, using AI to score immune responses and quantum computing to optimise flanking amino-acid sequences."
+  },
+  {
+    "id": "willow-threshold",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "google-willow-2024",
+      "acharya-2025"
+    ],
+    "text": "In December 2024 Google's 105-qubit Willow chip showed logical error rates halving each time the error-correcting code grew (3×3 → 5×5 → 7×7) — operating \"below threshold\", a long-sought milestone."
+  },
+  {
+    "id": "helios",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "quantinuum-helios-2025"
+    ],
+    "text": "Quantinuum launched Helios in November 2025: 98 trapped-ion physical qubits, with 48 error-corrected logical qubits performing better than the physical ones."
+  },
+  {
+    "id": "ibm-starling",
+    "status": "estimate",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-starling-2025"
+    ],
+    "text": "IBM's roadmap targets Starling — a fault-tolerant computer of about 200 logical qubits running 100 million quantum operations — by 2029, followed by Blue Jay with about 2,000 logical qubits."
+  },
+  {
+    "id": "advantage-tracker",
+    "status": "verified",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-nighthawk-2025",
+      "algorithmiq-tracker-2025"
+    ],
+    "text": "In November 2025 IBM and partners including Algorithmiq launched an open, community-led Quantum Advantage Tracker where claims are posted, verified and challenged by classical methods."
+  },
+  {
+    "id": "ibm-advantage-2026",
+    "status": "contested",
+    "checkedOn": "2026-10-02",
+    "sources": [
+      "ibm-uchicago-2026",
+      "martiel-2026",
+      "manabe-2026"
+    ],
+    "text": "On 30 July 2026 IBM and partners announced quantum-advantage demonstrations, including a 70-logical-qubit sampling experiment with the University of Chicago that ran in about 15 minutes.",
+    "note": "The papers were preprints when announced. About two weeks later a classical team reproduced the published outputs of the 70-qubit experiment with tensor networks in 37.3 minutes on 256 NVIDIA H100 GPUs (also a preprint)."
+  },
+  {
+    "id": "tripod-ai",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "collins-2024"
+    ],
+    "text": "TRIPOD+AI (2024) is a 27-item reporting checklist for clinical prediction models built with regression or machine learning; it replaces TRIPOD 2015."
+  },
+  {
+    "id": "remark",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "mcshane-2005"
+    ],
+    "text": "REMARK (2005) set reporting recommendations for tumour-marker prognostic studies, prompted by markers whose promising first reports failed to hold up."
+  },
+  {
+    "id": "consort-ai",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "liu-2020"
+    ],
+    "text": "CONSORT-AI (2020) adds 14 items for reporting clinical trials of AI interventions, such as a clear description of the AI system and how it was used."
+  },
+  {
+    "id": "spirit-ai",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "cruz-rivera-2020"
+    ],
+    "text": "SPIRIT-AI (2020) adds 15 items for protocols of clinical trials of AI interventions."
+  },
+  {
+    "id": "fair",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "wilkinson-2016"
+    ],
+    "text": "The FAIR principles (2016) ask that research data be findable, accessible, interoperable and reusable — by machines as well as people."
+  },
+  {
+    "id": "errington",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "errington-2021"
+    ],
+    "text": "The Reproducibility Project: Cancer Biology repeated 50 experiments from 23 high-impact papers: replication effect sizes were a median 85% smaller than the originals, and 46% of effects replicated on most criteria."
+  },
+  {
+    "id": "icmje",
+    "status": "verified",
+    "checkedOn": "2026-10-11",
+    "sources": [
+      "icmje-authorship"
+    ],
+    "text": "ICMJE recommends authorship only for those who meet all four criteria: substantial contribution to the work; drafting or critically revising it; final approval; and agreeing to be accountable for it."
+  }
+]

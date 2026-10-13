@@ -1,0 +1,171 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-ml",
+  "title": "Machine learning in oncology — and how it fools you",
+  "summary": "What deep learning already achieves in pathology and screening, then the trap that sank a generation of omics classifiers — selection bias — reproduced in a lab.",
+  "minutes": 55,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo10-reel",
+      "title": "The baseline and the trap",
+      "reel": {
+        "title": "The baseline and the trap",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Baseline",
+            "kicker": "Unit 5 · Computational oncology today",
+            "title": "Machine learning\nin oncology.",
+            "subtitle": "A strong baseline — and an old trap.",
+            "narration": "Any quantum machine-learning paper in oncology will be compared with classical machine learning. So first, how good is the baseline? Then, how do good-looking results go wrong?"
+          },
+          {
+            "kind": "stat",
+            "value": 0.98,
+            "decimals": 2,
+            "prefix": "AUC > ",
+            "label": "for three cancer types, from 44,732 whole-slide images",
+            "context": "weakly supervised deep learning · 15,187 patients",
+            "narration": "In pathology, a weakly supervised deep-learning system trained on forty-four thousand slides from fifteen thousand patients reached areas under the curve above zero point nine eight for three cancer types.",
+            "cite": ["campanella"]
+          },
+          {
+            "kind": "statement",
+            "text": "Mammography AI: false positives down **5.7%** (US) and **1.2%** (UK); false negatives down **9.4%** and **2.7%**, in absolute terms.",
+            "narration": "In breast screening, an AI system reduced false positives by five point seven percent in the US and one point two in the UK, and false negatives by nine point four and two point seven percent, in absolute terms.",
+            "cite": ["mckinney"]
+          },
+          {
+            "kind": "statement",
+            "text": "That is your **bar**: big data, deep models, careful evaluation. A quantum model must be compared with the best of these, not the worst.",
+            "narration": "That is the bar: large data, deep models and careful evaluation. A quantum model has to be compared with the best classical methods, tuned just as hard — never with a weak straw man."
+          },
+          {
+            "kind": "statement",
+            "chapter": "The trap",
+            "text": "2002: published few-gene cancer classifiers with **near-zero error** had chosen genes using **all** the samples.",
+            "narration": "Now the trap. In 2002 Ambroise and McLachlan showed that published cancer classifiers with near-zero error had selected their genes using all the samples, before cross-validation. Done correctly, the error was no longer zero.",
+            "cite": ["selection-bias"]
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              { "id": "d", "label": "All patients", "x": 10, "y": 50, "tone": "ink" },
+              { "id": "sel", "label": "Select top genes", "x": 36, "y": 25, "tone": "signal" },
+              { "id": "cv", "label": "Cross-validate", "x": 64, "y": 25, "tone": "ink" },
+              { "id": "bad", "label": "Leaky estimate", "x": 90, "y": 25, "tone": "signal" },
+              { "id": "fold", "label": "Split into folds", "x": 36, "y": 75, "tone": "ink" },
+              { "id": "in", "label": "Select genes inside each fold", "x": 64, "y": 75, "tone": "accent" },
+              { "id": "good", "label": "Honest estimate", "x": 90, "y": 75, "tone": "accent" }
+            ],
+            "edges": [
+              { "from": "d", "to": "sel" },
+              { "from": "sel", "to": "cv" },
+              { "from": "cv", "to": "bad" },
+              { "from": "d", "to": "fold" },
+              { "from": "fold", "to": "in" },
+              { "from": "in", "to": "good" }
+            ],
+            "narration": "The difference is one arrow. Top path: choose genes on everyone, then cross-validate — the test patients already helped pick the genes. Bottom path: split first, choose genes inside each training fold, and the estimate is honest."
+          },
+          {
+            "kind": "statement",
+            "text": "With far more genes than patients, **some genes always separate the groups by chance** — and selection finds exactly those.",
+            "narration": "Why it works so well at fooling people: with far more genes than patients, some genes separate the two groups by chance alone, and a selection step is designed to find exactly those genes.",
+            "cite": ["p-much-greater-n", "simon-pitfalls"]
+          },
+          {
+            "kind": "stat",
+            "value": 294,
+            "label": "papers in 17 fields affected by data leakage",
+            "context": "Kapoor & Narayanan, 2023",
+            "narration": "It is not ancient history. A 2023 survey found data leakage in seventeen scientific fields, affecting two hundred and ninety-four papers, sometimes reversing the conclusion.",
+            "cite": ["leakage-294"]
+          },
+          {
+            "kind": "statement",
+            "text": "Quantum classifiers leak the **same way**: a feature map, an embedding or a QUBO feature selection fitted on all the data.",
+            "narration": "Quantum classifiers leak in exactly the same ways: a feature map tuned, an embedding fitted, or a QUBO feature selection run on all the data before the split. The hardware does not protect you.",
+            "cite": ["selection-bias"]
+          },
+          {
+            "kind": "statement",
+            "text": "Lab: make a classifier on **pure noise** look excellent — then measure it honestly.",
+            "narration": "In the lab you'll make a classifier trained on pure random numbers look excellent, then measure it honestly. Once you have seen it, you will check every paper for it."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo10-lab",
+      "title": "Lab: selection bias on pure noise",
+      "widget": "leakage-lab",
+      "brief": "Start with the defaults (40 patients, 2,000 genes, 20-gene panel, no signal). Then vary the number of genes and the panel size, and try adding weak signal.",
+      "props": { "capture": "leakage-run" },
+      "cite": ["selection-bias", "p-much-greater-n", "leakage-sim", "leakage-294"]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo10-notebook",
+      "title": "Notebook: leakage",
+      "output": "lab-notebook",
+      "brief": "Save a pure-noise run, then explain it.",
+      "fields": [
+        { "type": "capture", "id": "leakage-result", "label": "Your saved run", "from": "leakage-run" },
+        { "type": "text", "id": "leakage-why", "label": "Why does the leaky protocol score well on pure noise? How did the gap change with more genes or a bigger panel?", "minWords": 50 },
+        { "type": "text", "id": "leakage-quantum", "label": "Write the sentence for your future methods section that proves to a referee you avoided this.", "minWords": 25 }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo10-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "A paper reports 98% cross-validated accuracy for a 15-gene signature chosen from 20,000 genes in 50 patients. Your first question?",
+          "options": ["Which deep-learning library did they use?", "Was gene selection repeated inside each cross-validation fold?", "How fast did it train?"],
+          "answer": 1,
+          "explain": "Without selection inside the folds, accuracy like this is expected even on noise.",
+          "cite": ["selection-bias"]
+        },
+        {
+          "type": "multi",
+          "prompt": "Which of these leak information from the test data? (choose all)",
+          "options": [
+            "Normalising each gene using the mean and spread of the whole dataset before splitting",
+            "Choosing the number of qubits by best test-set accuracy",
+            "Fitting a QUBO feature selection on all samples, then cross-validating",
+            "Selecting features within each training fold only"
+          ],
+          "answers": [0, 1, 2],
+          "explain": "Anything fitted using test samples — statistics, hyperparameters, features — leaks. Only the last is clean.",
+          "cite": ["leakage-294", "selection-bias"]
+        },
+        {
+          "type": "single",
+          "prompt": "On pure noise with balanced classes, an honest protocol should report accuracy near…",
+          "options": ["50%", "75%", "100%"],
+          "answer": 0,
+          "explain": "There is nothing to learn; anything far from chance signals a leak or a fluke.",
+          "cite": ["leakage-sim"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo10-hw",
+      "title": "Homework 9 · A validation section that survives review",
+      "output": "problem-sets",
+      "brief": "About 50 minutes.",
+      "fields": [
+        { "type": "text", "id": "hw9-methods", "label": "1. Write the validation paragraph for a hypothetical quantum-kernel classifier of two cancer subtypes from TCGA RNA-seq: splits, where every fitted step happens, metrics, and uncertainty.", "minWords": 120 },
+        { "type": "text", "id": "hw9-external", "label": "2. Why is an external cohort (different hospital or study) stronger evidence than cross-validation? What could still go wrong?", "minWords": 60 },
+        { "type": "text", "id": "hw9-find", "label": "3. Find one published omics or imaging classifier paper. Did it select features inside the folds? Quote the sentence that tells you (or note its absence).", "minWords": 50 }
+      ]
+    }
+  ]
+}

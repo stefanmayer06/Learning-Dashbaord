@@ -6,6 +6,9 @@ import { speakable } from '../../src/ui/text'
 
 describe('shipped courses', () => {
   const courses = readCourses()
+  // Validate as of the newest check date in the content, so "checked in the future" and
+  // staleness are judged against the content itself rather than the machine clock.
+  const today = courses.map((c) => (c.course as { lastVerified: string }).lastVerified).sort().at(-1)!
 
   it('there is at least one course', () => {
     expect(courses.length).toBeGreaterThan(0)
@@ -13,12 +16,12 @@ describe('shipped courses', () => {
 
   for (const raw of courses) {
     it(`${raw.folder} passes strict validation (citations, ledger, numbers)`, () => {
-      const { issues } = validateCourse(raw, { strict: true, today: '2026-10-11' })
+      const { issues } = validateCourse(raw, { strict: true, today })
       expect(issues.filter((i) => i.level === 'error')).toEqual([])
     })
 
     it(`${raw.folder}: every reel caption chunk fits on two lines`, () => {
-      const { bundle } = validateCourse(raw, { today: '2026-10-11' })
+      const { bundle } = validateCourse(raw, { today })
       for (const lesson of Object.values(bundle!.lessons))
         for (const step of lesson.steps)
           if (step.type === 'reel')

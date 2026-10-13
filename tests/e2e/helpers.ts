@@ -7,7 +7,8 @@ export const COURSE = 'quantum-trading-101'
 export const COURSES = readCourses().map((r) => r.folder)
 
 export function bundle(course = COURSE) {
-  return validateCourse(readCourses(course)[0], { today: '2026-10-11' }).bundle!
+  const raw = readCourses(course)[0]
+  return validateCourse(raw, { today: (raw.course as { lastVerified: string }).lastVerified }).bundle!
 }
 
 /** Learner state with every step of the given courses completed. */

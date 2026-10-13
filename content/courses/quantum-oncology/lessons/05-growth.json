@@ -1,0 +1,160 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-growth",
+  "title": "Tumours as dynamical systems",
+  "summary": "Exponential and Gompertz growth, what “detectable” means in cell counts, and two competing theories of how chemotherapy kills — tested in a lab.",
+  "minutes": 55,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo5-reel",
+      "title": "Growth and kill",
+      "reel": {
+        "title": "Growth and kill",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Growth laws",
+            "kicker": "Unit 3 · From tumour to patient",
+            "title": "Tumours as\ndynamical systems.",
+            "subtitle": "Two growth laws, two theories of treatment.",
+            "narration": "Mathematical oncology starts with an ordinary differential equation for the number of cells. It is the friendliest entry point for a physicist — and a lesson in how much a model's assumptions decide its advice."
+          },
+          {
+            "kind": "equation",
+            "tex": ["N(t) = N_0 \\, 2^{t/T_d}", "N(t) = K \\exp\\!\\left( \\ln\\tfrac{N_0}{K} \\, e^{-bt} \\right)"],
+            "notes": ["exponential: constant doubling time T_d", "Gompertz: growth slows towards a plateau K", "Gompertz wrote it down in 1825 — for human mortality"],
+            "narration": "Two classical laws. Exponential growth doubles every T d. Gompertz growth slows as the tumour approaches a plateau K; its relative growth rate decays exponentially. Gompertz first wrote it down in 1825, to describe human mortality.",
+            "cite": ["growth-laws"]
+          },
+          {
+            "kind": "chart",
+            "xLabel": "Years from the first cancer cell",
+            "yLabel": "log₁₀ cells",
+            "series": [
+              { "name": "exponential (T_d = 60 d)", "points": [[0, 0], [1, 1.83], [2, 3.66], [3, 5.49], [4, 7.33], [5, 9.16], [6, 10.99]], "tone": "muted" },
+              { "name": "Gompertz (same start, K = 10¹²)", "points": [[0, 0], [1, 1.7], [2, 3.16], [3, 4.41], [4, 5.48], [5, 6.4], [6, 7.2], [7, 7.88], [8, 8.46], [9, 8.96], [10, 9.39], [12, 10.08]], "tone": "accent" }
+            ],
+            "annotations": [{ "x": 9, "y": 9, "text": "10⁹ cells ≈ detectable" }],
+            "narration": "With a sixty-day doubling time, an exponential tumour reaches a billion cells in about five years. A Gompertz tumour with the same starting speed takes about nine. Either way, it was growing silently for years.",
+            "cite": ["growth-example"]
+          },
+          {
+            "kind": "stat",
+            "chapter": "Detection",
+            "value": 30,
+            "label": "doublings from one cell to about 10⁹ cells — roughly one gram",
+            "context": "2³⁰ ≈ 1.07 × 10⁹ · ten more doublings reach ~10¹²",
+            "narration": "From one cell, thirty doublings make about a billion cells — roughly a gram. Ten more make a trillion. So by the time a tumour is detectable, most of its doublings are already behind it.",
+            "cite": ["doublings"]
+          },
+          {
+            "kind": "statement",
+            "text": "“10⁹ cells per gram” is a **convention**. For epithelial tumours, **10⁸** may be closer.",
+            "narration": "Be careful with that conversion: a billion cells per gram is a convention, and one analysis argues that for epithelial tumours a hundred million is more realistic. Factors of ten hide in oncology's round numbers.",
+            "cite": ["cells-per-gram"]
+          },
+          {
+            "kind": "statement",
+            "text": "Fitting is easy; **forecasting** is hard. In mice, no growth model forecast lung tumours beyond the next measurement without prior information.",
+            "narration": "In mouse experiments, Gompertz described breast-tumour growth best. But for lung tumours, no model forecast beyond the next measurement reliably, unless prior information on the parameters was added.",
+            "cite": ["benzekry-fit"]
+          },
+          {
+            "kind": "compare",
+            "chapter": "Treatment",
+            "left": { "heading": "Log-kill (Skipper)", "items": ["Each dose kills a fixed fraction", "Same number of logs whatever the size", "Cure = enough net logs"] },
+            "right": { "heading": "Norton–Simon", "items": ["Kill ∝ current growth rate", "Big, slow tumours barely respond", "Argues for dose-dense schedules"] },
+            "narration": "Two theories of how chemotherapy kills. Log-kill says each dose removes a fixed fraction of cells, whatever the tumour's size. Norton and Simon say kill tracks the growth rate — so large, slow tumours barely respond.",
+            "cite": ["log-kill", "norton-simon"]
+          },
+          {
+            "kind": "statement",
+            "text": "Under log-kill, curing a detectable tumour needs about **nine logs of net kill** — after regrowth between doses.",
+            "narration": "Under log-kill, curing a just-detectable tumour of a billion cells means about nine logs of net kill — that is, after subtracting regrowth between doses.",
+            "cite": ["log-kill", "doublings"]
+          },
+          {
+            "kind": "statement",
+            "text": "Your lab: grow a tumour from one cell, then try to cure it — **under both theories**.",
+            "narration": "Now the lab. Grow a tumour from one cell, design a schedule that cures it under log-kill, then switch to Norton–Simon and see whether your schedule survives a change of theory."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo5-lab",
+      "title": "Lab: grow and treat a tumour",
+      "widget": "tumour-growth",
+      "brief": "A teaching model: one cell population, no resistance, no toxicity limit. Use it to build intuition about logs, doublings and schedules — not to predict any patient.",
+      "props": { "capture": "growth-run" },
+      "cite": ["growth-laws", "log-kill", "norton-simon", "cells-per-gram", "doublings"]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo5-notebook",
+      "title": "Notebook: tumour growth",
+      "output": "lab-notebook",
+      "brief": "Save your run in the lab, then interpret it.",
+      "fields": [
+        { "type": "capture", "id": "growth-result", "label": "Your saved run", "from": "growth-run" },
+        { "type": "text", "id": "growth-what", "label": "Which schedule cured the tumour under log-kill, and did it survive Norton–Simon? Why?", "minWords": 40 },
+        { "type": "text", "id": "growth-limits", "label": "Name two things the model ignores (e.g. resistant clones, toxicity, drug delivery) and how each would change your conclusion.", "minWords": 40 }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo5-ps",
+      "title": "Problem set · Logs and doublings",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "Exponential growth, doubling time 60 days. How many days from one cell to 2³⁰ cells?",
+          "answer": 1800,
+          "tolerance": 0,
+          "unit": "days",
+          "explain": "30 doublings × 60 days = 1,800 days, about 4.9 years.",
+          "cite": ["doublings", "growth-example"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many logs (base 10) does a dose that kills 99.9% of cells remove?",
+          "answer": 3,
+          "tolerance": 0,
+          "explain": "Surviving fraction 10⁻³ → three logs. Under log-kill it removes three logs whatever the tumour's size.",
+          "cite": ["log-kill"]
+        },
+        {
+          "type": "numeric",
+          "prompt": "A tumour of 10⁹ cells gets 6 doses of 2 logs each, with no regrowth. What is log₁₀ of the cells left?",
+          "answer": -3,
+          "tolerance": 0,
+          "explain": "9 − 6 × 2 = −3: on average 0.001 cells, which in the model means cure. With regrowth between doses you need more.",
+          "cite": ["log-kill"]
+        },
+        {
+          "type": "single",
+          "prompt": "Under Norton–Simon, which tumour loses the most logs per dose?",
+          "options": ["A large tumour near its plateau", "A small, fast-growing residual tumour", "Both lose the same"],
+          "answer": 1,
+          "explain": "Kill tracks the relative growth rate, which is highest when the tumour is small.",
+          "cite": ["norton-simon"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo5-hw",
+      "title": "Homework 4 · Growth models",
+      "output": "problem-sets",
+      "brief": "About 45 minutes.",
+      "fields": [
+        { "type": "text", "id": "hw4-gompertz", "label": "1. Solve dN/dt = b·N·ln(K/N) with N(0) = N₀. (Hint: substitute u = ln(N/K).) Show it gives the Gompertz curve above, and find its relative growth rate as a function of N.", "minWords": 60 },
+        { "type": "text", "id": "hw4-identify", "label": "2. With three noisy measurements early in growth, why can't you tell exponential from Gompertz? Relate your answer to the mouse forecasting study and say what extra information would help.", "minWords": 80 },
+        { "type": "text", "id": "hw4-quantum", "label": "3. Is there any role for a quantum computer in tumour-growth modelling? Give your honest answer and the strongest counter-argument.", "minWords": 60 }
+      ]
+    }
+  ]
+}

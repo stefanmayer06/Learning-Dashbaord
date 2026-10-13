@@ -1,0 +1,142 @@
+{
+  "$schema": "../../schema/course.schema.json",
+  "id": "quantum-oncology",
+  "title": "Quantum Oncology",
+  "subtitle": "Cancer biology, clinical evidence and computation for quantum people — and a research method sound enough to publish on.",
+  "version": "1.0.0",
+  "lastVerified": "2026-10-11",
+  "level": "intermediate",
+  "hours": 19,
+  "theme": { "accent": "#8a2f6b", "cover": "contours" },
+  "summary": "You already know qubits, VQE and QAOA. This course supplies the other half: how cancer works, how it is diagnosed, treated and trialled, what classical computation already does in oncology, and exactly where quantum methods might — and might not — add something. Every claim is sourced and dated in the ledger. Five labs run real models in your browser, each unit ends with homework, and the capstone is a research proposal you can turn into a paper.",
+  "outcomes": [
+    "Explain cancer at the level a referee in oncology expects: genes, hallmarks, clonal evolution, staging, treatment and resistance.",
+    "Read and run the statistics oncology lives on — Kaplan–Meier, log-rank, hazard ratios, trial power — on a real 1963 trial.",
+    "Map quantum algorithms (phase estimation, VQE, QAOA and annealing, quantum kernels, Born machines) onto concrete oncology problems, with resource estimates.",
+    "Benchmark honestly: strong classical baselines, ablations, leakage-free validation, simulability checks and the right reporting guideline.",
+    "Audit quantum-oncology claims, from preprints to press releases, separating demonstrations, estimates and contested results.",
+    "Write a publishable research proposal at the quantum–oncology interface."
+  ],
+  "prerequisites": [
+    "Quantum computing to graduate level: circuits, VQE, QAOA, error correction",
+    "Basic probability and linear algebra",
+    "No biology or medicine needed — it is all taught here"
+  ],
+  "skills": [
+    "Cancer biology",
+    "Survival analysis",
+    "Clinical trial design",
+    "Leakage-free validation",
+    "Quantum chemistry for drug design",
+    "QUBO feature selection",
+    "Quantum ML critique",
+    "Resource estimation",
+    "Scientific writing"
+  ],
+  "progression": "linear",
+  "outputs": [
+    {
+      "id": "lab-notebook",
+      "title": "Lab notebook",
+      "kind": "lab-notebook",
+      "description": "Your saved results from the five labs — tumour growth, survival, leakage, VQE and the gene panel — each with your interpretation and the limits of the model."
+    },
+    {
+      "id": "problem-sets",
+      "title": "Homework problem sets",
+      "kind": "other",
+      "description": "Written homework for every unit: derivations, calculations, short essays and paper-reading exercises, building the vocabulary and judgement a co-author needs."
+    },
+    {
+      "id": "referee-report",
+      "title": "Referee report",
+      "kind": "memo",
+      "description": "A structured peer review of the quantum-assisted KRAS inhibitor paper (Nature Biotechnology, 2025): claims, evidence, controls, and what you would ask the authors."
+    },
+    {
+      "id": "headline-audit",
+      "title": "Headline audit",
+      "kind": "memo",
+      "description": "An audit of one real quantum-oncology announcement: the claim, the comparator, the scale, the simulability, the evidence level and your verdict."
+    },
+    {
+      "id": "research-proposal",
+      "title": "Research proposal",
+      "kind": "other",
+      "description": "Your publication blueprint: question, background, quantum method, classical baselines, data, benchmark protocol, ethics, reporting standard, abstract and target venue — with your lab results as pilot evidence.",
+      "capstone": true
+    }
+  ],
+  "units": [
+    {
+      "id": "orientation",
+      "title": "Quantum oncology: the map",
+      "strand": "Orientation",
+      "summary": "What the phrase covers — computing, sensing, quantum biology and outright pseudoscience — and the scale of the disease.",
+      "lessons": ["qo-map"]
+    },
+    {
+      "id": "biology",
+      "title": "Cancer biology for physicists",
+      "strand": "Theory",
+      "summary": "The cell as an information system, the hallmarks of cancer, and cancer as an evolutionary process written in mutations.",
+      "lessons": ["qo-cell", "qo-hallmarks", "qo-evolution"]
+    },
+    {
+      "id": "clinic",
+      "title": "From tumour to patient",
+      "strand": "Theory",
+      "summary": "Growth laws and treatment kinetics, then diagnosis, staging and the four pillars of treatment — and why tumours come back.",
+      "lessons": ["qo-growth", "qo-clinic", "qo-therapy"]
+    },
+    {
+      "id": "evidence",
+      "title": "Clinical evidence",
+      "strand": "Practice",
+      "summary": "How drugs are tested, why most fail, and survival analysis computed by hand on a real trial.",
+      "lessons": ["qo-trials"]
+    },
+    {
+      "id": "computation",
+      "title": "Computational oncology today",
+      "strand": "Practice",
+      "summary": "The classical baseline any quantum method must beat: cancer data resources, machine learning and its traps, and computational drug discovery.",
+      "lessons": ["qo-data", "qo-ml", "qo-drugs"]
+    },
+    {
+      "id": "quantum-methods",
+      "title": "Quantum methods for oncology",
+      "strand": "Theory",
+      "summary": "Quantum chemistry for cancer drugs and its resource bill, VQE on a real Hamiltonian, and quantum machine learning on omics — with the fine print.",
+      "lessons": ["qo-chemistry", "qo-vqe", "qo-qml"]
+    },
+    {
+      "id": "design",
+      "title": "Optimisation and generative design",
+      "strand": "Practice",
+      "summary": "Biomarker panels, radiotherapy plans and docking as QUBOs; then a full case study of a quantum-assisted KRAS inhibitor campaign.",
+      "lessons": ["qo-optimisation", "qo-generative"]
+    },
+    {
+      "id": "landscape",
+      "title": "The field in 2026",
+      "strand": "Landscape",
+      "summary": "Quantum sensing and quantum biology, who is doing what (checked 11 October 2026), and how to read an announcement.",
+      "lessons": ["qo-sensing", "qo-landscape", "qo-headlines"]
+    },
+    {
+      "id": "research",
+      "title": "From question to publication",
+      "strand": "Practice",
+      "summary": "Choosing a question, designing a benchmark that survives review, and writing it up ethically and reproducibly.",
+      "lessons": ["qo-question", "qo-benchmark", "qo-writing"]
+    },
+    {
+      "id": "capstone",
+      "title": "Research proposal",
+      "strand": "Capstone",
+      "summary": "Assemble your proposal: the publication blueprint, with your own lab results as pilot evidence.",
+      "lessons": ["qo-capstone"]
+    }
+  ]
+}

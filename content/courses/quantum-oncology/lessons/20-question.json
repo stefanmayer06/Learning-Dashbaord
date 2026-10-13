@@ -1,0 +1,259 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-question",
+  "title": "Choosing a question worth publishing",
+  "summary": "Three gates for a good quantum-oncology question, the kinds of contribution that get published (including negative results), how to search the literature, and why your first collaborator should be an oncologist.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo20-reel",
+      "title": "From interest to question",
+      "reel": {
+        "title": "From interest to question",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Gates",
+            "kicker": "Unit 9 · From question to publication",
+            "title": "A question worth\npublishing.",
+            "subtitle": "Important, quantum-shaped, testable now.",
+            "narration": "Most weak papers at this interface fail before any code is written: the question was wrong. Here is how to choose one that survives referees from both fields."
+          },
+          {
+            "kind": "list",
+            "heading": "Three gates",
+            "items": [
+              "**Important** — would an oncologist change a decision if you answered it?",
+              "**Quantum-shaped** — is there structure a quantum method exploits: electrons, sampling, combinatorics?",
+              "**Testable now** — can you show something honest at today's scale, or estimate tomorrow's?"
+            ],
+            "narration": "Three gates. Is it important: would an oncologist change a decision if you answered it? Is it quantum-shaped: does it have structure a quantum method could exploit? And is it testable now, honestly, at today's scale — or estimable for tomorrow's?"
+          },
+          {
+            "kind": "compare",
+            "left": {
+              "heading": "Weak",
+              "items": [
+                "“Can QML classify cancer?”",
+                "“Will quantum computing cure cancer?”",
+                "“Run VQE on a drug”"
+              ]
+            },
+            "right": {
+              "heading": "Strong",
+              "items": [
+                "“Does a quantum kernel beat tuned classical kernels on subtype X — and does entanglement matter?”",
+                "“What would phase estimation cost for photosensitizer Y, versus DMRG?”"
+              ]
+            },
+            "narration": "Compare. Weak: can quantum machine learning classify cancer? Strong: does a quantum kernel beat tuned classical kernels on one subtype task, leakage-free, and does removing entanglement change the answer? Strong questions name the comparator and the test."
+          },
+          {
+            "kind": "list",
+            "chapter": "Contributions",
+            "heading": "What gets published",
+            "items": [
+              "**Resource estimates** — like the P450 study",
+              "**Honest benchmarks** — negative results too",
+              "**Workflows** for real drug-design tasks",
+              "**Perspectives** on where advantage could arise"
+            ],
+            "narration": "Four kinds of contribution get published here: resource estimates, like the P450 study; honest benchmarks, including negative results; workflows that connect real drug-design tasks to quantum methods; and perspectives that map where advantage could arise.",
+            "cite": [
+              "goings-p450",
+              "bowles-benchmark",
+              "li-2024-kras",
+              "santagati-perspective"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "**Negative results are publishable** when the benchmark is good — and the field needs them.",
+            "narration": "Negative results are publishable when the benchmark is careful. A well-designed study showing a quantum model does not beat a strong baseline is useful knowledge, and leaders in the field have argued for exactly that shift.",
+            "cite": [
+              "schuld-killoran"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Biomarker-selected trials succeed more often: **patient selection** is a high-value target for computation.",
+            "narration": "If you want oncologists to care, aim where value is proven. Trials that select patients by biomarker have higher success rates, so better biomarkers are a high-value target for any computational method.",
+            "cite": [
+              "biomarker-trials"
+            ]
+          },
+          {
+            "kind": "list",
+            "chapter": "Searching",
+            "heading": "Where to look",
+            "items": [
+              "**PubMed** with MeSH terms — the oncology literature",
+              "**arXiv quant-ph** — quantum methods, mostly preprints",
+              "**bioRxiv / medRxiv** — biology and clinical preprints",
+              "**The Quantum Advantage Tracker** — claims and classical replies"
+            ],
+            "narration": "Search both literatures: PubMed for oncology, arXiv for quantum methods, bioRxiv and medRxiv for preprints, and the community Quantum Advantage Tracker, where claims are posted and challenged.",
+            "cite": [
+              "advantage-tracker"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Your first collaborator should be an **oncologist or cancer biologist**: they own the question, the data access and the endpoint.",
+            "narration": "Finally, find your oncology collaborator early. They know which questions matter, they can get access to data, and they will tell you which endpoint a clinical referee will accept."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo20-sort",
+      "title": "Strong or weak question?",
+      "widget": "card-sort",
+      "brief": "Sort these candidate research questions.",
+      "props": {
+        "buckets": [
+          "Strong",
+          "Weak"
+        ],
+        "cards": [
+          {
+            "text": "Can quantum computers help with cancer?",
+            "bucket": "Weak",
+            "why": "No task, no comparator, no test."
+          },
+          {
+            "text": "Does XY-mixer QAOA find better 10-gene panels than simulated annealing, at equal wall-clock time, on three TCGA response-prediction tasks with external validation?",
+            "bucket": "Strong",
+            "why": "Task, baseline, budget and validation are all named."
+          },
+          {
+            "text": "What logical-qubit count and Toffoli depth would phase estimation need for the iron centre of CYP3A4, and how does DMRG fare on the same active spaces?",
+            "bucket": "Strong",
+            "why": "A resource estimate with a classical comparison — a recognised paper type.",
+            "cite": [
+              "goings-p450"
+            ]
+          },
+          {
+            "text": "We will run a quantum neural network on mammograms",
+            "bucket": "Weak",
+            "why": "A method in search of a question; the classical bar is very high.",
+            "cite": [
+              "mckinney"
+            ]
+          },
+          {
+            "text": "Does removing entanglement from a published quantum-kernel cancer classifier change its accuracy?",
+            "bucket": "Strong",
+            "why": "A focused ablation that tests a mechanism.",
+            "cite": [
+              "bowles-benchmark"
+            ]
+          },
+          {
+            "text": "Quantum AI to personalise all cancer treatment",
+            "bucket": "Weak",
+            "why": "Unfalsifiable scope."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "deliverable",
+      "id": "qo20-canvas",
+      "title": "Question canvas",
+      "output": "research-proposal",
+      "brief": "The core of your proposal. One clear question beats three vague ones.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Working title",
+          "minWords": 5,
+          "maxWords": 25
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "The research question, in one sentence.",
+          "minWords": 15,
+          "maxWords": 60
+        },
+        {
+          "type": "text",
+          "id": "why-oncology",
+          "label": "Why it matters to oncology — which decision or understanding would change?",
+          "minWords": 50
+        },
+        {
+          "type": "text",
+          "id": "why-quantum",
+          "label": "Why it is quantum-shaped — what structure could a quantum method exploit?",
+          "minWords": 50
+        },
+        {
+          "type": "choice",
+          "id": "contribution",
+          "label": "Type of contribution",
+          "options": [
+            "Resource estimate",
+            "Benchmark (positive or negative)",
+            "Method or workflow",
+            "Perspective or review"
+          ]
+        },
+        {
+          "type": "text",
+          "id": "prediction",
+          "label": "Your first falsifiable prediction — what result would prove you wrong?",
+          "minWords": 30
+        },
+        {
+          "type": "text",
+          "id": "collaborator",
+          "label": "Who do you need? (expertise, data access, clinical input)",
+          "minWords": 20
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo20-quiz",
+      "title": "Check",
+      "passMark": 0.5,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Which is most likely to be publishable?",
+          "options": [
+            "A quantum classifier with no baseline",
+            "A careful benchmark showing a quantum model does not beat strong classical baselines",
+            "A press release"
+          ],
+          "answer": 1,
+          "explain": "Careful negative results are useful — the field needs them.",
+          "cite": [
+            "schuld-killoran"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Why aim computational work at patient selection?",
+          "options": [
+            "It needs no data",
+            "Biomarker-selected trials have higher success probabilities",
+            "Regulators require quantum methods"
+          ],
+          "answer": 1,
+          "explain": "Better patient selection is where value has already been demonstrated.",
+          "cite": [
+            "biomarker-trials"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,9 +6,16 @@ traceable to a dated primary source. The interface follows the conventions learn
 from Coursera, edX and Udemy: a course catalogue, a course page with a syllabus, and a lesson
 player with a course outline.
 
-The first course on the shelf is **Quantum Trading 101**: the theory you need, working labs for
-pricing and portfolios, and an honest, sourced map of the field as of October 2026. You finish by
-writing a Quantum Readiness Brief for a trading desk.
+Two courses are on the shelf:
+
+- **Quantum Trading 101**: the theory you need, working labs for pricing and portfolios, and an
+  honest, sourced map of the field as of October 2026. You finish by writing a Quantum Readiness
+  Brief for a trading desk.
+- **Quantum Oncology**: cancer biology, clinical evidence and computational oncology for people who
+  already know quantum computing, then quantum chemistry, QML and optimisation mapped onto
+  oncology problems, with homework for every unit. Five labs (tumour growth, survival analysis on
+  a 1963 trial, selection bias, VQE on PySCF Hamiltonians, a biomarker-panel QUBO). You finish with
+  a research proposal you can turn into a paper.
 
 | Catalogue | Course page |
 |---|---|
@@ -116,8 +123,8 @@ New kinds of interactive go in `src/plugins/<subject>/` and are registered in
 | No claim rests only on news; contested claims explain the dispute; preprint-only claims can't be "verified" | `npm run validate` |
 | No uncited numbers or dates in narration, quiz explanations or recaps; nothing older than 180 days | `npm run validate:strict` |
 | Every source URL answers; arXiv and Crossref titles match what's cited | `npm run check-sources` |
-| Lab maths matches known values (Black–Scholes 10.4506, Grover's closed form, Qiskit statevectors) | `npm test` |
-| Code shown in reels was run (Qiskit 2.5, D-Wave Ocean) and its output is quoted | course authoring |
+| Lab maths matches known values (Black–Scholes 10.4506, Grover's closed form, Qiskit statevectors; Kaplan–Meier, log-rank χ² 16.79 and Cox HR 0.21 on the 6-MP trial; PySCF full-CI energies for H₂) | `npm test` |
+| Code shown in reels was run (Qiskit 2.5, D-Wave Ocean, PySCF 2.14) and its output is quoted | course authoring |
 
 The Quantum Trading 101 ledger has 66 claims (44 verified, 13 derived, 5 estimates, 4 contested)
 backed by 67 sources, last verified on 2 October 2026. Highlights of what checking changed:
@@ -126,25 +133,33 @@ million) rather than the preprint's 7.5k. IBM's July 2026 advantage claim is sho
 classical rebuttal (37.3 minutes on 256 GPUs). HSBC's 34% bond result carries its authors' own
 caveat that hardware noise may be part of the effect.
 
+The Quantum Oncology ledger has 170 claims (134 verified, 21 derived, 7 estimates, 8 contested)
+backed by 150 sources, last verified on 11 October 2026. Approval dates come from the FDA
+reviewers' own published approval summaries; the quantum-assisted KRAS study is read from its full
+text, including the authors' caveats; and claims that rest on a press release or a preprint (such as
+a company's biomarker result, or a large QML benchmark) are marked contested with the reason.
+
 ## Project layout
 
 ```
 content/courses/        courses (JSON) + _template; content/schema/ generated JSON Schemas
 src/content/            zod schema, validator, loader
 src/engine/reel/        the reel (video) engine
-src/plugins/            plugin manifest/registry; quantum/ = simulator, finance, QUBO/QAOA, labs, shots
+src/plugins/            plugin manifest/registry; quantum/ = simulator, finance, QUBO/QAOA, labs, shots;
+                        oncology/ = growth, survival, leakage, VQE (H₂) and gene-panel labs
 src/widgets/ src/steps/ generic interactives and step renderers
 src/store/              learner model, local storage, Supabase sync
 src/pages/ src/styles/  routes and the design system (see docs/design-system.md)
 supabase/               migrations, config, RLS tests
-scripts/                validate, check-sources, new-subject, emit-json-schema, screenshot
+scripts/                validate, check-sources, new-subject, emit-json-schema, screenshot;
+                        oncology/h2_hamiltonians.py regenerates the VQE lab's Hamiltonians
 tests/unit tests/e2e    Vitest and Playwright
 ```
 
 ## Tests
 
 ```bash
-npm test            # 40 unit tests: maths, validator rules, progression/sync, strict validation of every course
+npm test            # 66 unit tests: maths, validator rules, progression/sync, strict validation of every course
 npm run test:e2e    # Playwright: every page and every step of every lesson renders; full learner flow
 npm run test:db     # migrations + row-level security on a throwaway Postgres
 npm run typecheck
@@ -155,4 +170,4 @@ npm run typecheck
 Fonts: Schibsted Grotesk (interface), Martian Mono (figures and code) and Gloock (wordmark and
 certificate), all SIL Open Font License, self-hosted via Fontsource. Maths typesetting: KaTeX (MIT). The optional Quirk embed is Craig Gidney's open-source
 simulator, loaded from algassert.com. Third-party material is always labelled as such in the app.
-Course content cites its sources; this is a learning tool, not investment advice.
+Course content cites its sources; this is a learning tool, not investment or medical advice.

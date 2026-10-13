@@ -14,7 +14,7 @@ test('every page of the site renders without errors', async ({ page }) => {
 
 for (const course of COURSES) {
   test(`${course}: every step of every lesson renders without errors`, async ({ page }) => {
-    test.setTimeout(420_000)
+    test.setTimeout(480_000)
     const errors = collectErrors(page)
     await seed(page, completedState([course]))
     const b = bundle(course)

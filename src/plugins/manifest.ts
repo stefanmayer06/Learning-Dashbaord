@@ -53,6 +53,27 @@ export const WIDGETS: Record<string, WidgetInfo> = {
       'Markowitz → QUBO → brute force / annealing / QAOA, standard and constraint-preserving (exact simulation). props: { capture? }',
     captures: true,
   },
+  // Oncology plugin (quantum-oncology course)
+  'tumour-growth': {
+    about: 'Exponential/Gompertz tumour growth from one cell, then chemotherapy under log-kill or Norton–Simon. props: { capture? }',
+    captures: true,
+  },
+  'survival-lab': {
+    about: 'Kaplan–Meier, log-rank and Cox on the 1963 6-MP leukaemia trial, then simulated trials and power. props: { capture? }',
+    captures: true,
+  },
+  'leakage-lab': {
+    about: 'Selection bias on pure-noise omics data: gene selection before v. inside cross-validation. props: { capture? }',
+    captures: true,
+  },
+  'vqe-lab': {
+    about: 'VQE on H₂ (PySCF Hamiltonians, 4 qubits) with shot noise, parameter-shift gradients and a dissociation curve. props: { capture? }',
+    captures: true,
+  },
+  'panel-qubo': {
+    about: 'Biomarker-panel selection as an mRMR-style QUBO: greedy v. brute force, annealing and XY-mixer QAOA; validation accuracy. Synthetic data. props: { capture? }',
+    captures: true,
+  },
   // Art-forgery plugin
   'exam-bench': {
     about:

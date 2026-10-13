@@ -1,0 +1,271 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-optimisation",
+  "title": "Oncology problems as QUBOs",
+  "summary": "Biomarker-panel selection, radiotherapy planning, docking and folding written as binary optimisation; what annealers and QAOA have actually achieved; then a gene-panel lab that checks whether the optimum generalises.",
+  "minutes": 60,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo15-reel",
+      "title": "Optimisation in oncology",
+      "reel": {
+        "title": "Optimisation in oncology",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "QUBO",
+            "kicker": "Unit 7 · Optimisation and generative design",
+            "title": "Oncology problems\nas QUBOs.",
+            "subtitle": "Panels, beams, poses — and the classical solver next door.",
+            "narration": "Many oncology problems are choices among many discrete options: which genes in a panel, which beam intensities, which docking pose. Written as binary optimisation, they become inputs for annealers and QAOA."
+          },
+          {
+            "kind": "equation",
+            "tex": [
+              "\\min_{x \\in \\{0,1\\}^n}   x^{\\top} Q\\, x",
+              "\\text{constraints} \\to \\text{penalties } \\lambda (\\textstyle\\sum_i x_i - k)^2"
+            ],
+            "notes": [
+              "the QUBO (or Ising) form",
+              "the input format for annealers and QAOA"
+            ],
+            "narration": "The common format is the QUBO: minimise x transpose Q x over binary vectors. Constraints become penalty terms, such as lambda times the squared difference between the number chosen and k.",
+            "cite": [
+              "qubo-form"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Solvers: **QAOA** (with constraint-preserving mixers), **quantum annealing** — and the classical baseline, **simulated annealing**.",
+            "narration": "Three solvers matter here. QAOA alternates cost and mixing steps, and a constraint-preserving mixer keeps it inside valid solutions. Quantum annealing steers hardware toward low energies. And classical simulated annealing is the baseline to beat.",
+            "cite": [
+              "qaoa",
+              "annealing",
+              "simulated-annealing"
+            ]
+          },
+          {
+            "kind": "equation",
+            "chapter": "Biomarker panels",
+            "tex": [
+              "\\text{cost} = \\alpha \\sum_{i<j} x_i x_j R_{ij} - \\sum_i x_i r_i",
+              "+ \\lambda (\\textstyle\\sum_i x_i - k)^2"
+            ],
+            "notes": [
+              "r_i: relevance of gene i to the outcome",
+              "R_ij: redundancy between genes i and j",
+              "mRMR as a QUBO"
+            ],
+            "narration": "Biomarker panels first. Choose k genes that are individually relevant to the outcome but not redundant with each other. That is the classic max-relevance, min-redundancy criterion, and it writes naturally as a QUBO.",
+            "cite": [
+              "mrmr",
+              "qubo-feature-selection"
+            ]
+          },
+          {
+            "kind": "stat",
+            "value": 1048576,
+            "label": "possible panels from just 20 candidate genes (2²⁰)",
+            "context": "and 20,000 genes is the real search space",
+            "narration": "The search space explodes: twenty candidate genes already give over a million possible panels. That growth is the only reason to want a better optimiser.",
+            "cite": [
+              "subset-count"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Radiotherapy",
+            "text": "First quantum-annealing radiotherapy test (2015): annealing was **3–4× faster** but reached **worse plans** than simulated annealing.",
+            "narration": "Radiotherapy planning was tried on an annealer in 2015, on two prostate cases with reduced beamlets. The annealer ran three to four times faster than the classical methods — but reached worse plans than simulated annealing on both patients.",
+            "cite": [
+              "nazareth-imrt"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Docking & folding",
+            "text": "**Docking** maps to finding a **maximum-weight clique**; Gaussian boson samplers can be programmed to sample such cliques.",
+            "narration": "Docking can be cast as finding a maximum-weight clique in a graph of possible contacts, and Gaussian boson samplers can be programmed to sample such cliques — shown for a ligand binding a target linked to immune disease and cancer.",
+            "cite": [
+              "banchi-docking"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Lattice **protein folding**: on an annealer with up to **81** qubits (2012); a 10-residue peptide on **22** qubits in simulation (2021).",
+            "narration": "Coarse-grained protein folding has been run on an annealer with up to eighty-one qubits in 2012, and with a variational algorithm, a ten-residue peptide on twenty-two simulated qubits in 2021. Real proteins are far larger.",
+            "cite": [
+              "protein-folding-qa",
+              "protein-folding-vqa"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The question",
+            "text": "In every case, ask one thing first: what did the **best classical solver** get, on the same problem, with the same budget?",
+            "narration": "In every case, ask one question first: what did the best classical solver get, on the same problem, with the same time budget? The radiotherapy study is honest about it; many papers are not.",
+            "cite": [
+              "nazareth-imrt",
+              "simulated-annealing"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "In 2026 a Q4Bio team took **quantum feature selection** for cancer biomarkers to real hardware — its claimed gain is **not yet peer-reviewed**.",
+            "narration": "This is live research. A Wellcome Leap team took quantum feature selection for cancer biomarkers, forecasting treatment response in head-and-neck cancer, onto real hardware. Its claimed improvement over classical methods is not yet peer-reviewed.",
+            "cite": [
+              "infleqtion-biomarkers",
+              "infleqtion-claim"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Lab: build the panel QUBO, solve it three ways — then check whether the optimum **generalises**.",
+            "narration": "In the lab, you'll build the panel QUBO on synthetic data, solve it by brute force, annealing and QAOA, and then ask the question that matters: does the optimal panel actually predict better in new patients?"
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo15-lab",
+      "title": "Lab: a biomarker panel as a QUBO",
+      "widget": "panel-qubo",
+      "brief": "Synthetic data. Look at the genes first, then solve for k = 2 and 3 with α = 0, 0.5 and 1.5, and compare validation accuracy each time.",
+      "props": {
+        "capture": "panel-run"
+      },
+      "cite": [
+        "mrmr",
+        "qubo-feature-selection",
+        "subset-count",
+        "simulated-annealing",
+        "qaoa",
+        "panel-sim"
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo15-notebook",
+      "title": "Notebook: gene panel",
+      "output": "lab-notebook",
+      "brief": "Save your best comparison, then interpret it.",
+      "fields": [
+        {
+          "type": "capture",
+          "id": "panel-result",
+          "label": "Your saved run",
+          "from": "panel-run"
+        },
+        {
+          "type": "text",
+          "id": "panel-alpha",
+          "label": "What happened to validation accuracy at α = 0, 0.5 and 1.5? Explain why too little and too much redundancy penalty both hurt.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "panel-solver",
+          "label": "Did the solver (brute force, annealing, QAOA) change the panel's accuracy? What, then, could a quantum solver ever contribute here?",
+          "minWords": 40
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo15-quiz",
+      "title": "Problem set · Formulation",
+      "passMark": 0.6,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "How many distinct panels of exactly 3 genes can be chosen from 8?",
+          "answer": 56,
+          "tolerance": 0,
+          "explain": "8!/(3!·5!) = 56 — the number of states QAOA's constraint-preserving mixer explores in the lab.",
+          "cite": [
+            "subset-count"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "Selecting a panel from 500 candidate genes with one binary variable per gene: how many qubits does a direct QUBO encoding need?",
+          "answer": 500,
+          "tolerance": 0,
+          "explain": "One variable per gene, one qubit per variable — before any embedding overhead on hardware with limited connectivity.",
+          "cite": [
+            "qubo-form"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "In the first quantum-annealing radiotherapy study, how did annealing compare with simulated annealing?",
+          "options": [
+            "Better plans, slower",
+            "Worse plans, faster",
+            "Identical"
+          ],
+          "answer": 1,
+          "explain": "Objective 16.9 v. 6.7 and 70.7 v. 22.9 (lower is better), in 27–38% of the time.",
+          "cite": [
+            "nazareth-imrt"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "What does the penalty λ(Σx − k)² do if λ is set too small?",
+          "options": [
+            "Nothing",
+            "The optimum may choose the wrong number of genes",
+            "QAOA stops converging"
+          ],
+          "answer": 1,
+          "explain": "Too weak a penalty lets the objective trade feasibility for score — the classic QUBO tuning problem.",
+          "cite": [
+            "qubo-form"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo15-hw",
+      "title": "Homework 14 · Formulate your own QUBO",
+      "output": "problem-sets",
+      "brief": "About 75 minutes.",
+      "fields": [
+        {
+          "type": "choice",
+          "id": "hw14-problem",
+          "label": "Problem",
+          "options": [
+            "Radiotherapy beam-angle selection",
+            "Treatment scheduling across clinic slots",
+            "Combination-therapy selection",
+            "Biomarker panel with cost constraints",
+            "Other (describe below)"
+          ]
+        },
+        {
+          "type": "text",
+          "id": "hw14-qubo",
+          "label": "1. Variables, objective and constraints as a QUBO. Count the binary variables.",
+          "minWords": 100
+        },
+        {
+          "type": "text",
+          "id": "hw14-lambda",
+          "label": "2. How would you choose the penalty weights, and how would you check the solver's answer is feasible?",
+          "minWords": 50
+        },
+        {
+          "type": "text",
+          "id": "hw14-baselines",
+          "label": "3. Name at least two classical baselines (e.g. simulated annealing, integer programming) and the comparison you would run.",
+          "minWords": 50
+        }
+      ]
+    }
+  ]
+}

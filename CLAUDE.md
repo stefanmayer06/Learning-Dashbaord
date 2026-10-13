@@ -43,6 +43,7 @@ src/content/                 schema (zod), validator (shared by app + scripts), 
 src/engine/reel/             the video engine: timeline, narrator (Web Speech API), shots, player
 src/plugins/                 manifest (names, no React) · registry (components) · types
 src/plugins/quantum/         subject plugin: statevector sim, finance maths, portfolio QUBO/QAOA, labs, shots
+src/plugins/oncology/        subject plugin: tumour growth, survival analysis, leakage, VQE on H₂, gene-panel QUBO
 src/widgets/                 generic interactives (card-sort, sequence, estimator)
 src/steps/                   quiz, deliverable, recap, embed renderers
 src/store/                   learner model (pure rules + merge), LearnerProvider, optional Supabase sync
@@ -62,5 +63,6 @@ supabase/                    migrations (RLS), config.toml, tests (plain Postgre
 - Reel shots are pure functions of progress `p` (0..1) on a 1280×720 stage; keep content above
   y≈560 so captions never cover it.
 - Maths lives in pure modules with unit tests against known values (Black–Scholes 10.4506,
-  Grover closed form, Qiskit cross-check for the simulator).
+  Grover closed form, Qiskit cross-check for the simulator, survival statistics on the 6-MP
+  trial, PySCF energies for H₂).
 - The app works fully offline/local; Supabase is optional and only stores learner data.

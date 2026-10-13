@@ -1,0 +1,276 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-benchmark",
+  "title": "Designing an honest benchmark",
+  "summary": "Baselines, ablations, leakage-free splits, simulability checks, the full resource bill, statistics, and the reporting guidelines oncology journals expect — TRIPOD+AI, REMARK, CONSORT-AI and SPIRIT-AI.",
+  "minutes": 55,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo21-reel",
+      "title": "A benchmark that survives review",
+      "reel": {
+        "title": "A benchmark that survives review",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Design",
+            "kicker": "Unit 9 · From question to publication",
+            "title": "An honest\nbenchmark.",
+            "subtitle": "Decide the rules before you see the results.",
+            "narration": "Your benchmark is your paper's spine. Design it before you run anything, and write down the rules — referees from both fields will check them."
+          },
+          {
+            "kind": "list",
+            "heading": "Seven components — the comparison",
+            "items": [
+              "**Baselines** — strongest classical, equal budget",
+              "**Ablations** — remove the quantum ingredient",
+              "**Splits** — every fitted step inside training data",
+              "**Simulability** — what could a laptop do?"
+            ],
+            "narration": "Seven components. First, the comparison: strong, equally tuned classical baselines; ablations that remove the quantum ingredient; splits that keep every fitted step inside the training data; and a statement of what a classical simulator could do."
+          },
+          {
+            "kind": "list",
+            "heading": "Seven components — the accounting",
+            "items": [
+              "**Resources** — shots, runtime, classical processing",
+              "**Statistics** — seeds, intervals, power",
+              "**Reporting** — the right guideline; code and data"
+            ],
+            "narration": "Then the accounting: the full resource bill, proper statistics with several seeds and confidence intervals, and reporting to the right guideline with code and data shared."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Ablations",
+            "text": "Remove **entanglement**; add a **random control**. If nothing changes, quantumness isn't doing the work.",
+            "narration": "Ablations are the most persuasive experiment you can run. Remove the entanglement — a large benchmark found it often made no difference. Add a random control — in one TCGA study, random bit-strings matched the quantum device.",
+            "cite": [
+              "bowles-benchmark",
+              "li2021-caveat"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Every fitted step — normalisation, feature selection, feature maps, hyperparameters — goes **inside** the training folds.",
+            "narration": "Splits: every fitted step — normalisation, feature selection, feature-map parameters, hyperparameters — happens inside the training folds. You saw in the lab what happens otherwise.",
+            "cite": [
+              "selection-bias",
+              "leakage-294"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Simulability: **16 qubits** is a megabyte. State what a classical simulator can do at your scale.",
+            "narration": "Simulability: state plainly what a classical simulator could do at your scale. Sixteen qubits is about a megabyte; thirty is seventeen gigabytes. If your circuit fits, say so, and run the simulation as a control.",
+            "cite": [
+              "statevector-memory",
+              "simulable-16"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Resources: report the **whole bill** — about **10⁸ measurements** for a 4-qubit VQE in our lab.",
+            "narration": "Resources: report the whole bill — shots, repetitions, queue and wall-clock time, and the classical pre- and post-processing. In this course's lab, a four-qubit VQE to chemical accuracy took about a hundred million measurements.",
+            "cite": [
+              "vqe-shot-bill"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Baselines get the **same budget**. In radiotherapy, simulated annealing beat the quantum annealer on plan quality.",
+            "narration": "Baselines get the same tuning and time budget, and include the best classical heuristic. In the radiotherapy study, simulated annealing produced better plans than the quantum annealer — the kind of result a fair comparison reveals.",
+            "cite": [
+              "nazareth-imrt",
+              "simulated-annealing"
+            ]
+          },
+          {
+            "kind": "list",
+            "chapter": "Reporting",
+            "heading": "Guidelines oncology journals expect",
+            "items": [
+              "**TRIPOD+AI** (2024) — prediction models: 27 items",
+              "**REMARK** (2005) — tumour-marker prognostic studies",
+              "**CONSORT-AI** (2020) — trials of AI interventions: +14 items",
+              "**SPIRIT-AI** (2020) — trial protocols: +15 items"
+            ],
+            "narration": "Then report to the guideline your field expects: TRIPOD plus AI, twenty-seven items, for prediction models; REMARK for tumour-marker studies; CONSORT-AI and SPIRIT-AI, adding fourteen and fifteen items, for trials and protocols of AI interventions.",
+            "cite": [
+              "tripod-ai",
+              "remark",
+              "consort-ai",
+              "spirit-ai"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Why so strict? Replicated cancer-biology effects were a median **85%** smaller than the originals.",
+            "narration": "Why such strictness? Because the base rate is sobering: when cancer-biology experiments were repeated, effects were a median eighty-five percent smaller than first reported. Pre-specified benchmarks are how you avoid becoming that statistic.",
+            "cite": [
+              "errington"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Share code and data **FAIR**ly — findable, accessible, interoperable, reusable.",
+            "narration": "And share your code and data following FAIR principles, within the limits of patient-data access rules, so that someone else can rerun your benchmark.",
+            "cite": [
+              "fair",
+              "controlled-access"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo21-sequence",
+      "title": "Order the protocol",
+      "widget": "sequence",
+      "brief": "Put the steps of a pre-specified benchmark in order.",
+      "props": {
+        "items": [
+          {
+            "label": "Fix the question, the primary metric and the falsifying result"
+          },
+          {
+            "label": "Lock away an external test set before any analysis"
+          },
+          {
+            "label": "Choose classical baselines and give every method the same tuning budget",
+            "cite": [
+              "simulated-annealing"
+            ]
+          },
+          {
+            "label": "Split the training data into folds; keep every fitted step inside them",
+            "cite": [
+              "selection-bias"
+            ]
+          },
+          {
+            "label": "Run quantum and classical methods plus ablations over several seeds",
+            "cite": [
+              "bowles-benchmark"
+            ]
+          },
+          {
+            "label": "Evaluate once on the locked external set"
+          },
+          {
+            "label": "Report confidence intervals, the resource bill and the guideline checklist",
+            "cite": [
+              "tripod-ai"
+            ]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "deliverable",
+      "id": "qo21-protocol",
+      "title": "Benchmark protocol",
+      "output": "research-proposal",
+      "brief": "The methods heart of your proposal. Write it as if you will be held to it.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "bp-metric",
+          "label": "Primary metric and how it maps to a clinical or chemical quantity.",
+          "minWords": 30
+        },
+        {
+          "type": "text",
+          "id": "bp-data",
+          "label": "Data and splits: sources, sizes, access route, external test set, where each fitted step happens.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "bp-baselines",
+          "label": "Classical baselines and the shared tuning/time budget.",
+          "minWords": 40
+        },
+        {
+          "type": "text",
+          "id": "bp-ablations",
+          "label": "Ablations and controls (e.g. no entanglement, random control, classical simulation of the circuit).",
+          "minWords": 40
+        },
+        {
+          "type": "text",
+          "id": "bp-resources",
+          "label": "Resource accounting: qubits, depth, shots, runtime, classical processing.",
+          "minWords": 30
+        },
+        {
+          "type": "text",
+          "id": "bp-stats",
+          "label": "Statistics: seeds, confidence intervals, sample-size or power reasoning.",
+          "minWords": 30
+        },
+        {
+          "type": "choice",
+          "id": "bp-guideline",
+          "label": "Reporting guideline you will follow",
+          "options": [
+            "TRIPOD+AI",
+            "REMARK",
+            "CONSORT-AI",
+            "SPIRIT-AI",
+            "None fits — explained in the protocol"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo21-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "You develop a prediction model for treatment response using machine learning. Which guideline applies?",
+          "options": [
+            "TRIPOD+AI",
+            "SPIRIT-AI",
+            "FAIR"
+          ],
+          "answer": 0,
+          "explain": "TRIPOD+AI covers clinical prediction models built with regression or machine learning (27 items).",
+          "cite": [
+            "tripod-ai"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many items does the TRIPOD+AI checklist have?",
+          "answer": 27,
+          "tolerance": 0,
+          "explain": "27 items; it replaces TRIPOD 2015.",
+          "cite": [
+            "tripod-ai"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Removing entanglement from your quantum model doesn't change accuracy. You should…",
+          "options": [
+            "Leave the ablation out of the paper",
+            "Report it: it says the quantum ingredient isn't driving performance",
+            "Add more qubits until it matters"
+          ],
+          "answer": 1,
+          "explain": "Ablations are evidence either way; hiding them is a reproducibility failure.",
+          "cite": [
+            "bowles-benchmark"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-clinic",
+  "title": "From symptom to stage",
+  "summary": "The clinical pathway: imaging, biopsy and histology, grade and TNM stage, molecular profiling and actionability tiers, liquid biopsy, and how response is measured with RECIST.",
+  "minutes": 40,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo6-reel",
+      "title": "The clinical pathway",
+      "reel": {
+        "title": "The clinical pathway",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Pathway",
+            "kicker": "Unit 3 · From tumour to patient",
+            "title": "From symptom\nto stage.",
+            "subtitle": "What clinicians measure — so you model what matters.",
+            "narration": "Before you model a clinical problem, you need to know how a patient actually moves from a symptom to a treatment plan, and which measurements exist at each step."
+          },
+          {
+            "kind": "diagram",
+            "nodes": [
+              {
+                "id": "s",
+                "label": "Symptom or screening",
+                "x": 10,
+                "y": 30,
+                "tone": "muted"
+              },
+              {
+                "id": "i",
+                "label": "Imaging",
+                "x": 36,
+                "y": 30,
+                "tone": "ink"
+              },
+              {
+                "id": "b",
+                "label": "Biopsy & histology",
+                "x": 64,
+                "y": 30,
+                "tone": "ink"
+              },
+              {
+                "id": "m",
+                "label": "Molecular profiling",
+                "x": 90,
+                "y": 30,
+                "tone": "accent"
+              },
+              {
+                "id": "st",
+                "label": "Stage & grade",
+                "x": 50,
+                "y": 74,
+                "tone": "ink"
+              },
+              {
+                "id": "t",
+                "label": "Multidisciplinary plan",
+                "x": 84,
+                "y": 74,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "s",
+                "to": "i"
+              },
+              {
+                "from": "i",
+                "to": "b"
+              },
+              {
+                "from": "b",
+                "to": "m"
+              },
+              {
+                "from": "b",
+                "to": "st"
+              },
+              {
+                "from": "m",
+                "to": "t"
+              },
+              {
+                "from": "st",
+                "to": "t"
+              }
+            ],
+            "narration": "The usual path: a symptom or a screening test, imaging to find the lesion, a biopsy so a pathologist can say what it is, molecular profiling, a stage and grade, and a plan agreed by a multidisciplinary team."
+          },
+          {
+            "kind": "statement",
+            "text": "**Histology** says what the tumour is. **Grade** says how abnormal its cells look.",
+            "narration": "The pathologist's microscope remains the reference diagnosis. Separately, the grade describes how abnormal and undifferentiated the cells look, and staging uses it for some cancers.",
+            "cite": [
+              "grade"
+            ]
+          },
+          {
+            "kind": "list",
+            "chapter": "Stage",
+            "heading": "TNM staging",
+            "items": [
+              "**T** — size and extent of the primary tumour",
+              "**N** — spread to regional lymph nodes",
+              "**M** — distant metastasis",
+              "Combined into stage groups **I to IV**"
+            ],
+            "narration": "Solid tumours are staged by TNM: the primary tumour's size and extent, spread to nearby lymph nodes, and distant metastasis — combined into stage groups from one to four. Stage four means it has spread.",
+            "cite": [
+              "tnm"
+            ]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Molecules",
+            "text": "Profiling finds **actionable** alterations — KRAS G12C, mismatch-repair deficiency — that select a drug.",
+            "narration": "Molecular profiling looks for alterations that select a therapy. KRAS G12C points to a G12C inhibitor; mismatch-repair deficiency qualifies a patient for checkpoint immunotherapy, whatever the organ.",
+            "cite": [
+              "sotorasib",
+              "pembro-agnostic"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Not every alteration is equal: ESMO's **ESCAT** ranks evidence from **tier I** (routine use) to **tier X** (no evidence).",
+            "narration": "Not every mutation matters clinically. Europe's ESCAT scale ranks the evidence that targeting an alteration helps, from tier one, ready for routine use, to tier ten, no evidence at all.",
+            "cite": [
+              "escat"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "**Liquid biopsy**: tumour DNA in the blood, sequenced from a blood draw — for profiling and monitoring.",
+            "narration": "Tumours shed DNA into the blood. Sequencing it — a liquid biopsy — can profile and monitor a cancer from a blood sample, though the biology of this cell-free DNA is still being worked out.",
+            "cite": [
+              "liquid-biopsy"
+            ]
+          },
+          {
+            "kind": "list",
+            "chapter": "Response",
+            "heading": "RECIST 1.1 — is it working?",
+            "items": [
+              "Follow at most **5** target lesions (2 per organ)",
+              "**Complete response**: all target lesions gone",
+              "**Partial response**: sum of diameters down **≥30%**",
+              "**Progression**: up **≥20%** and **≥5 mm**, or new lesions"
+            ],
+            "narration": "Response is measured with RECIST. Follow up to five target lesions. A partial response is a drop of at least thirty percent in their summed diameters; progression is a rise of at least twenty percent and at least five millimetres.",
+            "cite": [
+              "recist"
+            ]
+          },
+          {
+            "kind": "equation",
+            "tex": [
+              "100 \\to 70\\text{ mm}: -30\\% \\Rightarrow \\text{PR}",
+              "20 \\to 24\\text{ mm}: +20\\%, +4\\text{ mm} \\Rightarrow \\text{not PD}"
+            ],
+            "notes": [
+              "PR = partial response; PD = progressive disease",
+              "progression needs ≥20% and ≥5 mm",
+              "percentages from baseline (response) or the smallest sum (progression)"
+            ],
+            "narration": "Two worked cases. A summed diameter falling from a hundred to seventy millimetres is a partial response. Rising from twenty to twenty-four is twenty percent — but only four millimetres, so it is not progression.",
+            "cite": [
+              "recist"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "For your research: choose an **endpoint clinicians already measure**. A model of something nobody records is hard to validate.",
+            "narration": "For your research, the lesson is simple: predict or optimise something clinicians already measure. A model of a quantity nobody records is very hard to validate, and harder to publish."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo6-sort",
+      "title": "Which tool answers which question?",
+      "widget": "card-sort",
+      "brief": "Clinicians use different tests for different questions. Match each test to the question it answers.",
+      "props": {
+        "buckets": [
+          "Where is it, how far has it spread?",
+          "What is it?",
+          "Which drug might work?",
+          "Is treatment working?"
+        ],
+        "cards": [
+          {
+            "text": "TNM staging from imaging and surgery",
+            "bucket": "Where is it, how far has it spread?",
+            "why": "T, N and M describe extent and spread.",
+            "cite": [
+              "tnm"
+            ]
+          },
+          {
+            "text": "Biopsy read by a pathologist",
+            "bucket": "What is it?",
+            "why": "Histology is the reference diagnosis.",
+            "cite": [
+              "grade"
+            ]
+          },
+          {
+            "text": "Tumour sequencing finds KRAS G12C",
+            "bucket": "Which drug might work?",
+            "why": "It qualifies the patient for a G12C inhibitor.",
+            "cite": [
+              "sotorasib"
+            ]
+          },
+          {
+            "text": "Testing for mismatch-repair deficiency (MSI-high)",
+            "bucket": "Which drug might work?",
+            "why": "MSI-high solid tumours can receive pembrolizumab, whatever the organ.",
+            "cite": [
+              "pembro-agnostic"
+            ]
+          },
+          {
+            "text": "Summed lesion diameters compared with baseline",
+            "bucket": "Is treatment working?",
+            "why": "That is RECIST.",
+            "cite": [
+              "recist"
+            ]
+          },
+          {
+            "text": "Repeated blood tests for circulating tumour DNA",
+            "bucket": "Is treatment working?",
+            "why": "Liquid biopsy can monitor disease over time.",
+            "cite": [
+              "liquid-biopsy"
+            ]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo6-quiz",
+      "title": "Problem set · Staging and response",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "Baseline summed diameter 80 mm; now 52 mm. What is the percentage change? (negative for shrinkage)",
+          "answer": -35,
+          "tolerance": 0.5,
+          "unit": "%",
+          "explain": "(52 − 80)/80 = −35%: at least a 30% decrease, so a partial response.",
+          "cite": [
+            "recist"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Smallest sum so far 20 mm; now 24 mm, no new lesions. Under RECIST 1.1 this is…",
+          "options": [
+            "Progression (+20%)",
+            "Not progression: the absolute increase is under 5 mm",
+            "Partial response"
+          ],
+          "answer": 1,
+          "explain": "Progression needs both ≥20% and ≥5 mm; this is +20% but only 4 mm.",
+          "cite": [
+            "recist"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "In TNM, “M1” means…",
+          "options": [
+            "A large primary tumour",
+            "Spread to regional lymph nodes",
+            "Distant metastasis"
+          ],
+          "answer": 2,
+          "explain": "M describes distant metastasis; M1 usually puts the cancer in stage IV.",
+          "cite": [
+            "tnm"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "An ESCAT tier I alteration is…",
+          "options": [
+            "Ready for routine clinical decisions",
+            "Supported only by preclinical evidence",
+            "Of no known actionability"
+          ],
+          "answer": 0,
+          "explain": "Tier I is the strongest evidence; tier X means no evidence of actionability.",
+          "cite": [
+            "escat"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo6-hw",
+      "title": "Homework 5 · A patient's data trail",
+      "output": "problem-sets",
+      "brief": "About 40 minutes. Use a fictional patient — never a real one.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw5-journey",
+          "label": "1. Write a short, fictional journey for a patient with KRAS G12C lung cancer: each test, what it showed, and the decision it drove.",
+          "minWords": 120
+        },
+        {
+          "type": "text",
+          "id": "hw5-data",
+          "label": "2. List the data your journey generated (images, slides, sequences, measurements, outcomes). Which could a researcher realistically obtain, and under what controls?",
+          "minWords": 80
+        },
+        {
+          "type": "text",
+          "id": "hw5-endpoint",
+          "label": "3. Propose one computational prediction that would change a decision on this journey. Which endpoint would you validate it against?",
+          "minWords": 60
+        }
+      ]
+    }
+  ]
+}

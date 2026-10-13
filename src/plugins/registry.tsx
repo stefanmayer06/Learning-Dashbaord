@@ -14,6 +14,11 @@ import { GroverLab } from './quantum/widgets/GroverLab'
 import { PricingRace } from './quantum/widgets/PricingRace'
 import { PortfolioLab } from './quantum/widgets/PortfolioLab'
 import { BlochShot, CircuitShot, GrowthShot } from './quantum/shots'
+import { TumourGrowthLab } from './oncology/widgets/TumourGrowthLab'
+import { SurvivalLab } from './oncology/widgets/SurvivalLab'
+import { LeakageLab } from './oncology/widgets/LeakageLab'
+import { VqeLab } from './oncology/widgets/VqeLab'
+import { PanelQuboLab } from './oncology/widgets/PanelQuboLab'
 import { ExamBench } from './forgery/widgets/ExamBench'
 import { PigmentLab } from './forgery/widgets/PigmentLab'
 import { DendroLab } from './forgery/widgets/DendroLab'
@@ -32,6 +37,11 @@ export const WIDGET_COMPONENTS: Record<string, Widget> = {
   'grover-lab': GroverLab,
   'pricing-race': PricingRace,
   'portfolio-lab': PortfolioLab,
+  'tumour-growth': TumourGrowthLab,
+  'survival-lab': SurvivalLab,
+  'leakage-lab': LeakageLab,
+  'vqe-lab': VqeLab,
+  'panel-qubo': PanelQuboLab,
   'exam-bench': ExamBench,
   'pigment-lab': PigmentLab,
   'dendro-lab': DendroLab,

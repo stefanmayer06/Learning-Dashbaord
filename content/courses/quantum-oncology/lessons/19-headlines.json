@@ -1,0 +1,275 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-headlines",
+  "title": "Reading a quantum-oncology headline",
+  "summary": "Seven questions that expose most overclaims — claim, comparator, scale, data, endpoint, evidence level and source — applied to real announcements, then your own audit.",
+  "minutes": 45,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo19-reel",
+      "title": "Seven questions",
+      "reel": {
+        "title": "Seven questions",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Method",
+            "kicker": "Unit 8 · The field in 2026",
+            "title": "Reading a\nheadline.",
+            "subtitle": "Seven questions, every time.",
+            "narration": "Headlines about quantum computing and cancer arrive weekly. Seven questions sort most of them in a few minutes — and they are the same questions referees will ask of your paper."
+          },
+          {
+            "kind": "list",
+            "heading": "Four questions about the claim",
+            "items": [
+              "**Claim** — what exactly, with which number?",
+              "**Comparator** — which classical method, tuned how?",
+              "**Scale** — could a laptop simulate it?",
+              "**Data** — leakage-free? externally validated?"
+            ],
+            "narration": "Four questions about the claim itself. Claim: exactly what, with which number. Comparator: against which classical method, tuned how. Scale: could a laptop simulate it. Data: leakage-free and externally validated?"
+          },
+          {
+            "kind": "list",
+            "heading": "Three about the evidence",
+            "items": [
+              "**Endpoint** — does it matter clinically?",
+              "**Evidence** — peer-reviewed, preprint or press release?",
+              "**Source** — who says so; who replicated it?"
+            ],
+            "narration": "And three about the evidence. Endpoint: does it matter clinically. Evidence: peer-reviewed paper, preprint or press release. Source: who says so, and has anyone independent replicated it?"
+          },
+          {
+            "kind": "statement",
+            "chapter": "Examples",
+            "text": "“First quantum computer **dedicated to healthcare**” — a fact about **deployment**, not about results.",
+            "narration": "Example one: the first quantum computer dedicated to healthcare research. True as stated — and it tells you about a deployment, not about any result.",
+            "cite": [
+              "cleveland-ibm"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "“Quantum computing finds cancer-drug candidates” — molecules were made and tested; **quantum necessity** was not shown.",
+            "narration": "Example two: quantum computing finds cancer-drug candidates. Molecules were indeed made and tested. But sixteen qubits are classically simulable, so the scale question already tells you quantum hardware was not necessary.",
+            "cite": [
+              "vakili-results",
+              "simulable-16"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "“Quantum annealing classifies cancer better with little data” — a **random-bit-string control** did as well.",
+            "narration": "Example three: quantum annealing classifies cancers better with little data. The comparator question finds the answer in the paper itself: random bit-strings ranked by the same objective did as well.",
+            "cite": [
+              "li2021-caveat"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "“Team wins quantum-for-health prize” — for a **scalable demonstration**, by design **not** for advantage.",
+            "narration": "Example four: a team wins a quantum-for-health prize. Read the prize rules: it rewarded a scalable demonstration on more than fifty qubits. Advantage had its own prize, and no winner for it was announced.",
+            "cite": [
+              "q4bio-structure",
+              "q4bio-prize"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "“Beyond brute-force simulation” ≠ “beyond **all** classical methods”.",
+            "narration": "Example five: beyond brute-force classical simulation. That is not the same as beyond all classical methods — IBM's 2023 utility experiment was later reproduced by tensor networks more accurately than the quantum hardware.",
+            "cite": [
+              "utility-2023"
+            ]
+          },
+          {
+            "kind": "stat",
+            "chapter": "Base rates",
+            "value": 85,
+            "suffix": "%",
+            "label": "smaller median effect sizes when cancer-biology experiments were replicated",
+            "context": "50 experiments from 23 high-impact papers · 46% replicated on most criteria",
+            "narration": "Keep base rates in mind. When fifty experiments from twenty-three high-impact cancer-biology papers were repeated, effect sizes were a median eighty-five percent smaller, and under half replicated on most criteria. Novel results shrink.",
+            "cite": [
+              "errington"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Your audit: one real announcement, seven questions, a **verdict** with a confidence.",
+            "narration": "Now your turn: pick one real announcement, answer the seven questions with sources, and give a verdict with a confidence level. It is the same skill as writing a careful discussion section."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo19-sort",
+      "title": "Which question catches it?",
+      "widget": "card-sort",
+      "brief": "Each card is a weakness hidden in a hypothetical announcement. Which of the seven questions exposes it?",
+      "props": {
+        "buckets": [
+          "Comparator",
+          "Scale",
+          "Data",
+          "Evidence"
+        ],
+        "cards": [
+          {
+            "text": "The quantum model beat an SVM with default settings",
+            "bucket": "Comparator",
+            "why": "An untuned baseline is a straw man."
+          },
+          {
+            "text": "The comparison was against random search, not simulated annealing",
+            "bucket": "Comparator",
+            "why": "Compare with the strongest classical heuristic.",
+            "cite": [
+              "simulated-annealing"
+            ]
+          },
+          {
+            "text": "The circuit used 8 qubits",
+            "bucket": "Scale",
+            "why": "256 amplitudes — trivially simulable.",
+            "cite": [
+              "n-qubit-amplitudes"
+            ]
+          },
+          {
+            "text": "Accuracy was measured on the patients used for feature selection",
+            "bucket": "Data",
+            "why": "Selection bias.",
+            "cite": [
+              "selection-bias"
+            ]
+          },
+          {
+            "text": "No external cohort; one hospital's data",
+            "bucket": "Data",
+            "why": "Generalisation is untested."
+          },
+          {
+            "text": "Results appear only in a company press release",
+            "bucket": "Evidence",
+            "why": "No methods, no peer review, no data."
+          },
+          {
+            "text": "A preprint called “verified” in the headline",
+            "bucket": "Evidence",
+            "why": "Preprints are not yet peer-reviewed; they can be right, but say so."
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "deliverable",
+      "id": "qo19-audit",
+      "title": "Headline audit",
+      "output": "headline-audit",
+      "brief": "Pick a real announcement. Answer the seven questions with sources (the course ledger, or primary sources you find).",
+      "fields": [
+        {
+          "type": "choice",
+          "id": "headline",
+          "label": "Which announcement are you auditing?",
+          "options": [
+            "Quantum-assisted KRAS inhibitors (Nature Biotechnology, 2025)",
+            "Q4Bio $2M prize for photodynamic-therapy simulation (April 2026)",
+            "Quantum feature selection for cancer biomarkers (Infleqtion, 2026)",
+            "NEDO quantum neoantigen project (October 2026)",
+            "Ising-type classifiers on TCGA data (Patterns, 2021)",
+            "Quantum annealing for radiotherapy planning (2015)",
+            "Another announcement (name it below)"
+          ]
+        },
+        {
+          "type": "text",
+          "id": "claim",
+          "label": "Claim — exactly what, with its number.",
+          "minWords": 20,
+          "maxWords": 80
+        },
+        {
+          "type": "text",
+          "id": "comparator",
+          "label": "Comparator and scale — classical baseline, tuning, qubits, simulability.",
+          "minWords": 40
+        },
+        {
+          "type": "text",
+          "id": "data-endpoint",
+          "label": "Data and endpoint — what data, how validated, does the endpoint matter clinically?",
+          "minWords": 40
+        },
+        {
+          "type": "choice",
+          "id": "evidence-level",
+          "label": "Evidence level",
+          "options": [
+            "Peer-reviewed paper",
+            "Preprint",
+            "Company or university press release",
+            "Plan or roadmap only"
+          ]
+        },
+        {
+          "type": "scale",
+          "id": "update",
+          "label": "How much should an oncology research group change its plans because of this?",
+          "min": 1,
+          "max": 5,
+          "minLabel": "Not at all",
+          "maxLabel": "Act now"
+        },
+        {
+          "type": "text",
+          "id": "verdict",
+          "label": "Your verdict, in two or three sentences.",
+          "minWords": 30,
+          "maxWords": 120
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "qo19-quiz",
+      "title": "Check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "A headline says a quantum method beat classical machine learning on cancer data. Which question do you ask first?",
+          "options": [
+            "Which hardware vendor?",
+            "Which classical method, tuned how, on which data split?",
+            "How many authors?"
+          ],
+          "answer": 1,
+          "explain": "The comparator and the validation decide whether “beat” means anything.",
+          "cite": [
+            "selection-bias"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "“Beyond brute-force classical simulation” means…",
+          "options": [
+            "No classical method can reproduce it",
+            "Storing the full state vector is infeasible — other classical methods may still work",
+            "The result is useful"
+          ],
+          "answer": 1,
+          "explain": "Tensor networks and other methods can succeed where brute force fails.",
+          "cite": [
+            "utility-2023"
+          ]
+        }
+      ]
+    }
+  ]
+}

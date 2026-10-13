@@ -1601,6 +1601,153 @@
   margin-bottom: 0;
 }
 
+/* ═════════════ oncology labs (growth, survival, leakage, VQE, gene panel) ═════════════ */
+
+.onc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: var(--s6);
+  align-items: start;
+}
+@container lab (max-width: 780px) {
+  .onc-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s5);
+  }
+}
+.onc-grid .readouts-2 {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.onc-h-gap {
+  margin-top: var(--s5);
+}
+.onc-synthetic {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s3);
+  margin: 0 0 var(--s4);
+}
+.onc-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s2);
+  margin: var(--s2) 0 var(--s3);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.onc-check input {
+  margin-top: 3px;
+  accent-color: var(--primary);
+}
+.onc-steps {
+  margin: var(--s3) 0;
+  padding-left: 1.3em;
+  line-height: 1.55;
+}
+.onc-steps li + li {
+  margin-top: var(--s2);
+}
+.lab-table tr.onc-muted-row td {
+  color: var(--text-subtle);
+}
+.onc-terms {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* leakage: one dot per simulated study */
+.onc-dots {
+  margin: var(--s3) 0 var(--s4);
+}
+.onc-dots-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text-muted);
+}
+.onc-dots-track {
+  position: relative;
+  height: 44px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.onc-dots-chance {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1.5px dashed var(--text-subtle);
+}
+.onc-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  margin: -5.5px 0 0 -5.5px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+}
+.onc-dot-red {
+  background: var(--danger);
+}
+.onc-dot-good {
+  background: var(--success);
+}
+.onc-dots-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  color: var(--text-subtle);
+}
+
+/* gene panel: relevance bars and redundancy heat map */
+.onc-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.onc-bars li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: var(--s2);
+  padding: 7px var(--s3);
+  font-size: 13px;
+}
+.onc-bars li + li {
+  border-top: 1px solid var(--border-soft);
+}
+.onc-bars li.on {
+  background: var(--primary-soft);
+  font-weight: 600;
+}
+.onc-bars li > .mono {
+  text-align: right;
+}
+.onc-bars-track {
+  position: relative;
+  height: 8px;
+  background: var(--surface-sunken);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.onc-bars-track span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent-fg);
+  border-radius: inherit;
+}
+.onc-heat {
+  max-width: 420px;
+}
+.onc-heat .qubo-cell {
+  font-size: 11px;
+}
+
 /* ═════════════ generic widgets ═════════════ */
 
 /* card sort */

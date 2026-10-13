@@ -1,0 +1,455 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "qo-cell",
+  "title": "The cell as an information system",
+  "summary": "DNA, genes and proteins; the kinds of error that matter; the cell cycle and its brakes; and the RAS switch at the centre of growth signalling.",
+  "minutes": 40,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "qo2-reel",
+      "title": "The cell, for physicists",
+      "reel": {
+        "title": "The cell, for physicists",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Storage",
+            "kicker": "Unit 2 · Cancer biology",
+            "title": "The cell,\nfor physicists.",
+            "subtitle": "Stored information, copying, read-out — and error.",
+            "narration": "Think of a cell as an information system: stored data, a copying machine, a read-out process, and signals that decide when to copy. Cancer is what happens when errors accumulate in all of them."
+          },
+          {
+            "kind": "stat",
+            "value": 30,
+            "suffix": " trillion",
+            "label": "human cells in a 70 kg reference adult (an estimate)",
+            "context": "about 90% of them in the blood-forming lineage",
+            "narration": "A reference adult has about thirty trillion human cells — an estimate, with roughly ninety percent of them in the blood-forming lineage.",
+            "cite": [
+              "cell-count"
+            ]
+          },
+          {
+            "kind": "stat",
+            "value": 3.055,
+            "decimals": 3,
+            "suffix": " billion",
+            "label": "base pairs in the first complete human genome (2022)",
+            "context": "Telomere-to-Telomere consortium · T2T-CHM13",
+            "narration": "Nearly every cell carries the genome. The first complete human sequence, published in 2022, is three point zero five five billion base pairs long.",
+            "cite": [
+              "genome-size"
+            ]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "Read-out",
+            "nodes": [
+              {
+                "id": "dna",
+                "label": "DNA",
+                "x": 12,
+                "y": 45,
+                "tone": "ink"
+              },
+              {
+                "id": "rna",
+                "label": "RNA (transcription)",
+                "x": 40,
+                "y": 45,
+                "tone": "ink"
+              },
+              {
+                "id": "prot",
+                "label": "Protein (translation)",
+                "x": 68,
+                "y": 45,
+                "tone": "accent"
+              },
+              {
+                "id": "fn",
+                "label": "Folds and acts",
+                "x": 91,
+                "y": 45,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "dna",
+                "to": "rna"
+              },
+              {
+                "from": "rna",
+                "to": "prot"
+              },
+              {
+                "from": "prot",
+                "to": "fn"
+              }
+            ],
+            "narration": "Information flows from DNA to RNA by transcription, and from RNA to protein by translation. Three bases code for each amino acid, so a gene's sequence fixes its protein's sequence.",
+            "cite": [
+              "central-dogma"
+            ]
+          },
+          {
+            "kind": "compare",
+            "left": {
+              "heading": "The useful analogy",
+              "items": [
+                "Genome ≈ stored program",
+                "Codon ≈ three-letter word",
+                "Protein ≈ the machine it builds"
+              ]
+            },
+            "right": {
+              "heading": "Where it breaks",
+              "items": [
+                "Read-out is regulated and noisy",
+                "One genome builds very different cell types",
+                "Proteins act through shape and chemistry"
+              ]
+            },
+            "narration": "The software analogy helps, up to a point. But read-out is regulated and noisy, one genome builds very different cell types, and proteins act through their shape and chemistry — which is where quantum chemistry enters."
+          },
+          {
+            "kind": "list",
+            "chapter": "Errors",
+            "heading": "What can go wrong in the code",
+            "items": [
+              "**Substitutions** — one base swapped for another",
+              "**Insertions and deletions** — bases added or lost",
+              "**Copy-number changes** — whole regions gained or lost",
+              "**Rearrangements and fusions** — pieces joined wrongly"
+            ],
+            "narration": "The errors that matter in cancer range from single-base substitutions and small insertions or deletions, to copy-number gains and losses, and rearrangements that fuse two genes together.",
+            "cite": [
+              "mutation-types"
+            ]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "Copying",
+            "nodes": [
+              {
+                "id": "g1",
+                "label": "G1 · grow",
+                "x": 20,
+                "y": 30,
+                "tone": "ink"
+              },
+              {
+                "id": "s",
+                "label": "S · copy DNA",
+                "x": 75,
+                "y": 30,
+                "tone": "accent"
+              },
+              {
+                "id": "g2",
+                "label": "G2 · check",
+                "x": 75,
+                "y": 76,
+                "tone": "ink"
+              },
+              {
+                "id": "m",
+                "label": "M · divide",
+                "x": 20,
+                "y": 76,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "g1",
+                "to": "s",
+                "label": "checkpoint"
+              },
+              {
+                "from": "s",
+                "to": "g2"
+              },
+              {
+                "from": "g2",
+                "to": "m",
+                "label": "checkpoint"
+              },
+              {
+                "from": "m",
+                "to": "g1"
+              }
+            ],
+            "narration": "Cells divide through a cycle: G1, S where the DNA is copied, G2, and mitosis. Checkpoints can halt the cycle when DNA is damaged. Evading those brakes is one of cancer's hallmarks.",
+            "cite": [
+              "cell-cycle",
+              "hallmarks-2000"
+            ]
+          },
+          {
+            "kind": "diagram",
+            "chapter": "Signals",
+            "nodes": [
+              {
+                "id": "gf",
+                "label": "Growth factor",
+                "x": 8,
+                "y": 40,
+                "tone": "muted"
+              },
+              {
+                "id": "rec",
+                "label": "Receptor",
+                "x": 30,
+                "y": 40,
+                "tone": "ink"
+              },
+              {
+                "id": "ras",
+                "label": "RAS: GTP = on, GDP = off",
+                "x": 56,
+                "y": 40,
+                "tone": "accent"
+              },
+              {
+                "id": "nuc",
+                "label": "Nucleus: division genes on",
+                "x": 86,
+                "y": 40,
+                "tone": "signal"
+              }
+            ],
+            "edges": [
+              {
+                "from": "gf",
+                "to": "rec"
+              },
+              {
+                "from": "rec",
+                "to": "ras"
+              },
+              {
+                "from": "ras",
+                "to": "nuc",
+                "label": "relay"
+              }
+            ],
+            "narration": "Growth signals arrive at receptors and are relayed inward. RAS is the switch: on when bound to GTP, off when bound to GDP. Oncogenic mutations stop it switching off.",
+            "cite": [
+              "ras-switch"
+            ]
+          },
+          {
+            "kind": "stat",
+            "value": 19,
+            "suffix": "%",
+            "label": "of patients with cancer carry a RAS mutation",
+            "context": "≈ 3.4 million new cases a year worldwide",
+            "narration": "That one switch matters enormously: about nineteen percent of cancer patients carry a RAS mutation — roughly three point four million new cases a year.",
+            "cite": [
+              "ras-frequency"
+            ]
+          },
+          {
+            "kind": "statement",
+            "text": "Keep this picture: **information**, **copying**, **switches** — and errors that accumulate and are selected.",
+            "narration": "Keep this picture: information, copying, switches, and errors that accumulate and are selected. The next two lessons build cancer out of exactly these parts."
+          }
+        ]
+      }
+    },
+    {
+      "type": "widget",
+      "id": "qo2-sequence",
+      "title": "Follow a growth signal",
+      "widget": "sequence",
+      "brief": "Put the steps of a growth signal in order, from outside the cell to division.",
+      "props": {
+        "items": [
+          {
+            "label": "A growth factor binds its receptor on the cell surface",
+            "detail": "The signal starts outside the cell."
+          },
+          {
+            "label": "The activated receptor switches RAS on (GDP swapped for GTP)",
+            "detail": "RAS is the molecular switch.",
+            "cite": [
+              "ras-switch"
+            ]
+          },
+          {
+            "label": "RAS relays the signal through a chain of proteins",
+            "detail": "A mutant RAS that cannot hydrolyse GTP keeps relaying without any growth factor.",
+            "cite": [
+              "ras-switch"
+            ]
+          },
+          {
+            "label": "Division genes are transcribed in the nucleus",
+            "detail": "DNA → RNA → protein.",
+            "cite": [
+              "central-dogma"
+            ]
+          },
+          {
+            "label": "The cell passes the G1 checkpoint and copies its DNA in S phase",
+            "detail": "Checkpoints can still stop it if the DNA is damaged.",
+            "cite": [
+              "cell-cycle"
+            ]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "widget",
+      "id": "qo2-sort",
+      "title": "Name the error",
+      "widget": "card-sort",
+      "brief": "Each card describes a real kind of cancer mutation. Which class is it?",
+      "props": {
+        "buckets": [
+          "Substitution",
+          "Insertion / deletion",
+          "Copy-number change",
+          "Rearrangement / fusion"
+        ],
+        "cards": [
+          {
+            "text": "KRAS G12C: codon 12 now encodes cysteine instead of glycine.",
+            "bucket": "Substitution",
+            "why": "One base changed, one amino acid changed — and a new cysteine that drugs can attack.",
+            "cite": [
+              "kras-pocket"
+            ]
+          },
+          {
+            "text": "BCR-ABL in chronic myeloid leukaemia.",
+            "bucket": "Rearrangement / fusion",
+            "why": "Two genes fused; the product is a kinase that is always on.",
+            "cite": [
+              "bcr-abl-fusion"
+            ]
+          },
+          {
+            "text": "A single base is lost, shifting every codon after it.",
+            "bucket": "Insertion / deletion",
+            "why": "A frameshift usually destroys the protein — a common way to lose a tumour suppressor.",
+            "cite": [
+              "mutation-types"
+            ]
+          },
+          {
+            "text": "Dozens of extra copies of a growth-receptor gene.",
+            "bucket": "Copy-number change",
+            "why": "Amplification: more copies, more protein, more signal.",
+            "cite": [
+              "mutation-types"
+            ]
+          },
+          {
+            "text": "A whole chromosome arm is missing from the tumour.",
+            "bucket": "Copy-number change",
+            "why": "Large losses can remove one copy of a tumour suppressor at a stroke.",
+            "cite": [
+              "mutation-types"
+            ]
+          }
+        ]
+      },
+      "cite": []
+    },
+    {
+      "type": "quiz",
+      "id": "qo2-quiz",
+      "title": "Check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "numeric",
+          "prompt": "How many DNA bases make up one codon?",
+          "answer": 3,
+          "tolerance": 0,
+          "explain": "Three bases per codon, one codon per amino acid.",
+          "cite": [
+            "central-dogma"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "RAS passes the growth signal on when it is bound to…",
+          "options": [
+            "GDP",
+            "GTP",
+            "DNA"
+          ],
+          "answer": 1,
+          "explain": "GTP-bound RAS is on; hydrolysing GTP to GDP switches it off.",
+          "cite": [
+            "ras-switch"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "Why does an oncogenic RAS mutation drive growth?",
+          "options": [
+            "It makes more RAS protein",
+            "It impairs GTP hydrolysis, so RAS stays switched on",
+            "It destroys the receptor"
+          ],
+          "answer": 1,
+          "explain": "Mutant RAS cannot switch itself off efficiently, so the relay keeps firing.",
+          "cite": [
+            "ras-switch"
+          ]
+        },
+        {
+          "type": "single",
+          "prompt": "In which phase of the cell cycle is DNA copied?",
+          "options": [
+            "G1",
+            "S",
+            "M"
+          ],
+          "answer": 1,
+          "explain": "S is for synthesis. G1 and G2 are gaps with checkpoints; M is mitosis.",
+          "cite": [
+            "cell-cycle"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "qo2-hw",
+      "title": "Homework 1 · The genome as data",
+      "output": "problem-sets",
+      "brief": "About 45 minutes. Use your own words; cite the ledger where you state a fact.",
+      "fields": [
+        {
+          "type": "text",
+          "id": "hw1-bytes",
+          "label": "1. Raw size. At 2 bits per base, how many bytes is one copy of a 3.055-billion-base genome? Then explain in two or three sentences why “a cell is a 760 MB program” is a misleading model.",
+          "hint": "Think about regulation, cell types, two copies per cell, and what a protein does that a string cannot.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw1-g12c",
+          "label": "2. Explain to a physicist colleague how one amino-acid change (KRAS G12C) can leave a protein permanently switched on.",
+          "minWords": 60
+        },
+        {
+          "type": "text",
+          "id": "hw1-lookup",
+          "label": "3. Look up KRAS on cBioPortal (cbioportal.org, free). Which three cancer types have the highest KRAS mutation frequency in the study you chose? Record the study name and the date you checked.",
+          "minWords": 40
+        }
+      ]
+    }
+  ]
+}
