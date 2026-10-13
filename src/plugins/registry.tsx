@@ -19,6 +19,12 @@ import { SurvivalLab } from './oncology/widgets/SurvivalLab'
 import { LeakageLab } from './oncology/widgets/LeakageLab'
 import { VqeLab } from './oncology/widgets/VqeLab'
 import { PanelQuboLab } from './oncology/widgets/PanelQuboLab'
+import { ExamBench } from './forgery/widgets/ExamBench'
+import { PigmentLab } from './forgery/widgets/PigmentLab'
+import { DendroLab } from './forgery/widgets/DendroLab'
+import { CarbonLab } from './forgery/widgets/CarbonLab'
+import { ProvenanceLab } from './forgery/widgets/ProvenanceLab'
+import { LayersShot, ScanShot } from './forgery/shots'
 
 export const WIDGET_COMPONENTS: Record<string, Widget> = {
   'card-sort': CardSort,
@@ -36,10 +42,17 @@ export const WIDGET_COMPONENTS: Record<string, Widget> = {
   'leakage-lab': LeakageLab,
   'vqe-lab': VqeLab,
   'panel-qubo': PanelQuboLab,
+  'exam-bench': ExamBench,
+  'pigment-lab': PigmentLab,
+  'dendro-lab': DendroLab,
+  'carbon-lab': CarbonLab,
+  'provenance-lab': ProvenanceLab,
 }
 
 export const PLUGIN_SHOT_COMPONENTS: Record<string, PluginShot> = {
   circuit: CircuitShot,
   bloch: BlochShot,
   growth: GrowthShot,
+  layers: LayersShot,
+  scan: ScanShot,
 }

@@ -1,0 +1,143 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-connoisseurship",
+  "title": "Connoisseurship: the expert eye and its limits",
+  "summary": "What the trained eye does well, how it has failed, and why a good opinion states its confidence.",
+  "minutes": 22,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af10-reel",
+      "title": "The expert eye",
+      "reel": {
+        "title": "The expert eye",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The eye",
+            "kicker": "Module 6 · Practice",
+            "title": "The expert eye —\nand its blind spots.",
+            "narration": "Connoisseurship is the trained eye: years of looking, until an artist's hand becomes recognisable. It is indispensable — and it has failed spectacularly."
+          },
+          {
+            "kind": "statement",
+            "text": "From Morelli's details to whole-career **catalogues**.",
+            "narration": "Morelli's habit-spotting grew into a discipline. Its grandest project, the Rembrandt Research Project, ended its final volume in 2014 by asking: what is a Rembrandt, and what is not?",
+            "cite": ["morelli-method", "rrp-vi"]
+          },
+          {
+            "kind": "statement",
+            "text": "**Autograph**, workshop, follower: the eye grades authorship.",
+            "narration": "The eye's output is a graded attribution: autograph, by the master's own hand; then workshop, follower, imitator. Each grade is a judgement, not a measurement.",
+            "cite": ["autograph-def", "attribution-ladder"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Failures",
+            "text": "Experts hailed the Emmaus as **Vermeer's masterpiece**.",
+            "narration": "The eye's failures are famous. Leading Dutch experts hailed Van Meegeren's Emmaus as Vermeer's masterpiece, while a curator who doubted another of his fakes kept his verdict to a private diary.",
+            "cite": ["emmaus-1937", "washing-feet"]
+          },
+          {
+            "kind": "statement",
+            "text": "Hofstede de Groot backed his eye **against the chemistry**.",
+            "narration": "Hofstede de Groot backed his eye against chemical proof of modern materials. Confidence is not evidence.",
+            "cite": ["laughing-cavalier-hdg", "laughing-cavalier-halt"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Working together",
+            "text": "Eye **+** lab **+** archive.",
+            "narration": "The answer isn't to abandon the eye. The National Gallery's exhibition 'Close Examination' showed scientists, conservators and art historians together telling originals from workshop pieces, copies and fakes.",
+            "cite": ["ng-close-exam"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "The eye is good at", "items": ["Spotting a weak hand", "A composition that doesn't fit", "Recognising period style"] },
+            "right": { "heading": "The eye is bad at", "items": ["Dating materials", "Resisting a hoped-for discovery", "Admitting it was wrong"] },
+            "narration": "Use each tool for what it does well. The eye spots a weak hand and an implausible composition. It cannot date a pigment, and it is vulnerable to wanting a discovery to be true.",
+            "cite": ["emmaus-1937", "laughing-cavalier-hdg"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Confidence",
+            "text": "Courts want **yes or no**. Evidence gives probabilities.",
+            "narration": "One more pressure: in court, experts are pushed to answer authentic or not, when the evidence supports only degrees of probability. Good reports state their confidence.",
+            "cite": ["court-yes-no"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af10-video",
+      "title": "Go deeper: Revisiting Rembrandt",
+      "optional": true,
+      "provider": "youtube",
+      "src": "XloUrboziGU",
+      "caption": "A Metropolitan Museum of Art programme of case histories in connoisseurship: how Rembrandt attributions have been made and revised (about 70 minutes).",
+      "credit": "The Metropolitan Museum of Art (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af10-sort",
+      "title": "Strong evidence, or weak on its own?",
+      "widget": "card-sort",
+      "brief": "An attribution report lists the following. Which are strong evidence of who painted it, and which are weak on their own?",
+      "props": {
+        "buckets": ["Strong evidence", "Weak on its own"],
+        "cards": [
+          { "text": "A signature in the right place", "bucket": "Weak on its own", "why": "A signature is the easiest thing to add — and one painted on top of the varnish shows dark under UV.", "cite": ["uv-fluorescence"] },
+          { "text": "A certificate from a famous expert", "bucket": "Weak on its own", "why": "Certificates record opinions, and experts' stamps have been forged.", "cite": ["laughing-cavalier-hdg", "dehory-method"] },
+          { "text": "Materials all consistent with the claimed date", "bucket": "Weak on its own", "why": "It shows the work could be old, not who made it.", "cite": ["tpq-def"] },
+          { "text": "A face that closely resembles one in a famous work by the master", "bucket": "Weak on its own", "why": "Painters of a period shared ideals of beauty; resemblance is not authorship.", "cite": ["face-not-author"] },
+          { "text": "An underdrawing and changes of mind typical of the master's working process", "bucket": "Strong evidence", "why": "Pentimenti and drawing habits record how the picture was made, and help attribution.", "cite": ["pentimento-def"] },
+          { "text": "An unbroken chain of inventories back to the artist's studio", "bucket": "Strong evidence", "why": "Independent documents tied to the object are the backbone of attribution.", "cite": ["provenance-def"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af10-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "What does 'autograph' mean in an attribution?",
+          "options": ["Signed by the artist", "Painted entirely by the named artist", "Owned by the artist"],
+          "answer": 1,
+          "explain": "Autograph means by the artist's own hand, rather than partly or wholly by assistants.",
+          "cite": ["autograph-def"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did the Emmaus affair show about expert consensus?",
+          "options": ["Consensus is always right", "Consensus can be wrong, and doubts may go unvoiced", "Only scientists can be wrong"],
+          "answer": 1,
+          "explain": "Leading experts hailed a fake as a masterpiece; at least one doubter kept quiet.",
+          "cite": ["emmaus-1937", "washing-feet"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why should an authentication report state its confidence?",
+          "options": ["It is legally required", "Evidence usually supports degrees of probability, not certainty", "To avoid giving a verdict"],
+          "answer": 1,
+          "explain": "Courts often want yes or no, but honest reports say how sure they are and why.",
+          "cite": ["court-yes-no"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af10-journal",
+      "title": "Looking journal: the connoisseur's comparison",
+      "output": "looking-journal",
+      "brief": "Find two works given to the same artist in a museum's online collection — one catalogued 'by' the artist, one 'attributed to' or 'studio of'. Compare them as a connoisseur would.",
+      "fields": [
+        { "type": "text", "id": "lj2-pair", "label": "Which two works, and where (links)?", "minWords": 10 },
+        { "type": "text", "id": "lj2-compare", "label": "Compare the handling — drawing, modelling, small details. Does the difference in grading convince you?", "minWords": 80 }
+      ]
+    }
+  ]
+}

@@ -132,7 +132,60 @@ function tide(r: () => number) {
   return <g>{lines}</g>
 }
 
-const DRAW = { interference, contours, lattice, tide } as const
+/** Craquelure: a network of age cracks, grown from seeded points and branching. */
+function craquelure(r: () => number) {
+  const cracks: string[] = []
+  const strong: string[] = []
+  // Voronoi-like cells: jittered grid seeds, cracks run along cell borders.
+  const seeds = Array.from({ length: 42 }, () => ({ x: r() * W, y: r() * H }))
+  const step = 5
+  const owner = (x: number, y: number) => {
+    let best = 0
+    let bd = Infinity
+    for (let i = 0; i < seeds.length; i++) {
+      const d = (seeds[i].x - x) ** 2 + (seeds[i].y - y) ** 2
+      if (d < bd) {
+        bd = d
+        best = i
+      }
+    }
+    return best
+  }
+  let d = ''
+  for (let y = 0; y < H; y += step)
+    for (let x = 0; x < W; x += step) {
+      const o = owner(x, y)
+      if (owner(x + step, y) !== o) d += `M${x + step / 2},${y}v${step}`
+      if (owner(x, y + step) !== o) d += `M${x},${y + step / 2}h${step}`
+    }
+  cracks.push(d)
+  // a few long, darker fissures that wander across cells
+  for (let i = 0; i < 6; i++) {
+    let x = r() * W
+    let y = r() * H
+    let a = r() * Math.PI * 2
+    let path = `M${x.toFixed(1)},${y.toFixed(1)}`
+    for (let k = 0; k < 14; k++) {
+      a += (r() - 0.5) * 0.9
+      x += Math.cos(a) * 14
+      y += Math.sin(a) * 14
+      path += `L${x.toFixed(1)},${y.toFixed(1)}`
+    }
+    strong.push(path)
+  }
+  return (
+    <g>
+      {cracks.map((c, i) => (
+        <path key={i} d={c} stroke="currentColor" strokeOpacity={0.4} strokeWidth={1} fill="none" />
+      ))}
+      {strong.map((c, i) => (
+        <path key={'s' + i} d={c} stroke="var(--cover-strong)" strokeWidth={1.6} fill="none" strokeLinejoin="round" />
+      ))}
+    </g>
+  )
+}
+
+const DRAW = { interference, contours, lattice, tide, craquelure } as const
 
 export function Cover({
   kind,

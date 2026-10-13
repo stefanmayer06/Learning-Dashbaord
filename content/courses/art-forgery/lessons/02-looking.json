@@ -1,0 +1,143 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-looking",
+  "title": "How to look at a painting",
+  "summary": "Describe, analyse, interpret: slow looking, technique as handwriting, and Morelli's hunt for the artist's habits.",
+  "minutes": 20,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af2-reel",
+      "title": "Slow looking",
+      "reel": {
+        "title": "Slow looking",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Slow looking",
+            "kicker": "Module 2 · Theory",
+            "title": "Look first,\njudge later.",
+            "subtitle": "Describe → analyse → interpret.",
+            "narration": "Experts don't start with a verdict. They start by looking slowly — describing what is actually there before deciding what it means, or who made it."
+          },
+          {
+            "kind": "list",
+            "heading": "Three passes",
+            "items": ["**Describe** — subject, format, colours, what is where", "**Analyse** — composition, light, brushwork, technique", "**Interpret** — meaning, date, maker"],
+            "narration": "Make three passes. Describe what you see. Analyse how it is arranged and made. Only then interpret: what it means, when it was made, and by whom."
+          },
+          {
+            "kind": "statement",
+            "text": "Brushwork is handwriting. **Impasto** catches the light; a **glaze** tints without hiding.",
+            "narration": "Technique is handwriting. Thick impasto stands up and catches the light, as in Rembrandt and Van Gogh; a glaze is a thin transparent film that tints the colour beneath.",
+            "cite": ["impasto-def", "glaze-def"]
+          },
+          {
+            "kind": "statement",
+            "text": "Changes of mind — **pentimenti** — hide under the paint.",
+            "narration": "Look for changes of mind. A pentimento is something the artist altered while painting; infrared and X-rays can reveal it, and it can even help attribute a picture.",
+            "cite": ["pentimento-def"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "The hand",
+            "text": "Giovanni Morelli: the artist hides in **minute, habitual details**.",
+            "narration": "Giovanni Morelli argued that an artist is betrayed by small habits — details painted without thinking — rather than by the showpiece passages a copyist studies hardest.",
+            "cite": ["morelli-method"]
+          },
+          {
+            "kind": "statement",
+            "text": "He published as **'Ivan Lermolieff'** — and trained a generation of connoisseurs.",
+            "narration": "He published the method under a pseudonym, Ivan Lermolieff, in the 1870s and in a book of 1880. It shaped the next generation of connoisseurs, including Bernard Berenson.",
+            "cite": ["morelli-method", "morelli-influence"]
+          },
+          {
+            "kind": "compare",
+            "left": { "heading": "What a copyist studies", "items": ["The composition", "The famous face", "The signature"] },
+            "right": { "heading": "What gives the hand away", "items": ["Small habitual details", "How the layers are built", "Hesitations and changes"] },
+            "narration": "So ask what a copyist would concentrate on — then look everywhere else. Small details, the build-up of layers and the changes of mind are much harder to fake.",
+            "cite": ["morelli-method", "pentimento-def"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Your turn",
+            "text": "Choose a painting. Spend **ten minutes** with it before you read the label.",
+            "narration": "Your assignment: choose one painting in an online museum collection, and look at it for ten minutes before reading a word about it. Then write what you saw."
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af2-video",
+      "title": "Watch: formal analysis, step by step",
+      "provider": "youtube",
+      "src": "sM2MOyonDsY",
+      "caption": "Smarthistory's art historians demonstrate visual (formal) analysis on real works — a good model for your looking journal.",
+      "credit": "Smarthistory (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af2-sort",
+      "title": "Describe, analyse or interpret?",
+      "widget": "card-sort",
+      "brief": "Each sentence comes from someone's notes on the same portrait. Is it description (what is there), analysis (how it is made and arranged) or interpretation (what it means, when, by whom)?",
+      "props": {
+        "buckets": ["Describe", "Analyse", "Interpret"],
+        "cards": [
+          { "text": "A woman in a white cap faces left against a dark background.", "bucket": "Describe", "why": "Pure observation: what is in the picture." },
+          { "text": "The panel is roughly as tall as a forearm and a little narrower.", "bucket": "Describe", "why": "Size and format are observable facts." },
+          { "text": "Light falls from the upper left and models the face in soft steps.", "bucket": "Analyse", "why": "How the picture is constructed — lighting and modelling." },
+          { "text": "The ruff is built up in thick, raised strokes that catch the light.", "bucket": "Analyse", "why": "A statement about technique (impasto).", "cite": ["impasto-def"] },
+          { "text": "The sitter was probably the wife of a prosperous merchant.", "bucket": "Interpret", "why": "An inference about meaning and context." },
+          { "text": "The handling of the hands suggests a pupil rather than the master.", "bucket": "Interpret", "why": "An attribution judgement — interpretation built on analysis.", "cite": ["morelli-method"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af2-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Why did Morelli look at minor details rather than the main face?",
+          "options": ["They are painted with more care", "Habitual details reveal the hand, while copyists concentrate on showpiece passages", "Minor details are always older", "Faces are always restored"],
+          "answer": 1,
+          "explain": "Morelli's method attributes works through the minute, habitual characteristics of an artist's hand.",
+          "cite": ["morelli-method"]
+        },
+        {
+          "type": "single",
+          "prompt": "What is a pentimento?",
+          "options": ["A thin transparent glaze", "A change the artist made while painting", "A crack pattern", "A forged signature"],
+          "answer": 1,
+          "explain": "Pentimenti record changes of mind; infrared and X-rays can reveal them, and they sometimes help attribution.",
+          "cite": ["pentimento-def"]
+        },
+        {
+          "type": "multi",
+          "prompt": "Which of these describe technique rather than subject?",
+          "options": ["Thick impasto in the highlights", "A woman reading a letter", "A transparent glaze over red", "A view of a canal"],
+          "answers": [0, 2],
+          "explain": "Impasto and glazes are ways of applying paint; the other two describe what is shown.",
+          "cite": ["impasto-def", "glaze-def"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af2-journal",
+      "title": "Looking journal: ten minutes with a painting",
+      "output": "looking-journal",
+      "brief": "Choose one painting from any museum's online collection (the National Gallery, the Rijksmuseum and the Met all publish zoomable images). Look for ten minutes before reading the label, then write.",
+      "fields": [
+        { "type": "text", "id": "lj-work", "label": "Which painting? Artist, title, date, collection — and a link.", "minWords": 5 },
+        { "type": "text", "id": "lj-describe", "label": "**Describe** it: only what you can see.", "minWords": 60 },
+        { "type": "text", "id": "lj-analyse", "label": "**Analyse** it: composition, light, brushwork, technique.", "minWords": 50 },
+        { "type": "text", "id": "lj-hard", "label": "What would a forger find hardest to copy here, and why?", "minWords": 30 }
+      ]
+    }
+  ]
+}

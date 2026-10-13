@@ -1,0 +1,212 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-provenance",
+  "title": "Provenance: following the paper trail",
+  "summary": "How ownership histories are built, why gaps matter, the special scrutiny of 1933–1945 — and how documents get faked too.",
+  "minutes": 28,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af11-reel",
+      "title": "Every painting has a biography",
+      "reel": {
+        "title": "Every painting has a biography",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The paper trail",
+            "kicker": "Module 6 · Practice",
+            "title": "Every painting\nhas a biography.",
+            "narration": "Provenance is a work's biography: who owned it, when, and how we know. A strong provenance is hard to fake. A weak one is where most frauds live."
+          },
+          {
+            "kind": "list",
+            "heading": "Where the trail is written",
+            "items": ["Contemporary descriptions", "Collection inventories", "Inventory numbers on the work itself", "Auction catalogues"],
+            "narration": "The trail is written in contemporary descriptions, collection inventories, numbers painted or stamped on the work itself, and auction catalogues.",
+            "cite": ["provenance-def"]
+          },
+          {
+            "kind": "statement",
+            "text": "Gaps aren't proof of fraud. **But they're where fraud hides.**",
+            "narration": "Most old works have gaps; records get lost. But gaps are where stories get inserted: an anonymous collector, a forgotten storage unit, a client who never existed.",
+            "cite": ["rosales-provenance", "barzman"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "1933–1945",
+            "text": "Museums check **1933–1945** with special care.",
+            "narration": "One period gets special scrutiny. Museums such as the National Gallery pay particular attention to where works were between 1933 and 1945 — the years of Nazi confiscation.",
+            "cite": ["provenance-def", "wcp-1998"]
+          },
+          {
+            "kind": "statement",
+            "text": "**44 states** endorsed the Washington Principles.",
+            "narration": "In 1998, 44 states endorsed the non-binding Washington Principles on Nazi-confiscated art, starting with a duty to identify art never returned. Best Practices followed in 2024.",
+            "cite": ["wcp-1998", "wcp-2024"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Faked trails",
+            "text": "Labels, stamps and archives **can be forged too**.",
+            "narration": "Documents can be faked like paintings. Beltracchi used a gallery label of a kind the collection never used; Drewe planted false records inside museum archives.",
+            "cite": ["campendonk-provenance", "myatt-drewe"]
+          },
+          {
+            "kind": "statement",
+            "text": "The auction house **checked neither**.",
+            "narration": "In the Campendonk case, a court found the auction house had neither checked the provenance it was given nor had the painting scientifically examined before the sale.",
+            "cite": ["campendonk-no-checks"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Tools",
+            "text": "Search the stolen-art databases **before** you buy.",
+            "narration": "Basic due diligence includes stolen-art databases. INTERPOL's free ID-Art app, launched in 2021, lets anyone search almost 57,000 registered stolen objects.",
+            "cite": ["interpol-idart"]
+          },
+          {
+            "kind": "statement",
+            "text": "Grade every link: **documented, weak, or red flag**.",
+            "narration": "In the lab you'll audit a chain of ownership as a researcher would: grade each link as documented, weak or a red flag, and see where the gaps fall."
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af11-video",
+      "title": "Watch: what is art provenance?",
+      "provider": "youtube",
+      "src": "J9yP1N0nLUg",
+      "caption": "A Getty Research Institute case study that follows one artwork's trail of owners and documents.",
+      "credit": "Getty Museum and Getty Research Institute (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af11-lab",
+      "title": "Provenance audit",
+      "widget": "provenance-lab",
+      "brief": "Here is the ownership history offered with the case-file portrait. Grade each link: **documented** (independent records tied to this object), **weak** (plausible but unproven) or **red flag** (a specific reason for suspicion). Then check your audit and save it to your casebook.",
+      "props": {
+        "title": "Portrait of a woman, signed 'HM · 1631'",
+        "start": 1631,
+        "end": 2026,
+        "capture": "provenance",
+        "items": [
+          {
+            "id": "p1",
+            "from": 1631,
+            "to": 1700,
+            "owner": "Painted for a Haarlem brewer's family",
+            "record": "Only an ink inscription on the back of the panel names the family. No inventory, will or letter survives.",
+            "answer": "weak",
+            "why": "An inscription can be added at any time; without a document from the period it is a lead, not proof."
+          },
+          {
+            "id": "p2",
+            "from": 1700,
+            "to": 1780,
+            "owner": "Unknown",
+            "record": "No record of any kind for eighty years.",
+            "answer": "weak",
+            "why": "Gaps are common in old provenances. They lower confidence but are not evidence of fraud on their own."
+          },
+          {
+            "id": "p3",
+            "from": 1780,
+            "to": 1850,
+            "owner": "Collection of a Leiden notary",
+            "record": "His probate inventory lists 'a portrait of a woman by the Haarlem master' — no size, no description.",
+            "answer": "weak",
+            "why": "A vague inventory entry could fit many pictures; without dimensions or a description it can't be tied to this panel.",
+            "cite": ["provenance-def"]
+          },
+          {
+            "id": "p4",
+            "from": 1850,
+            "to": 1938,
+            "owner": "Bought at auction; then by descent in one family",
+            "record": "An 1850 sale catalogue gives the matching subject and dimensions; the lot number is still stencilled on the back; family inventories of 1890 and 1925 list it.",
+            "answer": "documented",
+            "why": "Independent documents that match the object, plus a number on the work itself, make a strong link.",
+            "cite": ["provenance-def"]
+          },
+          {
+            "id": "p5",
+            "from": 1938,
+            "to": 1951,
+            "owner": "'Private collection, Switzerland'",
+            "record": "No name and no documents. The seller says it 'went to Switzerland for safekeeping'.",
+            "answer": "red",
+            "why": "An anonymous owner across 1933–45 is exactly the gap museums must investigate: it can hide confiscation, a forced sale, or an invented history.",
+            "cite": ["provenance-def", "wcp-1998"]
+          },
+          {
+            "id": "p6",
+            "from": 1951,
+            "to": 2024,
+            "owner": "The seller's family",
+            "record": "A famous dealer's label on the frame — but the dealer's surviving stock books do not list the picture.",
+            "answer": "red",
+            "why": "A label without matching records recalls the fake 'Sammlung Flechtheim' labels in the Beltracchi case. Labels are easy to make.",
+            "cite": ["campendonk-provenance"]
+          },
+          {
+            "id": "p7",
+            "from": 2024,
+            "to": 2026,
+            "owner": "Consigned for sale",
+            "record": "A typed certificate of authenticity signed by an expert who died decades ago.",
+            "answer": "red",
+            "why": "A certificate adds no new evidence and can be forged — de Hory's dealer copied experts' stamps.",
+            "cite": ["dehory-method"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af11-quiz",
+      "title": "Quick check",
+      "passMark": 0.66,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Which period do museums scrutinise most closely in a provenance?",
+          "options": ["1815–1848", "1933–1945", "1968–1975"],
+          "answer": 1,
+          "explain": "The years of Nazi confiscation; the National Gallery pays particular attention to where its paintings were then.",
+          "cite": ["provenance-def"]
+        },
+        {
+          "type": "single",
+          "prompt": "Why can't a label or certificate settle a provenance on its own?",
+          "options": ["They are always fake", "Both can be forged, and neither proves that an earlier owner held this object", "Courts don't accept them"],
+          "answer": 1,
+          "explain": "Fake labels and copied experts' stamps both appear in famous cases.",
+          "cite": ["campendonk-provenance", "dehory-method"]
+        },
+        {
+          "type": "single",
+          "prompt": "In the Campendonk sale, what did the court find the auction house failed to do?",
+          "options": ["Insure the painting", "Check the provenance or have the painting examined scientifically", "Photograph the back of the frame"],
+          "answer": 1,
+          "explain": "It relied on the consignor's story and the label.",
+          "cite": ["campendonk-no-checks"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af11-casebook",
+      "title": "Casebook: provenance audit",
+      "output": "casebook",
+      "brief": "Add your provenance audit to the casebook, and plan the research that would strengthen or break it.",
+      "fields": [
+        { "type": "capture", "id": "cb-prov", "label": "Your provenance audit (saved from the lab)", "from": "provenance", "hint": "Save it from the Provenance audit step." },
+        { "type": "text", "id": "cb-prov-next", "label": "Which two documents would you try to find next, and where would you look?", "minWords": 40 }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { COURSES, bundle, collectErrors, completedState, seed } from './helpers'
 
 test('every page of the site renders without errors', async ({ page }) => {
   const errors = collectErrors(page)
-  await seed(page, completedState())
+  await seed(page, completedState(COURSES))
   const coursePages = COURSES.flatMap((c) => [`/c/${c}`, `/c/${c}/ledger`, `/c/${c}/work`, `/c/${c}/certificate`])
   for (const path of ['/', ...coursePages, '/commission', '/settings', '/method', '/nope']) {
     await page.goto(path)
@@ -16,7 +16,7 @@ for (const course of COURSES) {
   test(`${course}: every step of every lesson renders without errors`, async ({ page }) => {
     test.setTimeout(480_000)
     const errors = collectErrors(page)
-    await seed(page, completedState())
+    await seed(page, completedState([course]))
     const b = bundle(course)
     for (const lesson of Object.values(b.lessons)) {
       for (const step of lesson.steps) {

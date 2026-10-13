@@ -1,0 +1,188 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-market-law",
+  "title": "The market and the law",
+  "summary": "Who gets sued, who pays back, and what a careful buyer checks — from Knoedler to the Cologne courts and Germany's highest civil court in 2026.",
+  "minutes": 26,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af16-reel",
+      "title": "Follow the money",
+      "reel": {
+        "title": "Follow the money",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "Follow the money",
+            "kicker": "Module 9 · Landscape",
+            "title": "Who pays when\nthe experts are wrong?",
+            "narration": "Forgery is a crime, but much of the fight happens in civil courts and sale rooms. This lesson follows the money: who gets sued, who pays back, and what a careful buyer checks."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Supply",
+            "text": "High prices **pull in** new 'discoveries'.",
+            "narration": "Markets create forgeries. When an artist's prices climb at auction, or a major study is published, many previously unknown works can suddenly appear for sale.",
+            "cite": ["market-surges"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Knoedler",
+            "text": "One of New York's oldest galleries **closed in 2011**.",
+            "narration": "Knoedler and Company, one of New York's oldest and most reputable galleries, closed in 2011 after being accused of selling forged Abstract Expressionist paintings.",
+            "cite": ["knoedler-closure"]
+          },
+          {
+            "kind": "list",
+            "heading": "Red flags the buyers said were ignored",
+            "items": ["So many works from one source", "Huge profit margins", "A mysterious provenance"],
+            "narration": "Buyers argued the gallery ignored red flags: the number of works, the huge profit margins and the mysterious provenance. Its director said the experts she consulted believed the works genuine.",
+            "cite": ["knoedler-red-flags"]
+          },
+          {
+            "kind": "stat",
+            "value": 33.2,
+            "decimals": 1,
+            "label": "million dollars forfeited by the dealer **Glafira Rosales**",
+            "context": "Guilty plea in Manhattan federal court, September 2013.",
+            "narration": "The works' source, the dealer Glafira Rosales, pleaded guilty in September 2013 to charges including wire fraud and money laundering, and agreed to forfeit 33.2 million dollars.",
+            "cite": ["rosales-plea"]
+          },
+          {
+            "kind": "statement",
+            "text": "A basement cache **no one could find**.",
+            "narration": "Between 2005 and 2014, John Re sold dozens of fake Pollocks and de Koonings with a story about a basement cache. IFAR found no evidence for it, and in November 2014 he pleaded guilty to wire fraud.",
+            "cite": ["john-re"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Liability",
+            "text": "Deceived, in good faith — and **still liable**.",
+            "narration": "In Germany, a Cologne court ordered the auction house that sold Beltracchi's fake Campendonk to pay the buyer back about 2.1 million euros — although it had been deceived too, and acted in good faith.",
+            "cite": ["campendonk-damages", "beltracchi-tells"]
+          },
+          {
+            "kind": "statement",
+            "text": "The catalogue said **'certain'** without the evidence.",
+            "narration": "The reason: its catalogue presented the attribution as certain without a sufficient factual basis. It had neither checked the consignor's provenance nor had the painting examined.",
+            "cite": ["campendonk-damages", "campendonk-no-checks"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Still in court",
+            "text": "The forger **wants the painting back**.",
+            "narration": "The case isn't over. On 9 October 2026 Germany's Federal Court of Justice heard the forger's claim to recover the painting after the sale was unwound and it was resold. Lower courts rejected it; a ruling is due in January.",
+            "cite": ["bgh-2026"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Intent",
+            "text": "Intent turns a copy **into a forgery**.",
+            "narration": "Copies are not crimes in themselves: curators treat the intent to deceive as central. John Myatt now sells 'genuine fakes', each clearly signed so it can never pass as authentic.",
+            "cite": ["intent-central", "myatt-genuine-fakes"]
+          },
+          {
+            "kind": "statement",
+            "text": "No money changed hands — **no fraud**.",
+            "narration": "Mark Landis gave fakes to dozens of museums for about thirty years. They lost no money and he claimed no tax deductions, so he technically committed no fraud. He stopped in 2014, after media attention.",
+            "cite": ["landis-donations", "landis-stopped"]
+          },
+          {
+            "kind": "list",
+            "chapter": "Due diligence",
+            "heading": "Before you buy",
+            "items": ["Trace the provenance in independent records", "Commission a scientific examination", "Search the stolen-art databases", "Ask: why this work, why now, from whom?", "Get the seller's claims in writing"],
+            "narration": "So before you buy: trace the provenance in independent records, commission a scientific examination, search the stolen-art databases, ask why this work is appearing now — and get the seller's claims in writing.",
+            "cite": ["campendonk-no-checks", "campendonk-damages", "interpol-idart", "market-surges"]
+          },
+          {
+            "kind": "statement",
+            "text": "Check **before** the sale, not after.",
+            "narration": "In this lesson's cases, the evidence that exposed the fakes — a modern pigment, an invented collector, a cache no one could find — could have been looked for before the sale.",
+            "cite": ["campendonk-titanium", "rosales-provenance", "john-re"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "embed",
+      "id": "af16-video",
+      "title": "Go deeper: lessons from Knoedler",
+      "optional": true,
+      "provider": "youtube",
+      "src": "Ehdj3re6HlM",
+      "caption": "'20/20 Hindsight: Lessons from the Knoedler/Rosales Affair', a programme from the International Foundation for Art Research (IFAR), whose research on the John Re case features in this lesson.",
+      "credit": "International Foundation for Art Research (YouTube)"
+    },
+    {
+      "type": "widget",
+      "id": "af16-sort",
+      "title": "Red flag or reassurance?",
+      "widget": "card-sort",
+      "brief": "You're advising a buyer. Sort what the seller offers: a **red flag**, **neutral on its own**, or **reassuring — if verified at source**.",
+      "props": {
+        "buckets": ["Red flag", "Neutral on its own", "Reassuring — if verified"],
+        "cards": [
+          { "text": "Dozens of never-exhibited works, all from one source", "bucket": "Red flag", "why": "Volume from a single, unexplained source was one of the flags in the Knoedler case.", "cite": ["knoedler-red-flags", "rosales-scheme"] },
+          { "text": "A seller who won't name the previous owner", "bucket": "Red flag", "why": "Rosales' 'anonymous Swiss client' never existed.", "cite": ["rosales-provenance"] },
+          { "text": "A wave of 'new' works just after a record auction price", "bucket": "Red flag", "why": "High prices are exactly when previously unknown works start to appear.", "cite": ["market-surges"] },
+          { "text": "A gallery label on the back of the frame", "bucket": "Neutral on its own", "why": "Labels are easy to make — Beltracchi's fakes carried labels of a collection that never held them.", "cite": ["campendonk-provenance"] },
+          { "text": "A clean search in INTERPOL's stolen-art database", "bucket": "Neutral on its own", "why": "It shows the work isn't registered as stolen. It says nothing about whether it is authentic.", "cite": ["interpol-idart"] },
+          { "text": "An old sale catalogue listing the work with matching size and subject", "bucket": "Reassuring — if verified", "why": "Independent records that match the object are the backbone of provenance — if you check the catalogue in a library, since archives have been doctored.", "cite": ["provenance-def", "myatt-drewe"] },
+          { "text": "A pre-sale materials report from an independent laboratory", "bucket": "Reassuring — if verified", "why": "It's the check the Cologne auction house never made. Remember that consistent materials show only that a work could be old.", "cite": ["campendonk-no-checks", "tpq-def"] }
+        ]
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "af16-quiz",
+      "title": "Quick check",
+      "passMark": 0.75,
+      "questions": [
+        {
+          "type": "single",
+          "prompt": "Why did a Cologne court order the auction house to repay the buyer, although it had been deceived too?",
+          "options": ["It had commissioned the forgery", "Its catalogue presented the attribution as certain without a sufficient factual basis", "It had refused to return the buyer's deposit"],
+          "answer": 1,
+          "explain": "The court also noted it had neither checked the provenance nor had the painting examined.",
+          "cite": ["campendonk-damages", "campendonk-no-checks"]
+        },
+        {
+          "type": "single",
+          "prompt": "Which of these was NOT among the red flags Knoedler's buyers said the gallery ignored?",
+          "options": ["The number of works", "Huge profit margins", "A mysterious provenance", "A lab report finding a modern pigment"],
+          "answer": 3,
+          "explain": "The buyers pointed to volume, margins and provenance — warnings visible without a laboratory.",
+          "cite": ["knoedler-red-flags"]
+        },
+        {
+          "type": "single",
+          "prompt": "What do curators treat as central to a forgery, as opposed to a copy?",
+          "options": ["Its quality", "The intent to deceive", "Its age"],
+          "answer": 1,
+          "explain": "Myatt's signed 'genuine fakes' are legal because no one is deceived.",
+          "cite": ["intent-central", "myatt-genuine-fakes"]
+        },
+        {
+          "type": "single",
+          "prompt": "What did Germany's Federal Court of Justice hear in October 2026?",
+          "options": ["A new criminal charge against the forger", "The forger's claim to get the painting back", "A museum's restitution claim"],
+          "answer": 1,
+          "explain": "Lower courts had rejected the claim; the ruling is scheduled for January.",
+          "cite": ["bgh-2026"]
+        }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af16-casebook",
+      "title": "Casebook: due diligence",
+      "output": "casebook",
+      "brief": "A museum has been offered the case-file portrait. Before it decides, write the conditions it should insist on.",
+      "fields": [
+        { "type": "text", "id": "cb-diligence", "label": "Your due-diligence conditions: what must the seller provide, and what will the museum check itself?", "minWords": 50 }
+      ]
+    }
+  ]
+}

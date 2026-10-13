@@ -1,0 +1,130 @@
+{
+  "$schema": "../../../schema/lesson.schema.json",
+  "id": "af-dossier",
+  "title": "Capstone: the authentication dossier",
+  "summary": "Bring together everything you found on the 'HM · 1631' portrait, weigh it, and write a verdict you can defend — with your confidence stated.",
+  "minutes": 40,
+  "steps": [
+    {
+      "type": "reel",
+      "id": "af18-reel",
+      "title": "Weighing the evidence",
+      "reel": {
+        "title": "Weighing the evidence",
+        "shots": [
+          {
+            "kind": "title",
+            "chapter": "The case file",
+            "kicker": "Module 10 · Capstone",
+            "title": "The verdict\nis yours.",
+            "subtitle": "Portrait of a woman, signed 'HM · 1631'.",
+            "narration": "Everything you've found on the case-file portrait is in your casebook. Now weigh it as a technical report would, and reach a verdict you can defend."
+          },
+          {
+            "kind": "list",
+            "heading": "What the case file holds",
+            "items": ["Imaging: cracks, varnish, signature, underdrawing, X-ray", "Pigments in the original paint", "Tree rings of the oak panel", "Radiocarbon in the oil binder", "Seven links of provenance"],
+            "narration": "You have five lines of evidence: what the imaging showed, the pigments in the original paint, the tree rings of the panel, radiocarbon in the oil, and seven links of provenance."
+          },
+          {
+            "kind": "statement",
+            "chapter": "Rules of weighing",
+            "text": "Consistent is **not** authentic.",
+            "narration": "First rule: evidence that fits the claimed date shows only that the work could be old. It can't show who made it, or that it isn't a fake.",
+            "cite": ["tpq-def"]
+          },
+          {
+            "kind": "statement",
+            "text": "An anachronism is **hard to explain away** — so check the layer.",
+            "narration": "A material that didn't exist yet is much stronger evidence, unless it sits in a later retouching. A single-point reading can't tell which layer an element is in, so ask where the sample came from.",
+            "cite": ["tpq-def", "xrf-limits"]
+          },
+          {
+            "kind": "statement",
+            "text": "Wood dates the **panel**. Paint dates the **painting**.",
+            "narration": "Tree rings date the felling of the tree, not the painting. An old support under new paint is a forger's classic, from Van Meegeren to Beltracchi.",
+            "cite": ["dendro-def", "hvm-reused-canvas"]
+          },
+          {
+            "kind": "statement",
+            "text": "Bomb carbon gives **paint** a clock.",
+            "narration": "Radiocarbon in the binder can do what tree rings can't: date the paint itself. Since the bomb tests, a raised carbon-14 level points to oil from the second half of the 20th century or later.",
+            "cite": ["bomb-peak", "bomb-curve", "trotter-c14"]
+          },
+          {
+            "kind": "statement",
+            "text": "A pentimento is **suggestive**, not proof.",
+            "narration": "A change of mind under the paint helps attribution — but a forger can change his mind too. Weigh it alongside everything else.",
+            "cite": ["pentimento-def"]
+          },
+          {
+            "kind": "statement",
+            "text": "Independent methods that **agree** are strong.",
+            "narration": "The strongest case is agreement between independent methods — the eye, the laboratory and the archive. That is how the National Gallery's 'Close Examination' exhibition worked.",
+            "cite": ["ng-close-exam"]
+          },
+          {
+            "kind": "statement",
+            "chapter": "Confidence",
+            "text": "Say how **sure** you are — and what would change your mind.",
+            "narration": "Last, state your confidence. Courts want yes or no, but evidence usually gives degrees of probability. A good dossier says what would change its mind.",
+            "cite": ["court-yes-no"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "recap",
+      "id": "af18-recap",
+      "title": "What you can now do",
+      "points": [
+        { "text": "Read the layers: UV shows what lies on top of the varnish, infrared shows a carbon underdrawing, and X-rays show lead white and hidden pictures.", "cite": ["uv-fluorescence", "infrared", "xrays"] },
+        { "text": "Date materials: a pigment's earliest date gives a terminus post quem — but only for the layer it sits in.", "cite": ["tpq-def", "xrf-limits"] },
+        { "text": "Date wood: dendrochronology gives a felling date, with missing sapwood estimated statistically. It dates the panel, not the paint.", "cite": ["dendro-sapwood-removed", "sapwood-stats"] },
+        { "text": "Date recent organic material: bomb-peak radiocarbon can place a binder after 1950, usually in two possible ranges.", "cite": ["bomb-peak", "trotter-c14"] },
+        { "text": "Audit provenance: gaps lower confidence; anonymous owners across 1933–45 and labels without matching records are red flags.", "cite": ["provenance-def", "campendonk-provenance"] },
+        { "text": "Judge claims: separate peer-reviewed results from company claims and disputed headlines, and ask who profits.", "cite": ["smith-2024", "samson-ai"] },
+        { "text": "Report honestly: attributions are graded, and good reports state their confidence.", "cite": ["attribution-ladder", "court-yes-no"] }
+      ]
+    },
+    {
+      "type": "deliverable",
+      "id": "af18-dossier",
+      "title": "Your authentication dossier",
+      "output": "dossier",
+      "brief": "Write the dossier a museum's acquisitions committee would read before buying the 'HM · 1631' portrait. Your lab results are pulled in from your casebook; if one is missing, go back and save it from that lab.",
+      "fields": [
+        { "type": "capture", "id": "dz-exam", "label": "Imaging findings", "from": "exam", "hint": "Save it from the examination bench in lesson 7.1." },
+        { "type": "capture", "id": "dz-pig", "label": "Pigment analysis", "from": "pigments", "hint": "Save it from the pigment lab in lesson 7.2." },
+        { "type": "capture", "id": "dz-dendro", "label": "Tree-ring dating of the panel", "from": "dendro", "hint": "Save it from the tree-ring lab in lesson 7.3." },
+        { "type": "capture", "id": "dz-carbon", "label": "Radiocarbon dating of the binder", "from": "carbon", "hint": "Save it from the radiocarbon lab in lesson 7.3." },
+        { "type": "capture", "id": "dz-prov", "label": "Provenance audit", "from": "provenance", "hint": "Save it from the provenance audit in lesson 6.2." },
+        { "type": "text", "id": "dz-summary", "label": "Summarise the evidence — one or two sentences for each line of enquiry.", "minWords": 80 },
+        { "type": "text", "id": "dz-weigh", "label": "Weigh it: which findings carry most weight, which point the other way, and how do you reconcile them?", "minWords": 120 },
+        { "type": "choice", "id": "dz-verdict", "label": "Your verdict", "options": ["Authentic as claimed (HM, 1631)", "An old painting, wrongly attributed", "A modern forgery on an old support", "Undetermined — more evidence needed"] },
+        { "type": "scale", "id": "dz-confidence", "label": "How confident are you in that verdict?", "min": 1, "max": 5, "minLabel": "Barely", "maxLabel": "Near certain" },
+        { "type": "text", "id": "dz-next", "label": "What would change your mind? Name the next test or document you'd seek, and what result would overturn your verdict.", "minWords": 40 }
+      ]
+    },
+    {
+      "type": "embed",
+      "id": "af18-video-kemp",
+      "title": "Go deeper: an attribution argued in public",
+      "optional": true,
+      "provider": "youtube",
+      "src": "KIUP8l7HUWI",
+      "caption": "'Leonardo's Salvator Mundi: Scholarship, Science and Skulduggery' — a Gresham College lecture by the art historian Martin Kemp. Listen for how he weighs the eye, the science and the documents.",
+      "credit": "Gresham College (YouTube)"
+    },
+    {
+      "type": "embed",
+      "id": "af18-video-hai",
+      "title": "Test yourself: audit a popular video",
+      "optional": true,
+      "provider": "youtube",
+      "src": "Dc9pL9EKM-8",
+      "caption": "'How To Spot a Really Good Art Forgery', from the YouTube channel Half as Interesting. Watch it as a fact-checker: which claims could you now support with a source, and which would you soften?",
+      "credit": "Half as Interesting (YouTube)"
+    }
+  ]
+}

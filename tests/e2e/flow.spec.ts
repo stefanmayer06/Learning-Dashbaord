@@ -8,7 +8,7 @@ test('a new learner finishes lesson 1 and unlocks unit 2', async ({ page }) => {
   // The home hero features the first course alphabetically; start this one from its own page.
   await page.goto(`/c/${COURSE}`)
 
-  await page.getByRole('link', { name: /Begin/ }).first().click()
+  await page.getByRole('link', { name: /Begin the course/ }).first().click()
   await expect(page).toHaveURL(new RegExp(`/c/${COURSE}/l/qt-two-meanings/qt1-reel`))
 
   // Continue is locked until the reel is watched

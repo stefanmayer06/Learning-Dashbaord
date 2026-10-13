@@ -74,6 +74,32 @@ export const WIDGETS: Record<string, WidgetInfo> = {
     about: 'Biomarker-panel selection as an mRMR-style QUBO: greedy v. brute force, annealing and XY-mixer QAOA; validation accuracy. Synthetic data. props: { capture? }',
     captures: true,
   },
+  // Art-forgery plugin
+  'exam-bench': {
+    about:
+      'Examine a synthetic portrait under visible, raking, UV, infrared and X-ray light; log findings. props: { items: {id, mode, region, title, finding, reading, hint, why, cite?}[], capture? }',
+    captures: true,
+  },
+  'pigment-lab': {
+    about:
+      'Pigment dating (terminus post quem). props: { items: {id, name, earliest|null, when, elements?, cite?}[], cases: {id, title, claimed, claimLabel, synthetic, context, found[], expect, reveal, cite?, caseFile?}[], capture? }',
+    captures: true,
+  },
+  'dendro-lab': {
+    about:
+      'Tree-ring dating of oak panels (sapwood statistics + seasoning). props: { cases: {id, title, synthetic, context, origin, lastRing, claimed, claimLabel, seasoning, expect, reveal, cite?, caseFile?}[], capture? }',
+    captures: true,
+  },
+  'carbon-lab': {
+    about:
+      'Bomb-peak radiocarbon: find every year matching a measured F14C on the real 1950–2019 curve. props: { cases: {id, title, synthetic, sample, context, F, sigma, reveal, cite?, caseFile?}[], capture? }',
+    captures: true,
+  },
+  'provenance-lab': {
+    about:
+      'Grade each link of a chain of ownership; coverage, gaps and 1933–45 computed. props: { title, start, end, items: {id, from, to, owner, record, answer, why, cite?}[], capture? }',
+    captures: true,
+  },
 }
 
 /** Plugin shots usable inside reels with { kind: "plugin", plugin: "<name>" }. */
@@ -81,10 +107,12 @@ export const PLUGIN_SHOTS: Record<string, string> = {
   circuit: 'Draws a quantum circuit gate by gate. props: { qubits, gates: [{gate, targets[], controls?[], col}] , showState? }',
   bloch: 'Animates a Bloch vector through states. props: { path: [{theta, phi, label}] } — angles in degrees',
   growth: 'Shows 2^n amplitudes and the memory they need. props: { from, to }',
+  layers: 'Builds a paint cross-section from the bottom up. props: { layers: {kind: support|canvas|ground|underdrawing|paint|glaze|varnish|dirt, label}[], highlight? }',
+  scan: 'Wipes the synthetic case-file portrait from visible light to another mode. props: { mode: raking|uv|ir|xray, notes?: string[] }',
 }
 
 /** Generative covers in src/ui/covers.tsx */
-export const COVERS = ['interference', 'contours', 'lattice', 'tide'] as const
+export const COVERS = ['interference', 'contours', 'lattice', 'tide', 'craquelure'] as const
 
 /** Domains allowed in `embed` steps with provider "iframe". */
 export const IFRAME_ALLOWLIST = [
