@@ -315,6 +315,18 @@
           "minWords": 40
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo14-watch-classical-data",
+      "title": "Watch: exponential quantum advantage in processing massive classical data",
+      "optional": true,
+      "provider": "youtube",
+      "src": "LRiRTSkZ3eA",
+      "caption": "Hsin-Yuan Huang (Caltech) at KITP's May 2026 conference on defining quantum advantage before fault tolerance, on when quantum computers could help with large classical datasets. Weigh it against this lesson's dequantisation and kernel-concentration results.",
+      "credit": "Kavli Institute for Theoretical Physics (YouTube)",
+      "date": "2026-05-05",
+      "minutes": 46
     }
   ]
 }

@@ -168,6 +168,54 @@
         { "type": "text", "id": "hw6-resistance", "label": "2. One way tumours escape it, framed as clonal evolution. What would you measure to see it coming?", "minWords": 60 },
         { "type": "text", "id": "hw6-compute", "label": "3. One computational problem inside this therapy (design, planning, selection, scheduling) and whether it has quantum-friendly structure.", "minWords": 60 }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo7-watch-immunotherapy",
+      "title": "Watch: how does immunotherapy help us treat cancer?",
+      "optional": true,
+      "provider": "youtube",
+      "src": "r0ciNRD_AcE",
+      "caption": "Oncologist Samra Turajlić (Francis Crick Institute) on why immunotherapy works so well for some people and fails or causes severe side effects in others — from retraining the immune system to cancer vaccines and cell therapies.",
+      "credit": "The Francis Crick Institute (YouTube)",
+      "date": "2026-02-04",
+      "minutes": 51
+    },
+    {
+      "type": "embed",
+      "id": "qo7-watch-immunity-fights-back",
+      "title": "Watch: harnessing rejection to defeat cancer",
+      "optional": true,
+      "provider": "nih-videocast",
+      "src": "0b014728-0852-11f1-9f14-124f0a52e769",
+      "caption": "NIH's Demystifying Medicine session with Grégoire Altan-Bonnet and James Yang (both National Cancer Institute): when the immune system rejects a tumour, and how to harness that on purpose.",
+      "credit": "NIH Demystifying Medicine (NIH VideoCast)",
+      "date": "2026-01-13",
+      "minutes": 113
+    },
+    {
+      "type": "embed",
+      "id": "qo7-listen-treatment",
+      "title": "Listen: how do we treat cancer?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000756942217",
+      "caption": "Part 3 of the This Podcast Will Kill You cancer series: the history of cancer treatment from surgery onwards, how the therapies actually work, and their side effects.",
+      "credit": "This Podcast Will Kill You (Apple Podcasts)",
+      "date": "2026-03-24",
+      "minutes": 93
+    },
+    {
+      "type": "embed",
+      "id": "qo7-listen-cancer-vaccine",
+      "title": "Listen: is the era of the cancer vaccine upon us?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000784659573",
+      "caption": "BBC Inside Science on Merck (MSD) and Moderna's announcement that a personalised cancer vaccine improved outcomes for people with melanoma, with cancer cell biologist Anne Willis; the segment opens the episode. Treat it as you would any headline: an announcement is not yet the trial paper.",
+      "credit": "BBC Inside Science, BBC Radio 4 (Apple Podcasts)",
+      "date": "2026-08-20",
+      "minutes": 26
     }
   ]
 }

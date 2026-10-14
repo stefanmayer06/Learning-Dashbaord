@@ -9,6 +9,7 @@ import { courseComplete, courseFraction, lessonDone, lessonFraction, lessonUnloc
 import { StatusTiles } from '../ui/Cite'
 import { Cover } from '../ui/Cover'
 import { Glyph, STEP_GLYPH, STEP_LABEL, type GlyphName } from '../ui/Glyph'
+import { stepKind } from '../content/media'
 import { ProgressRing } from '../ui/Progress'
 import { Breadcrumbs } from '../ui/Shell'
 import { NotFound } from './NotFound'
@@ -187,6 +188,7 @@ function CourseLanding({ bundle }: { bundle: CourseBundle }) {
                 <ul className="includes">
                   <Include glyph="reel">≈ {stats.videoMinutes} min of narrated video</Include>
                   <Include glyph="lab">{plural(stats.labs, 'Lab')} in your browser</Include>
+                  {stats.talks > 0 && <Include glyph="listen">{stats.talks === 1 ? '1 external video or podcast' : `${stats.talks} external videos and podcasts`}</Include>}
                   <Include glyph="quiz">{plural(stats.quizzes, 'Quiz')}</Include>
                   <Include glyph="output">{plural(stats.outputs, 'Work output')}</Include>
                   <Include glyph="cert">Certificate of completion</Include>
@@ -433,7 +435,7 @@ function LessonRow({ lesson, no, to, unlocked, isNext, cp }: { lesson: Lesson; n
   const done = lessonDone(lesson, cp)
   const f = lessonFraction(lesson, cp)
   const kinds: Record<string, number> = {}
-  for (const s of lesson.steps) kinds[s.type] = (kinds[s.type] ?? 0) + 1
+  for (const s of lesson.steps) kinds[stepKind(s)] = (kinds[stepKind(s)] ?? 0) + 1
   const state = done ? 'Review' : !unlocked ? 'Locked' : f > 0 ? 'Resume' : 'Start'
   const statusIcon = done ? (
     <Glyph name="checkCircle" size={22} title="Completed" />

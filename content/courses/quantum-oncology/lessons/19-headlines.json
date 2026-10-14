@@ -270,6 +270,30 @@
           ]
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo19-watch-vendor-podcast",
+      "title": "Watch: the quantum shift in biomedical discovery",
+      "optional": true,
+      "provider": "youtube",
+      "src": "GRroB-0wrnc",
+      "caption": "A podcast episode published by IBM: Malcolm Gladwell talks with Lara Jehi of the Cleveland Clinic–IBM Discovery Accelerator about AI and quantum computing in biomedical research. It is promotional, so use it to practise this lesson's audit — which statements are demonstrations, and which are hopes?",
+      "credit": "IBM (YouTube)",
+      "date": "2026-07-01",
+      "minutes": 44
+    },
+    {
+      "type": "embed",
+      "id": "qo19-listen-quantum-moment",
+      "title": "Listen: is quantum computing having its moment?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000756215387",
+      "caption": "BBC Inside Science visits ORCA Computing in London, after the UK government announced a large quantum fund, to ask how close the quantum future is; the segment opens the episode. Notice who is speaking each time — company, government or independent scientist.",
+      "credit": "BBC Inside Science, BBC Radio 4 (Apple Podcasts)",
+      "date": "2026-03-19",
+      "minutes": 26
     }
   ]
 }

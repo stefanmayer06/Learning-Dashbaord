@@ -7,6 +7,7 @@ import { useLearner } from '../store/LearnerProvider'
 import { courseFraction, lessonDone, nextUp, orderedLessons, type CourseProgress } from '../store/model'
 import { Cover } from '../ui/Cover'
 import { Glyph, STEP_GLYPH, STEP_LABEL } from '../ui/Glyph'
+import { stepKind } from '../content/media'
 import { ProgressBar, ProgressRing } from '../ui/Progress'
 import { useDocumentTitle } from '../ui/useDocumentTitle'
 
@@ -258,9 +259,9 @@ function WelcomeBack({ entry, name }: { entry: Entry; name: string }) {
                   Next: {lessonNo(b, nu.lesson.id)} {nu.lesson.title}
                 </h2>
                 <p className="home-continue-step">
-                  <Glyph name={STEP_GLYPH[nu.step.type] ?? 'dot'} size={16} />
+                  <Glyph name={STEP_GLYPH[stepKind(nu.step)] ?? 'dot'} size={16} />
                   <span>
-                    {STEP_LABEL[nu.step.type] ?? nu.step.type} · {nu.step.title}
+                    {STEP_LABEL[stepKind(nu.step)] ?? nu.step.type} · {nu.step.title}
                   </span>
                   <span className="faint">· {nu.lesson.minutes} min lesson</span>
                 </p>

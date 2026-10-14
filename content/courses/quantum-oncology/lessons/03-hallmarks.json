@@ -224,6 +224,42 @@
           "minWords": 60
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo3-watch-drivers",
+      "title": "Watch: drivers — the mutations that drive cancer",
+      "optional": true,
+      "provider": "youtube",
+      "src": "0DGsPwuRFMc",
+      "caption": "Part 4 of Paul Edwards's Cambridge series: driver mutations, the oncogenes and tumour suppressors of this lesson.",
+      "credit": "Paul Edwards, Department of Oncology, University of Cambridge (YouTube)",
+      "date": "2025-10-20",
+      "minutes": 52
+    },
+    {
+      "type": "embed",
+      "id": "qo3-watch-retrotransposon",
+      "title": "Watch: a retrotransposon in cancer — the marker and the mutator",
+      "optional": true,
+      "provider": "nih-videocast",
+      "src": "c5cd1717-26d1-11f1-9f14-124f0a52e769",
+      "caption": "Kathleen Burns (Dana-Farber Cancer Institute) on a retrotransposon — a “jumping gene” — that is both a marker of cancer and a mutator: genome instability, the enabling characteristic in this lesson, at research level.",
+      "credit": "NIH Wednesday Afternoon Lecture Series (NIH VideoCast)",
+      "date": "2026-06-03",
+      "minutes": 68
+    },
+    {
+      "type": "embed",
+      "id": "qo3-listen-why-cancer",
+      "title": "Listen: why does cancer happen?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000754415799",
+      "caption": "Part 2 of the This Podcast Will Kill You cancer series: the traits that make a cancer cell successful, put in an evolutionary frame — the hallmarks, conversationally.",
+      "credit": "This Podcast Will Kill You (Apple Podcasts)",
+      "date": "2026-03-10",
+      "minutes": 78
     }
   ]
 }

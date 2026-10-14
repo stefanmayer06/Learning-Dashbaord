@@ -266,6 +266,30 @@
           "minWords": 50
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo15-watch-qaoa-update",
+      "title": "Watch: an update on the Quantum Approximate Optimization Algorithm",
+      "optional": true,
+      "provider": "youtube",
+      "src": "vmj_W17xujw",
+      "caption": "Edward Farhi (MIT), who introduced QAOA, on where the algorithm stands — from KITP's May 2026 conference on quantum advantage before fault tolerance.",
+      "credit": "Kavli Institute for Theoretical Physics (YouTube)",
+      "date": "2026-05-05",
+      "minutes": 44
+    },
+    {
+      "type": "embed",
+      "id": "qo15-watch-optimisation-pipeline",
+      "title": "Watch: quantum algorithms for optimisation",
+      "optional": true,
+      "provider": "youtube",
+      "src": "D5cAo5O6xZM",
+      "caption": "Sabina Dragoi at Qiskit Global Summer School 2026: the full quantum-solver pipeline for combinatorial optimisation, from problem formulation onwards, with worked examples — the workflow of this lesson's lab.",
+      "credit": "Qiskit Global Summer School 2026, IBM (YouTube)",
+      "date": "2026-08-18",
+      "minutes": 44
     }
   ]
 }

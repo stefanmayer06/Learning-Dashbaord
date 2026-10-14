@@ -142,6 +142,19 @@ describe('validator rules', () => {
     })
     expect(errors(raw).join()).toMatch(/values for 2 labels/)
   })
+
+  it('checks talk and podcast embeds: id formats and a date no later than lastVerified', () => {
+    const embed = (provider: string, src: string, date?: string) => {
+      const raw = fixture()
+      ;(raw.lessons['l1.json'] as any).steps.push({ type: 'embed', id: 'e1', title: 'Listen', optional: true, provider, src, caption: 'C', credit: 'Someone', date })
+      return errors(raw).join()
+    }
+    expect(embed('apple-podcasts', '1000791428149', '2025-12-01')).toBe('')
+    expect(embed('nih-videocast', 'c5cd1717-26d1-11f1-9f14-124f0a52e769')).toBe('')
+    expect(embed('apple-podcasts', 'https://podcasts.apple.com/x')).toMatch(/numeric episode id/)
+    expect(embed('nih-videocast', '55409')).toMatch(/event id/)
+    expect(embed('youtube', 'sM2MOyonDsY', '2026-03-01')).toMatch(/after the course was last verified/)
+  })
 })
 
 describe('caption chunking', () => {

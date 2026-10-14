@@ -366,6 +366,18 @@
           ]
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo16-watch-generative-annealer",
+      "title": "Watch: a quantum-enhanced molecular generative model",
+      "optional": true,
+      "provider": "youtube",
+      "src": "cjzlVD06oL8",
+      "caption": "A talk at D-Wave's Qubits 2026 conference on a generative model for drug molecules that combines deep learning with a quantum annealer. It is a vendor-conference talk: ask it the questions this lesson's case study asks.",
+      "credit": "Qubits 2026, D-Wave (YouTube)",
+      "date": "2026-02-06",
+      "minutes": 22
     }
   ]
 }

@@ -10,6 +10,7 @@ import { buildTimeline, fmtTime } from '../engine/reel/timeline'
 import { WIDGET_COMPONENTS } from '../plugins/registry'
 import { CiteMarks, CiteProvider, ClaimNote, lessonClaimIds, stepClaimIds, useCite } from '../ui/Cite'
 import { Glyph, STEP_GLYPH, STEP_LABEL } from '../ui/Glyph'
+import { embedMedia, stepKind } from '../content/media'
 import { ProgressRing } from '../ui/Progress'
 import { ThemeToggle, Wordmark } from '../ui/Shell'
 import { Rich } from '../ui/Tex'
@@ -154,9 +155,9 @@ function LessonInner({ bundle, lesson, stepId }: { bundle: CourseBundle; lesson:
       <>
         <header className="step-head">
           <p className="step-kicker">
-            <Glyph name={STEP_GLYPH[step.type]} size={16} />
+            <Glyph name={STEP_GLYPH[stepKind(step)]} size={16} />
             <span>
-              Step {index + 1} of {lesson.steps.length} · {STEP_LABEL[step.type]}
+              Step {index + 1} of {lesson.steps.length} · {STEP_LABEL[stepKind(step)]}
               {step.optional ? ' · Optional' : ''}
             </span>
           </p>
@@ -461,10 +462,10 @@ function CourseOutline({
                                 onClick={() => onStep(k)}
                                 aria-current={now ? 'step' : undefined}
                               >
-                                <Glyph name={STEP_GLYPH[s.type]} size={16} className="ol-step-type" />
+                                <Glyph name={STEP_GLYPH[stepKind(s)]} size={16} className="ol-step-type" />
                                 <span className="ol-step-text">
                                   <span className="ol-step-kind">
-                                    {STEP_LABEL[s.type]}
+                                    {STEP_LABEL[stepKind(s)]}
                                     {reelLength[s.id] ? ` · ${reelLength[s.id]}` : ''}
                                     {s.optional ? ' · Optional' : ''}
                                   </span>
@@ -501,8 +502,10 @@ function hintFor(step: Step) {
       return `Pass the quiz (${Math.round(step.passMark * 100)}%) to continue.`
     case 'deliverable':
       return 'Complete every part of the assignment to continue.'
-    case 'embed':
-      return 'Explore the tool, then confirm to continue.'
+    case 'embed': {
+      const media = embedMedia(step)
+      return media === 'video' ? 'Watch the video, then confirm to continue.' : media === 'audio' ? 'Listen to the episode, then confirm to continue.' : 'Explore the tool, then confirm to continue.'
+    }
     case 'recap':
       return 'Go through the cards to continue.'
   }
@@ -669,10 +672,10 @@ function AboutLesson({ bundle, lesson }: { bundle: CourseBundle; lesson: Lesson 
           {lesson.steps.map((s) => (
             <li key={s.id}>
               <span className="about-step-icon" aria-hidden>
-                <Glyph name={STEP_GLYPH[s.type]} size={16} />
+                <Glyph name={STEP_GLYPH[stepKind(s)]} size={16} />
               </span>
               <span>
-                <span className="about-step-kind">{STEP_LABEL[s.type]}</span> {s.title}
+                <span className="about-step-kind">{STEP_LABEL[stepKind(s)]}</span> {s.title}
                 {s.optional && <span className="meta"> · Optional</span>}
               </span>
             </li>
@@ -807,7 +810,7 @@ function LessonComplete({ bundle, lesson, cp }: { bundle: CourseBundle; lesson: 
         ) : next ? (
           <Link className="next-card card-link" to={`/c/${id}/l/${next.lesson.id}`}>
             <span className="glyph-tile" aria-hidden>
-              <Glyph name={STEP_GLYPH[next.lesson.steps[0].type]} size={24} />
+              <Glyph name={STEP_GLYPH[stepKind(next.lesson.steps[0])]} size={24} />
             </span>
             <span className="next-card-text">
               <span className="meta">
@@ -817,7 +820,7 @@ function LessonComplete({ bundle, lesson, cp }: { bundle: CourseBundle; lesson: 
                 {lessonNo(bundle, next.lesson.id)} {next.lesson.title}
               </span>
               <span className="meta">
-                {fmtMinutes(next.lesson.minutes)} · {[...new Set(next.lesson.steps.map((s) => STEP_LABEL[s.type]))].join(' · ')}
+                {fmtMinutes(next.lesson.minutes)} · {[...new Set(next.lesson.steps.map((s) => STEP_LABEL[stepKind(s)]))].join(' · ')}
               </span>
             </span>
             <Glyph name="chevronRight" size={20} className="next-card-go" />

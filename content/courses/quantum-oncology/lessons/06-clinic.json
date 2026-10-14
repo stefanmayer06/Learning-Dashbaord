@@ -335,6 +335,42 @@
           "minWords": 60
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo6-watch-mced",
+      "title": "Watch: multicancer early detection tests",
+      "optional": true,
+      "provider": "youtube",
+      "src": "KkfrjgW-_CA",
+      "caption": "Deb Schrag's keynote at Yale Cancer Center's review of the 2026 ASCO Annual Meeting: how blood-based multicancer early detection tests could reshape screening, and the questions that will decide whether they should.",
+      "credit": "Yale Cancer Center (YouTube)",
+      "date": "2026-06-26",
+      "minutes": 44
+    },
+    {
+      "type": "embed",
+      "id": "qo6-watch-finding-invisible",
+      "title": "Watch: finding the invisible — frontiers in detection",
+      "optional": true,
+      "provider": "nih-videocast",
+      "src": "0b2bc87f-0852-11f1-9f14-124f0a52e769",
+      "caption": "NIH's Demystifying Medicine session pairing Stephen Chanock (National Cancer Institute) and Pardis Sabeti (Broad Institute) on the frontiers of cancer and infectious-disease detection.",
+      "credit": "NIH Demystifying Medicine (NIH VideoCast)",
+      "date": "2026-01-27",
+      "minutes": 119
+    },
+    {
+      "type": "embed",
+      "id": "qo6-listen-prevention-screening",
+      "title": "Listen: where do things stand today?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000758377491",
+      "caption": "The last part of the This Podcast Will Kill You cancer series, on prevention and screening — the pillars before diagnosis — and the global picture of cancer.",
+      "credit": "This Podcast Will Kill You (Apple Podcasts)",
+      "date": "2026-03-31",
+      "minutes": 79
     }
   ]
 }

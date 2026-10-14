@@ -365,6 +365,30 @@
           "maxLabel": "Fluent"
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo1-watch-cancer-intro",
+      "title": "Watch: an introduction to cancer biology",
+      "optional": true,
+      "provider": "youtube",
+      "src": "vdzGy84NEtc",
+      "caption": "The first of Paul Edwards's short lecture films for Cambridge's Department of Oncology, introducing the science of cancer — a primer to have in your ears before the biology unit.",
+      "credit": "Paul Edwards, Department of Oncology, University of Cambridge (YouTube)",
+      "date": "2025-10-20",
+      "minutes": 50
+    },
+    {
+      "type": "embed",
+      "id": "qo1-watch-why-quantum",
+      "title": "Watch: why quantum? What problem are we solving?",
+      "optional": true,
+      "provider": "youtube",
+      "src": "yqDYNjwTUSI",
+      "caption": "Roland de Putter opens IBM's 2026 Qiskit Global Summer School: qubits, superposition, entanglement and interference, the application areas people hope for, and IBM's roadmap to fault tolerance. It covers only one of this lesson's four meanings — notice which.",
+      "credit": "Qiskit Global Summer School 2026, IBM (YouTube)",
+      "date": "2026-08-03",
+      "minutes": 65
     }
   ]
 }

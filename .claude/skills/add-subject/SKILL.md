@@ -114,6 +114,15 @@ Generic widgets any subject can use (props documented in `src/plugins/manifest.t
 Quizzes: `single`, `multi`, `numeric` (with `tolerance`), `order`. Every `explain` teaches, and
 cites a claim when it states a fact. Mark synthetic data as synthetic wherever it appears.
 
+Talks and podcasts for further listening are `embed` steps with `optional: true`, placed at the
+end of the lesson: `provider` `youtube` (video id), `apple-podcasts` (the episode's numeric `i=`
+id) or `nih-videocast` (the id in `videocast.nih.gov/watch/<id>`; NIH only plays inside https
+pages, so local http copies show a link instead). Give `credit` (who made it, and where),
+`date` (when it was given or released) and `minutes`. Open every one before you add it: confirm
+the speaker, title and date from the host, and write the `caption` only from what the talk
+actually covers. Prefer the most recent strong talk; label vendor or promotional material as such;
+cite a claim if the caption states a fact. `npm run check-sources` re-checks every embed online.
+
 ## 6. Validate and look at it
 
 ```bash

@@ -1,6 +1,7 @@
 /** Derived numbers about a course, shared by the catalogue and landing pages. */
 import type { CourseBundle } from './schema'
 import { buildTimeline } from '../engine/reel/timeline'
+import { embedMedia } from './media'
 
 export function courseStats(b: CourseBundle) {
   const steps = Object.values(b.lessons).flatMap((l) => l.steps)
@@ -10,7 +11,9 @@ export function courseStats(b: CourseBundle) {
     lessons: Object.keys(b.lessons).length,
     videos: steps.filter((s) => s.type === 'reel').length,
     videoMinutes: Math.round(steps.reduce((sec, s) => sec + (s.type === 'reel' ? buildTimeline(s.reel).total : 0), 0) / 60),
-    labs: steps.filter((s) => s.type === 'widget' || s.type === 'embed').length,
+    // embedded talks and podcasts are listening, not labs
+    labs: steps.filter((s) => s.type === 'widget' || (s.type === 'embed' && embedMedia(s) === 'tool')).length,
+    talks: steps.filter((s) => s.type === 'embed' && embedMedia(s) !== 'tool').length,
     quizzes: steps.filter((s) => s.type === 'quiz').length,
     assignments: steps.filter((s) => s.type === 'deliverable').length,
     outputs: b.course.outputs.length,

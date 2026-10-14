@@ -398,6 +398,30 @@
           "minWords": 80
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo4-watch-evolution-models",
+      "title": "Watch: models and algorithms for cancer evolution",
+      "optional": true,
+      "provider": "youtube",
+      "src": "Nl6TqlsiE6A",
+      "caption": "Ben Raphael (Princeton) on inferring a tumour's evolutionary history from DNA and RNA sequencing data — the mathematics behind this lesson's trees. A tutorial from IPAM's 2026 Mathematics of Cancer workshop; part 2 follows on the same channel.",
+      "credit": "Institute for Pure & Applied Mathematics, UCLA (YouTube)",
+      "date": "2026-02-24",
+      "minutes": 36
+    },
+    {
+      "type": "embed",
+      "id": "qo4-listen-normal-tissue",
+      "title": "Listen: the mutations hiding in healthy tissues",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000791428149",
+      "caption": "Inigo Martincorena (Wellcome Sanger Institute) on the discovery of cancer-driver mutations throughout normal tissue, and the new sequencing methods that made it possible.",
+      "credit": "The Genetics Podcast, Sano Genetics (Apple Podcasts)",
+      "date": "2026-09-24",
+      "minutes": 39
     }
   ]
 }

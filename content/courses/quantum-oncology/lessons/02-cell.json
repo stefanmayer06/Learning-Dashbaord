@@ -450,6 +450,42 @@
           "minWords": 40
         }
       ]
+    },
+    {
+      "type": "embed",
+      "id": "qo2-watch-genes",
+      "title": "Watch: genes and genetics",
+      "optional": true,
+      "provider": "youtube",
+      "src": "oNgJsA1cy84",
+      "caption": "Part 2 of Paul Edwards's Cambridge series on the science of cancer: genes and genetics, the background to this lesson's DNA-to-protein story.",
+      "credit": "Paul Edwards, Department of Oncology, University of Cambridge (YouTube)",
+      "date": "2025-10-20",
+      "minutes": 36
+    },
+    {
+      "type": "embed",
+      "id": "qo2-watch-cell-biology",
+      "title": "Watch: cell biology",
+      "optional": true,
+      "provider": "youtube",
+      "src": "cUBBwBk_7xA",
+      "caption": "Part 3 of the same series, on cell biology — the machinery that this lesson's cell cycle and growth signalling belong to.",
+      "credit": "Paul Edwards, Department of Oncology, University of Cambridge (YouTube)",
+      "date": "2025-10-20",
+      "minutes": 43
+    },
+    {
+      "type": "embed",
+      "id": "qo2-listen-what-is-cancer",
+      "title": "Listen: what is cancer?",
+      "optional": true,
+      "provider": "apple-podcasts",
+      "src": "1000752843427",
+      "caption": "The first episode of a four-part cancer series from a general-audience science podcast: the clinical definitions of cancer, and why it is many diseases rather than one. Easy listening while you do something else.",
+      "credit": "This Podcast Will Kill You (Apple Podcasts)",
+      "date": "2026-03-03",
+      "minutes": 96
     }
   ]
 }

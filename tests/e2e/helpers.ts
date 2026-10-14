@@ -36,7 +36,10 @@ export function collectErrors(page: Page) {
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   page.on('console', (m) => {
-    if (m.type() === 'error' && !/Failed to load resource|algassert|youtube/i.test(m.text())) errors.push(m.text())
+    // embedded third-party players log their own errors (offline, codecs); only ours count
+    const from = m.location().url
+    const thirdParty = /^https?:/.test(from) && !/^https?:\/\/(localhost|127\.0\.0\.1)[:/]/.test(from)
+    if (m.type() === 'error' && !thirdParty && !/Failed to load resource|algassert|youtube/i.test(m.text())) errors.push(m.text())
   })
   return errors
 }
